@@ -1,0 +1,293 @@
+{
+  "test_id": "RSK-02",
+  "test_name": "Risk identification \u2014 implicit/hidden risks",
+  "method": "llm_medium",
+  "passed": false,
+  "score": "0.0/10",
+  "details": "recall=0.00 found=6 gt=2",
+  "error": null,
+  "latency_ms": 5875.950399989961,
+  "artifact": {
+    "artifact_id": "art_3ad0ef824d",
+    "artifact_type": "status_report",
+    "detected_language": "en",
+    "word_count": 441,
+    "content_preview": "GC-CLOUD WAVE 4 \u2014 MONTHLY STATUS REPORT\nReporting Period: February 2026\nReport Date: March 1, 2026\nProject Manager: Carol Nguyen\nStatus: GREEN\n\n---\n\nEXECUTIVE SUMMARY\n\nGC-Cloud Wave 4 is progressing excellently. The team has made strong\nprogress across all workstreams and stakeholder engagement remains high.\nWe are confident in our ability to deliver the project on schedule and\nwithin the approved parameters.\n\n---\n\nSCHEDULE HIGHLIGHTS\n\nThe project timeline is performing well. While we have exper",
+    "extracted_tasks": [
+      {
+        "task_id": "art_3ad0ef824d_t001",
+        "text": "will be well-supported by the",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will be well-supported by the",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_3ad0ef824d_t002",
+        "text": "will be submitted to the Director for consideration.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will be submitted to the Director for consideration.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_3ad0ef824d_t003",
+        "text": "will materially affect project",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will materially affect project",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_3ad0ef824d_t004",
+        "text": "owners are engaged and active.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "owners are engaged and active.",
+        "confidence": 0.7
+      }
+    ],
+    "metadata": {}
+  },
+  "risks": {
+    "count": 6,
+    "analysis_method": "llm_medium",
+    "risks": [
+      {
+        "risk_id": "rsk_0d13aa6d",
+        "description": "The project has already consumed three weeks of schedule contingency due to infrastructure assessment delays, reducing the buffer available for future unforeseen issues before the Q3 2026 deadline.",
+        "category": "schedule",
+        "likelihood": 4,
+        "impact": 4,
+        "risk_score": 16.0,
+        "risk_level": "high",
+        "affected_stakeholders": [
+          "Project Team",
+          "Portfolio Manager",
+          "Client Department Representatives"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_3ad0ef824d",
+            "excerpt": "The infrastructure assessment phase required a slight adjustment of approximately three weeks... this has been fully accommodated within the project's existing schedule contingency.",
+            "location": null,
+            "evidence_strength": 0.64
+          }
+        ],
+        "source_artifact_id": "art_3ad0ef824d",
+        "created_at": "2026-03-09T06:20:12.456720"
+      },
+      {
+        "risk_id": "rsk_32e80ee5",
+        "description": "The project is currently trending 14% over the approved budget envelope due to newly discovered middleware remediation requirements, requiring formal approval for additional funds.",
+        "category": "budget",
+        "likelihood": 5,
+        "impact": 5,
+        "risk_score": 25.0,
+        "risk_level": "critical",
+        "affected_stakeholders": [
+          "Director",
+          "Finance Review Board",
+          "Project Manager"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_3ad0ef824d",
+            "excerpt": "The estimated cost of this remediation is $340,000, representing approximately 14% above the approved envelope of $2,400,000.",
+            "location": null,
+            "evidence_strength": 1.0
+          }
+        ],
+        "source_artifact_id": "art_3ad0ef824d",
+        "created_at": "2026-03-09T06:20:12.456720"
+      },
+      {
+        "risk_id": "rsk_251078e0",
+        "description": "Discovery of middleware remediation requirements suggests that the original scope baseline was incomplete, posing a risk of further technical 'unknown unknowns' during the migration phase.",
+        "category": "technical",
+        "likelihood": 3,
+        "impact": 5,
+        "risk_score": 15.0,
+        "risk_level": "high",
+        "affected_stakeholders": [
+          "Project Team",
+          "Technical Architects",
+          "Client Department Representatives"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_3ad0ef824d",
+            "excerpt": "The infrastructure assessment identified additional middleware remediation requirements not captured in the original scope baseline.",
+            "location": null,
+            "evidence_strength": 0.6
+          }
+        ],
+        "source_artifact_id": "art_3ad0ef824d",
+        "created_at": "2026-03-09T06:20:12.457722"
+      },
+      {
+        "risk_id": "rsk_99652730",
+        "description": "The project is entering a procurement phase in Q2 2026; any delays in government procurement processes or lack of qualified vendors could delay the implementation start date.",
+        "category": "resource",
+        "likelihood": 3,
+        "impact": 5,
+        "risk_score": 15.0,
+        "risk_level": "high",
+        "affected_stakeholders": [
+          "Procurement Office",
+          "Project Manager",
+          "External Vendors"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_3ad0ef824d",
+            "excerpt": "The project team looks forward to entering the implementation phase in Q2 2026 following completion of the procurement activities.",
+            "location": null,
+            "evidence_strength": 0.6
+          }
+        ],
+        "source_artifact_id": "art_3ad0ef824d",
+        "created_at": "2026-03-09T06:20:12.457722"
+      },
+      {
+        "risk_id": "rsk_8d6c8156",
+        "description": "Potential misalignment between the project's 'Green' status and the actual financial/scope health, which may lead to stakeholder friction when the 14% budget overrun is formally presented.",
+        "category": "compliance",
+        "likelihood": 4,
+        "impact": 4,
+        "risk_score": 16.0,
+        "risk_level": "high",
+        "affected_stakeholders": [
+          "Director",
+          "Portfolio Manager",
+          "Finance Review Board"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_3ad0ef824d",
+            "excerpt": "Status: GREEN... The estimated cost of this remediation is $340,000, representing approximately 14% above the approved envelope",
+            "location": null,
+            "evidence_strength": 0.64
+          }
+        ],
+        "source_artifact_id": "art_3ad0ef824d",
+        "created_at": "2026-03-09T06:20:12.458722"
+      },
+      {
+        "risk_id": "rsk_49a7ed4e",
+        "description": "The 'refinement of the cost model' and 'updated cost projections' suggest that the final migration costs are still volatile and may exceed the current $340,000 overrun once implementation begins.",
+        "category": "budget",
+        "likelihood": 4,
+        "impact": 5,
+        "risk_score": 20.0,
+        "risk_level": "critical",
+        "affected_stakeholders": [
+          "Finance Review Board",
+          "Director",
+          "Government of Canada (Sponsor)"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_3ad0ef824d",
+            "excerpt": "The findings from this assessment are being used to refine our cost model... We are in the process of finalizing updated cost projections",
+            "location": null,
+            "evidence_strength": 0.8
+          }
+        ],
+        "source_artifact_id": "art_3ad0ef824d",
+        "created_at": "2026-03-09T06:20:12.458722"
+      }
+    ]
+  },
+  "llm_calls": [
+    {
+      "tier": "medium",
+      "model": "google/gemini-3-flash-preview",
+      "latency_ms": 5872.8,
+      "content": "```json\n[\n  {\n    \"description\": \"The project has already consumed three weeks of schedule contingency due to infrastructure assessment delays, reducing the buffer available for future unforeseen issues before the Q3 2026 deadline.\",\n    \"category\": \"schedule\",\n    \"likelihood\": 4,\n    \"impact\": 3,\n    \"evidence_excerpt\": \"The infrastructure assessment phase required a slight adjustment of approximately three weeks... this has been fully accommodated within the project's existing schedule contingency.\",\n    \"affected_stakeholders\": [\n      \"Project Team\",\n      \"Portfolio Manager\",\n      \"Client Department Representatives\"\n    ]\n  },\n  {\n    \"description\": \"The project is currently trending 14% over the approved budget envelope due to newly discovered middleware remediation requirements, requiring formal approval for additional funds.\",\n    \"category\": \"budget\",\n    \"likelihood\": 5,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"The estimated cost of this remediation is $340,000, representing approximately 14% above the approved envelope of $2,400,000.\",\n    \"affected_stakeholders\": [\n      \"Director\",\n      \"Finance Review Board\",\n      \"Project Manager\"\n    ]\n  },\n  {\n    \"description\": \"Discovery of middleware remediation requirements suggests that the original scope baseline was incomplete, posing a risk of further technical 'unknown unknowns' during the migration phase.\",\n    \"category\": \"technical\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"The infrastructure assessment identified additional middleware remediation requirements not captured in the original scope baseline.\",\n    \"affected_stakeholders\": [\n      \"Project Team\",\n      \"Technical Architects\",\n      \"Client Department Representatives\"\n    ]\n  },\n  {\n    \"description\": \"The project is entering a procurement phase in Q2 2026; any delays in government procurement processes or lack of qualified vendors could delay the implementation start date.\",\n    \"category\": \"resource\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"The project team looks forward to entering the implementation phase in Q2 2026 following completion of the procurement activities.\",\n    \"affected_stakeholders\": [\n      \"Procurement Office\",\n      \"Project Manager\",\n      \"External Vendors\"\n    ]\n  },\n  {\n    \"description\": \"Potential misalignment between the project's 'Green' status and the actual financial/scope health, which may lead to stakeholder friction when the 14% budget overrun is formally presented.\",\n    \"category\": \"compliance\",\n    \"likelihood\": 4,\n    \"impact\": 3,\n    \"evidence_excerpt\": \"Status: GREEN... The estimated cost of this remediation is $340,000, representing approximately 14% above the approved envelope\",\n    \"affected_stakeholders\": [\n      \"Director\",\n      \"Portfolio Manager\",\n      \"Finance Review Board\"\n    ]\n  },\n  {\n    \"description\": \"The 'refinement of the cost model' and 'updated cost projections' suggest that the final migration costs are still volatile and may exceed the current $340,000 overrun once implementation begins.\",\n    \"category\": \"budget\",\n    \"likelihood\": 4,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"The findings from this assessment are being used to refine our cost model... We are in the process of finalizing updated cost projections\",\n    \"affected_stakeholders\": [\n      \"Finance Review Board\",\n      \"Director\",\n      \"Government of Canada (Sponsor)\"\n    ]\n  }\n]\n```",
+      "parsed_json": [
+        {
+          "description": "The project has already consumed three weeks of schedule contingency due to infrastructure assessment delays, reducing the buffer available for future unforeseen issues before the Q3 2026 deadline.",
+          "category": "schedule",
+          "likelihood": 4,
+          "impact": 3,
+          "evidence_excerpt": "The infrastructure assessment phase required a slight adjustment of approximately three weeks... this has been fully accommodated within the project's existing schedule contingency.",
+          "affected_stakeholders": [
+            "Project Team",
+            "Portfolio Manager",
+            "Client Department Representatives"
+          ]
+        },
+        {
+          "description": "The project is currently trending 14% over the approved budget envelope due to newly discovered middleware remediation requirements, requiring formal approval for additional funds.",
+          "category": "budget",
+          "likelihood": 5,
+          "impact": 4,
+          "evidence_excerpt": "The estimated cost of this remediation is $340,000, representing approximately 14% above the approved envelope of $2,400,000.",
+          "affected_stakeholders": [
+            "Director",
+            "Finance Review Board",
+            "Project Manager"
+          ]
+        },
+        {
+          "description": "Discovery of middleware remediation requirements suggests that the original scope baseline was incomplete, posing a risk of further technical 'unknown unknowns' during the migration phase.",
+          "category": "technical",
+          "likelihood": 3,
+          "impact": 4,
+          "evidence_excerpt": "The infrastructure assessment identified additional middleware remediation requirements not captured in the original scope baseline.",
+          "affected_stakeholders": [
+            "Project Team",
+            "Technical Architects",
+            "Client Department Representatives"
+          ]
+        },
+        {
+          "description": "The project is entering a procurement phase in Q2 2026; any delays in government procurement processes or lack of qualified vendors could delay the implementation start date.",
+          "category": "resource",
+          "likelihood": 3,
+          "impact": 4,
+          "evidence_excerpt": "The project team looks forward to entering the implementation phase in Q2 2026 following completion of the procurement activities.",
+          "affected_stakeholders": [
+            "Procurement Office",
+            "Project Manager",
+            "External Vendors"
+          ]
+        },
+        {
+          "description": "Potential misalignment between the project's 'Green' status and the actual financial/scope health, which may lead to stakeholder friction when the 14% budget overrun is formally presented.",
+          "category": "compliance",
+          "likelihood": 4,
+          "impact": 3,
+          "evidence_excerpt": "Status: GREEN... The estimated cost of this remediation is $340,000, representing approximately 14% above the approved envelope",
+          "affected_stakeholders": [
+            "Director",
+            "Portfolio Manager",
+            "Finance Review Board"
+          ]
+        },
+        {
+          "description": "The 'refinement of the cost model' and 'updated cost projections' suggest that the final migration costs are still volatile and may exceed the current $340,000 overrun once implementation begins.",
+          "category": "budget",
+          "likelihood": 4,
+          "impact": 4,
+          "evidence_excerpt": "The findings from this assessment are being used to refine our cost model... We are in the process of finalizing updated cost projections",
+          "affected_stakeholders": [
+            "Finance Review Board",
+            "Director",
+            "Government of Canada (Sponsor)"
+          ]
+        }
+      ],
+      "error": null
+    }
+  ]
+}

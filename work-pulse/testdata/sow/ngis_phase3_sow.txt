@@ -1,0 +1,154 @@
+STATEMENT OF WORK
+PROJECT: NGIS PHASE 3 — DATA CENTRE CONSOLIDATION
+Document Number: SOW-NGIS-P3-2024-001
+Version: 2.1
+Date: September 15, 2024
+Contracting Authority: Shared Services Canada (SSC)
+Classification: Protected B
+
+---
+
+1. BACKGROUND AND CONTEXT
+
+Shared Services Canada (SSC) is undertaking the Next-Generation
+Infrastructure Strategy (NGIS) Phase 3, which involves the consolidation
+of three Government of Canada (GC) data centre facilities into a single
+modernized enterprise data centre. This initiative supports the GC Data
+Centre Strategy and aligns with the Treasury Board Policy on Service and
+Digital.
+
+The three facilities in scope are:
+- Site A: Gatineau, QC (primary consolidation target)
+- Site B: Ottawa, ON (secondary consolidation target)
+- Site C: Hull, QC (tertiary facility)
+
+---
+
+2. SCOPE OF WORK
+
+2.1 IN SCOPE
+
+The following activities and deliverables are within scope for this
+Statement of Work:
+
+a) Data Centre Consolidation — Physical
+   - Decommissioning of Sites B and C physical infrastructure
+   - Migration of all server workloads from Sites B and C to Site A
+   - Physical server rack consolidation and cable management at Site A
+   - Environmental systems (HVAC, UPS, fire suppression) optimization
+     at Site A
+
+b) Network Equipment Migration
+   - Replacement and deployment of Cisco Catalyst 9500 series switches
+     across all three sites
+   - Network segmentation reconfiguration per updated security zones
+   - BGP routing table migration and validation
+   - Network performance baseline testing post-migration
+
+c) Active Directory (AD) Migration
+   - Migration of all on-premise Active Directory domain controllers
+     to consolidated infrastructure at Site A
+   - AD schema extension and forest restructuring
+   - Group Policy Object (GPO) consolidation and testing
+   - Integration testing with downstream applications dependent on AD
+
+d) Project Management and Reporting
+   - Weekly status reports to SSC Project Management Office
+   - Steering committee presentations (monthly)
+   - Risk register maintenance
+   - Change management and stakeholder communications
+
+2.2 OUT OF SCOPE
+
+The following activities are explicitly excluded from this Statement
+of Work:
+
+a) End-user device refresh or replacement (laptops, desktops, mobile
+   devices) — this is addressed under a separate procurement vehicle
+   (NGIS Phase 4)
+
+b) Application modernization or re-platforming — any changes to
+   application code, architecture, or hosting platform are out of scope.
+   Applications will be migrated as-is (lift and shift only).
+
+c) GC-Cloud workload migration — migration of any workloads to public
+   cloud environments (AWS, Azure, GC-Cloud) is out of scope and is
+   addressed under the GC-Cloud Wave 4 project.
+
+d) End-user training and change management beyond project communications
+   — departmental training programs for end users are the responsibility
+   of client departments.
+
+e) Procurement of new application licenses — software licensing changes
+   resulting from platform migration are out of scope.
+
+f) Network monitoring tool upgrades — upgrades to the network operations
+   centre (NOC) monitoring platform are deferred to a separate initiative.
+
+---
+
+3. DELIVERABLES
+
+The Contractor shall provide the following deliverables:
+
+D-001: Project Management Plan — Due: October 31, 2024
+D-002: Technical Design Document (TDD) — Due: December 15, 2024
+D-003: Security Assessment and Authorization (SA&A) Package — Due: January 31, 2025
+D-004: Migration Runbook (Sites B and C) — Due: February 28, 2025
+D-005: User Acceptance Test (UAT) Plan — Due: March 10, 2026
+D-006: Site A Consolidation Complete (Go-Live) — Due: April 30, 2026
+D-007: Post-Migration Validation Report — Due: May 31, 2026
+D-008: Project Closure Report — Due: June 30, 2026
+
+---
+
+4. CONSTRAINTS
+
+4.1 Budget
+The total approved budget for NGIS Phase 3 is $2,400,000 (two million
+four hundred thousand dollars), inclusive of all fees, disbursements,
+and applicable taxes. Any expenditure beyond this amount requires a
+formal budget amendment approved by the Director General of IT Infrastructure
+and submission to Treasury Board if the variance exceeds 15%.
+
+4.2 Timeline
+The project must achieve Go-Live (D-006) no later than April 30, 2026.
+The final project closure date is June 30, 2026 (end of fiscal year
+2025–2026). Extensions beyond this date require ADM-level approval.
+
+4.3 Regulatory and Policy Compliance
+All work must comply with:
+- ITSG-33: IT Security Risk Management — A Lifecycle Approach
+- Government of Canada Cloud Adoption Strategy
+- Treasury Board Policy on Government Security
+- Privacy Act (R.S.C., 1985, c. P-21)
+- Official Languages Act (for all client-facing deliverables)
+
+4.4 Change Control
+Any changes to scope, schedule, or budget must follow the SSC Project
+Change Management Process. Scope changes require written approval from
+the Project Sponsor and must be assessed for impact on cost and schedule
+before implementation.
+
+---
+
+5. PERFORMANCE STANDARDS
+
+- System uptime during migration windows: minimum 99.5%
+- Data integrity: zero data loss during migration
+- Rollback capability: all migrations must include tested rollback procedures
+- Security: all activities must maintain Protected B data classification
+  throughout
+
+---
+
+6. PERIOD OF PERFORMANCE
+
+Start Date: October 1, 2024
+End Date: June 30, 2026
+
+---
+
+Document Control:
+Prepared by: SSC Contracting and Procurement
+Approved by: Director General, IT Infrastructure, SSC

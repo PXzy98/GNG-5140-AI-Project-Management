@@ -1,0 +1,39 @@
+{
+  "test_id": "DFT-01",
+  "test_name": "Baseline extraction from SOW",
+  "method": "llm_local",
+  "passed": false,
+  "score": "0/10",
+  "details": "in_scope=0 out=0 deliv=0 constr=0",
+  "error": null,
+  "latency_ms": 78505.27460000012,
+  "artifact": {
+    "artifact_id": "art_ed83445d88",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 799,
+    "content_preview": "STATEMENT OF WORK\nPROJECT: NGIS PHASE 3 \u2014 DATA CENTRE CONSOLIDATION\nDocument Number: SOW-NGIS-P3-2024-001\nVersion: 2.1\nDate: September 15, 2024\nContracting Authority: Shared Services Canada (SSC)\nClassification: Protected B\n\n---\n\n1. BACKGROUND AND CONTEXT\n\nShared Services Canada (SSC) is undertaking the Next-Generation\nInfrastructure Strategy (NGIS) Phase 3, which involves the consolidation\nof three Government of Canada (GC) data centre facilities into a single\nmodernized enterprise data centre.",
+    "extracted_tasks": [],
+    "metadata": {
+      "date": "September 15, 2024"
+    }
+  },
+  "llm_calls": [
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 39398.9,
+      "content": "",
+      "parsed_json": null,
+      "error": null
+    },
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 39073.5,
+      "content": "",
+      "parsed_json": null,
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "test_id": "ING-15",
+  "test_name": "Processing latency",
+  "method": "llm_local",
+  "passed": true,
+  "score": "5/5",
+  "details": "latency=20ms",
+  "error": null,
+  "latency_ms": 19.686200001160614,
+  "artifact": {
+    "artifact_id": "art_4a0c768812",
+    "artifact_type": "meeting_minutes",
+    "detected_language": "en",
+    "word_count": 446,
+    "content_preview": "NGIS PHASE 3 \u2014 SPRINT REVIEW MEETING MINUTES\nMeeting Date: March 3, 2026\nTime: 13:00\u201314:30 EST\nLocation: WebEx / Room 4C-12, Place du Portage III, Gatineau\n\nAttendees:\n- Alice Tran (Project Manager) \u2014 Chair\n- Bob Morrison (Technical Lead)\n- Carol Nguyen (Infrastructure Architect)\n- Dave Chen (Security Specialist)\n- Marie Lefebvre (Change Management)\n- Farida Osei (QA Lead)\n\nRegrets: Director Okafor (represented by Alice Tran)\n\n---\n\n1. SPRINT 6 REVIEW (Feb 17 \u2013 Mar 3, 2026)\n\nCompleted Items:\n- AD",
+    "extracted_tasks": [
+      {
+        "task_id": "art_4a0c768812_t001",
+        "text": "ACTION ITEMS",
+        "owner": "Tech",
+        "deadline": "Mar 17, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "ACTION ITEMS",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_4a0c768812_t002",
+        "text": "must be initiated immediately given his role as the",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "must be initiated immediately given his role as the",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_4a0c768812_t003",
+        "text": "Deadline: March 5, 2026.",
+        "owner": "Bob Morrison",
+        "deadline": "March 5, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Deadline: March 5, 2026.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_4a0c768812_t004",
+        "text": "Deadline: March 17, 2026.",
+        "owner": "Dave Chen",
+        "deadline": "March 17, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Deadline: March 17, 2026.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_4a0c768812_t005",
+        "text": "Deadline: March 12, 2026.",
+        "owner": "Farida Osei",
+        "deadline": "March 12, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Deadline: March 12, 2026.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_4a0c768812_t006",
+        "text": "Deadline: March 10, 2026.",
+        "owner": "Carol Nguyen",
+        "deadline": "March 10, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Deadline: March 10, 2026.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_4a0c768812_t007",
+        "text": "Deadline: March 7, 2026.",
+        "owner": "Marie Lefe",
+        "deadline": "March 7, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Deadline: March 7, 2026.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_4a0c768812_t008",
+        "text": "- Alice Tran (Project Manager) \u2014 Chair",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Alice Tran (Project Manager) \u2014 Chair",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_4a0c768812_t009",
+        "text": "- Bob Morrison (Technical Lead)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Bob Morrison (Technical Lead)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_4a0c768812_t010",
+        "text": "- Carol Nguyen (Infrastructure Architect)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Carol Nguyen (Infrastructure Architect)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_4a0c768812_t011",
+        "text": "- Dave Chen (Security Specialist)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Dave Chen (Security Specialist)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_4a0c768812_t012",
+        "text": "- Marie Lefebvre (Change Management)",
+        "owner": "Alice Tran",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Marie Lefebvre (Change Management)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_4a0c768812_t013",
+        "text": "- Farida Osei (QA Lead)",
+        "owner": "Alice Tran",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Farida Osei (QA Lead)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_4a0c768812_t014",
+        "text": "- AD Schema Extension deployed to test environment (Bob Morrison)",
+        "owner": null,
+        "deadline": "Mar 3, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- AD Schema Extension deployed to test environment (Bob Morrison)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_4a0c768812_t015",
+        "text": "- Network topology design finalized for Sites B and C (Carol Nguyen)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Network topology design finalized for Sites B and C (Carol Nguyen)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_4a0c768812_t016",
+        "text": "- User acceptance testing scripts drafted (Farida Osei)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- User acceptance testing scripts drafted (Farida Osei)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_4a0c768812_t017",
+        "text": "- Legacy application inventory completed \u2014 14 apps catalogued (Dave Chen)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Legacy application inventory completed \u2014 14 apps catalogued (Dave Chen)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_4a0c768812_t018",
+        "text": "- PAW architecture documentation for SA&A package (blocked \u2014 see Item 3)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- PAW architecture documentation for SA&A package (blocked \u2014 see Item 3)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_4a0c768812_t019",
+        "text": "- End-user communication plan (in progress \u2014 60% complete)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- End-user communication plan (in progress \u2014 60% complete)",
+        "confidence": 0.7
+      }
+    ],
+    "metadata": {
+      "attendees": [
+        "- Alice Tran (Project Manager) \u2014 Chair",
+        "- Bob Morrison (Technical Lead)",
+        "- Carol Nguyen (Infrastructure Architect)",
+        "- Dave Chen (Security Specialist)",
+        "- Marie Lefebvre (Change Management)",
+        "- Farida Osei (QA Lead)"
+      ]
+    }
+  },
+  "llm_calls": []
+}

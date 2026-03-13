@@ -1,0 +1,121 @@
+{
+  "test_id": "ING-08",
+  "test_name": "Language detection (FR)",
+  "method": "llm_medium",
+  "passed": true,
+  "score": "7/7",
+  "details": "detected=fr",
+  "error": null,
+  "latency_ms": 8.632499986561015,
+  "artifact": {
+    "artifact_id": "art_293737b077",
+    "artifact_type": "meeting_minutes",
+    "detected_language": "fr",
+    "word_count": 414,
+    "content_preview": "COMIT\u00c9 DE GOUVERNANCE DES TI \u2014 COMPTE RENDU DE R\u00c9UNION\nR\u00e9union de r\u00e9vision trimestrielle \u2014 T4 2025\u20132026\nDate : 4 mars 2026\nHeure : 9 h 00 \u2013 11 h 30 HNE\nLieu : Salle de conf\u00e9rence 7B, \u00c9difice Immeuble-Vanier II, Ottawa\n\nPr\u00e9sents :\n- Directeur g\u00e9n\u00e9ral, Sylvain Thibodeau (Pr\u00e9sident)\n- Chef de projet, Marie Lefebvre\n- Gestionnaire des risques, Pierre Gagnon\n- Conseill\u00e8re principale en politique, Diane Beauchamp\n- Repr\u00e9sentant des finances, Fran\u00e7ois Lemieux\n- Architecte de solutions, Nadia Tremblay\n\n",
+    "extracted_tasks": [
+      {
+        "task_id": "art_293737b077_t001",
+        "text": "ACTION\n\nEA-001 : Pierre Gagnon doit mettre \u00e0 jour le registre des risques",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "ACTION\n\nEA-001 : Pierre Gagnon doit mettre \u00e0 jour le registre des risques",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_293737b077_t002",
+        "text": "- Directeur g\u00e9n\u00e9ral, Sylvain Thibodeau (Pr\u00e9sident)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Directeur g\u00e9n\u00e9ral, Sylvain Thibodeau (Pr\u00e9sident)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_293737b077_t003",
+        "text": "- Chef de projet, Marie Lefebvre",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Chef de projet, Marie Lefebvre",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_293737b077_t004",
+        "text": "- Gestionnaire des risques, Pierre Gagnon",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Gestionnaire des risques, Pierre Gagnon",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_293737b077_t005",
+        "text": "- Conseill\u00e8re principale en politique, Diane Beauchamp",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Conseill\u00e8re principale en politique, Diane Beauchamp",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_293737b077_t006",
+        "text": "- Repr\u00e9sentant des finances, Fran\u00e7ois Lemieux",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Repr\u00e9sentant des finances, Fran\u00e7ois Lemieux",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_293737b077_t007",
+        "text": "- Architecte de solutions, Nadia Tremblay",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Architecte de solutions, Nadia Tremblay",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_293737b077_t008",
+        "text": "- Le retard de livraison du fournisseur TechSupplier menace la fen\u00eatre",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Le retard de livraison du fournisseur TechSupplier menace la fen\u00eatre",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_293737b077_t009",
+        "text": "- Un \u00e9cart de conformit\u00e9 ITSG-33 a \u00e9t\u00e9 identifi\u00e9 par le Bureau du CISO",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Un \u00e9cart de conformit\u00e9 ITSG-33 a \u00e9t\u00e9 identifi\u00e9 par le Bureau du CISO",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_293737b077_t010",
+        "text": "- Un risque de ressource humaine a \u00e9t\u00e9 identifi\u00e9 (d\u00e9part potentiel d'un",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Un risque de ressource humaine a \u00e9t\u00e9 identifi\u00e9 (d\u00e9part potentiel d'un",
+        "confidence": 0.7
+      }
+    ],
+    "metadata": {}
+  },
+  "llm_calls": []
+}

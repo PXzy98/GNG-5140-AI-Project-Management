@@ -1,0 +1,70 @@
+{
+  "test_id": "DFT-05",
+  "test_name": "Contradicts-scope detection",
+  "method": "llm_local",
+  "passed": false,
+  "score": "3/10",
+  "details": "type=ambiguous score=0.00",
+  "error": null,
+  "latency_ms": 28734.78659999091,
+  "artifact": {
+    "artifact_id": "art_33085f3be1",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 212,
+    "content_preview": "From: adm.clarke@ssc-spc.gc.ca\nTo: alice.tran@ssc-spc.gc.ca; carol.nguyen@ssc-spc.gc.ca; finance.review@ssc-spc.gc.ca\nSubject: NGIS Phase 3 \u2014 Decision: Timeline and Budget Revision\nDate: March 9, 2026\n\nProject Team,\n\nFollowing the steering committee session on March 8 and consultation\nwith Treasury Board Secretariat, I am writing to communicate an executive\ndecision regarding the NGIS Phase 3 project parameters.\n\nDECISION 1 \u2014 TIMELINE EXTENSION:\nThe project completion date is hereby extended to ",
+    "extracted_tasks": [],
+    "metadata": {
+      "sender": "adm.clarke@ssc-spc.gc.ca",
+      "recipients": "alice.tran@ssc-spc.gc.ca; carol.nguyen@ssc-spc.gc.ca; finance.review@ssc-spc.gc.ca",
+      "subject": "NGIS Phase 3 \u2014 Decision: Timeline and Budget Revision",
+      "date": "March 9, 2026"
+    }
+  },
+  "drift_check": {
+    "drift_type": "ambiguous",
+    "overall_alignment_score": 0.0,
+    "reasoning": null,
+    "alerts": [
+      {
+        "alert_id": "alt_38c65d84",
+        "project_id": "proj_drift_llm_local",
+        "artifact_id": "art_33085f3be1",
+        "drift_type": "ambiguous",
+        "alignment_score": 0.0,
+        "detected_ask": "",
+        "baseline_reference": "",
+        "suggested_action": "Manual review recommended (LLM unavailable).",
+        "severity": "medium",
+        "status": "open",
+        "created_at": "2026-03-09T05:25:44.747907"
+      }
+    ]
+  },
+  "llm_calls": [
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 39053.4,
+      "content": "",
+      "parsed_json": null,
+      "error": null
+    },
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 38300.5,
+      "content": "",
+      "parsed_json": null,
+      "error": null
+    },
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 28732.0,
+      "content": "",
+      "parsed_json": null,
+      "error": null
+    }
+  ]
+}

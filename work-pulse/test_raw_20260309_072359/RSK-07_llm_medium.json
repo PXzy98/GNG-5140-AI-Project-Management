@@ -1,0 +1,236 @@
+{
+  "test_id": "RSK-07",
+  "test_name": "Compliance risk detection",
+  "method": "llm_medium",
+  "passed": true,
+  "score": "9/9",
+  "details": "compliance_risks=1 total=3",
+  "error": null,
+  "latency_ms": 3283.3004999993136,
+  "artifact": {
+    "artifact_id": "art_fbf6482323",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 239,
+    "content_preview": "From: security.audit@tbs-sct.gc.ca\nTo: ngis-pm@ssc-spc.gc.ca\nCc: itsec-director@ssc-spc.gc.ca; ciso@ssc-spc.gc.ca\nSubject: URGENT: ITSG-33 Compliance Gap \u2014 NGIS Phase 3 Network Migration\nDate: Thu, 5 Mar 2026 08:47:15 -0500\n\nProject Management Team,\n\nDuring the scheduled ITSG-33 security compliance review for NGIS Phase 3\n(review conducted February 28\u2013March 4, 2026), our audit team identified\na Category 2 finding that must be addressed before the migration proceeds.\n\nFINDING SUMMARY:\nControl: IA",
+    "extracted_tasks": [
+      {
+        "task_id": "art_fbf6482323_t001",
+        "text": "action plan by end of day March 6.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "action plan by end of day March 6.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_fbf6482323_t002",
+        "text": "Please confirm receipt and provide an action plan by end of day March 6.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Please confirm receipt and provide an action plan by end of day March 6.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_fbf6482323_t003",
+        "text": "must be addressed before the migration proceeds.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "must be addressed before the migration proceeds.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_fbf6482323_t004",
+        "text": "must provide the updated SA&A documentation addressing",
+        "owner": null,
+        "deadline": "March 12, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "must provide the updated SA&A documentation addressing",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_fbf6482323_t005",
+        "text": "must\n  be scheduled for the week of March 9 to review the PAW architecture.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "must\n  be scheduled for the week of March 9 to review the PAW architecture.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_fbf6482323_t006",
+        "text": "should\n  be considered at risk.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "should\n  be considered at risk.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_fbf6482323_t007",
+        "text": "- The project team must provide the updated SA&A documentation addressing",
+        "owner": null,
+        "deadline": "March 12, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- The project team must provide the updated SA&A documentation addressing",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_fbf6482323_t008",
+        "text": "- A meeting between the SSC CISO office and the NGIS project team must",
+        "owner": null,
+        "deadline": "March 12, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- A meeting between the SSC CISO office and the NGIS project team must",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_fbf6482323_t009",
+        "text": "- Until this finding is resolved, the March 18 migration window should",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Until this finding is resolved, the March 18 migration window should",
+        "confidence": 0.7
+      }
+    ],
+    "metadata": {
+      "sender": "security.audit@tbs-sct.gc.ca",
+      "recipients": "ngis-pm@ssc-spc.gc.ca",
+      "subject": "URGENT: ITSG-33 Compliance Gap \u2014 NGIS Phase 3 Network Migration",
+      "date": "Thu, 5 Mar 2026 08:47:15 -0500"
+    }
+  },
+  "risks": {
+    "count": 3,
+    "analysis_method": "llm_medium",
+    "risks": [
+      {
+        "risk_id": "rsk_f16acab8",
+        "description": "Project compliance gap identified as 'NON-COMPLIANT' with ITSG-33, threatening PBMM cloud hosting authorization",
+        "category": "compliance",
+        "likelihood": 4,
+        "impact": 5,
+        "risk_score": 20.0,
+        "risk_level": "critical",
+        "affected_stakeholders": [
+          "SSC",
+          "GC-Cloud workloads",
+          "NGIS Project Team"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_fbf6482323",
+            "excerpt": "Status: NON-COMPLIANT... SSC's PBMM cloud hosting authorization may be placed on hold",
+            "location": null,
+            "evidence_strength": 0.8
+          }
+        ],
+        "source_artifact_id": "art_fbf6482323",
+        "created_at": "2026-03-09T07:25:54.242054"
+      },
+      {
+        "risk_id": "rsk_9b838d05",
+        "description": "Project migration window 'at risk' due to missing documentation for Control IA-5",
+        "category": "schedule",
+        "likelihood": 4,
+        "impact": 5,
+        "risk_score": 20.0,
+        "risk_level": "critical",
+        "affected_stakeholders": [
+          "NGIS Project Team",
+          "SSC-SPC"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_fbf6482323",
+            "excerpt": "Until this finding is resolved, the March 18 migration window should be considered at risk.",
+            "location": null,
+            "evidence_strength": 0.8
+          }
+        ],
+        "source_artifact_id": "art_fbf6482323",
+        "created_at": "2026-03-09T07:25:54.243616"
+      },
+      {
+        "risk_id": "rsk_92a2cea3",
+        "description": "Project documentation missing 'Privileged Access Workstation (PAW) architecture', causing security audit failure",
+        "category": "technical",
+        "likelihood": 5,
+        "impact": 4,
+        "risk_score": 20.0,
+        "risk_level": "critical",
+        "affected_stakeholders": [
+          "SSC CISO office",
+          "NGIS Project Team"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_fbf6482323",
+            "excerpt": "SA&A package is missing the Privileged Access Workstation (PAW) architecture documentation",
+            "location": null,
+            "evidence_strength": 0.8
+          }
+        ],
+        "source_artifact_id": "art_fbf6482323",
+        "created_at": "2026-03-09T07:25:54.243616"
+      }
+    ]
+  },
+  "llm_calls": [
+    {
+      "tier": "medium",
+      "model": "google/gemini-3-flash-preview",
+      "latency_ms": 3282.4,
+      "content": "```json\n[\n  {\n    \"description\": \"Project compliance gap identified as 'NON-COMPLIANT' with ITSG-33, threatening PBMM cloud hosting authorization\",\n    \"category\": \"compliance\",\n    \"likelihood\": 4,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"Status: NON-COMPLIANT... SSC's PBMM cloud hosting authorization may be placed on hold\",\n    \"affected_stakeholders\": [\n      \"SSC\",\n      \"GC-Cloud workloads\",\n      \"NGIS Project Team\"\n    ]\n  },\n  {\n    \"description\": \"Project migration window 'at risk' due to missing documentation for Control IA-5\",\n    \"category\": \"schedule\",\n    \"likelihood\": 4,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"Until this finding is resolved, the March 18 migration window should be considered at risk.\",\n    \"affected_stakeholders\": [\n      \"NGIS Project Team\",\n      \"SSC-SPC\"\n    ]\n  },\n  {\n    \"description\": \"Project documentation missing 'Privileged Access Workstation (PAW) architecture', causing security audit failure\",\n    \"category\": \"technical\",\n    \"likelihood\": 5,\n    \"impact\": 3,\n    \"evidence_excerpt\": \"SA&A package is missing the Privileged Access Workstation (PAW) architecture documentation\",\n    \"affected_stakeholders\": [\n      \"SSC CISO office\",\n      \"NGIS Project Team\"\n    ]\n  }\n]\n```",
+      "parsed_json": [
+        {
+          "description": "Project compliance gap identified as 'NON-COMPLIANT' with ITSG-33, threatening PBMM cloud hosting authorization",
+          "category": "compliance",
+          "likelihood": 4,
+          "impact": 5,
+          "evidence_excerpt": "Status: NON-COMPLIANT... SSC's PBMM cloud hosting authorization may be placed on hold",
+          "affected_stakeholders": [
+            "SSC",
+            "GC-Cloud workloads",
+            "NGIS Project Team"
+          ]
+        },
+        {
+          "description": "Project migration window 'at risk' due to missing documentation for Control IA-5",
+          "category": "schedule",
+          "likelihood": 4,
+          "impact": 4,
+          "evidence_excerpt": "Until this finding is resolved, the March 18 migration window should be considered at risk.",
+          "affected_stakeholders": [
+            "NGIS Project Team",
+            "SSC-SPC"
+          ]
+        },
+        {
+          "description": "Project documentation missing 'Privileged Access Workstation (PAW) architecture', causing security audit failure",
+          "category": "technical",
+          "likelihood": 5,
+          "impact": 3,
+          "evidence_excerpt": "SA&A package is missing the Privileged Access Workstation (PAW) architecture documentation",
+          "affected_stakeholders": [
+            "SSC CISO office",
+            "NGIS Project Team"
+          ]
+        }
+      ],
+      "error": null
+    }
+  ]
+}

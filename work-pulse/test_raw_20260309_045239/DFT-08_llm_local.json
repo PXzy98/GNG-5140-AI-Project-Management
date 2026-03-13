@@ -1,0 +1,65 @@
+{
+  "test_id": "DFT-08",
+  "test_name": "Bilingual drift detection (FR)",
+  "method": "llm_local",
+  "passed": false,
+  "score": "4/9",
+  "details": "type=ambiguous score=0.00",
+  "error": null,
+  "latency_ms": 28500.795600004494,
+  "artifact": {
+    "artifact_id": "art_0a30c9b3c4",
+    "artifact_type": "other",
+    "detected_language": "fr",
+    "word_count": 243,
+    "content_preview": "De : pierre.gagnon@ssc-spc.gc.ca\n\u00c0 : alice.tran@ssc-spc.gc.ca\nCc : marie.lefebvre@ssc-spc.gc.ca\nObjet : Demande d'ajout \u2014 Modernisation des postes de travail des utilisateurs\nDate : 8 mars 2026\n\nBonjour Alice,\n\nJe vous \u00e9cris pour soumettre une demande d'ajout de port\u00e9e au projet\nNGIS Phase 3 de la part du gestionnaire de prestation de services.\n\nDans le cadre de la consolidation des sites B et C, plusieurs employ\u00e9s\ndes centres de donn\u00e9es affect\u00e9s devront \u00eatre relocalis\u00e9s au site A \u00e0\nGatineau. Le",
+    "extracted_tasks": [],
+    "metadata": {}
+  },
+  "drift_check": {
+    "drift_type": "ambiguous",
+    "overall_alignment_score": 0.0,
+    "reasoning": null,
+    "alerts": [
+      {
+        "alert_id": "alt_bc5129c6",
+        "project_id": "proj_drift_llm_local",
+        "artifact_id": "art_0a30c9b3c4",
+        "drift_type": "ambiguous",
+        "alignment_score": 0.0,
+        "detected_ask": "",
+        "baseline_reference": "",
+        "suggested_action": "Manual review recommended (LLM unavailable).",
+        "severity": "medium",
+        "status": "open",
+        "created_at": "2026-03-09T05:31:05.236570"
+      }
+    ]
+  },
+  "llm_calls": [
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 39033.8,
+      "content": "",
+      "parsed_json": null,
+      "error": null
+    },
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 38278.7,
+      "content": "",
+      "parsed_json": null,
+      "error": null
+    },
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 28499.0,
+      "content": "",
+      "parsed_json": null,
+      "error": null
+    }
+  ]
+}

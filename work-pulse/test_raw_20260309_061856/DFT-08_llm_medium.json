@@ -1,0 +1,191 @@
+{
+  "test_id": "DFT-08",
+  "test_name": "Bilingual drift detection (FR)",
+  "method": "llm_medium",
+  "passed": false,
+  "score": "4/9",
+  "details": "type=contradicts_scope score=0.00",
+  "error": null,
+  "latency_ms": 3032.4976999982027,
+  "artifact": {
+    "artifact_id": "art_f80ff90549",
+    "artifact_type": "other",
+    "detected_language": "fr",
+    "word_count": 243,
+    "content_preview": "De : pierre.gagnon@ssc-spc.gc.ca\n\u00c0 : alice.tran@ssc-spc.gc.ca\nCc : marie.lefebvre@ssc-spc.gc.ca\nObjet : Demande d'ajout \u2014 Modernisation des postes de travail des utilisateurs\nDate : 8 mars 2026\n\nBonjour Alice,\n\nJe vous \u00e9cris pour soumettre une demande d'ajout de port\u00e9e au projet\nNGIS Phase 3 de la part du gestionnaire de prestation de services.\n\nDans le cadre de la consolidation des sites B et C, plusieurs employ\u00e9s\ndes centres de donn\u00e9es affect\u00e9s devront \u00eatre relocalis\u00e9s au site A \u00e0\nGatineau. Le",
+    "extracted_tasks": [
+      {
+        "task_id": "art_f80ff90549_t001",
+        "text": "Remplacer 85 ordinateurs portables et 40 postes de travail fixes pour les employ\u00e9s relocalis\u00e9s au site A.",
+        "owner": "Alice Tran",
+        "deadline": "2026-04-15",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Remplacement de 85 ordinateurs portables... Remplacement de 40 postes de travail fixes... avant le 15 avril 2026",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_f80ff90549_t002",
+        "text": "Examiner la demande d'ajout de port\u00e9e au projet NGIS Phase 3.",
+        "owner": "Alice Tran",
+        "deadline": "2026-03-10",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Pourriez-vous examiner cette demande",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_f80ff90549_t003",
+        "text": "Soumettre la demande d'ajout de port\u00e9e au comit\u00e9 directeur.",
+        "owner": "Alice Tran",
+        "deadline": "2026-03-10",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "la soumettre au comit\u00e9 directeur lors de la prochaine r\u00e9union du 10 mars",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_f80ff90549_t004",
+        "text": "D\u00e9cision de relocaliser les employ\u00e9s des centres de donn\u00e9es des sites B et C vers le site A \u00e0 Gatineau.",
+        "owner": null,
+        "deadline": null,
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "plusieurs employ\u00e9s des centres de donn\u00e9es affect\u00e9s devront \u00eatre relocalis\u00e9s au site A \u00e0 Gatineau",
+        "confidence": 0.9
+      }
+    ],
+    "metadata": {}
+  },
+  "drift_check": {
+    "drift_type": "contradicts_scope",
+    "overall_alignment_score": 0.0,
+    "reasoning": null,
+    "alerts": [
+      {
+        "alert_id": "alt_3c0bb556",
+        "project_id": "proj_drift_llm_medium",
+        "artifact_id": "art_f80ff90549",
+        "drift_type": "contradicts_scope",
+        "alignment_score": 0.0,
+        "detected_ask": "Remplacement de 85 ordinateurs portables et 40 postes de travail fixes pour un co\u00fbt estim\u00e9 de 210 000 $ \u00e0 240 000 $.",
+        "baseline_reference": "OUT OF SCOPE: End-user device refresh or replacement (laptops, desktops, mobile devices)",
+        "suggested_action": "Reject the request as it is explicitly listed as 'Out of Scope'. Advise the stakeholder to initiate a separate procurement process or project, as this request would consume ~10% of the total budget and risks the April 30 Go-Live constraint.",
+        "severity": "critical",
+        "status": "open",
+        "created_at": "2026-03-09T06:43:51.204992"
+      }
+    ]
+  },
+  "llm_calls": [
+    {
+      "tier": "medium",
+      "model": "google/gemini-3-flash-preview",
+      "latency_ms": 4639.9,
+      "content": "```json\n{\n  \"in_scope\": [\n    \"Decommissioning of Sites B and C physical infrastructure\",\n    \"Migration of all server workloads from Sites B and C to Site A\",\n    \"Physical server rack consolidation and cable management at Site A\",\n    \"Environmental systems (HVAC, UPS, fire suppression) optimization at Site A\",\n    \"Replacement and deployment of Cisco Catalyst 9500 series switches across all three sites\",\n    \"Network segmentation reconfiguration per updated security zones\",\n    \"BGP routing table migration and validation\",\n    \"Network performance baseline testing post-migration\",\n    \"Migration of all on-premise Active Directory domain controllers to Site A\",\n    \"AD schema extension and forest restructuring\",\n    \"Group Policy Object (GPO) consolidation and testing\",\n    \"Integration testing with downstream applications dependent on AD\",\n    \"Weekly status reports to SSC Project Management Office\",\n    \"Steering committee presentations (monthly)\",\n    \"Risk register maintenance\",\n    \"Change management and stakeholder communications\"\n  ],\n  \"out_of_scope\": [\n    \"End-user device refresh or replacement (laptops, desktops, mobile devices)\",\n    \"Application modernization or re-platforming (code or architecture changes)\",\n    \"GC-Cloud workload migration (AWS, Azure, GC-Cloud)\",\n    \"End-user training and change management beyond project communications\",\n    \"Procurement of new application licenses\",\n    \"Network monitoring tool upgrades\"\n  ],\n  \"deliverables\": [\n    \"D-001: Project Management Plan\",\n    \"D-002: Technical Design Document (TDD)\",\n    \"D-003: Security Assessment and Authorization (SA&A) Package\",\n    \"D-004: Migration Runbook (Sites B and C)\",\n    \"D-005: User Acceptance Test (UAT) Plan\",\n    \"D-006: Site A Consolidation Complete (Go-Live)\",\n    \"D-007: Post-Migration Validation Report\",\n    \"D-008: Project Closure Report\"\n  ],\n  \"constraints\": [\n    \"Total approved budget of $2,400,000 inclusive of all fees and taxes\",\n    \"Go-Live (D-006) must be achieved no later than April 30, 2026\",\n    \"Final project closure date of June 30, 2026\",\n    \"Compliance with ITSG-33: IT Security Risk Management\",\n    \"Compliance with Government of Canada Cloud Adoption Strategy\",\n    \"Compliance with Treasury Board Policy on Government Security\",\n    \"Compliance with Privacy Act (R.S.C., 1985, c. P-21)\",\n    \"Compliance with Official Languages Act for all client-facing deliverables\",\n    \"Adherence to SSC Project Change Management Process for scope, schedule, or budget changes\",\n    \"Classification level: Protected B\"\n  ]\n}\n```",
+      "parsed_json": {
+        "in_scope": [
+          "Decommissioning of Sites B and C physical infrastructure",
+          "Migration of all server workloads from Sites B and C to Site A",
+          "Physical server rack consolidation and cable management at Site A",
+          "Environmental systems (HVAC, UPS, fire suppression) optimization at Site A",
+          "Replacement and deployment of Cisco Catalyst 9500 series switches across all three sites",
+          "Network segmentation reconfiguration per updated security zones",
+          "BGP routing table migration and validation",
+          "Network performance baseline testing post-migration",
+          "Migration of all on-premise Active Directory domain controllers to Site A",
+          "AD schema extension and forest restructuring",
+          "Group Policy Object (GPO) consolidation and testing",
+          "Integration testing with downstream applications dependent on AD",
+          "Weekly status reports to SSC Project Management Office",
+          "Steering committee presentations (monthly)",
+          "Risk register maintenance",
+          "Change management and stakeholder communications"
+        ],
+        "out_of_scope": [
+          "End-user device refresh or replacement (laptops, desktops, mobile devices)",
+          "Application modernization or re-platforming (code or architecture changes)",
+          "GC-Cloud workload migration (AWS, Azure, GC-Cloud)",
+          "End-user training and change management beyond project communications",
+          "Procurement of new application licenses",
+          "Network monitoring tool upgrades"
+        ],
+        "deliverables": [
+          "D-001: Project Management Plan",
+          "D-002: Technical Design Document (TDD)",
+          "D-003: Security Assessment and Authorization (SA&A) Package",
+          "D-004: Migration Runbook (Sites B and C)",
+          "D-005: User Acceptance Test (UAT) Plan",
+          "D-006: Site A Consolidation Complete (Go-Live)",
+          "D-007: Post-Migration Validation Report",
+          "D-008: Project Closure Report"
+        ],
+        "constraints": [
+          "Total approved budget of $2,400,000 inclusive of all fees and taxes",
+          "Go-Live (D-006) must be achieved no later than April 30, 2026",
+          "Final project closure date of June 30, 2026",
+          "Compliance with ITSG-33: IT Security Risk Management",
+          "Compliance with Government of Canada Cloud Adoption Strategy",
+          "Compliance with Treasury Board Policy on Government Security",
+          "Compliance with Privacy Act (R.S.C., 1985, c. P-21)",
+          "Compliance with Official Languages Act for all client-facing deliverables",
+          "Adherence to SSC Project Change Management Process for scope, schedule, or budget changes",
+          "Classification level: Protected B"
+        ]
+      },
+      "error": null
+    },
+    {
+      "tier": "medium",
+      "model": "google/gemini-3-flash-preview",
+      "latency_ms": 2938.0,
+      "content": "[\n  {\n    \"text\": \"Remplacer 85 ordinateurs portables et 40 postes de travail fixes pour les employ\u00e9s relocalis\u00e9s au site A.\",\n    \"owner\": \"Alice Tran\",\n    \"deadline\": \"2026-04-15\",\n    \"priority\": \"high\",\n    \"source_excerpt\": \"Remplacement de 85 ordinateurs portables... Remplacement de 40 postes de travail fixes... avant le 15 avril 2026\"\n  },\n  {\n    \"text\": \"Examiner la demande d'ajout de port\u00e9e au projet NGIS Phase 3.\",\n    \"owner\": \"Alice Tran\",\n    \"deadline\": \"2026-03-10\",\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"Pourriez-vous examiner cette demande\"\n  },\n  {\n    \"text\": \"Soumettre la demande d'ajout de port\u00e9e au comit\u00e9 directeur.\",\n    \"owner\": \"Alice Tran\",\n    \"deadline\": \"2026-03-10\",\n    \"priority\": \"high\",\n    \"source_excerpt\": \"la soumettre au comit\u00e9 directeur lors de la prochaine r\u00e9union du 10 mars\"\n  },\n  {\n    \"text\": \"D\u00e9cision de relocaliser les employ\u00e9s des centres de donn\u00e9es des sites B et C vers le site A \u00e0 Gatineau.\",\n    \"owner\": null,\n    \"deadline\": null,\n    \"priority\": \"critical\",\n    \"source_excerpt\": \"plusieurs employ\u00e9s des centres de donn\u00e9es affect\u00e9s devront \u00eatre relocalis\u00e9s au site A \u00e0 Gatineau\"\n  }\n]",
+      "parsed_json": [
+        {
+          "text": "Remplacer 85 ordinateurs portables et 40 postes de travail fixes pour les employ\u00e9s relocalis\u00e9s au site A.",
+          "owner": "Alice Tran",
+          "deadline": "2026-04-15",
+          "priority": "high",
+          "source_excerpt": "Remplacement de 85 ordinateurs portables... Remplacement de 40 postes de travail fixes... avant le 15 avril 2026"
+        },
+        {
+          "text": "Examiner la demande d'ajout de port\u00e9e au projet NGIS Phase 3.",
+          "owner": "Alice Tran",
+          "deadline": "2026-03-10",
+          "priority": "medium",
+          "source_excerpt": "Pourriez-vous examiner cette demande"
+        },
+        {
+          "text": "Soumettre la demande d'ajout de port\u00e9e au comit\u00e9 directeur.",
+          "owner": "Alice Tran",
+          "deadline": "2026-03-10",
+          "priority": "high",
+          "source_excerpt": "la soumettre au comit\u00e9 directeur lors de la prochaine r\u00e9union du 10 mars"
+        },
+        {
+          "text": "D\u00e9cision de relocaliser les employ\u00e9s des centres de donn\u00e9es des sites B et C vers le site A \u00e0 Gatineau.",
+          "owner": null,
+          "deadline": null,
+          "priority": "critical",
+          "source_excerpt": "plusieurs employ\u00e9s des centres de donn\u00e9es affect\u00e9s devront \u00eatre relocalis\u00e9s au site A \u00e0 Gatineau"
+        }
+      ],
+      "error": null
+    },
+    {
+      "tier": "medium",
+      "model": "google/gemini-3-flash-preview",
+      "latency_ms": 3032.3,
+      "content": "```json\n{\n  \"alignment_score\": 0.0,\n  \"drift_type\": \"contradicts_scope\",\n  \"detected_ask\": \"Remplacement de 85 ordinateurs portables et 40 postes de travail fixes pour un co\u00fbt estim\u00e9 de 210 000 $ \u00e0 240 000 $.\",\n  \"baseline_reference\": \"OUT OF SCOPE: End-user device refresh or replacement (laptops, desktops, mobile devices)\",\n  \"suggested_action\": \"Reject the request as it is explicitly listed as 'Out of Scope'. Advise the stakeholder to initiate a separate procurement process or project, as this request would consume ~10% of the total budget and risks the April 30 Go-Live constraint.\",\n  \"reasoning\": \"The request directly contradicts the 'Out of Scope' section of the baseline which forbids end-user device refreshes. Furthermore, the proposed cost ($240k) and tight timeline (April 15) pose a significant risk to the project's fixed budget ($2.4M) and Go-Live deadline (April 30).\"\n}\n```",
+      "parsed_json": {
+        "alignment_score": 0.0,
+        "drift_type": "contradicts_scope",
+        "detected_ask": "Remplacement de 85 ordinateurs portables et 40 postes de travail fixes pour un co\u00fbt estim\u00e9 de 210 000 $ \u00e0 240 000 $.",
+        "baseline_reference": "OUT OF SCOPE: End-user device refresh or replacement (laptops, desktops, mobile devices)",
+        "suggested_action": "Reject the request as it is explicitly listed as 'Out of Scope'. Advise the stakeholder to initiate a separate procurement process or project, as this request would consume ~10% of the total budget and risks the April 30 Go-Live constraint.",
+        "reasoning": "The request directly contradicts the 'Out of Scope' section of the baseline which forbids end-user device refreshes. Furthermore, the proposed cost ($240k) and tight timeline (April 15) pose a significant risk to the project's fixed budget ($2.4M) and Go-Live deadline (April 30)."
+      },
+      "error": null
+    }
+  ]
+}

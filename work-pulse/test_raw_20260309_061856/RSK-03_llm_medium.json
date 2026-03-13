@@ -1,0 +1,296 @@
+{
+  "test_id": "RSK-03",
+  "test_name": "Risk category classification",
+  "method": "llm_medium",
+  "passed": false,
+  "score": "6.4/9",
+  "details": "accuracy=0.50 pred_cats=['schedule', 'schedule', 'resource'] gt=['schedule', 'resource']",
+  "error": null,
+  "latency_ms": 6189.579400001094,
+  "artifact": {
+    "artifact_id": "art_316f7a831a",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 246,
+    "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+    "extracted_tasks": [
+      {
+        "task_id": "art_316f7a831a_t001",
+        "text": "please confirm the delivery timeline for the Catalyst",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "please confirm the delivery timeline for the Catalyst",
+        "confidence": 0.7
+      }
+    ],
+    "metadata": {
+      "sender": "j.henderson@techsupplier.ca",
+      "recipients": "alice.tran@ssc-spc.gc.ca",
+      "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+      "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+    }
+  },
+  "risks": {
+    "count": 7,
+    "analysis_method": "llm_medium",
+    "risks": [
+      {
+        "risk_id": "rsk_de44cfc1",
+        "description": "The delivery of Cisco Catalyst 9500 switches is delayed by 14 days, missing the required on-site date for staging and testing.",
+        "category": "schedule",
+        "likelihood": 5,
+        "impact": 5,
+        "risk_score": 25.0,
+        "risk_level": "critical",
+        "affected_stakeholders": [
+          "Alice Tran",
+          "NGIS Project Management Team",
+          "SSC Data Centre Operations"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_316f7a831a",
+            "excerpt": "We have now confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6. The revised estimated delivery date is March 20, 2026.",
+            "location": null,
+            "evidence_strength": 1.0
+          }
+        ],
+        "source_artifact_id": "art_316f7a831a",
+        "created_at": "2026-03-09T06:20:49.764920"
+      },
+      {
+        "risk_id": "rsk_0464e019",
+        "description": "The delay in equipment delivery directly conflicts with the Q2 migration window, potentially forcing a postponement of the entire Phase 3 migration.",
+        "category": "schedule",
+        "likelihood": 5,
+        "impact": 5,
+        "risk_score": 25.0,
+        "risk_level": "critical",
+        "affected_stakeholders": [
+          "Alice Tran",
+          "Bob Morrison",
+          "NGIS Project Stakeholders",
+          "Shared Services Canada (SSC)"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_316f7a831a",
+            "excerpt": "Our migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing.",
+            "location": null,
+            "evidence_strength": 1.0
+          }
+        ],
+        "source_artifact_id": "art_316f7a831a",
+        "created_at": "2026-03-09T06:20:49.764920"
+      },
+      {
+        "risk_id": "rsk_e6c8c4a1",
+        "description": "The project is exposed to a single point of failure due to single-sourcing through a specific warehouse location.",
+        "category": "resource",
+        "likelihood": 5,
+        "impact": 4,
+        "risk_score": 20.0,
+        "risk_level": "critical",
+        "affected_stakeholders": [
+          "TechSupplier Solutions Inc.",
+          "NGIS Project Management Team"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_316f7a831a",
+            "excerpt": "we are currently single-sourced on this product line through our Montreal warehouse",
+            "location": null,
+            "evidence_strength": 0.8
+          }
+        ],
+        "source_artifact_id": "art_316f7a831a",
+        "created_at": "2026-03-09T06:20:49.764920"
+      },
+      {
+        "risk_id": "rsk_b99ad51e",
+        "description": "The warehouse management system (WMS) failure at the supplier may indicate broader systemic issues or potential data/order integrity risks.",
+        "category": "technical",
+        "likelihood": 3,
+        "impact": 4,
+        "risk_score": 12.0,
+        "risk_level": "high",
+        "affected_stakeholders": [
+          "TechSupplier Solutions Inc.",
+          "Alice Tran"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_316f7a831a",
+            "excerpt": "our primary distribution centre experienced a warehouse management system failure that has affected outbound shipments",
+            "location": null,
+            "evidence_strength": 0.48
+          }
+        ],
+        "source_artifact_id": "art_316f7a831a",
+        "created_at": "2026-03-09T06:20:49.764920"
+      },
+      {
+        "risk_id": "rsk_1d8caca6",
+        "description": "The 2-week delay eliminates the buffer for 'staging and testing,' which may lead to a rushed technical implementation and increased risk of network failure during migration.",
+        "category": "technical",
+        "likelihood": 4,
+        "impact": 5,
+        "risk_score": 20.0,
+        "risk_level": "critical",
+        "affected_stakeholders": [
+          "NGIS Technical Team",
+          "SSC Operations"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_316f7a831a",
+            "excerpt": "we need the equipment on site no later than March 6 for staging and testing.",
+            "location": null,
+            "evidence_strength": 0.8
+          }
+        ],
+        "source_artifact_id": "art_316f7a831a",
+        "created_at": "2026-03-09T06:20:49.764920"
+      },
+      {
+        "risk_id": "rsk_b6456fa0",
+        "description": "Alternative logistics routes (Vancouver) are inefficient and would introduce further delays, limiting the supplier's ability to recover the schedule.",
+        "category": "schedule",
+        "likelihood": 3,
+        "impact": 3,
+        "risk_score": 9.0,
+        "risk_level": "medium",
+        "affected_stakeholders": [
+          "Alice Tran",
+          "Jason Henderson"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_316f7a831a",
+            "excerpt": "alternative routing via our Vancouver depot would add a further 3\u20135 business days.",
+            "location": null,
+            "evidence_strength": 0.36
+          }
+        ],
+        "source_artifact_id": "art_316f7a831a",
+        "created_at": "2026-03-09T06:20:49.764920"
+      },
+      {
+        "risk_id": "rsk_9c4bce7c",
+        "description": "Potential for increased project costs (budget overrun) due to 'around the clock' expedited shipping efforts or idle technical staff waiting for equipment.",
+        "category": "budget",
+        "likelihood": 3,
+        "impact": 4,
+        "risk_score": 12.0,
+        "risk_level": "high",
+        "affected_stakeholders": [
+          "NGIS Project Management Team",
+          "TechSupplier Solutions Inc."
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_316f7a831a",
+            "excerpt": "Our team is working around the clock to expedite the shipment.",
+            "location": null,
+            "evidence_strength": 0.48
+          }
+        ],
+        "source_artifact_id": "art_316f7a831a",
+        "created_at": "2026-03-09T06:20:49.766428"
+      }
+    ]
+  },
+  "llm_calls": [
+    {
+      "tier": "medium",
+      "model": "google/gemini-3-flash-preview",
+      "latency_ms": 6187.8,
+      "content": "```json\n[\n  {\n    \"description\": \"The delivery of Cisco Catalyst 9500 switches is delayed by 14 days, missing the required on-site date for staging and testing.\",\n    \"category\": \"schedule\",\n    \"likelihood\": 5,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"We have now confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6. The revised estimated delivery date is March 20, 2026.\",\n    \"affected_stakeholders\": [\n      \"Alice Tran\",\n      \"NGIS Project Management Team\",\n      \"SSC Data Centre Operations\"\n    ]\n  },\n  {\n    \"description\": \"The delay in equipment delivery directly conflicts with the Q2 migration window, potentially forcing a postponement of the entire Phase 3 migration.\",\n    \"category\": \"schedule\",\n    \"likelihood\": 5,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"Our migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing.\",\n    \"affected_stakeholders\": [\n      \"Alice Tran\",\n      \"Bob Morrison\",\n      \"NGIS Project Stakeholders\",\n      \"Shared Services Canada (SSC)\"\n    ]\n  },\n  {\n    \"description\": \"The project is exposed to a single point of failure due to single-sourcing through a specific warehouse location.\",\n    \"category\": \"resource\",\n    \"likelihood\": 5,\n    \"impact\": 3,\n    \"evidence_excerpt\": \"we are currently single-sourced on this product line through our Montreal warehouse\",\n    \"affected_stakeholders\": [\n      \"TechSupplier Solutions Inc.\",\n      \"NGIS Project Management Team\"\n    ]\n  },\n  {\n    \"description\": \"The warehouse management system (WMS) failure at the supplier may indicate broader systemic issues or potential data/order integrity risks.\",\n    \"category\": \"technical\",\n    \"likelihood\": 3,\n    \"impact\": 3,\n    \"evidence_excerpt\": \"our primary distribution centre experienced a warehouse management system failure that has affected outbound shipments\",\n    \"affected_stakeholders\": [\n      \"TechSupplier Solutions Inc.\",\n      \"Alice Tran\"\n    ]\n  },\n  {\n    \"description\": \"The 2-week delay eliminates the buffer for 'staging and testing,' which may lead to a rushed technical implementation and increased risk of network failure during migration.\",\n    \"category\": \"technical\",\n    \"likelihood\": 4,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"we need the equipment on site no later than March 6 for staging and testing.\",\n    \"affected_stakeholders\": [\n      \"NGIS Technical Team\",\n      \"SSC Operations\"\n    ]\n  },\n  {\n    \"description\": \"Alternative logistics routes (Vancouver) are inefficient and would introduce further delays, limiting the supplier's ability to recover the schedule.\",\n    \"category\": \"schedule\",\n    \"likelihood\": 3,\n    \"impact\": 2,\n    \"evidence_excerpt\": \"alternative routing via our Vancouver depot would add a further 3\u20135 business days.\",\n    \"affected_stakeholders\": [\n      \"Alice Tran\",\n      \"Jason Henderson\"\n    ]\n  },\n  {\n    \"description\": \"Potential for increased project costs (budget overrun) due to 'around the clock' expedited shipping efforts or idle technical staff waiting for equipment.\",\n    \"category\": \"budget\",\n    \"likelihood\": 3,\n    \"impact\": 3,\n    \"evidence_excerpt\": \"Our team is working around the clock to expedite the shipment.\",\n    \"affected_stakeholders\": [\n      \"NGIS Project Management Team\",\n      \"TechSupplier Solutions Inc.\"\n    ]\n  }\n]\n```",
+      "parsed_json": [
+        {
+          "description": "The delivery of Cisco Catalyst 9500 switches is delayed by 14 days, missing the required on-site date for staging and testing.",
+          "category": "schedule",
+          "likelihood": 5,
+          "impact": 5,
+          "evidence_excerpt": "We have now confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6. The revised estimated delivery date is March 20, 2026.",
+          "affected_stakeholders": [
+            "Alice Tran",
+            "NGIS Project Management Team",
+            "SSC Data Centre Operations"
+          ]
+        },
+        {
+          "description": "The delay in equipment delivery directly conflicts with the Q2 migration window, potentially forcing a postponement of the entire Phase 3 migration.",
+          "category": "schedule",
+          "likelihood": 5,
+          "impact": 5,
+          "evidence_excerpt": "Our migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing.",
+          "affected_stakeholders": [
+            "Alice Tran",
+            "Bob Morrison",
+            "NGIS Project Stakeholders",
+            "Shared Services Canada (SSC)"
+          ]
+        },
+        {
+          "description": "The project is exposed to a single point of failure due to single-sourcing through a specific warehouse location.",
+          "category": "resource",
+          "likelihood": 5,
+          "impact": 3,
+          "evidence_excerpt": "we are currently single-sourced on this product line through our Montreal warehouse",
+          "affected_stakeholders": [
+            "TechSupplier Solutions Inc.",
+            "NGIS Project Management Team"
+          ]
+        },
+        {
+          "description": "The warehouse management system (WMS) failure at the supplier may indicate broader systemic issues or potential data/order integrity risks.",
+          "category": "technical",
+          "likelihood": 3,
+          "impact": 3,
+          "evidence_excerpt": "our primary distribution centre experienced a warehouse management system failure that has affected outbound shipments",
+          "affected_stakeholders": [
+            "TechSupplier Solutions Inc.",
+            "Alice Tran"
+          ]
+        },
+        {
+          "description": "The 2-week delay eliminates the buffer for 'staging and testing,' which may lead to a rushed technical implementation and increased risk of network failure during migration.",
+          "category": "technical",
+          "likelihood": 4,
+          "impact": 4,
+          "evidence_excerpt": "we need the equipment on site no later than March 6 for staging and testing.",
+          "affected_stakeholders": [
+            "NGIS Technical Team",
+            "SSC Operations"
+          ]
+        },
+        {
+          "description": "Alternative logistics routes (Vancouver) are inefficient and would introduce further delays, limiting the supplier's ability to recover the schedule.",
+          "category": "schedule",
+          "likelihood": 3,
+          "impact": 2,
+          "evidence_excerpt": "alternative routing via our Vancouver depot would add a further 3\u20135 business days.",
+          "affected_stakeholders": [
+            "Alice Tran",
+            "Jason Henderson"
+          ]
+        },
+        {
+          "description": "Potential for increased project costs (budget overrun) due to 'around the clock' expedited shipping efforts or idle technical staff waiting for equipment.",
+          "category": "budget",
+          "likelihood": 3,
+          "impact": 3,
+          "evidence_excerpt": "Our team is working around the clock to expedite the shipment.",
+          "affected_stakeholders": [
+            "NGIS Project Management Team",
+            "TechSupplier Solutions Inc."
+          ]
+        }
+      ],
+      "error": null
+    }
+  ]
+}

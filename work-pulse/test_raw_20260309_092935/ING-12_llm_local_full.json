@@ -1,0 +1,127 @@
+{
+  "test_id": "ING-12",
+  "test_name": "Multi-project artifact linking",
+  "method": "llm_local_full",
+  "passed": true,
+  "score": "8/8",
+  "details": "linked_project=proj_multi",
+  "error": null,
+  "latency_ms": 9804.879699993762,
+  "artifact": {
+    "artifact_id": "art_366cc11b76",
+    "artifact_type": "status_report",
+    "detected_language": "en",
+    "word_count": 460,
+    "content_preview": "IT PORTFOLIO \u2014 COMBINED PROJECT STATUS UPDATE\nReporting Period: March 2026 (Week 1)\nPortfolio Manager: Bob Morrison\nDistribution: IT Executive Committee; ADM Digital Services\n\n---\n\nPROJECT 1: NGIS PHASE 3 \u2014 DATA CENTRE CONSOLIDATION\nProject ID: NGIS-P3-2024-001 | Project Manager: Alice Tran\nStatus: YELLOW | Budget: $2.4M | Deadline: Q2 2026\n\nSummary: Project has encountered a 2-week vendor delay on critical\nnetwork equipment. TechSupplier has confirmed revised delivery of March 20\n(was March 6).",
+    "extracted_tasks": [
+      {
+        "task_id": "art_366cc11b76_t001",
+        "text": "Impact assessment on migration timeline",
+        "owner": "Carol Nguyen",
+        "deadline": "2026-03-07",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Impact assessment on migration timeline (Carol Nguyen, due Mar 7)",
+        "confidence": 0.95
+      },
+      {
+        "task_id": "art_366cc11b76_t002",
+        "text": "SA&A documentation update for TBS",
+        "owner": "Dave Chen",
+        "deadline": "2026-03-12",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "SA&A documentation update for TBS (Dave Chen, due Mar 12)",
+        "confidence": 0.95
+      },
+      {
+        "task_id": "art_366cc11b76_t003",
+        "text": "Director approval of revised budget",
+        "owner": null,
+        "deadline": "2026-03-10",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Director approval of revised budget (deadline: Mar 10)",
+        "confidence": 0.95
+      },
+      {
+        "task_id": "art_366cc11b76_t004",
+        "text": "TB submission preparation",
+        "owner": null,
+        "deadline": "2026-03-15",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "TB submission preparation (deadline: Mar 15)",
+        "confidence": 0.95
+      },
+      {
+        "task_id": "art_366cc11b76_t005",
+        "text": "Procurement strategy kick-off",
+        "owner": null,
+        "deadline": "2026-03-09",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Procurement strategy kick-off scheduled for March 9",
+        "confidence": 0.95
+      }
+    ],
+    "metadata": {
+      "title": "IT PORTFOLIO \u2014 COMBINED PROJECT STATUS UPDATE",
+      "date": "2026-03-01"
+    }
+  },
+  "llm_calls": [
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 9794.1,
+      "content": "{\n  \"artifact_type\": \"status_report\",\n  \"language\": \"en\",\n  \"metadata\": {\n    \"title\": \"IT PORTFOLIO \u2014 COMBINED PROJECT STATUS UPDATE\",\n    \"date\": \"2026-03-01\"\n  },\n  \"action_items\": [\n    {\n      \"text\": \"Impact assessment on migration timeline\",\n      \"owner\": \"Carol Nguyen\",\n      \"deadline\": \"2026-03-07\",\n      \"priority\": \"medium\",\n      \"source_excerpt\": \"Impact assessment on migration timeline (Carol Nguyen, due Mar 7)\"\n    },\n    {\n      \"text\": \"SA&A documentation update for TBS\",\n      \"owner\": \"Dave Chen\",\n      \"deadline\": \"2026-03-12\",\n      \"priority\": \"medium\",\n      \"source_excerpt\": \"SA&A documentation update for TBS (Dave Chen, due Mar 12)\"\n    },\n    {\n      \"text\": \"Director approval of revised budget\",\n      \"owner\": null,\n      \"deadline\": \"2026-03-10\",\n      \"priority\": \"high\",\n      \"source_excerpt\": \"Director approval of revised budget (deadline: Mar 10)\"\n    },\n    {\n      \"text\": \"TB submission preparation\",\n      \"owner\": null,\n      \"deadline\": \"2026-03-15\",\n      \"priority\": \"high\",\n      \"source_excerpt\": \"TB submission preparation (deadline: Mar 15)\"\n    },\n    {\n      \"text\": \"Procurement strategy kick-off\",\n      \"owner\": null,\n      \"deadline\": \"2026-03-09\",\n      \"priority\": \"medium\",\n      \"source_excerpt\": \"Procurement strategy kick-off scheduled for March 9\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "artifact_type": "status_report",
+        "language": "en",
+        "metadata": {
+          "title": "IT PORTFOLIO \u2014 COMBINED PROJECT STATUS UPDATE",
+          "date": "2026-03-01"
+        },
+        "action_items": [
+          {
+            "text": "Impact assessment on migration timeline",
+            "owner": "Carol Nguyen",
+            "deadline": "2026-03-07",
+            "priority": "medium",
+            "source_excerpt": "Impact assessment on migration timeline (Carol Nguyen, due Mar 7)"
+          },
+          {
+            "text": "SA&A documentation update for TBS",
+            "owner": "Dave Chen",
+            "deadline": "2026-03-12",
+            "priority": "medium",
+            "source_excerpt": "SA&A documentation update for TBS (Dave Chen, due Mar 12)"
+          },
+          {
+            "text": "Director approval of revised budget",
+            "owner": null,
+            "deadline": "2026-03-10",
+            "priority": "high",
+            "source_excerpt": "Director approval of revised budget (deadline: Mar 10)"
+          },
+          {
+            "text": "TB submission preparation",
+            "owner": null,
+            "deadline": "2026-03-15",
+            "priority": "high",
+            "source_excerpt": "TB submission preparation (deadline: Mar 15)"
+          },
+          {
+            "text": "Procurement strategy kick-off",
+            "owner": null,
+            "deadline": "2026-03-09",
+            "priority": "medium",
+            "source_excerpt": "Procurement strategy kick-off scheduled for March 9"
+          }
+        ]
+      },
+      "error": null
+    }
+  ]
+}

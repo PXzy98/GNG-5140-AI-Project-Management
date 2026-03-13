@@ -1,0 +1,87 @@
+{
+  "test_id": "ING-01",
+  "test_name": "Plain text ingestion + storage",
+  "method": "llm_local",
+  "passed": true,
+  "score": "10/10",
+  "details": "id=art_322f4edc31 words=246 hash=ac526da6",
+  "error": null,
+  "latency_ms": 18723.212600001716,
+  "artifact": {
+    "artifact_id": "art_322f4edc31",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 246,
+    "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+    "extracted_tasks": [
+      {
+        "task_id": "art_322f4edc31_t001",
+        "text": "Contact to confirm how TechSupplier can best support planning activities during this disruption",
+        "owner": null,
+        "deadline": null,
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Please let me know how we can best support your planning activities during this disruption.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_322f4edc31_t002",
+        "text": "Confirm the delivery timeline for the Catalyst switches",
+        "owner": "Jason Henderson",
+        "deadline": null,
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "Jason, can you please confirm the delivery timeline for the Catalyst switches?",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_322f4edc31_t003",
+        "text": "Ensure equipment is on site no later than March 6 for staging and testing",
+        "owner": "Alice Tran",
+        "deadline": "2026-03-06",
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "Our migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing.",
+        "confidence": 0.9
+      }
+    ],
+    "metadata": {
+      "sender": "j.henderson@techsupplier.ca",
+      "recipients": "alice.tran@ssc-spc.gc.ca",
+      "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+      "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+    }
+  },
+  "llm_calls": [
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 18716.4,
+      "content": "[\n  {\n    \"text\": \"Contact to confirm how TechSupplier can best support planning activities during this disruption\",\n    \"owner\": null,\n    \"deadline\": null,\n    \"priority\": \"high\",\n    \"source_excerpt\": \"Please let me know how we can best support your planning activities during this disruption.\"\n  },\n  {\n    \"text\": \"Confirm the delivery timeline for the Catalyst switches\",\n    \"owner\": \"Jason Henderson\",\n    \"deadline\": null,\n    \"priority\": \"critical\",\n    \"source_excerpt\": \"Jason, can you please confirm the delivery timeline for the Catalyst switches?\"\n  },\n  {\n    \"text\": \"Ensure equipment is on site no later than March 6 for staging and testing\",\n    \"owner\": \"Alice Tran\",\n    \"deadline\": \"2026-03-06\",\n    \"priority\": \"critical\",\n    \"source_excerpt\": \"Our migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing.\"\n  }\n]",
+      "parsed_json": [
+        {
+          "text": "Contact to confirm how TechSupplier can best support planning activities during this disruption",
+          "owner": null,
+          "deadline": null,
+          "priority": "high",
+          "source_excerpt": "Please let me know how we can best support your planning activities during this disruption."
+        },
+        {
+          "text": "Confirm the delivery timeline for the Catalyst switches",
+          "owner": "Jason Henderson",
+          "deadline": null,
+          "priority": "critical",
+          "source_excerpt": "Jason, can you please confirm the delivery timeline for the Catalyst switches?"
+        },
+        {
+          "text": "Ensure equipment is on site no later than March 6 for staging and testing",
+          "owner": "Alice Tran",
+          "deadline": "2026-03-06",
+          "priority": "critical",
+          "source_excerpt": "Our migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing."
+        }
+      ],
+      "error": null
+    }
+  ]
+}

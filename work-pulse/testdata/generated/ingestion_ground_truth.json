@@ -1,0 +1,182 @@
+{
+  "vendor_delay_email.txt": {
+    "language": "en",
+    "artifact_type": "email",
+    "action_items": [
+      {
+        "text": "Contact vendor PM for revised delivery schedule",
+        "owner": "Alice",
+        "deadline": "2026-03-05"
+      },
+      {
+        "text": "Prepare impact assessment for steering committee",
+        "owner": "Bob",
+        "deadline": "2026-03-07"
+      },
+      {
+        "text": "Identify alternative suppliers as contingency",
+        "owner": null,
+        "deadline": null
+      }
+    ],
+    "metadata": {
+      "sender": "j.henderson@techsupplier.ca",
+      "recipients": "alice.tran@ssc-spc.gc.ca",
+      "subject": "RE: NGIS Phase 3 — Network Equipment Delivery Update"
+    }
+  },
+  "budget_revision_email.txt": {
+    "language": "en",
+    "artifact_type": "email",
+    "action_items": [
+      {
+        "text": "Review and approve the Revised Budget Proposal",
+        "owner": "Director Okafor",
+        "deadline": "2026-03-10"
+      },
+      {
+        "text": "Submit updated Business Case and amended project charter to Treasury Board Secretariat",
+        "owner": "Project Manager",
+        "deadline": "2026-03-15"
+      }
+    ],
+    "metadata": {
+      "sender": "carol.nguyen@ssc-spc.gc.ca",
+      "subject": "ACTION REQUIRED: GC-Cloud Wave 4 — Budget Revision Request"
+    }
+  },
+  "bilingual_status_email.txt": {
+    "language": "mixed",
+    "artifact_type": "email",
+    "action_items": [
+      {
+        "text": "Schedule a follow-up technical review meeting before March 11 to finalize the AD migration cutover plan",
+        "owner": "Dave Chen",
+        "deadline": "2026-03-11",
+        "language": "en"
+      },
+      {
+        "text": "Review the updated security compliance checklist and confirm sign-off",
+        "owner": null,
+        "deadline": "2026-03-09",
+        "language": "en"
+      },
+      {
+        "text": "Mettre à jour le registre des risques du projet pour inclure le risque de délai du fournisseur",
+        "owner": "équipe de gestion des risques",
+        "deadline": "2026-03-10",
+        "language": "fr"
+      },
+      {
+        "text": "Confirmez les livrables révisés avec le fournisseur principal",
+        "owner": "Gestionnaire de projet",
+        "deadline": "2026-03-12",
+        "language": "fr"
+      }
+    ],
+    "metadata": {
+      "sender": "marie.lefebvre@ssc-spc.gc.ca",
+      "subject": "NGIS Phase 3 — Weekly Status / Mise à jour hebdomadaire"
+    }
+  },
+  "sprint_review_minutes.txt": {
+    "language": "en",
+    "artifact_type": "meeting_minutes",
+    "action_items": [
+      {
+        "text": "Contact TechSupplier Account Manager for revised delivery commitment in writing",
+        "owner": "Alice Tran",
+        "deadline": "2026-03-05"
+      },
+      {
+        "text": "Complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen",
+        "owner": "Bob Morrison",
+        "deadline": "2026-03-17"
+      },
+      {
+        "text": "Prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office",
+        "owner": "Dave Chen",
+        "deadline": "2026-03-12"
+      },
+      {
+        "text": "Complete and distribute UAT test plan to all stakeholders for review",
+        "owner": "Farida Osei",
+        "deadline": "2026-03-10"
+      },
+      {
+        "text": "Conduct impact assessment on Site A cutover timeline given vendor delay",
+        "owner": "Carol Nguyen",
+        "deadline": "2026-03-07"
+      }
+    ],
+    "metadata": {
+      "attendees": ["Alice Tran", "Bob Morrison", "Carol Nguyen", "Dave Chen", "Marie Lefebvre", "Farida Osei"],
+      "date": "2026-03-03"
+    }
+  },
+  "governance_review_fr.txt": {
+    "language": "fr",
+    "artifact_type": "meeting_minutes",
+    "action_items": [
+      {
+        "text": "Mettre à jour le registre des risques pour inclure les risques R-014, R-015 et R-016",
+        "owner": "Pierre Gagnon",
+        "deadline": "2026-03-06",
+        "language": "fr"
+      },
+      {
+        "text": "Présenter un plan d'atténuation détaillé pour le risque R-015 (conformité ITSG-33) au Comité de gouvernance",
+        "owner": "Marie Lefebvre",
+        "deadline": "2026-03-12",
+        "language": "fr"
+      },
+      {
+        "text": "Préparer une analyse des incidences budgétaires du retard du fournisseur",
+        "owner": "François Lemieux",
+        "deadline": "2026-03-10",
+        "language": "fr"
+      }
+    ],
+    "metadata": {
+      "attendees": ["Sylvain Thibodeau", "Marie Lefebvre", "Pierre Gagnon", "Diane Beauchamp", "François Lemieux", "Nadia Tremblay"],
+      "date": "2026-03-04"
+    }
+  },
+  "ngis_phase3_weekly.txt": {
+    "language": "en",
+    "artifact_type": "status_report",
+    "action_items": [],
+    "notes": "No explicit action items. Implicit: coordinate with TechSupplier, prepare TBS for site visit, launch communications campaign."
+  },
+  "multi_project_update.txt": {
+    "language": "en",
+    "artifact_type": "status_report",
+    "action_items": [
+      {
+        "text": "Impact assessment on migration timeline given vendor delay",
+        "owner": "Carol Nguyen",
+        "deadline": "2026-03-07",
+        "project_id": "NGIS-P3-2024-001"
+      },
+      {
+        "text": "SA&A documentation update for TBS",
+        "owner": "Dave Chen",
+        "deadline": "2026-03-12",
+        "project_id": "NGIS-P3-2024-001"
+      },
+      {
+        "text": "Director approval of revised budget",
+        "owner": "Director Okafor",
+        "deadline": "2026-03-10",
+        "project_id": "GCCLOUD-W4-2026"
+      },
+      {
+        "text": "TB submission preparation",
+        "owner": "Carol Nguyen",
+        "deadline": "2026-03-15",
+        "project_id": "GCCLOUD-W4-2026"
+      }
+    ],
+    "projects": ["NGIS-P3-2024-001", "GCCLOUD-W4-2026", "PRJ-1234"]
+  }
+}

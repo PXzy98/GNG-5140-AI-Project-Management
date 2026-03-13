@@ -1,0 +1,184 @@
+{
+  "test_id": "ING-12",
+  "test_name": "Multi-project artifact linking",
+  "method": "llm_large",
+  "passed": true,
+  "score": "8/8",
+  "details": "linked_project=proj_multi",
+  "error": null,
+  "latency_ms": 10561.977699995623,
+  "artifact": {
+    "artifact_id": "art_238033dce0",
+    "artifact_type": "status_report",
+    "detected_language": "en",
+    "word_count": 460,
+    "content_preview": "IT PORTFOLIO \u2014 COMBINED PROJECT STATUS UPDATE\nReporting Period: March 2026 (Week 1)\nPortfolio Manager: Bob Morrison\nDistribution: IT Executive Committee; ADM Digital Services\n\n---\n\nPROJECT 1: NGIS PHASE 3 \u2014 DATA CENTRE CONSOLIDATION\nProject ID: NGIS-P3-2024-001 | Project Manager: Alice Tran\nStatus: YELLOW | Budget: $2.4M | Deadline: Q2 2026\n\nSummary: Project has encountered a 2-week vendor delay on critical\nnetwork equipment. TechSupplier has confirmed revised delivery of March 20\n(was March 6).",
+    "extracted_tasks": [
+      {
+        "task_id": "art_238033dce0_t001",
+        "text": "Impact assessment on migration timeline",
+        "owner": "Carol Nguyen",
+        "deadline": "2026-03-07",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Impact assessment on migration timeline (Carol Nguyen, due Mar 7)",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_238033dce0_t002",
+        "text": "SA&A documentation update for TBS",
+        "owner": "Dave Chen",
+        "deadline": "2026-03-12",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "SA&A documentation update for TBS (Dave Chen, due Mar 12)",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_238033dce0_t003",
+        "text": "Alternative supplier evaluation initiated",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Alternative supplier evaluation initiated",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_238033dce0_t004",
+        "text": "Resolve TBS audit finding (ITSG-33 IA-5) before migration can proceed",
+        "owner": null,
+        "deadline": null,
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "a TBS audit finding (ITSG-33 IA-5) was raised on March 5 and must be resolved before migration can proceed",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_238033dce0_t005",
+        "text": "Director approval of revised budget",
+        "owner": null,
+        "deadline": "2026-03-10",
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "Director approval of revised budget (deadline: Mar 10)",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_238033dce0_t006",
+        "text": "TB submission preparation",
+        "owner": null,
+        "deadline": "2026-03-15",
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "TB submission preparation (deadline: Mar 15)",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_238033dce0_t007",
+        "text": "Middleware remediation scoping (to begin post-approval)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Middleware remediation scoping (to begin post-approval)",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_238033dce0_t008",
+        "text": "Procurement strategy kick-off scheduled for March 9",
+        "owner": "Farida Osei",
+        "deadline": "2026-03-09",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Procurement strategy kick-off scheduled for March 9",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_238033dce0_t009",
+        "text": "Address shared resource constraint risk \u2014 Bob Morrison is the lead technical resource on both NGIS Phase 3 and GC-Cloud Wave 4; his potential departure would impact both projects simultaneously",
+        "owner": "Bob Morrison",
+        "deadline": null,
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "His potential departure (flagged in NGIS Sprint Review) would impact both projects simultaneously. Risk level: HIGH.",
+        "confidence": 0.9
+      }
+    ],
+    "metadata": {}
+  },
+  "llm_calls": [
+    {
+      "tier": "large",
+      "model": "anthropic/claude-sonnet-4.6",
+      "latency_ms": 10548.1,
+      "content": "```json\n[\n  {\n    \"text\": \"Impact assessment on migration timeline\",\n    \"owner\": \"Carol Nguyen\",\n    \"deadline\": \"2026-03-07\",\n    \"priority\": \"high\",\n    \"source_excerpt\": \"Impact assessment on migration timeline (Carol Nguyen, due Mar 7)\"\n  },\n  {\n    \"text\": \"SA&A documentation update for TBS\",\n    \"owner\": \"Dave Chen\",\n    \"deadline\": \"2026-03-12\",\n    \"priority\": \"high\",\n    \"source_excerpt\": \"SA&A documentation update for TBS (Dave Chen, due Mar 12)\"\n  },\n  {\n    \"text\": \"Alternative supplier evaluation initiated\",\n    \"owner\": null,\n    \"deadline\": null,\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"Alternative supplier evaluation initiated\"\n  },\n  {\n    \"text\": \"Resolve TBS audit finding (ITSG-33 IA-5) before migration can proceed\",\n    \"owner\": null,\n    \"deadline\": null,\n    \"priority\": \"critical\",\n    \"source_excerpt\": \"a TBS audit finding (ITSG-33 IA-5) was raised on March 5 and must be resolved before migration can proceed\"\n  },\n  {\n    \"text\": \"Director approval of revised budget\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-10\",\n    \"priority\": \"critical\",\n    \"source_excerpt\": \"Director approval of revised budget (deadline: Mar 10)\"\n  },\n  {\n    \"text\": \"TB submission preparation\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-15\",\n    \"priority\": \"critical\",\n    \"source_excerpt\": \"TB submission preparation (deadline: Mar 15)\"\n  },\n  {\n    \"text\": \"Middleware remediation scoping (to begin post-approval)\",\n    \"owner\": null,\n    \"deadline\": null,\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"Middleware remediation scoping (to begin post-approval)\"\n  },\n  {\n    \"text\": \"Procurement strategy kick-off scheduled for March 9\",\n    \"owner\": \"Farida Osei\",\n    \"deadline\": \"2026-03-09\",\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"Procurement strategy kick-off scheduled for March 9\"\n  },\n  {\n    \"text\": \"Address shared resource constraint risk \u2014 Bob Morrison is the lead technical resource on both NGIS Phase 3 and GC-Cloud Wave 4; his potential departure would impact both projects simultaneously\",\n    \"owner\": \"Bob Morrison\",\n    \"deadline\": null,\n    \"priority\": \"high\",\n    \"source_excerpt\": \"His potential departure (flagged in NGIS Sprint Review) would impact both projects simultaneously. Risk level: HIGH.\"\n  }\n]\n```",
+      "parsed_json": [
+        {
+          "text": "Impact assessment on migration timeline",
+          "owner": "Carol Nguyen",
+          "deadline": "2026-03-07",
+          "priority": "high",
+          "source_excerpt": "Impact assessment on migration timeline (Carol Nguyen, due Mar 7)"
+        },
+        {
+          "text": "SA&A documentation update for TBS",
+          "owner": "Dave Chen",
+          "deadline": "2026-03-12",
+          "priority": "high",
+          "source_excerpt": "SA&A documentation update for TBS (Dave Chen, due Mar 12)"
+        },
+        {
+          "text": "Alternative supplier evaluation initiated",
+          "owner": null,
+          "deadline": null,
+          "priority": "medium",
+          "source_excerpt": "Alternative supplier evaluation initiated"
+        },
+        {
+          "text": "Resolve TBS audit finding (ITSG-33 IA-5) before migration can proceed",
+          "owner": null,
+          "deadline": null,
+          "priority": "critical",
+          "source_excerpt": "a TBS audit finding (ITSG-33 IA-5) was raised on March 5 and must be resolved before migration can proceed"
+        },
+        {
+          "text": "Director approval of revised budget",
+          "owner": null,
+          "deadline": "2026-03-10",
+          "priority": "critical",
+          "source_excerpt": "Director approval of revised budget (deadline: Mar 10)"
+        },
+        {
+          "text": "TB submission preparation",
+          "owner": null,
+          "deadline": "2026-03-15",
+          "priority": "critical",
+          "source_excerpt": "TB submission preparation (deadline: Mar 15)"
+        },
+        {
+          "text": "Middleware remediation scoping (to begin post-approval)",
+          "owner": null,
+          "deadline": null,
+          "priority": "medium",
+          "source_excerpt": "Middleware remediation scoping (to begin post-approval)"
+        },
+        {
+          "text": "Procurement strategy kick-off scheduled for March 9",
+          "owner": "Farida Osei",
+          "deadline": "2026-03-09",
+          "priority": "medium",
+          "source_excerpt": "Procurement strategy kick-off scheduled for March 9"
+        },
+        {
+          "text": "Address shared resource constraint risk \u2014 Bob Morrison is the lead technical resource on both NGIS Phase 3 and GC-Cloud Wave 4; his potential departure would impact both projects simultaneously",
+          "owner": "Bob Morrison",
+          "deadline": null,
+          "priority": "high",
+          "source_excerpt": "His potential departure (flagged in NGIS Sprint Review) would impact both projects simultaneously. Risk level: HIGH."
+        }
+      ],
+      "error": null
+    }
+  ]
+}

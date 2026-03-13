@@ -1,0 +1,331 @@
+{
+  "test_id": "PRI-09",
+  "test_name": "Re-rank change tracking (diff)",
+  "method": "llm_large",
+  "passed": true,
+  "score": "7/7",
+  "details": "changes=5 valid=True",
+  "error": null,
+  "latency_ms": 35713.18720000272,
+  "llm_calls": [
+    {
+      "tier": "large",
+      "model": "anthropic/claude-sonnet-4.6",
+      "latency_ms": 41223.6,
+      "content": "```json\n[\n  {\n    \"task_id\": \"task_006\",\n    \"rank\": 1,\n    \"priority_level\": \"critical\",\n    \"priority_score\": 94.5,\n    \"reasoning\": \"This task has the earliest deadline of 2026-03-07, making it the most time-critical item in the list \u2014 it is already at or near due. Although rated medium risk in isolation, the impact assessment directly informs the vendor delay resolution (task_001) and Site A migration planning, creating an implicit upstream dependency that elevates its effective priority significantly. Failure to complete this assessment first means downstream decisions on the NGIS Phase 3 network issues cannot be made with full situational awareness.\",\n    \"risk_factors\": [\n      \"Earliest deadline in the task list (2026-03-07)\",\n      \"Not started \u2014 zero progress against an imminent deadline\",\n      \"Implicit upstream dependency: blocks informed action on task_001 and site migration planning\",\n      \"Vendor delay context means impact scope is unknown until this is done\"\n    ],\n    \"evidence_refs\": [],\n    \"confidence\": 0.85\n  },\n  {\n    \"task_id\": \"task_001\",\n    \"rank\": 2,\n    \"priority_level\": \"critical\",\n    \"priority_score\": 91.0,\n    \"reasoning\": \"Rated critical risk with a deadline of 2026-03-10 and a rollover count of 2, indicating this issue has already been deferred twice and carries compounding schedule risk for the NGIS Phase 3 programme. Vendor delays on network equipment in a government infrastructure programme typically cascade into site migration cutovers, procurement compliance issues, and capital expenditure lapses, making continued deferral increasingly costly. The high rollover count signals organizational friction that requires senior escalation.\",\n    \"risk_factors\": [\n      \"Critical risk rating\",\n      \"Rollover count of 2 \u2014 repeated deferral pattern\",\n      \"Deadline 2026-03-10 \u2014 imminent\",\n      \"Vendor dependency introduces external schedule risk outside direct control\",\n      \"Likely cascading impact on NGIS Phase 3 downstream milestones\"\n    ],\n    \"evidence_refs\": [],\n    \"confidence\": 0.88\n  },\n  {\n    \"task_id\": \"task_002\",\n    \"rank\": 3,\n    \"priority_level\": \"critical\",\n    \"priority_score\": 89.5,\n    \"reasoning\": \"Submitting ITSG-33 SA&A documentation to the TBS audit office is a regulatory compliance obligation with a hard external deadline of 2026-03-12; missing this deadline carries legal, audit, and authority-to-operate consequences that cannot be mitigated after the fact. The task is not started, which is a significant concern given the complexity of SA&A documentation packages and the proximity of the deadline. Zero rollover count suggests this is a new obligation, but the critical risk rating and external regulator involvement make it non-negotiable.\",\n    \"risk_factors\": [\n      \"Critical risk rating\",\n      \"External regulatory deadline \u2014 TBS audit office submission\",\n      \"Not started with only days until deadline\",\n      \"Non-compliance risk: potential loss of authority to operate\",\n      \"ITSG-33 documentation packages are typically labour-intensive to compile\"\n    ],\n    \"evidence_refs\": [],\n    \"confidence\": 0.90\n  },\n  {\n    \"task_id\": \"task_003\",\n    \"rank\": 4,\n    \"priority_level\": \"high\",\n    \"priority_score\": 78.0,\n    \"reasoning\": \"This task has a deadline of 2026-03-10, is rated high risk, and has already rolled over once, suggesting prior scheduling failure. Budget revision approval by the Director is a governance gate that likely unblocks procurement actions, resource allocation, and financial reporting obligations \u2014 deferral risks fiscal year-end complications in a government context. The combination of imminent deadline, rollover history, and financial governance implications places it just below the critical compliance and infrastructure tasks.\",\n    \"risk_factors\": [\n      \"High risk rating\",\n      \"Deadline 2026-03-10 \u2014 imminent\",\n      \"Rollover count of 1 \u2014 previously deferred\",\n      \"Budget approval is a governance gate for downstream procurement and resourcing\",\n      \"Potential fiscal year-end implications in government context\"\n    ],\n    \"evidence_refs\": [],\n    \"confidence\": 0.82\n  },\n  {\n    \"task_id\": \"task_005\",\n    \"rank\": 5,\n    \"priority_level\": \"high\",\n    \"priority_score\": 65.0,\n    \"reasoning\": \"The UAT test plan has a deadline of 2026-03-10 and is currently in progress, which reduces urgency slightly compared to not-started tasks at the same deadline. Distribution to stakeholders is a coordination milestone that, if missed, delays UAT execution and downstream go-live decisions. While rated medium risk, the imminent deadline and stakeholder coordination dependency justify elevating it to high effective priority.\",\n    \"risk_factors\": [\n      \"Deadline 2026-03-10 \u2014 imminent\",\n      \"Stakeholder distribution creates coordination dependency\",\n      \"Delay to UAT plan cascades into UAT execution and go-live schedule\",\n      \"Medium risk rating may understate schedule impact\"\n    ],\n    \"evidence_refs\": [],\n    \"confidence\": 0.78\n  },\n  {\n    \"task_id\": \"task_004\",\n    \"rank\": 6,\n    \"priority_level\": \"high\",\n    \"priority_score\": 62.5,\n    \"reasoning\": \"Knowledge transfer for a departing AD migration expert represents a high-risk single-point-of-failure scenario; once the expert departs, institutional knowledge is permanently lost, making this a time-bounded irreversible risk. The deadline of 2026-03-17 provides a short window, and the task has not started, which is concerning given that effective knowledge transfer typically requires multiple sessions. Rated high risk, this task's priority is driven primarily by the irreversibility of inaction rather than deadline proximity alone.\",\n    \"risk_factors\": [\n      \"High risk rating\",\n      \"Irreversible knowledge loss if expert departs before transfer is complete\",\n      \"Not started \u2014 no progress against a near-term deadline\",\n      \"Single point of failure in AD migration capability\",\n      \"Deadline 2026-03-17 \u2014 one week window\"\n    ],\n    \"evidence_refs\": [],\n    \"confidence\": 0.83\n  },\n  {\n    \"task_id\": \"task_007\",\n    \"rank\": 7,\n    \"priority_level\": \"medium\",\n    \"priority_score\": 52.0,\n    \"reasoning\": \"The Treasury Board submission for GC-Cloud Wave 4 has a deadline of 2026-03-15 and is not started, but is rated medium risk with no rollover history. TB submissions in the Government of Canada follow structured processes with defined lead times, so starting promptly is important to allow for internal review cycles before submission. The medium risk rating and absence of rollover history suggest this is manageable if actioned this week.\",\n    \"risk_factors\": [\n      \"Not started with a 2026-03-15 deadline\",\n      \"Treasury Board submissions require internal review and approval cycles\",\n      \"Medium risk rating\",\n      \"GC-Cloud programme dependencies if submission is delayed\"\n    ],\n    \"evidence_refs\": [],\n    \"confidence\": 0.76\n  },\n  {\n    \"task_id\": \"task_008\",\n    \"rank\": 8,\n    \"priority_level\": \"medium\",\n    \"priority_score\": 47.5,\n    \"reasoning\": \"Despite having no deadline, this task has the highest rollover count in the list at 3, indicating persistent deferral that may be masking a systemic procurement risk related to the NGIS vendor delay. Evaluating alternative suppliers is a strategic risk mitigation action that becomes more valuable the longer the primary vendor delay persists. The low risk rating is likely a baseline assessment that does not fully account for the compounding effect of repeated deferral alongside an active vendor delay on task_001.\",\n    \"risk_factors\": [\n      \"Rollover count of 3 \u2014 highest in the task list, persistent deferral pattern\",\n      \"No deadline creates false sense of low urgency\",\n      \"Directly related to active vendor delay risk on task_001\",\n      \"Low risk rating may not reflect compounding schedule risk\",\n      \"Procurement lead times mean delayed evaluation limits future options\"\n    ],\n    \"evidence_refs\": [],\n    \"confidence\": 0.72\n  },\n  {\n    \"task_id\": \"task_009\",\n    \"rank\": 9,\n    \"priority_level\": \"low\",\n    \"priority_score\": 28.0,\n    \"reasoning\": \"The end-user communication plan has a deadline of 2026-04-01, is rated low risk, and has not started, but the relatively distant deadline and low risk rating place it below all higher-urgency items. Communication planning is nonetheless important for change management in a data centre migration and should be initiated once higher-priority tasks are addressed. No rollover history suggests this is a new task with adequate lead time remaining.\",\n    \"risk_factors\": [\n      \"Not started \u2014 requires lead time for drafting and review\",\n      \"Low risk rating\",\n      \"Deadline 2026-04-01 \u2014 approximately three weeks away\",\n      \"Change management gap if communication is delayed close to migration date\"\n    ],\n    \"evidence_refs\": [],\n    \"confidence\": 0.80\n  },\n  {\n    \"task_id\": \"task_010\",\n    \"rank\": 10,\n    \"priority_level\": \"low\",\n    \"priority_score\": 8.5,\n    \"reasoning\": \"Updating project charter formatting and version numbering is an administrative housekeeping task with no risk rating, no rollover history, and a distant deadline of 2026-04-15. It carries no operational, compliance, or schedule risk and should only be actioned after all substantive tasks are addressed. This task is the lowest priority item in the list by every evaluated dimension.\",\n    \"risk_factors\": [\n      \"No risk rating assigned \u2014 effectively negligible risk\",\n      \"Purely administrative task with no operational impact\",\n      \"Deadline 2026-04-15 \u2014 furthest deadline in the list\",\n      \"Zero rollover count and not started \u2014 no urgency signal\"\n    ],\n    \"evidence_refs\": [],\n    \"confidence\": 0.95\n  }\n]\n```",
+      "parsed_json": [
+        {
+          "task_id": "task_006",
+          "rank": 1,
+          "priority_level": "critical",
+          "priority_score": 94.5,
+          "reasoning": "This task has the earliest deadline of 2026-03-07, making it the most time-critical item in the list \u2014 it is already at or near due. Although rated medium risk in isolation, the impact assessment directly informs the vendor delay resolution (task_001) and Site A migration planning, creating an implicit upstream dependency that elevates its effective priority significantly. Failure to complete this assessment first means downstream decisions on the NGIS Phase 3 network issues cannot be made with full situational awareness.",
+          "risk_factors": [
+            "Earliest deadline in the task list (2026-03-07)",
+            "Not started \u2014 zero progress against an imminent deadline",
+            "Implicit upstream dependency: blocks informed action on task_001 and site migration planning",
+            "Vendor delay context means impact scope is unknown until this is done"
+          ],
+          "evidence_refs": [],
+          "confidence": 0.85
+        },
+        {
+          "task_id": "task_001",
+          "rank": 2,
+          "priority_level": "critical",
+          "priority_score": 91.0,
+          "reasoning": "Rated critical risk with a deadline of 2026-03-10 and a rollover count of 2, indicating this issue has already been deferred twice and carries compounding schedule risk for the NGIS Phase 3 programme. Vendor delays on network equipment in a government infrastructure programme typically cascade into site migration cutovers, procurement compliance issues, and capital expenditure lapses, making continued deferral increasingly costly. The high rollover count signals organizational friction that requires senior escalation.",
+          "risk_factors": [
+            "Critical risk rating",
+            "Rollover count of 2 \u2014 repeated deferral pattern",
+            "Deadline 2026-03-10 \u2014 imminent",
+            "Vendor dependency introduces external schedule risk outside direct control",
+            "Likely cascading impact on NGIS Phase 3 downstream milestones"
+          ],
+          "evidence_refs": [],
+          "confidence": 0.88
+        },
+        {
+          "task_id": "task_002",
+          "rank": 3,
+          "priority_level": "critical",
+          "priority_score": 89.5,
+          "reasoning": "Submitting ITSG-33 SA&A documentation to the TBS audit office is a regulatory compliance obligation with a hard external deadline of 2026-03-12; missing this deadline carries legal, audit, and authority-to-operate consequences that cannot be mitigated after the fact. The task is not started, which is a significant concern given the complexity of SA&A documentation packages and the proximity of the deadline. Zero rollover count suggests this is a new obligation, but the critical risk rating and external regulator involvement make it non-negotiable.",
+          "risk_factors": [
+            "Critical risk rating",
+            "External regulatory deadline \u2014 TBS audit office submission",
+            "Not started with only days until deadline",
+            "Non-compliance risk: potential loss of authority to operate",
+            "ITSG-33 documentation packages are typically labour-intensive to compile"
+          ],
+          "evidence_refs": [],
+          "confidence": 0.9
+        },
+        {
+          "task_id": "task_003",
+          "rank": 4,
+          "priority_level": "high",
+          "priority_score": 78.0,
+          "reasoning": "This task has a deadline of 2026-03-10, is rated high risk, and has already rolled over once, suggesting prior scheduling failure. Budget revision approval by the Director is a governance gate that likely unblocks procurement actions, resource allocation, and financial reporting obligations \u2014 deferral risks fiscal year-end complications in a government context. The combination of imminent deadline, rollover history, and financial governance implications places it just below the critical compliance and infrastructure tasks.",
+          "risk_factors": [
+            "High risk rating",
+            "Deadline 2026-03-10 \u2014 imminent",
+            "Rollover count of 1 \u2014 previously deferred",
+            "Budget approval is a governance gate for downstream procurement and resourcing",
+            "Potential fiscal year-end implications in government context"
+          ],
+          "evidence_refs": [],
+          "confidence": 0.82
+        },
+        {
+          "task_id": "task_005",
+          "rank": 5,
+          "priority_level": "high",
+          "priority_score": 65.0,
+          "reasoning": "The UAT test plan has a deadline of 2026-03-10 and is currently in progress, which reduces urgency slightly compared to not-started tasks at the same deadline. Distribution to stakeholders is a coordination milestone that, if missed, delays UAT execution and downstream go-live decisions. While rated medium risk, the imminent deadline and stakeholder coordination dependency justify elevating it to high effective priority.",
+          "risk_factors": [
+            "Deadline 2026-03-10 \u2014 imminent",
+            "Stakeholder distribution creates coordination dependency",
+            "Delay to UAT plan cascades into UAT execution and go-live schedule",
+            "Medium risk rating may understate schedule impact"
+          ],
+          "evidence_refs": [],
+          "confidence": 0.78
+        },
+        {
+          "task_id": "task_004",
+          "rank": 6,
+          "priority_level": "high",
+          "priority_score": 62.5,
+          "reasoning": "Knowledge transfer for a departing AD migration expert represents a high-risk single-point-of-failure scenario; once the expert departs, institutional knowledge is permanently lost, making this a time-bounded irreversible risk. The deadline of 2026-03-17 provides a short window, and the task has not started, which is concerning given that effective knowledge transfer typically requires multiple sessions. Rated high risk, this task's priority is driven primarily by the irreversibility of inaction rather than deadline proximity alone.",
+          "risk_factors": [
+            "High risk rating",
+            "Irreversible knowledge loss if expert departs before transfer is complete",
+            "Not started \u2014 no progress against a near-term deadline",
+            "Single point of failure in AD migration capability",
+            "Deadline 2026-03-17 \u2014 one week window"
+          ],
+          "evidence_refs": [],
+          "confidence": 0.83
+        },
+        {
+          "task_id": "task_007",
+          "rank": 7,
+          "priority_level": "medium",
+          "priority_score": 52.0,
+          "reasoning": "The Treasury Board submission for GC-Cloud Wave 4 has a deadline of 2026-03-15 and is not started, but is rated medium risk with no rollover history. TB submissions in the Government of Canada follow structured processes with defined lead times, so starting promptly is important to allow for internal review cycles before submission. The medium risk rating and absence of rollover history suggest this is manageable if actioned this week.",
+          "risk_factors": [
+            "Not started with a 2026-03-15 deadline",
+            "Treasury Board submissions require internal review and approval cycles",
+            "Medium risk rating",
+            "GC-Cloud programme dependencies if submission is delayed"
+          ],
+          "evidence_refs": [],
+          "confidence": 0.76
+        },
+        {
+          "task_id": "task_008",
+          "rank": 8,
+          "priority_level": "medium",
+          "priority_score": 47.5,
+          "reasoning": "Despite having no deadline, this task has the highest rollover count in the list at 3, indicating persistent deferral that may be masking a systemic procurement risk related to the NGIS vendor delay. Evaluating alternative suppliers is a strategic risk mitigation action that becomes more valuable the longer the primary vendor delay persists. The low risk rating is likely a baseline assessment that does not fully account for the compounding effect of repeated deferral alongside an active vendor delay on task_001.",
+          "risk_factors": [
+            "Rollover count of 3 \u2014 highest in the task list, persistent deferral pattern",
+            "No deadline creates false sense of low urgency",
+            "Directly related to active vendor delay risk on task_001",
+            "Low risk rating may not reflect compounding schedule risk",
+            "Procurement lead times mean delayed evaluation limits future options"
+          ],
+          "evidence_refs": [],
+          "confidence": 0.72
+        },
+        {
+          "task_id": "task_009",
+          "rank": 9,
+          "priority_level": "low",
+          "priority_score": 28.0,
+          "reasoning": "The end-user communication plan has a deadline of 2026-04-01, is rated low risk, and has not started, but the relatively distant deadline and low risk rating place it below all higher-urgency items. Communication planning is nonetheless important for change management in a data centre migration and should be initiated once higher-priority tasks are addressed. No rollover history suggests this is a new task with adequate lead time remaining.",
+          "risk_factors": [
+            "Not started \u2014 requires lead time for drafting and review",
+            "Low risk rating",
+            "Deadline 2026-04-01 \u2014 approximately three weeks away",
+            "Change management gap if communication is delayed close to migration date"
+          ],
+          "evidence_refs": [],
+          "confidence": 0.8
+        },
+        {
+          "task_id": "task_010",
+          "rank": 10,
+          "priority_level": "low",
+          "priority_score": 8.5,
+          "reasoning": "Updating project charter formatting and version numbering is an administrative housekeeping task with no risk rating, no rollover history, and a distant deadline of 2026-04-15. It carries no operational, compliance, or schedule risk and should only be actioned after all substantive tasks are addressed. This task is the lowest priority item in the list by every evaluated dimension.",
+          "risk_factors": [
+            "No risk rating assigned \u2014 effectively negligible risk",
+            "Purely administrative task with no operational impact",
+            "Deadline 2026-04-15 \u2014 furthest deadline in the list",
+            "Zero rollover count and not started \u2014 no urgency signal"
+          ],
+          "evidence_refs": [],
+          "confidence": 0.95
+        }
+      ],
+      "error": null
+    },
+    {
+      "tier": "large",
+      "model": "anthropic/claude-sonnet-4.6",
+      "latency_ms": 35712.4,
+      "content": "```json\n[\n  {\n    \"task_id\": \"task_002\",\n    \"rank\": 1,\n    \"priority_level\": \"critical\",\n    \"priority_score\": 97.5,\n    \"reasoning\": \"This task carries the highest combined urgency: a rollover count of 5 indicates chronic deferral creating significant compliance exposure, the deadline of 2026-03-12 is imminent, and 3 downstream dependencies are blocked pending completion. ITSG-33 SA&A submissions to TBS are a mandatory regulatory obligation; failure to submit risks audit findings, project holds, or authority-to-operate revocation.\",\n    \"risk_factors\": [\n      \"Regulatory non-compliance with ITSG-33 and TBS audit requirements\",\n      \"5 rollovers indicating systemic avoidance or blockers not yet resolved\",\n      \"3 blocked dependencies compounding project-wide delays\",\n      \"Not started despite imminent deadline\",\n      \"Potential authority-to-operate (ATO) revocation risk\"\n    ],\n    \"evidence_refs\": [],\n    \"confidence\": 0.95\n  },\n  {\n    \"task_id\": \"task_006\",\n    \"rank\": 2,\n    \"priority_level\": \"critical\",\n    \"priority_score\": 88.0,\n    \"reasoning\": \"Task_006 has the earliest deadline in the entire task list at 2026-03-07, meaning it is likely already overdue or due imminently, and it is not yet started. Although rated medium risk in isolation, the impact assessment of a vendor delay on a site migration cutover is a prerequisite to informed decision-making on task_001 and task_008, making it a de facto blocker for those workstreams.\",\n    \"risk_factors\": [\n      \"Earliest deadline across all tasks \u2014 likely past due\",\n      \"Not started status despite urgency\",\n      \"Logical prerequisite to resolving vendor delay (task_001) and supplier evaluation (task_008)\",\n      \"Unassessed cutover impact could cause unplanned downtime or scope creep\"\n    ],\n    \"evidence_refs\": [],\n    \"confidence\": 0.90\n  },\n  {\n    \"task_id\": \"task_001\",\n    \"rank\": 3,\n    \"priority_level\": \"critical\",\n    \"priority_score\": 84.0,\n    \"reasoning\": \"Rated critical risk with a deadline of 2026-03-10 and a rollover count of 2, this task represents an ongoing supply chain failure that threatens NGIS Phase 3 delivery timelines. While no direct dependencies are recorded, the vendor delay is contextually linked to the impact assessment (task_006) and supplier evaluation (task_008), meaning resolution here unblocks broader programme progress.\",\n    \"risk_factors\": [\n      \"Critical risk rating with 2 rollovers indicating persistent unresolved vendor issue\",\n      \"Deadline 2026-03-10 \u2014 imminent\",\n      \"Supply chain failure risk for government network infrastructure\",\n      \"Implicit dependency relationship with task_006 and task_008\"\n    ],\n    \"evidence_refs\": [],\n    \"confidence\": 0.88\n  },\n  {\n    \"task_id\": \"task_003\",\n    \"rank\": 4,\n    \"priority_level\": \"high\",\n    \"priority_score\": 75.5,\n    \"reasoning\": \"A budget revision request requiring Director approval has a hard deadline of 2026-03-10 and is already in progress, suggesting it is near completion but must not slip. Budget approval gates are typically upstream dependencies for procurement, resourcing, and contract actions; missing this deadline could freeze financial authorities for the broader programme.\",\n    \"risk_factors\": [\n      \"Hard deadline 2026-03-10 with Director-level approval dependency\",\n      \"Budget freeze risk if approval is not obtained before fiscal period close\",\n      \"1 rollover indicates prior deferral\",\n      \"Potential downstream impact on procurement and resourcing decisions\"\n    ],\n    \"evidence_refs\": [],\n    \"confidence\": 0.85\n  },\n  {\n    \"task_id\": \"task_004\",\n    \"rank\": 5,\n    \"priority_level\": \"high\",\n    \"priority_score\": 68.0,\n    \"reasoning\": \"Knowledge transfer for a departing AD migration expert is a time-sensitive, irreversible risk: once the expert departs, institutional knowledge is permanently lost. The deadline of 2026-03-17 is approaching and the task has not started, making immediate initiation critical to capture sufficient documentation and shadowing time before departure.\",\n    \"risk_factors\": [\n      \"Irreversible knowledge loss risk upon expert departure\",\n      \"Not started with deadline 2026-03-17\",\n      \"Active Directory migration is a high-complexity, high-impact workstream\",\n      \"No rollover history suggests this is newly identified, reducing available lead time\"\n    ],\n    \"evidence_refs\": [],\n    \"confidence\": 0.87\n  },\n  {\n    \"task_id\": \"task_005\",\n    \"rank\": 6,\n    \"priority_level\": \"high\",\n    \"priority_score\": 58.0,\n    \"reasoning\": \"The UAT test plan has a deadline of 2026-03-10 and is in progress, but with no rollovers and medium risk it is tracking reasonably. However, UAT plans are typically a prerequisite for testing phases involving multiple stakeholders; failure to distribute on time delays the entire testing cycle and downstream go-live milestones.\",\n    \"risk_factors\": [\n      \"Deadline 2026-03-10 \u2014 imminent\",\n      \"Stakeholder distribution delay could cascade into UAT phase slippage\",\n      \"Testing phase gate dependency implied by nature of deliverable\"\n    ],\n    \"evidence_refs\": [],\n    \"confidence\": 0.80\n  },\n  {\n    \"task_id\": \"task_007\",\n    \"rank\": 7,\n    \"priority_level\": \"medium\",\n    \"priority_score\": 47.0,\n    \"reasoning\": \"The Treasury Board submission for GC-Cloud Wave 4 has a deadline of 2026-03-15 and has not started, which warrants prompt attention given the formal nature of TB submissions and their typically long internal review cycles. No rollovers and medium risk suggest this is manageable if actioned immediately, but delay risks missing the TB submission window.\",\n    \"risk_factors\": [\n      \"Not started with 2026-03-15 deadline\",\n      \"Treasury Board submissions require multi-stakeholder review and sign-off\",\n      \"Missing TB submission window could delay GC-Cloud Wave 4 by a full TB cycle\"\n    ],\n    \"evidence_refs\": [],\n    \"confidence\": 0.78\n  },\n  {\n    \"task_id\": \"task_008\",\n    \"rank\": 8,\n    \"priority_level\": \"medium\",\n    \"priority_score\": 38.5,\n    \"reasoning\": \"Evaluating alternative suppliers is in progress with no hard deadline, but a rollover count of 3 signals that this task is being repeatedly deferred despite its strategic importance as a contingency to the vendor delay affecting NGIS Phase 3. The absence of a deadline reduces urgency scoring, but the rollover pattern and contextual linkage to task_001 and task_006 elevate its practical priority.\",\n    \"risk_factors\": [\n      \"3 rollovers with no deadline \u2014 risk of indefinite deferral\",\n      \"Contingency planning gap if primary vendor delay is not resolved\",\n      \"Contextually linked to critical vendor delay workstream (task_001)\"\n    ],\n    \"evidence_refs\": [],\n    \"confidence\": 0.75\n  },\n  {\n    \"task_id\": \"task_009\",\n    \"rank\": 9,\n    \"priority_level\": \"low\",\n    \"priority_score\": 22.0,\n    \"reasoning\": \"The end-user communication plan for the data centre migration has a deadline of 2026-04-01, providing adequate lead time relative to current tasks. Low risk rating and zero rollovers indicate no prior issues; however, it should be initiated soon to allow for stakeholder review cycles before the deadline.\",\n    \"risk_factors\": [\n      \"Not started \u2014 requires lead time for stakeholder review and approval\",\n      \"User adoption risk if communication is delayed or inadequate\",\n      \"Dependent on migration timeline stability, which is currently uncertain due to vendor delays\"\n    ],\n    \"evidence_refs\": [],\n    \"confidence\": 0.80\n  },\n  {\n    \"task_id\": \"task_010\",\n    \"rank\": 10,\n    \"priority_level\": \"low\",\n    \"priority_score\": 5.0,\n    \"reasoning\": \"Updating project charter formatting and version numbering is an administrative housekeeping task with a distant deadline of 2026-04-15, no risk rating, zero rollovers, and no blocked dependencies. It carries no material programme risk and should be completed opportunistically when higher-priority work permits.\",\n    \"risk_factors\": [\n      \"No risk rating assigned \u2014 negligible programme impact\",\n      \"Purely administrative with no downstream dependencies\",\n      \"Risk of indefinite deferral if not scheduled proactively\"\n    ],\n    \"evidence_refs\": [],\n    \"confidence\": 0.95\n  }\n]\n```",
+      "parsed_json": [
+        {
+          "task_id": "task_002",
+          "rank": 1,
+          "priority_level": "critical",
+          "priority_score": 97.5,
+          "reasoning": "This task carries the highest combined urgency: a rollover count of 5 indicates chronic deferral creating significant compliance exposure, the deadline of 2026-03-12 is imminent, and 3 downstream dependencies are blocked pending completion. ITSG-33 SA&A submissions to TBS are a mandatory regulatory obligation; failure to submit risks audit findings, project holds, or authority-to-operate revocation.",
+          "risk_factors": [
+            "Regulatory non-compliance with ITSG-33 and TBS audit requirements",
+            "5 rollovers indicating systemic avoidance or blockers not yet resolved",
+            "3 blocked dependencies compounding project-wide delays",
+            "Not started despite imminent deadline",
+            "Potential authority-to-operate (ATO) revocation risk"
+          ],
+          "evidence_refs": [],
+          "confidence": 0.95
+        },
+        {
+          "task_id": "task_006",
+          "rank": 2,
+          "priority_level": "critical",
+          "priority_score": 88.0,
+          "reasoning": "Task_006 has the earliest deadline in the entire task list at 2026-03-07, meaning it is likely already overdue or due imminently, and it is not yet started. Although rated medium risk in isolation, the impact assessment of a vendor delay on a site migration cutover is a prerequisite to informed decision-making on task_001 and task_008, making it a de facto blocker for those workstreams.",
+          "risk_factors": [
+            "Earliest deadline across all tasks \u2014 likely past due",
+            "Not started status despite urgency",
+            "Logical prerequisite to resolving vendor delay (task_001) and supplier evaluation (task_008)",
+            "Unassessed cutover impact could cause unplanned downtime or scope creep"
+          ],
+          "evidence_refs": [],
+          "confidence": 0.9
+        },
+        {
+          "task_id": "task_001",
+          "rank": 3,
+          "priority_level": "critical",
+          "priority_score": 84.0,
+          "reasoning": "Rated critical risk with a deadline of 2026-03-10 and a rollover count of 2, this task represents an ongoing supply chain failure that threatens NGIS Phase 3 delivery timelines. While no direct dependencies are recorded, the vendor delay is contextually linked to the impact assessment (task_006) and supplier evaluation (task_008), meaning resolution here unblocks broader programme progress.",
+          "risk_factors": [
+            "Critical risk rating with 2 rollovers indicating persistent unresolved vendor issue",
+            "Deadline 2026-03-10 \u2014 imminent",
+            "Supply chain failure risk for government network infrastructure",
+            "Implicit dependency relationship with task_006 and task_008"
+          ],
+          "evidence_refs": [],
+          "confidence": 0.88
+        },
+        {
+          "task_id": "task_003",
+          "rank": 4,
+          "priority_level": "high",
+          "priority_score": 75.5,
+          "reasoning": "A budget revision request requiring Director approval has a hard deadline of 2026-03-10 and is already in progress, suggesting it is near completion but must not slip. Budget approval gates are typically upstream dependencies for procurement, resourcing, and contract actions; missing this deadline could freeze financial authorities for the broader programme.",
+          "risk_factors": [
+            "Hard deadline 2026-03-10 with Director-level approval dependency",
+            "Budget freeze risk if approval is not obtained before fiscal period close",
+            "1 rollover indicates prior deferral",
+            "Potential downstream impact on procurement and resourcing decisions"
+          ],
+          "evidence_refs": [],
+          "confidence": 0.85
+        },
+        {
+          "task_id": "task_004",
+          "rank": 5,
+          "priority_level": "high",
+          "priority_score": 68.0,
+          "reasoning": "Knowledge transfer for a departing AD migration expert is a time-sensitive, irreversible risk: once the expert departs, institutional knowledge is permanently lost. The deadline of 2026-03-17 is approaching and the task has not started, making immediate initiation critical to capture sufficient documentation and shadowing time before departure.",
+          "risk_factors": [
+            "Irreversible knowledge loss risk upon expert departure",
+            "Not started with deadline 2026-03-17",
+            "Active Directory migration is a high-complexity, high-impact workstream",
+            "No rollover history suggests this is newly identified, reducing available lead time"
+          ],
+          "evidence_refs": [],
+          "confidence": 0.87
+        },
+        {
+          "task_id": "task_005",
+          "rank": 6,
+          "priority_level": "high",
+          "priority_score": 58.0,
+          "reasoning": "The UAT test plan has a deadline of 2026-03-10 and is in progress, but with no rollovers and medium risk it is tracking reasonably. However, UAT plans are typically a prerequisite for testing phases involving multiple stakeholders; failure to distribute on time delays the entire testing cycle and downstream go-live milestones.",
+          "risk_factors": [
+            "Deadline 2026-03-10 \u2014 imminent",
+            "Stakeholder distribution delay could cascade into UAT phase slippage",
+            "Testing phase gate dependency implied by nature of deliverable"
+          ],
+          "evidence_refs": [],
+          "confidence": 0.8
+        },
+        {
+          "task_id": "task_007",
+          "rank": 7,
+          "priority_level": "medium",
+          "priority_score": 47.0,
+          "reasoning": "The Treasury Board submission for GC-Cloud Wave 4 has a deadline of 2026-03-15 and has not started, which warrants prompt attention given the formal nature of TB submissions and their typically long internal review cycles. No rollovers and medium risk suggest this is manageable if actioned immediately, but delay risks missing the TB submission window.",
+          "risk_factors": [
+            "Not started with 2026-03-15 deadline",
+            "Treasury Board submissions require multi-stakeholder review and sign-off",
+            "Missing TB submission window could delay GC-Cloud Wave 4 by a full TB cycle"
+          ],
+          "evidence_refs": [],
+          "confidence": 0.78
+        },
+        {
+          "task_id": "task_008",
+          "rank": 8,
+          "priority_level": "medium",
+          "priority_score": 38.5,
+          "reasoning": "Evaluating alternative suppliers is in progress with no hard deadline, but a rollover count of 3 signals that this task is being repeatedly deferred despite its strategic importance as a contingency to the vendor delay affecting NGIS Phase 3. The absence of a deadline reduces urgency scoring, but the rollover pattern and contextual linkage to task_001 and task_006 elevate its practical priority.",
+          "risk_factors": [
+            "3 rollovers with no deadline \u2014 risk of indefinite deferral",
+            "Contingency planning gap if primary vendor delay is not resolved",
+            "Contextually linked to critical vendor delay workstream (task_001)"
+          ],
+          "evidence_refs": [],
+          "confidence": 0.75
+        },
+        {
+          "task_id": "task_009",
+          "rank": 9,
+          "priority_level": "low",
+          "priority_score": 22.0,
+          "reasoning": "The end-user communication plan for the data centre migration has a deadline of 2026-04-01, providing adequate lead time relative to current tasks. Low risk rating and zero rollovers indicate no prior issues; however, it should be initiated soon to allow for stakeholder review cycles before the deadline.",
+          "risk_factors": [
+            "Not started \u2014 requires lead time for stakeholder review and approval",
+            "User adoption risk if communication is delayed or inadequate",
+            "Dependent on migration timeline stability, which is currently uncertain due to vendor delays"
+          ],
+          "evidence_refs": [],
+          "confidence": 0.8
+        },
+        {
+          "task_id": "task_010",
+          "rank": 10,
+          "priority_level": "low",
+          "priority_score": 5.0,
+          "reasoning": "Updating project charter formatting and version numbering is an administrative housekeeping task with a distant deadline of 2026-04-15, no risk rating, zero rollovers, and no blocked dependencies. It carries no material programme risk and should be completed opportunistically when higher-priority work permits.",
+          "risk_factors": [
+            "No risk rating assigned \u2014 negligible programme impact",
+            "Purely administrative with no downstream dependencies",
+            "Risk of indefinite deferral if not scheduled proactively"
+          ],
+          "evidence_refs": [],
+          "confidence": 0.95
+        }
+      ],
+      "error": null
+    }
+  ]
+}

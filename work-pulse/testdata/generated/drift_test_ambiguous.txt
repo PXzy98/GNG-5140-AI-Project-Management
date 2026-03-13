@@ -1,0 +1,34 @@
+From: noc-team@ssc-spc.gc.ca
+To: alice.tran@ssc-spc.gc.ca
+Subject: Network Operations Centre — Monitoring Tooling Question
+Date: March 7, 2026
+
+Hi Alice,
+
+During our review of the Site A migration runbook, our NOC team raised
+a question that we wanted to flag to the project.
+
+Currently, the NOC uses SolarWinds NPM for network monitoring across all
+GC infrastructure. As part of the Catalyst 9500 switch deployment, we
+will need to ensure that the new switches are properly onboarded into
+the SolarWinds platform with appropriate polling intervals and alert
+thresholds.
+
+However, our NOC manager has also flagged that SolarWinds' support for
+the Catalyst 9500 platform requires upgrading the NPM module to version
+2024.1, which we are not currently running. This upgrade involves changes
+to the SolarWinds configuration and database schema.
+
+Question: Should the NPM upgrade be included as part of the NGIS Phase 3
+network migration activities? Or should it be handled separately?
+
+We want to flag this because:
+- If we do it as part of NGIS Phase 3: the switches will be properly
+  monitored from day one, but it involves changes to NOC tooling
+  (which might be considered "network monitoring tool upgrades").
+- If we do it separately: we risk a monitoring gap during the initial
+  post-migration period.
+
+We defer to the project team's judgment on how to classify this work.
+
+NOC Team, SSC Infrastructure Operations

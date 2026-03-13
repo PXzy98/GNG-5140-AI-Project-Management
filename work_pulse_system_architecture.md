@@ -1,6 +1,6 @@
 # Work Pulse — System Architecture & API Design
 
-> Version 0.1 | March 2026
+> Version 0.2 | March 2026 (Daily Brief Service redesign: Priority Ranker + Daily Planner merged)
 > Target: SSC AI-Powered Project Management Assistant
 > User Stories: Daily PM (US1) · Risk Checker (US2) · Scope Creep Prevention (US3)
 
@@ -16,17 +16,20 @@
                                │ REST / WebSocket
 ┌──────────────────────────────▼──────────────────────────────────────────┐
 │                        API GATEWAY (FastAPI)                            │
-│  ┌────────────┐ ┌──────────────┐ ┌──────────────┐ ┌────────────────┐  │
-│  │ Ingestion   │ │ Priority     │ │ Risk Engine  │ │ Drift Detector │  │
-│  │ Service     │ │ Ranker       │ │ Service      │ │ Service        │  │
-│  └──────┬─────┘ └──────┬───────┘ └──────┬───────┘ └──────┬─────────┘  │
-│         │              │                │                │             │
-│  ┌──────▼──────────────▼────────────────▼────────────────▼──────────┐  │
-│  │                    SHARED MIDDLEWARE LAYER                        │  │
-│  │  AuditLogger · BilingualProcessor · LLMClient                    │  │
-│  │  (Auth/RBAC: deferred — single-user prototype)                   │  │
-│  └──────────────────────────┬───────────────────────────────────────┘  │
-└─────────────────────────────┼───────────────────────────────────────────┘
+│  ┌────────────┐ ┌───────────────────────────┐ ┌──────────┐ ┌────────┐ │
+│  │ Ingestion   │ │   DAILY BRIEF SERVICE     │ │ Risk     │ │ Drift  │ │
+│  │ Service     │ │                           │ │ Engine   │ │Detector│ │
+│  │             │ │  ┌─────────────────────┐  │ │ Service  │ │Service │ │
+│  │             │ │  │  Priority Ranker    │  │ │          │ │        │ │
+│  │             │ │  │  (internal component)│  │ │          │ │        │ │
+│  │             │ │  └─────────────────────┘  │ │          │ │        │ │
+│  └──────┬─────┘ └────────────┬──────────────┘ └─────┬────┘ └───┬────┘ │
+│         │                    │                      │          │      │
+│  ┌──────▼────────────────────▼──────────────────────▼──────────▼───┐  │
+│  │                    SHARED MIDDLEWARE LAYER                       │  │
+│  │  AuditLogger · BilingualProcessor · LLMClient                   │  │
+│  └─────────────────────────────────────────────────────────────────┘  │
+└──────────────────────────────────────────────────────────────────────────┘
                               │
          ┌────────────────────┼────────────────────┐
          ▼                    ▼                    ▼
@@ -298,100 +301,592 @@ Bot mailbox polls via IMAP or receives webhook from mail server.
 
 ---
 
-### 4.2 Priority Ranker Service
+### 4.2 Daily Brief Service (Merged with Priority Ranker)
 
-**Purpose**: Given a set of tasks + project context, produce a prioritized ranking with transparent reasoning.
+> **Design change**: Priority Ranker (previously a standalone service) and Daily Planner (former Section 4.5) are merged into **Daily Brief Service**. Priority Ranker is now an internal component and is no longer exposed as a standalone API.
+
+**Purpose**: A single daily entry point for PMs. It handles three core responsibilities: morning brief generation, mid-day dynamic re-ranking, and end-of-day close with task rollover.
+
+#### Design Principles
+
+1. **Daily Brief is the primary service, and Priority Ranker is an internal component**
+2. Morning brief generation — triggered daily on schedule, aggregates rolled-over tasks + today's due items + active risks, and calls Priority Ranker internally for sorting
+3. Mid-day dynamic updates — new emails/artifacts trigger re-ranking, update the current order, and push updates to the Dashboard
+4. End-of-day close + rollover — closes today's plan and rolls unfinished tasks into the next day
 
 #### Endpoints
 
 ```
-POST   /api/v1/priority/rank            — Rank a set of tasks
-GET    /api/v1/priority/rank/{id}        — Get a previous ranking result
-POST   /api/v1/priority/rerank          — Re-rank after user correction
+# ── Morning Brief ──
+POST   /api/v1/brief/generate              — Generate today's brief (scheduled trigger or manual)
+GET    /api/v1/brief/today                  — Get today's brief (shortcut)
+GET    /api/v1/brief/{date}                 — Get brief for a specific date
+POST   /api/v1/brief/{date}/regenerate      — Regenerate brief with latest data
+
+# ── Task Management (within Daily Brief) ──
+GET    /api/v1/brief/{date}/tasks           — Get today's task list (already ranked)
+PUT    /api/v1/brief/{date}/tasks/{task_id} — Update task status
+POST   /api/v1/brief/{date}/tasks           — Add task manually
+DELETE /api/v1/brief/{date}/tasks/{task_id} — Remove task
+
+# ── Mid-Day Re-Rank ──
+POST   /api/v1/brief/{date}/rerank          — Manually trigger re-ranking
+POST   /api/v1/brief/{date}/inject          — Inject a new task and trigger re-rank
+GET    /api/v1/brief/{date}/ranking-history  — View ranking change history
+
+# ── End-of-Day Close ──
+POST   /api/v1/brief/{date}/close           — Close the day and trigger rollover
+GET    /api/v1/brief/{date}/report          — Get full daily report (morning + EOD)
+
+# ── Stats ──
+GET    /api/v1/brief/history                — Historical brief list (paginated)
+GET    /api/v1/brief/streak                 — Completion-rate statistics
 ```
 
-#### Processing Pipeline
+#### Flow A: Morning Brief Generation (Scheduled Trigger)
 
 ```
-Input: task_ids[] + project_context
+Trigger: Daily CRON at 07:00 / user manual `POST /brief/generate`
   │
   ▼
-Context Assembler
-  ├── Fetch tasks from DB (status, deadline, owner, dependencies)
-  ├── Fetch related artifacts (recent emails, meeting notes)
-  ├── Fetch project risk scores (from Risk Engine)
-  └── Build context window for LLM
-  │
-  ▼
-LLM Priority Analysis
-  │  System prompt:
-  │  "You are a project management assistant for Government of Canada projects.
-  │   Given the following tasks and project context, rank by priority.
-  │   For each task, provide:
-  │   - rank (1 = highest)
-  │   - priority_level: Critical / High / Medium / Low
-  │   - reasoning (2-3 sentences citing specific evidence)
-  │   - risk_factors contributing to priority
-  │   - evidence_refs: list of artifact_ids supporting your reasoning
-  │   Return as JSON array."
-  │
-  ▼
-Post-Processing
-  ├── Validate JSON structure
-  ├── Verify evidence_refs exist in DB
-  ├── Compute confidence score (based on context completeness)
-  ├── Apply deadline proximity boost (rule-based adjustment)
-  └── Store ranking result with version
-  │
-  ▼
-Output: PriorityRanking record ──→ PostgreSQL
-                                ──→ Redis (cache for Dashboard Top-K)
+┌─────────────────────────────────────────────────────────────────┐
+│  STEP 1: Context Assembly (Data Collection)                      │
+│                                                                 │
+│  Parallel queries:                                               │
+│  ├── [DB] Yesterday's rolled_over tasks (daily_plan_tasks.status='rolled_over')
+│  ├── [DB] Tasks due today / overdue (tasks.deadline <= today)    │
+│  ├── [DB] Newly ingested artifacts in the last 24h               │
+│  ├── [DB] Active risks (risks.status='open', risk_level >= 'high')│
+│  └── [DB] Yesterday's drift alerts (drift_alerts.created_at = yesterday)│
+│                                                                 │
+│  Output: BriefContext {                                          │
+│    rolled_over_tasks[], due_today_tasks[],                       │
+│    new_artifacts[], active_risks[], drift_alerts[]               │
+│  }                                                              │
+└──────────────────────┬──────────────────────────────────────────┘
+                       ▼
+┌─────────────────────────────────────────────────────────────────┐
+│  STEP 2: Task Extraction from New Artifacts                      │
+│                                                                 │
+│  For each new artifact not yet processed:                        │
+│  LLM Prompt:                                                    │
+│  "Extract executable tasks/action items from the following text.  │
+│   For each task, return: name, deadline (if mentioned), urgency, project_ref,│
+│   source_artifact_id"                                           │
+│                                                                 │
+│  Output: NewExtractedTask[]                                      │
+│  → Write to `tasks` table (ai_generated=true, human_verified=false)│
+└──────────────────────┬──────────────────────────────────────────┘
+                       ▼
+┌─────────────────────────────────────────────────────────────────┐
+│  STEP 3: Priority Ranking (Call Internal Priority Ranker)        │
+│                                                                 │
+│  Input: ALL today's candidate tasks                              │
+│    = rolled_over + due_today + newly_extracted + manual          │
+│                                                                 │
+│  Priority Ranker executes:                                       │
+│  ├── Fetch related artifacts (context window = 7d)               │
+│  ├── Fetch project risk scores from Risk Engine                  │
+│  ├── LLM ranking with evidence + reasoning                       │
+│  ├── Rule-based adjustments (deadline boost, chronic blocker)    │
+│  └── Return: RankedTask[] with priority_score, reasoning,        │
+│             evidence_refs, confidence                            │
+│                                                                 │
+│  Output: PriorityRanking record                                  │
+│  → Write to `priority_rankings` table                            │
+│  → Update `tasks.priority_score`                                 │
+└──────────────────────┬──────────────────────────────────────────┘
+                       ▼
+┌─────────────────────────────────────────────────────────────────┐
+│  STEP 4: Brief Report Generation                                 │
+│                                                                 │
+│  LLM Prompt:                                                    │
+│  "You are a project management assistant for the Government of Canada.│
+│   Based on the ranked task list, active risks, and new updates below,│
+│   generate a concise morning brief:                               │
+│   1. Executive Summary (2-3 sentences on today's focus)           │
+│   2. Top Priority Items (top 5 tasks + reason)                    │
+│   3. Rolled-Over Warnings (warnings for repeatedly unfinished tasks)│
+│   4. Risk Alerts (key risk changes)                               │
+│   5. New Items (new tasks extracted from new emails/documents)    │
+│   Format: JSON { summary, sections[], warnings[] }"             │
+│                                                                 │
+│  Output: MorningBrief                                            │
+└──────────────────────┬──────────────────────────────────────────┘
+                       ▼
+┌─────────────────────────────────────────────────────────────────┐
+│  STEP 5: Store & Publish                                          │
+│                                                                 │
+│  ├── `daily_plans` table: write/update today's record             │
+│  ├── `daily_plan_tasks` table: write ranked task list             │
+│  ├── Redis: SET "daily:{date}:brief" (cache brief)               │
+│  ├── Redis: ZADD "dashboard:top_tasks" (sorted set)              │
+│  └── Redis: PUBLISH "events:brief.generated"                     │
+│       → Dashboard WebSocket pushes updates to frontend            │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
-#### Request/Response
+#### Flow B: Mid-Day Dynamic Re-Rank
+
+```
+Trigger A: Ingestion Gateway receives a new email → Redis pub/sub "artifact.ingested"
+Trigger B: User manually calls `POST /brief/{date}/rerank`
+Trigger C: User manually adds a new task via `POST /brief/{date}/inject`
+
+  │
+  ▼
+┌─────────────────────────────────────────────────────────────────┐
+│  Daily Brief Service (Event Subscriber)                          │
+│                                                                 │
+│  On "artifact.ingested":                                         │
+│  1. Check whether the new artifact is linked to an active project │
+│  2. If linked → trigger Re-Rank Pipeline                          │
+│  3. If not linked → ignore (does not affect today's ranking)      │
+└──────────────────────┬──────────────────────────────────────────┘
+                       ▼
+┌─────────────────────────────────────────────────────────────────┐
+│  RE-RANK PIPELINE                                                │
+│                                                                 │
+│  Step 1: Extract new tasks from incoming artifact (if any)        │
+│  ├── LLM: "Extract new action items from this document"          │
+│  ├── New tasks → write to `tasks` + `daily_plan_tasks`            │
+│  └── source = 'new_extraction'                                   │
+│                                                                 │
+│  Step 2: Re-invoke Priority Ranker                                │
+│  ├── Input: full current `daily_plan_tasks` (including new tasks) │
+│  ├── Priority Ranker recomputes ranking                           │
+│  │   (new artifact added as extra context in LLM prompt)          │
+│  └── Output: updated `RankedTask[]`                               │
+│                                                                 │
+│  Step 3: Diff & Update                                           │
+│  ├── Compare old/new ranking and generate `ranking_change_log`    │
+│  │   { task_id, old_rank, new_rank, reason_for_change }          │
+│  ├── Update `daily_plan_tasks.sort_order`                         │
+│  ├── Update `tasks.priority_score`                                │
+│  └── Write to `ranking_history` (versioned)                       │
+│                                                                 │
+│  Step 4: Push to Dashboard                                       │
+│  ├── Redis: update "daily:{date}:brief" cache                    │
+│  ├── Redis: update "dashboard:top_tasks" sorted set              │
+│  └── Redis: PUBLISH "events:ranking.updated"                     │
+│       → WebSocket payload:                                       │
+│         {                                                        │
+│           event: "ranking_updated",                              │
+│           date: "2026-03-01",                                    │
+│           changes: [                                             │
+│             { task_id: "task_003", old_rank: 1, new_rank: 1 },   │
+│             { task_id: "task_NEW", new_rank: 2, is_new: true },  │
+│             { task_id: "task_001", old_rank: 2, new_rank: 3 }    │
+│           ],                                                     │
+│           trigger: "artifact_ingested",                          │
+│           trigger_artifact_id: "art_20260301_005"                │
+│         }                                                        │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+#### Flow C: End-of-Day Close + Rollover
+
+```
+Trigger: User clicks "Close Day" / CRON 23:59 / `POST /brief/{date}/close`
+  │
+  ▼
+Step 1: Snapshot current state
+  ├── Mark daily_plan status = 'closed'
+  ├── For each task:
+  │     completed    → status = 'completed', completion_time recorded
+  │     in_progress  → status = 'rolled_over', rollover_count += 1
+  │     not_started  → status = 'rolled_over', rollover_count += 1
+  │
+  ▼
+Step 2: Generate end-of-day summary
+  │  LLM: "Summarize today's completed work vs plan. Highlight:
+  │        completed tasks, rolled-over tasks (and reasons), new risks/drift"
+  │  → Append to `daily_plan.end_of_day_summary`
+  │
+  ▼
+Step 3: Seed next-day plan
+  ├── Copy rolled_over tasks → next-day `daily_plan_tasks`
+  │   (is_rollover=true, original_date, rollover_count)
+  ├── rollover_count >= 3 → flag "chronic_blocker", auto-boost priority
+  └── next-day plan status = 'draft'
+  │
+  ▼
+Step 4: Publish
+  └── Redis: PUBLISH "events:daily.closed"
+       → Dashboard refresh
+```
+
+#### Priority Ranker — Internal Component Design
+
+Priority Ranker is no longer exposed as a standalone service API. It is now an **internal module** within Daily Brief Service, called by Morning Brief and Mid-Day Re-Rank.
 
 ```python
-# POST /api/v1/priority/rank
+# services/priority_ranker.py
+
+class PriorityRanker:
+    """
+    Internal component: called by DailyBriefService
+    Not exposed as a direct REST API
+    """
+
+    def __init__(self, llm_client: LLMClient, db: Database, redis: RedisClient):
+        self.llm = llm_client
+        self.db = db
+        self.redis = redis
+
+    async def rank(
+        self,
+        tasks: list[Task],
+        context: RankingContext,
+        previous_ranking: PriorityRanking | None = None,
+    ) -> PriorityRanking:
+        """
+        Run priority ranking on a task list
+
+        Args:
+            tasks: task list to be ranked
+            context: ranking context (artifacts, risks, project info)
+            previous_ranking: previous ranking result (for diff/change tracking)
+
+        Returns:
+            PriorityRanking: ranking result + reasoning + evidence
+        """
+
+        # 1. Build LLM context
+        llm_context = await self._assemble_context(tasks, context)
+
+        # 2. LLM ranking
+        raw_ranking = await self._llm_rank(llm_context)
+
+        # 3. Rule-based adjustments
+        adjusted = self._apply_rule_adjustments(raw_ranking, tasks)
+
+        # 4. Generate change log (if re-rank)
+        changes = None
+        if previous_ranking:
+            changes = self._compute_ranking_diff(previous_ranking, adjusted)
+
+        # 5. Build result
+        return PriorityRanking(
+            rankings=adjusted,
+            changes=changes,
+            model_used=self.llm.model,
+            context_summary=llm_context.summary,
+        )
+
+    async def rerank_with_new_artifact(
+        self,
+        current_tasks: list[Task],
+        new_artifact: Artifact,
+        current_ranking: PriorityRanking,
+        context: RankingContext,
+    ) -> PriorityRanking:
+        """
+        Mid-day re-rank: rerank when a new artifact arrives
+        """
+
+        # 1. Extract tasks from new artifact
+        new_tasks = await self._extract_tasks_from_artifact(new_artifact)
+
+        # 2. Merge task lists
+        all_tasks = current_tasks + new_tasks
+
+        # 3. Enrich context (add new artifact)
+        enhanced_context = context.with_artifact(new_artifact)
+
+        # 4. Re-rank
+        return await self.rank(
+            tasks=all_tasks,
+            context=enhanced_context,
+            previous_ranking=current_ranking,
+        )
+
+    def _apply_rule_adjustments(
+        self, ranking: list[RankedTask], tasks: list[Task]
+    ) -> list[RankedTask]:
+        """
+        Rule-based priority adjustments (applied on top of LLM ranking)
+        """
+        for item in ranking:
+            task = next(t for t in tasks if t.id == item.task_id)
+
+            # Deadline proximity boost
+            if task.deadline:
+                days_remaining = (task.deadline - date.today()).days
+                if days_remaining <= 1:
+                    item.priority_score += 20   # Due tomorrow
+                elif days_remaining <= 3:
+                    item.priority_score += 10   # Due within 3 days
+                elif days_remaining <= 7:
+                    item.priority_score += 5    # Due within one week
+
+            # Chronic blocker boost
+            if task.rollover_count >= 3:
+                item.priority_score += 15
+                item.flags.append("chronic_blocker")
+
+            # High risk project boost
+            if task.risk_level in ("critical", "high"):
+                item.priority_score += 8
+
+        # Re-sort by adjusted score
+        ranking.sort(key=lambda x: x.priority_score, reverse=True)
+        return ranking
+```
+
+#### LLM Prompt (Priority Ranking)
+
+```python
+PRIORITY_RANKING_SYSTEM_PROMPT = """
+You are a project management prioritization assistant for the Government of Canada (SSC).
+
+Given a list of tasks with their context (deadlines, risks, dependencies, related artifacts),
+rank them by priority. For each task, provide:
+
+- rank: integer (1 = highest priority)
+- priority_level: "Critical" | "High" | "Medium" | "Low"
+- priority_score: float 0-100 (for fine-grained sorting)
+- reasoning: 2-3 sentences citing specific evidence from the provided context
+- risk_factors: list of contributing factors
+  ["deadline_proximity", "dependency_blocked", "no_mitigation",
+   "chronic_blocker", "budget_risk", "resource_gap", "compliance"]
+- evidence_refs: list of artifact_ids supporting your reasoning
+
+Consider:
+1. Deadline urgency (overdue > due today > due this week)
+2. Dependency chains (blocked items that block others)
+3. Risk severity (tasks linked to critical/high risks)
+4. Rollover history (tasks rolled over multiple times need escalation)
+5. Stakeholder visibility (items with senior management attention)
+6. Compliance / regulatory deadlines (non-negotiable)
+
+Return as JSON array, ordered by rank.
+"""
+```
+
+#### Ranking Change Log (Change Tracking)
+
+```python
+@dataclass
+class RankingChange:
+    task_id: str
+    task_name: str
+    old_rank: int | None       # None if new task
+    new_rank: int
+    rank_delta: int            # positive = moved up, negative = moved down
+    is_new: bool               # Newly added to ranking
+    is_removed: bool           # Removed from ranking
+    reason_for_change: str     # LLM-generated reason for change
+    trigger: str               # "morning_generation" | "new_artifact" | "manual_rerank" | "task_injected"
+    trigger_ref: str | None    # artifact_id or task_id that triggered change
+```
+
+#### Request/Response Examples
+
+**Morning Brief Generation:**
+
+```python
+# POST /api/v1/brief/generate
 # Request
 {
-    "project_id": "proj_001",
-    "task_ids": ["task_001", "task_002", "task_003", ...],  # up to 20
-    "context_window": "7d",       # look back 7 days of artifacts
-    "top_k": 5,                    # return top 5 with full reasoning
-    "include_risk_factors": true
+    "date": "2026-03-01",                 # optional, defaults to today
+    "include_risk_summary": true,
+    "context_window_days": 7,             # Look back over the last 7 days of artifacts
+    "top_k": 10                           # Provide full reasoning for the top 10 ranked tasks
 }
 
 # Response
 {
-    "ranking_id": "rank_20260301_001",
-    "project_id": "proj_001",
-    "generated_at": "2026-03-01T11:00:00Z",
-    "model_used": "claude-sonnet-4-5",
-    "rankings": [
+    "brief_id": "brief_20260301",
+    "date": "2026-03-01",
+    "status": "active",
+    "generated_at": "2026-03-01T07:00:00Z",
+
+    "morning_brief": {
+        "summary": "There are 5 tasks today. One Critical task rolled over from yesterday (NGIS Phase 3 vendor delay). One new task was extracted from a morning email (GC-Cloud Wave 4 budget revision). Current risk profile: 1 Critical risk and 1 High risk.",
+        "sections": [
+            {
+                "title": "Top Priority Items",
+                "items": [
+                    "🔴 Resolve vendor delay for NGIS Phase 3 — rolled over once, 9 days to deadline",
+                    "🟠 Review GC-Cloud Wave 4 budget revision — extracted from this morning's email, deadline March 3"
+                ]
+            },
+            {
+                "title": "Rolled-Over Warnings",
+                "items": [
+                    "⚠️ Vendor delay task has remained incomplete for 1 day — action required today"
+                ]
+            },
+            {
+                "title": "Risk Alerts",
+                "items": [
+                    "Critical: Network equipment vendor delay threatens NGIS Phase 3 migration timeline",
+                    "High: Budget uncertainty for GC-Cloud Wave 4"
+                ]
+            },
+            {
+                "title": "New Items",
+                "items": [
+                    "📩 GC-Cloud Wave 4 budget revision (extracted from email at 08:15)"
+                ]
+            }
+        ],
+        "warnings": [
+            "Vendor delay task has rolled over once — if it rolls over again, it will be flagged as a chronic blocker"
+        ]
+    },
+
+    "ranked_tasks": [
         {
             "rank": 1,
+            "daily_task_id": "dt_001",
             "task_id": "task_003",
-            "task_name": "Resolve vendor delay for NGIS Phase 3",
+            "name": "Resolve vendor delay for NGIS Phase 3",
             "priority_level": "Critical",
-            "reasoning": "Vendor delay directly blocks data centre migration milestone. Email from March 1 confirms 2-week slip. No mitigation plan documented yet.",
-            "risk_factors": ["deadline_proximity", "dependency_blocked", "no_mitigation"],
+            "priority_score": 95.2,
+            "reasoning": "Vendor delay directly blocks data centre migration milestone. Email from March 1 confirms 2-week slip. No mitigation plan documented yet. This task was rolled over from yesterday with no progress.",
+            "risk_factors": ["deadline_proximity", "dependency_blocked", "no_mitigation", "rolled_over"],
             "evidence_refs": ["art_20260301_002", "art_20260228_005"],
             "confidence": 0.92,
+            "source": "rolled_over",
+            "rollover_count": 1,
             "deadline": "2026-03-10",
             "days_remaining": 9
         },
         {
             "rank": 2,
-            "task_id": "task_001",
-            ...
+            "daily_task_id": "dt_002",
+            "task_id": "task_010",
+            "name": "Review email re: GC-Cloud Wave 4 budget revision",
+            "priority_level": "High",
+            "priority_score": 78.5,
+            "reasoning": "Budget revision email received overnight requires review before March 3 deadline. Linked to High-risk budget uncertainty for Wave 4 project.",
+            "risk_factors": ["deadline_proximity", "budget_risk"],
+            "evidence_refs": ["art_20260301_004"],
+            "confidence": 0.85,
+            "source": "new_extraction",
+            "rollover_count": 0,
+            "deadline": "2026-03-03",
+            "days_remaining": 2
+        }
+        // ... more tasks
+    ],
+
+    "ranking_metadata": {
+        "ranking_id": "rank_20260301_v1",
+        "model_used": "claude-sonnet-4-5",
+        "tasks_analyzed": 5,
+        "artifacts_referenced": 8,
+        "context_window": "2026-02-22 to 2026-03-01",
+        "version": 1
+    },
+
+    "active_risks_summary": {
+        "critical": 1,
+        "high": 1,
+        "medium": 2,
+        "low": 1,
+        "total": 5
+    },
+
+    "audit_event_id": "aud_00150"
+}
+```
+
+**Mid-Day Re-Rank (Triggered by New Email):**
+
+```python
+# POST /api/v1/brief/2026-03-01/rerank
+# Request
+{
+    "trigger": "manual",
+    "reason": "Received urgent email from Director about NGIS Phase 3"
+}
+
+# Response
+{
+    "brief_id": "brief_20260301",
+    "date": "2026-03-01",
+    "reranked_at": "2026-03-01T14:15:00Z",
+
+    "ranking_metadata": {
+        "ranking_id": "rank_20260301_v2",
+        "previous_ranking_id": "rank_20260301_v1",
+        "model_used": "claude-sonnet-4-5",
+        "trigger": "artifact_ingested",
+        "trigger_artifact_id": "art_20260301_005",
+        "version": 2
+    },
+
+    "ranking_changes": [
+        {
+            "task_id": "task_003",
+            "name": "Resolve vendor delay for NGIS Phase 3",
+            "old_rank": 1,
+            "new_rank": 1,
+            "rank_delta": 0,
+            "is_new": false,
+            "reason": "Still highest priority — Director's email further confirms urgency"
+        },
+        {
+            "task_id": "task_NEW_015",
+            "name": "Prepare emergency briefing for Director on NGIS vendor status",
+            "old_rank": null,
+            "new_rank": 2,
+            "rank_delta": null,
+            "is_new": true,
+            "reason": "New task — extracted from Director's email, must be prepared before tomorrow morning"
+        },
+        {
+            "task_id": "task_010",
+            "name": "Review email re: GC-Cloud Wave 4 budget revision",
+            "old_rank": 2,
+            "new_rank": 3,
+            "rank_delta": -1,
+            "is_new": false,
+            "reason": "Priority remains High, but rank moved down by one due to newly inserted task"
         }
     ],
-    "context_summary": {
-        "tasks_analyzed": 10,
-        "artifacts_referenced": 8,
-        "time_window": "2026-02-22 to 2026-03-01"
+
+    "updated_ranked_tasks": [
+        // ... complete updated ranking list (same format as morning brief)
+    ],
+
+    "dashboard_push": {
+        "websocket_event": "ranking_updated",
+        "pushed_at": "2026-03-01T14:15:01Z"
     },
-    "audit_event_id": "aud_00130"
+
+    "audit_event_id": "aud_00165"
+}
+```
+
+**Inject New Task + Re-Rank:**
+
+```python
+# POST /api/v1/brief/2026-03-01/inject
+# Request
+{
+    "name": "Call vendor PM for status update",
+    "project_id": "proj_001",
+    "deadline": "2026-03-01",
+    "priority_hint": "high",
+    "notes": "Director requested completion before end of day",
+    "trigger_rerank": true
+}
+
+# Response
+{
+    "injected_task": {
+        "daily_task_id": "dt_006",
+        "task_id": "task_020",
+        "source": "manual",
+        "status": "not_started"
+    },
+    "rerank_result": {
+        // ... same format as rerank response
+    }
 }
 ```
 
@@ -763,241 +1258,9 @@ Dashboard notification panel (subscriber)
 
 ---
 
-### 4.5 Daily Planner Service (Task List + Brief Report + Day Rollover)
+### 4.5 ~~Daily Planner Service~~ (Merged)
 
-**Purpose**: Maintain a per-day task list and daily brief report. At end-of-day, detect unfinished tasks and roll them over to the next day's list automatically.
-
-#### Endpoints
-
-```
-POST   /api/v1/daily/generate              — Generate today's task list + brief from recent artifacts
-GET    /api/v1/daily/{date}                 — Get daily plan for a specific date (YYYY-MM-DD)
-GET    /api/v1/daily/today                  — Shortcut: get today's plan
-PUT    /api/v1/daily/{date}/tasks/{task_id} — Update task status within daily list
-POST   /api/v1/daily/{date}/tasks           — Manually add a task to daily list
-DELETE /api/v1/daily/{date}/tasks/{task_id} — Remove task from daily list
-
-POST   /api/v1/daily/{date}/close           — End-of-day: close the day, trigger rollover
-GET    /api/v1/daily/{date}/report           — Get the daily brief report
-POST   /api/v1/daily/{date}/report/regenerate — Re-generate brief with updated info
-
-GET    /api/v1/daily/history                 — List recent daily plans (paginated)
-GET    /api/v1/daily/streak                  — Completion stats (tasks done vs rolled over)
-```
-
-#### Data Flow — Morning: Generate Daily Plan
-
-```
-Trigger: User opens Dashboard / calls POST /daily/generate
-  │
-  ▼
-Step 1: Collect Inputs
-  ├── Rolled-over tasks from previous day (status = 'rolled_over')
-  ├── Tasks from DB where deadline = today or overdue
-  ├── New artifacts ingested since last daily plan
-  └── Active risks with level >= High
-  │
-  ▼
-Step 2: LLM Daily Brief Generation
-  │  System prompt:
-  │  "You are a daily planning assistant for a Government of Canada PM.
-  │   Given the following tasks, rolled-over items, new communications,
-  │   and active risks, generate:
-  │   1. A prioritized daily task list (ordered by urgency)
-  │   2. A brief report summarizing:
-  │      - Key items requiring attention today
-  │      - Risks that have changed since yesterday
-  │      - Rolled-over tasks that need immediate action
-  │      - New items extracted from overnight communications
-  │   Format: JSON { tasks: [...], brief_report: { summary, highlights, warnings } }"
-  │
-  ▼
-Step 3: Store Daily Plan
-  ├── daily_plans table (the plan record)
-  ├── daily_plan_tasks table (individual task entries for the day)
-  └── Redis cache: "daily:{date}:plan" (for fast Dashboard access)
-```
-
-#### Data Flow — End of Day: Close & Rollover
-
-```
-Trigger: User clicks "Close Day" / Scheduled cron at 23:59 / POST /daily/{date}/close
-  │
-  ▼
-Step 1: Snapshot Current State
-  ├── Mark daily plan status = 'closed'
-  ├── For each task in today's list:
-  │     completed     → status = 'completed', completion_time recorded
-  │     in_progress   → status = 'rolled_over', rollover_count += 1
-  │     not_started   → status = 'rolled_over', rollover_count += 1
-  │
-  ▼
-Step 2: Generate End-of-Day Summary
-  │  LLM: "Summarize what was accomplished today vs what was planned.
-  │        Highlight: completed items, items rolled over (and why),
-  │        any new risks or drift alerts that appeared today."
-  │
-  │  Append to daily brief report as "end_of_day_summary"
-  │
-  ▼
-Step 3: Seed Next Day's Plan
-  ├── Copy rolled-over tasks → create entries for tomorrow
-  │   with flag: is_rollover = true, original_date, rollover_count
-  ├── If rollover_count >= 3 → flag as "chronic_blocker",
-  │   elevate priority automatically
-  └── Tomorrow's plan status = 'draft' (finalized when user opens it)
-  │
-  ▼
-Step 4: Notify
-  └── Redis publish "events:daily.closed" → Dashboard update
-```
-
-#### Request/Response
-
-```python
-# POST /api/v1/daily/generate
-# Request
-{
-    "date": "2026-03-01",                # optional, defaults to today
-    "include_risk_summary": true,
-    "lookback_hours": 24                  # how far back to check for new artifacts
-}
-
-# Response
-{
-    "plan_id": "daily_20260301",
-    "date": "2026-03-01",
-    "status": "active",
-    "tasks": [
-        {
-            "daily_task_id": "dt_001",
-            "task_id": "task_003",              # linked to master task
-            "name": "Resolve vendor delay for NGIS Phase 3",
-            "priority": "critical",
-            "source": "rolled_over",             # rolled_over | scheduled | new_extraction | manual
-            "original_date": "2026-02-28",
-            "rollover_count": 1,
-            "deadline": "2026-03-10",
-            "status": "not_started",
-            "risk_level": "critical",
-            "notes": "Rolled over from yesterday — no progress recorded"
-        },
-        {
-            "daily_task_id": "dt_002",
-            "task_id": "task_010",
-            "name": "Review email re: GC-Cloud Wave 4 budget revision",
-            "priority": "high",
-            "source": "new_extraction",
-            "original_date": null,
-            "rollover_count": 0,
-            "deadline": "2026-03-03",
-            "status": "not_started",
-            "risk_level": "medium",
-            "notes": "Extracted from email ingested at 08:15 today"
-        },
-        {
-            "daily_task_id": "dt_003",
-            "task_id": null,                    # no master task yet
-            "name": "Prepare slide deck for Friday governance review",
-            "priority": "medium",
-            "source": "manual",
-            "original_date": null,
-            "rollover_count": 0,
-            "deadline": "2026-03-05",
-            "status": "not_started",
-            "risk_level": null,
-            "notes": "Manually added by user"
-        }
-    ],
-    "brief_report": {
-        "summary": "3 items on today's agenda. 1 critical item rolled over from yesterday (vendor delay). 1 new item extracted from overnight email. 1 manually added.",
-        "highlights": [
-            "Vendor delay for NGIS Phase 3 is now 1 day overdue for follow-up",
-            "New budget revision request for GC-Cloud Wave 4 received overnight"
-        ],
-        "warnings": [
-            "Vendor delay task has been rolled over once — requires action today"
-        ],
-        "active_risks_summary": {
-            "critical": 1,
-            "high": 1,
-            "total": 5
-        }
-    },
-    "generated_at": "2026-03-01T08:00:00Z",
-    "audit_event_id": "aud_00150"
-}
-
-# POST /api/v1/daily/2026-03-01/close
-# Request
-{
-    "task_updates": [
-        { "daily_task_id": "dt_001", "status": "in_progress", "notes": "Called vendor, awaiting callback" },
-        { "daily_task_id": "dt_002", "status": "completed" },
-        { "daily_task_id": "dt_003", "status": "not_started" }
-    ]
-}
-
-# Response
-{
-    "plan_id": "daily_20260301",
-    "date": "2026-03-01",
-    "status": "closed",
-    "closed_at": "2026-03-01T23:59:00Z",
-    "summary": {
-        "total_tasks": 3,
-        "completed": 1,
-        "rolled_over": 2,
-        "completion_rate": 0.33
-    },
-    "end_of_day_report": {
-        "accomplished": "Reviewed and responded to GC-Cloud Wave 4 budget revision email.",
-        "rolled_over": [
-            {
-                "daily_task_id": "dt_001",
-                "name": "Resolve vendor delay for NGIS Phase 3",
-                "rollover_count": 2,
-                "flag": "chronic_blocker",
-                "reason": "In progress — vendor callback pending"
-            },
-            {
-                "daily_task_id": "dt_003",
-                "name": "Prepare slide deck for Friday governance review",
-                "rollover_count": 1,
-                "flag": null,
-                "reason": "Not started"
-            }
-        ],
-        "new_risks_today": 0,
-        "drift_alerts_today": 0
-    },
-    "next_day_seeded": {
-        "date": "2026-03-02",
-        "seeded_tasks": 2,
-        "chronic_blockers": 1
-    },
-    "audit_event_id": "aud_00160"
-}
-
-# GET /api/v1/daily/2026-03-01/report
-# Response
-{
-    "plan_id": "daily_20260301",
-    "date": "2026-03-01",
-    "morning_brief": {
-        "summary": "3 items on today's agenda...",
-        "highlights": [...],
-        "warnings": [...]
-    },
-    "end_of_day_summary": {
-        "accomplished": "...",
-        "rolled_over": [...],
-        "completion_rate": 0.33
-    },
-    "full_narrative": "March 1, 2026 — Daily Report\n\nToday's plan included 3 tasks. The critical vendor delay for NGIS Phase 3 remains unresolved (vendor callback pending, now rolled over twice — flagged as chronic blocker). The GC-Cloud Wave 4 budget revision was reviewed and completed. Governance slide deck preparation was not started and rolls to March 2.\n\nRisk posture: 1 critical, 1 high. No new drift alerts.",
-    "generated_at": "2026-03-01T23:59:00Z"
-}
-```
+> **Merged into Section 4.2 Daily Brief Service.** All original Daily Planner capabilities (task management, end-of-day close, rollover) are now integrated into Daily Brief Service. The original `/api/v1/daily/*` endpoints are replaced by `/api/v1/brief/*`.
 
 ---
 
@@ -1188,7 +1451,7 @@ CREATE TABLE priority_rankings (
 );
 
 -- ============================================================
--- DAILY PLANS
+-- DAILY PLANS (updated: added ranking-related fields)
 -- ============================================================
 CREATE TABLE daily_plans (
     id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -1202,6 +1465,10 @@ CREATE TABLE daily_plans (
     completed_tasks INTEGER DEFAULT 0,
     rolled_over_tasks INTEGER DEFAULT 0,
     completion_rate FLOAT,
+    current_ranking_id UUID REFERENCES priority_rankings(id),  -- currently active ranking
+    ranking_version INTEGER DEFAULT 1,                          -- ranking version number
+    last_reranked_at TIMESTAMPTZ,                               -- most recent re-rank time
+    rerank_count    INTEGER DEFAULT 0,                          -- number of re-ranks for the day
     generated_at    TIMESTAMPTZ,
     closed_at       TIMESTAMPTZ,
     created_at      TIMESTAMPTZ DEFAULT NOW(),
@@ -1211,7 +1478,7 @@ CREATE TABLE daily_plans (
 CREATE UNIQUE INDEX idx_daily_plans_date ON daily_plans(plan_date);
 
 -- ============================================================
--- DAILY PLAN TASKS (per-day task entries)
+-- DAILY PLAN TASKS (per-day task entries, updated: added ranking fields)
 -- ============================================================
 CREATE TABLE daily_plan_tasks (
     id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -1229,6 +1496,11 @@ CREATE TABLE daily_plan_tasks (
     notes           TEXT,
     completion_time TIMESTAMPTZ,                     -- when marked completed
     sort_order      INTEGER DEFAULT 0,               -- display order in daily list
+    priority_score  FLOAT,                           -- from Priority Ranker
+    reasoning       TEXT,                             -- LLM ranking rationale
+    evidence_refs   UUID[],                          -- related artifact IDs
+    confidence      FLOAT,                           -- ranking confidence
+    last_rank_change JSONB,                          -- { old_rank, new_rank, changed_at, trigger }
     created_at      TIMESTAMPTZ DEFAULT NOW(),
     updated_at      TIMESTAMPTZ DEFAULT NOW()
 );
@@ -1237,6 +1509,24 @@ CREATE INDEX idx_daily_tasks_plan ON daily_plan_tasks(plan_id);
 CREATE INDEX idx_daily_tasks_status ON daily_plan_tasks(status);
 CREATE INDEX idx_daily_tasks_rollover ON daily_plan_tasks(rollover_count DESC);
 CREATE INDEX idx_daily_tasks_source ON daily_plan_tasks(source);
+CREATE INDEX idx_daily_tasks_priority_score ON daily_plan_tasks(priority_score DESC);
+
+-- ============================================================
+-- RANKING HISTORY (ranking version tracking)
+-- ============================================================
+CREATE TABLE ranking_history (
+    id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    plan_id         UUID REFERENCES daily_plans(id) ON DELETE CASCADE,
+    ranking_id      UUID REFERENCES priority_rankings(id),
+    version         INTEGER NOT NULL,                   -- 1, 2, 3...
+    trigger_type    VARCHAR(50) NOT NULL,               -- morning_generation | artifact_ingested | manual_rerank | task_injected | risk_updated
+    trigger_ref     UUID,                               -- artifact_id / task_id that triggered
+    changes         JSONB NOT NULL,                     -- [{ task_id, old_rank, new_rank, reason }]
+    snapshot        JSONB NOT NULL,                     -- full ranking snapshot for this version
+    created_at      TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX idx_ranking_history_plan ON ranking_history(plan_id, version);
 
 -- ============================================================
 -- USERS & RBAC
@@ -1295,19 +1585,17 @@ projects ────────── tasks ◄──────── daily_
   │                  │  │                  │
   │ contains         │  │ extracted_from   │ belongs_to
   ▼                  │  ▼                  ▼
-artifacts ◄──────────┘ evidence_links   daily_plans
-  │                         ▲              │
-  │ analyzed_by             │ supports     │ generates
-  ▼                         │              ▼
-risk_analyses ──────── risks          (morning_brief +
+artifacts ◄──────────┘ evidence_links   daily_plans ◄── ranking_history
+  │                         ▲              │                    │
+  │ analyzed_by             │ supports     │ generates          │ versions
+  ▼                         │              ▼                    ▼
+risk_analyses ──────── risks          (morning_brief +   priority_rankings
                             │          end_of_day_summary)
 drift_baselines             │
   │                         │
   │ checked_against         │
   ▼                         │
 drift_alerts ───────────────┘
-                            │
-priority_rankings ──────────┘
 
 audit_log ← (records all operations across all tables)
 ```
@@ -1327,8 +1615,11 @@ audit_log ← (records all operations across all tables)
 | **Daily Brief Cache** | String | `daily:{date}:brief` | Until regenerated |
 | **Rate Limiting** | String + INCR | `ratelimit:{endpoint}` | 1min |
 | **Async Job Queue** | List (LPUSH/BRPOP) | `queue:ingestion`, `queue:analysis` | — |
-| **Pub/Sub Events** | Pub/Sub channels | `events:artifact.ingested`, `events:drift.alert`, `events:daily.closed` | — |
+| **Pub/Sub Events** | Pub/Sub channels | `events:artifact.ingested`, `events:drift.alert`, `events:daily.closed`, `events:brief.generated`, `events:ranking.updated` | — |
 | **Processing Lock** | String + NX | `lock:analysis:{project_id}` | 5min |
+| **Ranking Version Cache** | String | `ranking:{date}:v{version}` | Until day closed |
+| **Re-rank Dedup Lock** | String + NX | `lock:rerank:{date}` | 30s |
+| **Re-rank Throttle** | String + INCR | `throttle:rerank:{date}` | 5min |
 
 ### 6.2 Cache Strategy
 
@@ -1380,7 +1671,28 @@ async def invalidate_daily_cache(date: str):
     await redis.delete(f"daily:{date}:brief")
 ```
 
-### 6.3 Async Job Queue
+### 6.3 Re-Rank Throttling Strategy
+
+```python
+async def should_rerank(date: str) -> bool:
+    """
+    Prevent high-frequency re-ranking (e.g., many emails arriving in a short interval)
+    Strategy: allow at most 1 re-rank in a 5-minute window
+    """
+    throttle_key = f"throttle:rerank:{date}"
+    count = await redis.incr(throttle_key)
+    if count == 1:
+        await redis.expire(throttle_key, 300)  # 5 min window
+    return count <= 1
+
+async def enqueue_rerank_if_throttled(date: str, artifact_id: str):
+    """
+    If throttled, enqueue re-rank requests and process in batch after 5 minutes
+    """
+    await redis.lpush(f"queue:rerank_pending:{date}", artifact_id)
+```
+
+### 6.4 Async Job Queue
 
 ```python
 # Producer (Ingestion Gateway)
@@ -1410,29 +1722,40 @@ async def process_analysis_queue():
                 await redis.delete(lock_key)
 ```
 
-### 6.4 Pub/Sub Event Flow
+### 6.5 Pub/Sub Event Flow
 
 ```
-Ingestion Gateway ──publish──→ "events:artifact.ingested"
-                                    │
-                   ┌────────────────┼────────────────┐
-                   ▼                ▼                ▼
-            Risk Engine       Drift Detector   Daily Planner
-            (subscriber)      (subscriber)     (subscriber:
-                   │                │           updates today's
-                   ▼                ▼           task list if new
-            ──publish──→    ──publish──→        items extracted)
-      "events:risk.updated"  "events:drift.alert"    │
-                   │                │                 │
-                   └────────┬───────┘                 │
-                            ▼                         │
-                     Dashboard UI  ◄──────────────────┘
-                     (WebSocket subscriber)
-
-Daily Planner ──publish──→ "events:daily.closed"
-                                │
-                                ▼
-                         Dashboard UI (refresh next day view)
+┌──────────────────┐                    ┌──────────────────────────────────────┐
+│ Ingestion Gateway│                    │         DAILY BRIEF SERVICE          │
+│                  │ ─── pub/sub ──→    │                                      │
+│ New email/file    │  "artifact.       │  Event Handler:                      │
+│ received          │   ingested"       │  1. Linked project? -> continue/ignore│
+│                  │                    │  2. Extract new tasks                 │
+│                  │                    │  3. Call Priority Ranker re-rank     │
+└──────────────────┘                    │  4. Update daily_plan_tasks          │
+                                        │  5. Push to Dashboard                │
+┌──────────────────┐                    │                                      │
+│ Risk Engine      │ ─── pub/sub ──→    │  Event Handler:                      │
+│                  │  "risk.updated"    │  Risk change -> re-rank (weight shift)│
+│                  │                    │                                      │
+└──────────────────┘                    │                                      │
+                                        │                                      │
+┌──────────────────┐                    │  Event Handler:                      │
+│ Drift Detector   │ ─── pub/sub ──→    │  New drift alert -> add to brief      │
+│                  │  "drift.alert"     │  warnings, may trigger re-rank        │
+└──────────────────┘                    └───────────────┬──────────────────────┘
+                                                        │
+                                               pub/sub  │
+                                        ┌───────────────┼───────────────┐
+                                        ▼               ▼               ▼
+                                "events:brief    "events:ranking  "events:daily
+                                 .generated"      .updated"        .closed"
+                                        │               │               │
+                                        └───────┬───────┘               │
+                                                ▼                       ▼
+                                          Dashboard UI           Dashboard UI
+                                       (WebSocket: refresh    (WebSocket: refresh
+                                        task list + ranking)   next-day view)
 ```
 
 ---
@@ -1484,13 +1807,15 @@ work-pulse/
 │   ├── main.py                         # FastAPI app entry
 │   ├── config.py                       # Environment config
 │   ├── routes/
-│   │   ├── ingestion.py                # /api/v1/ingest/*
-│   │   ├── priority.py                 # /api/v1/priority/*
-│   │   ├── risk.py                     # /api/v1/risk/*
-│   │   ├── drift.py                    # /api/v1/drift/*
-│   │   ├── daily.py                    # /api/v1/daily/*
-│   │   ├── export.py                   # /api/v1/export/*
-│   │   └── viz.py                      # /api/v1/viz/*
+│   │   ├── ingestion.py                # /api/v1/ingest/*     (unchanged)
+│   │   ├── brief.py                    # /api/v1/brief/*      (new: replaces priority.py + daily.py)
+│   │   ├── risk.py                     # /api/v1/risk/*       (unchanged)
+│   │   ├── drift.py                    # /api/v1/drift/*      (unchanged)
+│   │   ├── export.py                   # /api/v1/export/*     (unchanged)
+│   │   └── viz.py                      # /api/v1/viz/*        (unchanged)
+│   │   # ❌ priority.py — removed (merged into brief.py)
+│   │   # ❌ daily.py    — removed (merged into brief.py)
+│   │
 │   ├── middleware/
 │   │   ├── audit.py                    # Audit logging middleware
 │   │   ├── auth.py                     # JWT + RBAC
@@ -1498,11 +1823,15 @@ work-pulse/
 │   ├── services/
 │   │   ├── llm_client.py              # Model-agnostic LLM interface
 │   │   ├── ingestion_service.py       # Format detection, extraction, normalization
-│   │   ├── priority_service.py        # Priority ranking logic
+│   │   ├── brief_service.py           # new: Daily Brief core service (orchestrator)
+│   │   ├── priority_ranker.py         # refactor: standalone service -> internal component
+│   │   ├── task_extractor.py          # new: reusable task extraction logic from artifacts
 │   │   ├── risk_service.py            # Risk identification + scoring + evidence
 │   │   ├── drift_service.py           # Baseline management + drift detection
-│   │   ├── daily_service.py           # Daily plan generation + rollover logic
 │   │   └── export_service.py          # Report generation
+│   │   # ❌ priority_service.py — removed (replaced by priority_ranker.py)
+│   │   # ❌ daily_service.py   — removed (replaced by brief_service.py)
+│   │
 │   ├── models/
 │   │   ├── database.py                # SQLAlchemy / asyncpg models
 │   │   ├── schemas.py                 # Pydantic request/response schemas
@@ -1512,12 +1841,52 @@ work-pulse/
 │       ├── file_store.py              # File storage abstraction
 │       └── hash.py                    # Content hashing, audit chain hashing
 ├── workers/
-│   ├── analysis_worker.py             # Async risk analysis consumer
-│   ├── drift_worker.py                # Async drift check consumer
-│   └── daily_rollover_worker.py       # Scheduled end-of-day close + rollover
+│   ├── brief_morning_worker.py        # new: CRON 07:00 morning brief generation
+│   ├── brief_rerank_worker.py         # new: listens to artifact.ingested and handles re-rank
+│   ├── brief_rollover_worker.py       # renamed: daily_rollover_worker -> brief_rollover_worker
+│   ├── analysis_worker.py             # Async risk analysis consumer (unchanged)
+│   └── drift_worker.py                # Async drift check consumer (unchanged)
 ├── migrations/                         # Alembic DB migrations
 ├── tests/
 ├── docker-compose.yml
 ├── Dockerfile
 └── README.md
+```
+
+---
+
+## 9. Dashboard WebSocket Integration
+
+```javascript
+// Frontend: Dashboard component
+const ws = new WebSocket("ws://api/events");
+
+ws.onmessage = (event) => {
+    const data = JSON.parse(event.data);
+
+    switch (data.event) {
+        case "brief.generated":
+            // Morning brief generated -> refresh full Dashboard
+            fetchDailyBrief(data.date);
+            showNotification("☀️ Today's brief is ready");
+            break;
+
+        case "ranking.updated":
+            // Mid-day re-rank -> update task list dynamically
+            updateTaskRanking(data.changes);
+            highlightChangedTasks(data.changes);
+            showNotification(`🔄 Task ranking updated (${data.trigger})`);
+
+            // Highlight newly added tasks
+            data.changes
+                .filter(c => c.is_new)
+                .forEach(c => flashNewTask(c.task_id));
+            break;
+
+        case "daily.closed":
+            // End-of-day close -> show summary + preview tomorrow
+            showEndOfDaySummary(data.date);
+            break;
+    }
+};
 ```

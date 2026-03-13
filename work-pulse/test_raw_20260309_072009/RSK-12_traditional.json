@@ -1,0 +1,82 @@
+{
+  "test_id": "RSK-12",
+  "test_name": "API response schema validation",
+  "method": "traditional",
+  "passed": true,
+  "score": "6/6",
+  "details": "Schema valid",
+  "error": null,
+  "latency_ms": 0.6725999992340803,
+  "artifact": {
+    "artifact_id": "art_5f1ac9056c",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 246,
+    "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+    "extracted_tasks": [
+      {
+        "task_id": "art_5f1ac9056c_t001",
+        "text": "please confirm the delivery timeline for the Catalyst",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "please confirm the delivery timeline for the Catalyst",
+        "confidence": 0.7
+      }
+    ],
+    "metadata": {
+      "sender": "j.henderson@techsupplier.ca",
+      "recipients": "alice.tran@ssc-spc.gc.ca",
+      "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+      "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+    }
+  },
+  "risks": {
+    "count": 2,
+    "analysis_method": "traditional",
+    "risks": [
+      {
+        "risk_id": "rsk_1917a072",
+        "description": "Schedule risk detected: delay mentioned",
+        "category": "schedule",
+        "likelihood": 1,
+        "impact": 4,
+        "risk_score": 4.0,
+        "risk_level": "low",
+        "affected_stakeholders": [],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_5f1ac9056c",
+            "excerpt": "uary 26. We have now confirmed a 2-week delay on the network equipment\noriginally sch",
+            "location": null,
+            "evidence_strength": 0.16
+          }
+        ],
+        "source_artifact_id": "art_5f1ac9056c",
+        "created_at": "2026-03-09T07:21:40.734511"
+      },
+      {
+        "risk_id": "rsk_189a336d",
+        "description": "Resource risk detected: single-sourced mentioned (also: alternative routing)",
+        "category": "resource",
+        "likelihood": 1,
+        "impact": 4,
+        "risk_score": 4.0,
+        "risk_level": "low",
+        "affected_stakeholders": [],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_5f1ac9056c",
+            "excerpt": "ne. To be transparent: we are currently single-sourced on this\nproduct line through our Montre",
+            "location": null,
+            "evidence_strength": 0.16
+          }
+        ],
+        "source_artifact_id": "art_5f1ac9056c",
+        "created_at": "2026-03-09T07:21:40.735606"
+      }
+    ]
+  },
+  "llm_calls": []
+}

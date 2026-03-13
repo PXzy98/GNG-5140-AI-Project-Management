@@ -1,0 +1,70 @@
+{
+  "test_id": "DFT-02",
+  "test_name": "Within-scope detection",
+  "method": "llm_local",
+  "passed": false,
+  "score": "0.0/9",
+  "details": "type=ambiguous score=0.00",
+  "error": null,
+  "latency_ms": 28276.68020001147,
+  "artifact": {
+    "artifact_id": "art_4088507bf3",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 137,
+    "content_preview": "From: alice.tran@ssc-spc.gc.ca\nTo: j.henderson@techsupplier.ca\nSubject: Network Switch Delivery \u2014 Timeline Confirmation\nDate: March 6, 2026\n\nJason,\n\nFollowing up on your message from March 2 \u2014 can you please provide an\nupdated delivery commitment for the Cisco Catalyst 9500 switches?\n\nSpecifically, we need to know:\n1. The confirmed delivery date for the Gatineau (Site A) order of 24 units.\n2. Whether the BGP routing modules (C9500-NM-2Q) are included in the\n   revised shipment.\n3. The tracking n",
+    "extracted_tasks": [],
+    "metadata": {
+      "sender": "alice.tran@ssc-spc.gc.ca",
+      "recipients": "j.henderson@techsupplier.ca",
+      "subject": "Network Switch Delivery \u2014 Timeline Confirmation",
+      "date": "March 6, 2026"
+    }
+  },
+  "drift_check": {
+    "drift_type": "ambiguous",
+    "overall_alignment_score": 0.0,
+    "reasoning": null,
+    "alerts": [
+      {
+        "alert_id": "alt_ce863f60",
+        "project_id": "proj_drift_llm_local",
+        "artifact_id": "art_4088507bf3",
+        "drift_type": "ambiguous",
+        "alignment_score": 0.0,
+        "detected_ask": "",
+        "baseline_reference": "",
+        "suggested_action": "Manual review recommended (LLM unavailable).",
+        "severity": "medium",
+        "status": "open",
+        "created_at": "2026-03-09T05:20:24.199709"
+      }
+    ]
+  },
+  "llm_calls": [
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 38239.7,
+      "content": "",
+      "parsed_json": null,
+      "error": null
+    },
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 38035.6,
+      "content": "",
+      "parsed_json": null,
+      "error": null
+    },
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 28267.6,
+      "content": "",
+      "parsed_json": null,
+      "error": null
+    }
+  ]
+}

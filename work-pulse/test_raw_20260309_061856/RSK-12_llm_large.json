@@ -1,0 +1,50 @@
+{
+  "test_id": "RSK-12",
+  "test_name": "API response schema validation",
+  "method": "llm_large",
+  "passed": true,
+  "score": "6/6",
+  "details": "Schema valid",
+  "error": null,
+  "latency_ms": 28532.84810000332,
+  "artifact": {
+    "artifact_id": "art_316f7a831a",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 246,
+    "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+    "extracted_tasks": [
+      {
+        "task_id": "art_316f7a831a_t001",
+        "text": "please confirm the delivery timeline for the Catalyst",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "please confirm the delivery timeline for the Catalyst",
+        "confidence": 0.7
+      }
+    ],
+    "metadata": {
+      "sender": "j.henderson@techsupplier.ca",
+      "recipients": "alice.tran@ssc-spc.gc.ca",
+      "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+      "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+    }
+  },
+  "risks": {
+    "count": 0,
+    "analysis_method": "llm_large",
+    "risks": []
+  },
+  "llm_calls": [
+    {
+      "tier": "large",
+      "model": "anthropic/claude-sonnet-4.6",
+      "latency_ms": 28532.2,
+      "content": "```json\n[\n  {\n    \"description\": \"Confirmed 2-week delay in delivery of Cisco Catalyst 9500 switches pushes arrival to March 20, after the March 8 migration window opens, making it impossible to meet the March 6 staging/testing deadline.\",\n    \"category\": \"schedule\",\n    \"likelihood\": 5,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"We have now confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6. The revised estimated delivery date is March 20, 2026.\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"bob.morrison@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\", \"SSC NGIS Phase 3 project team\", \"Gatineau data centre operations staff\"]\n  },\n  {\n    \"description\": \"Single-source dependency on TechSupplier's Montreal warehouse for the Cisco Catalyst 9500 product line means there is no immediately available alternative supply channel; any further disruption at that warehouse could extend delays indefinitely.\",\n    \"category\": \"technical\",\n    \"likelihood\": 3,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"We are currently single-sourced on this product line through our Montreal warehouse, and alternative routing via our Vancouver depot would add a further 3\u20135 business days.\",\n    \"affected_stakeholders\": [\"SSC NGIS Phase 3 project team\", \"alice.tran@ssc-spc.gc.ca\", \"TechSupplier Solutions Inc.\"]\n  },\n  {\n    \"description\": \"The only identified alternative routing (Vancouver depot) adds a further 3\u20135 business days on top of the already-delayed March 20 date, potentially pushing delivery to March 25\u201327 and further compressing or eliminating the Q2 migration window.\",\n    \"category\": \"schedule\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"alternative routing via our Vancouver depot would add a further 3\u20135 business days.\",\n    \"affected_stakeholders\": [\"SSC NGIS Phase 3 project team\", \"alice.tran@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"The root cause of the delay is a warehouse management system (WMS) failure at TechSupplier's primary distribution centre. The failure is ongoing and its full resolution timeline is unconfirmed, creating uncertainty about whether March 20 is itself a reliable estimate.\",\n    \"category\": \"technical\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"our primary distribution centre experienced a warehouse management system failure that has affected outbound shipments since February 26.\",\n    \"affected_stakeholders\": [\"TechSupplier Solutions Inc.\", \"SSC NGIS Phase 3 project team\", \"alice.tran@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"Insufficient staging and testing time: Alice's email specifies equipment must arrive by March 6 for staging and testing before the March 8 migration window. Even if equipment arrives March 20, there is zero buffer for staging, testing, and issue resolution before any rescheduled migration activity.\",\n    \"category\": \"schedule\",\n    \"likelihood\": 5,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"Our migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing.\",\n    \"affected_stakeholders\": [\"SSC NGIS Phase 3 project team\", \"Gatineau data centre operations staff\", \"alice.tran@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"Q2 migration timeline is under significant pressure. If the migration window cannot be rescheduled within Q2, the project may slip into Q3, potentially triggering contractual penalties, funding lapses, or government fiscal-year budget constraints.\",\n    \"category\": \"budget\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"I understand this creates significant pressure on your Q2 migration timeline.\",\n    \"affected_stakeholders\": [\"SSC senior management\", \"ngis-pm@ssc-spc.gc.ca\", \"Government of Canada Treasury Board\", \"SSC finance team\"]\n  },\n  {\n    \"description\": \"Implicit resource risk: technical staff, contractors, and data centre personnel who were scheduled and allocated for the March 8 migration window may need to be stood down and rescheduled, risking their availability for a later date and incurring idle-time or re-mobilization costs.\",\n    \"category\": \"resource\",\n    \"likelihood\": 4,\n    \"impact\": 3,\n    \"evidence_excerpt\": \"Our migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing.\",\n    \"affected_stakeholders\": [\"SSC NGIS Phase 3 project team\", \"contracted technical staff\", \"Gatineau data centre operations staff\", \"ngis-pm@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"Implicit compliance/contractual risk: TechSupplier may be in breach of delivery obligations under the federal procurement contract (e.g., PSPC standing offer or supply arrangement terms), which could require formal notification, contract amendment, or invocation of remedies.\",\n    \"category\": \"compliance\",\n    \"likelihood\": 3,\n    \"impact\": 3,\n    \"evidence_excerpt\": \"We have now confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6.\",\n    \"affected_stakeholders\": [\"SSC contracting authority\", \"PSPC\", \"TechSupplier Solutions Inc.\", \"alice.tran@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"Implicit downstream dependency risk: the NGIS Phase 3 data centre migration likely has dependent workstreams (e.g., software configuration, cutover scheduling, decommissioning of legacy equipment) that are now blocked or will be disrupted by the hardware delay, creating a cascade of schedule impacts.\",\n    \"category\": \"schedule\",\n    \"likelihood\": 4,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre migration.\",\n    \"affected_stakeholders\": [\"SSC NGIS Phase 3 project team\", \"ngis-pm@ssc-spc.gc.ca\", \"downstream system owners\", \"end-user departments depending on NGIS\"]\n  },\n  {\n    \"description\": \"Communication and governance risk: the delay was first discussed verbally on a Friday call and only confirmed in writing the following Monday morning, suggesting a potential gap in formal change-control and escalation procedures that could delay executive awareness and decision-making.\",\n    \"category\": \"compliance\",\n    \"likelihood\": 3,\n    \"impact\": 2,\n    \"evidence_excerpt\": \"Following our call on Friday, I wanted to confirm in writing the situation with the Cisco Catalyst 9500 switches.\",\n    \"affected_stakeholders\": [\"ngis-pm@ssc-spc.gc.ca\", \"SSC senior management\", \"alice.tran@ssc-spc.gc.ca\", \"bob.morrison@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"Implicit reputational and service-continuity risk to SSC: if the NGIS Phase 3 migration is delayed, Government of Canada client departments relying on the new network infrastructure may experience continued operation on aging or under-supported equipment, increasing the risk of unplanned outages.\",\n    \"category\": \"technical\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"the NGIS Phase 3 data centre migration.\",\n    \"affected_stakeholders\": [\"SSC client departments\", \"Government of Canada end users\", \"SSC senior management\", \"ngis-pm@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"Supplier reliability risk: TechSupplier's WMS failure and single-source supply model reveal a fragile supply chain. This raises longer-term concerns about TechSupplier's capacity to support future phases of NGIS or other SSC procurement without similar disruptions.\",\n    \"category\": \"resource\",\n    \"likelihood\": 2,\n    \"impact\": 4,\n    \"evidence_",
+      "parsed_json": null,
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "test_id": "RSK-02",
+  "test_name": "Risk identification \u2014 implicit/hidden risks",
+  "method": "llm_medium",
+  "passed": true,
+  "score": "10.0/10",
+  "details": "recall=1.00 found=3 gt=2",
+  "error": null,
+  "latency_ms": 3114.47839999164,
+  "artifact": {
+    "artifact_id": "art_9006578f6f",
+    "artifact_type": "status_report",
+    "detected_language": "en",
+    "word_count": 441,
+    "content_preview": "GC-CLOUD WAVE 4 \u2014 MONTHLY STATUS REPORT\nReporting Period: February 2026\nReport Date: March 1, 2026\nProject Manager: Carol Nguyen\nStatus: GREEN\n\n---\n\nEXECUTIVE SUMMARY\n\nGC-Cloud Wave 4 is progressing excellently. The team has made strong\nprogress across all workstreams and stakeholder engagement remains high.\nWe are confident in our ability to deliver the project on schedule and\nwithin the approved parameters.\n\n---\n\nSCHEDULE HIGHLIGHTS\n\nThe project timeline is performing well. While we have exper",
+    "extracted_tasks": [
+      {
+        "task_id": "art_9006578f6f_t001",
+        "text": "will be well-supported by the",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will be well-supported by the",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_9006578f6f_t002",
+        "text": "will be submitted to the Director for consideration.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will be submitted to the Director for consideration.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_9006578f6f_t003",
+        "text": "will materially affect project",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will materially affect project",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_9006578f6f_t004",
+        "text": "owners are engaged and active.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "owners are engaged and active.",
+        "confidence": 0.7
+      }
+    ],
+    "metadata": {}
+  },
+  "risks": {
+    "count": 3,
+    "analysis_method": "llm_medium",
+    "risks": [
+      {
+        "risk_id": "rsk_c6f998bb",
+        "description": "Three-week slip acknowledged as 'slight adjustment' \u2014 timeline at risk",
+        "category": "schedule",
+        "likelihood": 3,
+        "impact": 3,
+        "risk_score": 9.0,
+        "risk_level": "medium",
+        "affected_stakeholders": [
+          "Project Team",
+          "Portfolio Manager"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_9006578f6f",
+            "excerpt": "The infrastructure assessment phase required a slight adjustment of approximately three weeks",
+            "location": null,
+            "evidence_strength": 0.36
+          }
+        ],
+        "source_artifact_id": "art_9006578f6f",
+        "created_at": "2026-03-09T07:24:48.341358"
+      },
+      {
+        "risk_id": "rsk_c503101a",
+        "description": "Budget overrun of $340,000 (14%) buried in Appendix A \u2014 not in executive summary",
+        "category": "budget",
+        "likelihood": 5,
+        "impact": 5,
+        "risk_score": 25.0,
+        "risk_level": "critical",
+        "affected_stakeholders": [
+          "Finance Review Board",
+          "Director",
+          "Project Manager"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_9006578f6f",
+            "excerpt": "The estimated cost of this remediation is $340,000, representing approximately 14% above the approved envelope",
+            "location": null,
+            "evidence_strength": 1.0
+          }
+        ],
+        "source_artifact_id": "art_9006578f6f",
+        "created_at": "2026-03-09T07:24:48.342863"
+      },
+      {
+        "risk_id": "rsk_d255ebc3",
+        "description": "Project scope increased by 'additional middleware remediation requirements' \u2014 budget and technical complexity at risk",
+        "category": "technical",
+        "likelihood": 4,
+        "impact": 4,
+        "risk_score": 16.0,
+        "risk_level": "high",
+        "affected_stakeholders": [
+          "Technical Team",
+          "Director"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_9006578f6f",
+            "excerpt": "infrastructure assessment identified additional middleware remediation requirements not captured in the original scope baseline",
+            "location": null,
+            "evidence_strength": 0.64
+          }
+        ],
+        "source_artifact_id": "art_9006578f6f",
+        "created_at": "2026-03-09T07:24:48.342863"
+      }
+    ]
+  },
+  "llm_calls": [
+    {
+      "tier": "medium",
+      "model": "google/gemini-3-flash-preview",
+      "latency_ms": 3112.9,
+      "content": "[\n  {\n    \"description\": \"Three-week slip acknowledged as 'slight adjustment' \u2014 timeline at risk\",\n    \"category\": \"schedule\",\n    \"likelihood\": 3,\n    \"impact\": 2,\n    \"evidence_excerpt\": \"The infrastructure assessment phase required a slight adjustment of approximately three weeks\",\n    \"affected_stakeholders\": [\n      \"Project Team\",\n      \"Portfolio Manager\"\n    ]\n  },\n  {\n    \"description\": \"Budget overrun of $340,000 (14%) buried in Appendix A \u2014 not in executive summary\",\n    \"category\": \"budget\",\n    \"likelihood\": 5,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"The estimated cost of this remediation is $340,000, representing approximately 14% above the approved envelope\",\n    \"affected_stakeholders\": [\n      \"Finance Review Board\",\n      \"Director\",\n      \"Project Manager\"\n    ]\n  },\n  {\n    \"description\": \"Project scope increased by 'additional middleware remediation requirements' \u2014 budget and technical complexity at risk\",\n    \"category\": \"technical\",\n    \"likelihood\": 4,\n    \"impact\": 3,\n    \"evidence_excerpt\": \"infrastructure assessment identified additional middleware remediation requirements not captured in the original scope baseline\",\n    \"affected_stakeholders\": [\n      \"Technical Team\",\n      \"Director\"\n    ]\n  }\n]",
+      "parsed_json": [
+        {
+          "description": "Three-week slip acknowledged as 'slight adjustment' \u2014 timeline at risk",
+          "category": "schedule",
+          "likelihood": 3,
+          "impact": 2,
+          "evidence_excerpt": "The infrastructure assessment phase required a slight adjustment of approximately three weeks",
+          "affected_stakeholders": [
+            "Project Team",
+            "Portfolio Manager"
+          ]
+        },
+        {
+          "description": "Budget overrun of $340,000 (14%) buried in Appendix A \u2014 not in executive summary",
+          "category": "budget",
+          "likelihood": 5,
+          "impact": 4,
+          "evidence_excerpt": "The estimated cost of this remediation is $340,000, representing approximately 14% above the approved envelope",
+          "affected_stakeholders": [
+            "Finance Review Board",
+            "Director",
+            "Project Manager"
+          ]
+        },
+        {
+          "description": "Project scope increased by 'additional middleware remediation requirements' \u2014 budget and technical complexity at risk",
+          "category": "technical",
+          "likelihood": 4,
+          "impact": 3,
+          "evidence_excerpt": "infrastructure assessment identified additional middleware remediation requirements not captured in the original scope baseline",
+          "affected_stakeholders": [
+            "Technical Team",
+            "Director"
+          ]
+        }
+      ],
+      "error": null
+    }
+  ]
+}

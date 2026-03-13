@@ -1,0 +1,66 @@
+{
+  "test_id": "ING-10",
+  "test_name": "Bilingual content preservation",
+  "method": "llm_large",
+  "passed": true,
+  "score": "9.0/9",
+  "details": "FR recall=0.50 pred=4 fr_gt=2",
+  "error": null,
+  "latency_ms": 10.716199991293252,
+  "artifact": {
+    "artifact_id": "art_9818ec1277",
+    "artifact_type": "email",
+    "detected_language": "mixed",
+    "word_count": 234,
+    "content_preview": "From: marie.lefebvre@ssc-spc.gc.ca\nTo: project-team-ngis@ssc-spc.gc.ca\nSubject: NGIS Phase 3 \u2014 Weekly Status / Mise \u00e0 jour hebdomadaire\nDate: Wed, 4 Mar 2026 10:05:00 -0500\n\nHello team / Bonjour l'\u00e9quipe,\n\nENGLISH SECTION:\n\nThis week's status update for NGIS Phase 3 is as follows:\n\nWork completed:\n- Active Directory migration for Site A (Gatineau) is 80% complete.\n- Network topology diagrams updated to reflect revised switch placement.\n\nAction Items (English):\n1. Please schedule a follow-up tech",
+    "extracted_tasks": [
+      {
+        "task_id": "art_9818ec1277_t001",
+        "text": "Schedule a follow-up technical review meeting before March 11 to finalize the AD migration cutover plan. Coordinate with Dave Chen.",
+        "owner": "Dave Chen",
+        "deadline": "2026-03-11",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Please schedule a follow-up technical review meeting before March 11 to finalize the AD migration cutover plan. Coordinate with Dave Chen.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_9818ec1277_t002",
+        "text": "Review the updated security compliance checklist (attached) and confirm sign-off by March 9, 2026.",
+        "owner": null,
+        "deadline": "2026-03-09",
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "All team members must review the updated security compliance checklist (attached) and confirm sign-off by March 9, 2026.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_9818ec1277_t003",
+        "text": "Mettre \u00e0 jour le registre des risques du projet d'ici le 10 mars 2026 pour inclure le risque de d\u00e9lai du fournisseur.",
+        "owner": "\u00e9quipe de gestion des risques",
+        "deadline": "2026-03-10",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Veuillez mettre \u00e0 jour le registre des risques du projet d'ici le 10 mars 2026 pour inclure le risque de d\u00e9lai du fournisseur.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_9818ec1277_t004",
+        "text": "Confirmez les livrables r\u00e9vis\u00e9s avec le fournisseur principal (TechSupplier) d'ici le 12 mars 2026.",
+        "owner": "Gestionnaire de projet",
+        "deadline": "2026-03-12",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Confirmez les livrables r\u00e9vis\u00e9s avec le fournisseur principal (TechSupplier) d'ici le 12 mars 2026. Responsable : Gestionnaire de projet.",
+        "confidence": 0.9
+      }
+    ],
+    "metadata": {
+      "sender": "marie.lefebvre@ssc-spc.gc.ca",
+      "recipients": "project-team-ngis@ssc-spc.gc.ca",
+      "subject": "NGIS Phase 3 \u2014 Weekly Status / Mise \u00e0 jour hebdomadaire",
+      "date": "Wed, 4 Mar 2026 10:05:00 -0500"
+    }
+  },
+  "llm_calls": []
+}

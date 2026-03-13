@@ -1,0 +1,97 @@
+{
+  "test_id": "RSK-05",
+  "test_name": "Cross-document inconsistency detection",
+  "method": "llm_medium",
+  "passed": true,
+  "score": "10/10",
+  "details": "inconsistencies=3",
+  "error": null,
+  "latency_ms": 3667.1565000142436,
+  "artifact": {
+    "artifact_id": "art_d24b083169",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 203,
+    "content_preview": "GC-CLOUD WAVE 4 \u2014 FINANCE REVIEW COMMITTEE BRIEFING\nDate: March 3, 2026\nPrepared by: Fran\u00e7ois Lemieux, Finance Representative\nFor: Finance Review Committee\n\nPROJECT FINANCIAL STATUS \u2014 CONFIDENTIAL\n\nThis briefing provides the Finance Review Committee with an accurate\nassessment of the GC-Cloud Wave 4 financial situation.\n\nBUDGET OVERRUN: Following the infrastructure assessment completed\nFebruary 25, the project team has identified that the original budget\nof $2,400,000 is insufficient. The assess",
+    "extracted_tasks": [
+      {
+        "task_id": "art_d24b083169_t001",
+        "text": "will be required as",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will be required as",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_d24b083169_t002",
+        "text": "will require an estimated",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will require an estimated",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_d24b083169_t003",
+        "text": "should flag this project for",
+        "owner": "Finance Committee",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "should flag this project for",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_d24b083169_t004",
+        "text": "should be expedited",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "should be expedited",
+        "confidence": 0.7
+      }
+    ],
+    "metadata": {
+      "date": "March 3, 2026"
+    }
+  },
+  "llm_calls": [
+    {
+      "tier": "medium",
+      "model": "google/gemini-3-flash-preview",
+      "latency_ms": 3667.0,
+      "content": "```json\n[\n  {\n    \"description\": \"Contradictory claims regarding budget health and total projected costs. The Director's briefing claims the project is within budget, while the Finance briefing confirms a $340,000 overrun.\",\n    \"doc_a_artifact_id\": \"art_71031cbb90\",\n    \"doc_b_artifact_id\": \"art_d24b083169\",\n    \"doc_a_excerpt\": \"The project is within budget... We have no budget concerns at this time and expect to deliver within the approved envelope.\",\n    \"doc_b_excerpt\": \"BUDGET OVERRUN: Following the infrastructure assessment completed February 25, the project team has identified that the original budget of $2,400,000 is insufficient... Revised projected cost: $2,740,000.\",\n    \"severity\": \"critical\"\n  },\n  {\n    \"description\": \"Conflicting reports on schedule adherence and the ability to meet the Q3 2026 delivery commitment.\",\n    \"doc_a_artifact_id\": \"art_71031cbb90\",\n    \"doc_b_artifact_id\": \"art_d24b083169\",\n    \"doc_a_excerpt\": \"The project remains on track to meet its Q3 2026 delivery commitment. SCHEDULE: The project is progressing according to the approved baseline schedule.\",\n    \"doc_b_excerpt\": \"TIMELINE AT RISK: The middleware remediation will require an estimated three weeks of additional effort before cloud migration workloads can begin. The Q3 2026 delivery target is now uncertain.\",\n    \"severity\": \"high\"\n  },\n  {\n    \"description\": \"Inconsistency regarding the project's risk profile and the existence of significant issues identified during the infrastructure assessment.\",\n    \"doc_a_artifact_id\": \"art_71031cbb90\",\n    \"doc_b_artifact_id\": \"art_d24b083169\",\n    \"doc_a_excerpt\": \"The project risk profile is low. Our risk register contains three risks, all rated Low. No risk escalations are required.\",\n    \"doc_b_excerpt\": \"The assessment revealed mandatory middleware remediation requirements that were not captured in the initial scope... Finance Committee should flag this project for enhanced monitoring.\",\n    \"severity\": \"high\"\n  }\n]\n```",
+      "parsed_json": [
+        {
+          "description": "Contradictory claims regarding budget health and total projected costs. The Director's briefing claims the project is within budget, while the Finance briefing confirms a $340,000 overrun.",
+          "doc_a_artifact_id": "art_71031cbb90",
+          "doc_b_artifact_id": "art_d24b083169",
+          "doc_a_excerpt": "The project is within budget... We have no budget concerns at this time and expect to deliver within the approved envelope.",
+          "doc_b_excerpt": "BUDGET OVERRUN: Following the infrastructure assessment completed February 25, the project team has identified that the original budget of $2,400,000 is insufficient... Revised projected cost: $2,740,000.",
+          "severity": "critical"
+        },
+        {
+          "description": "Conflicting reports on schedule adherence and the ability to meet the Q3 2026 delivery commitment.",
+          "doc_a_artifact_id": "art_71031cbb90",
+          "doc_b_artifact_id": "art_d24b083169",
+          "doc_a_excerpt": "The project remains on track to meet its Q3 2026 delivery commitment. SCHEDULE: The project is progressing according to the approved baseline schedule.",
+          "doc_b_excerpt": "TIMELINE AT RISK: The middleware remediation will require an estimated three weeks of additional effort before cloud migration workloads can begin. The Q3 2026 delivery target is now uncertain.",
+          "severity": "high"
+        },
+        {
+          "description": "Inconsistency regarding the project's risk profile and the existence of significant issues identified during the infrastructure assessment.",
+          "doc_a_artifact_id": "art_71031cbb90",
+          "doc_b_artifact_id": "art_d24b083169",
+          "doc_a_excerpt": "The project risk profile is low. Our risk register contains three risks, all rated Low. No risk escalations are required.",
+          "doc_b_excerpt": "The assessment revealed mandatory middleware remediation requirements that were not captured in the initial scope... Finance Committee should flag this project for enhanced monitoring.",
+          "severity": "high"
+        }
+      ],
+      "error": null
+    }
+  ]
+}

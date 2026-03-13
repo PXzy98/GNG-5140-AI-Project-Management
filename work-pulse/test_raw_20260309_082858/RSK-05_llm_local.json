@@ -1,0 +1,105 @@
+{
+  "test_id": "RSK-05",
+  "test_name": "Cross-document inconsistency detection",
+  "method": "llm_local",
+  "passed": true,
+  "score": "10/10",
+  "details": "inconsistencies=4",
+  "error": null,
+  "latency_ms": 15420.35179999948,
+  "artifact": {
+    "artifact_id": "art_f2e46b768d",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 203,
+    "content_preview": "GC-CLOUD WAVE 4 \u2014 FINANCE REVIEW COMMITTEE BRIEFING\nDate: March 3, 2026\nPrepared by: Fran\u00e7ois Lemieux, Finance Representative\nFor: Finance Review Committee\n\nPROJECT FINANCIAL STATUS \u2014 CONFIDENTIAL\n\nThis briefing provides the Finance Review Committee with an accurate\nassessment of the GC-Cloud Wave 4 financial situation.\n\nBUDGET OVERRUN: Following the infrastructure assessment completed\nFebruary 25, the project team has identified that the original budget\nof $2,400,000 is insufficient. The assess",
+    "extracted_tasks": [
+      {
+        "task_id": "art_f2e46b768d_t001",
+        "text": "will be required as",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will be required as",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_f2e46b768d_t002",
+        "text": "will require an estimated",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will require an estimated",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_f2e46b768d_t003",
+        "text": "should flag this project for",
+        "owner": "Finance Committee",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "should flag this project for",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_f2e46b768d_t004",
+        "text": "should be expedited",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "should be expedited",
+        "confidence": 0.7
+      }
+    ],
+    "metadata": {
+      "date": "March 3, 2026"
+    }
+  },
+  "llm_calls": [
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 15420.1,
+      "content": "```json\n[\n  {\n    \"description\": \"Contradiction regarding project budget status and financial health\",\n    \"doc_a_artifact_id\": \"art_ec8e1781d8\",\n    \"doc_b_artifact_id\": \"art_f2e46b768d\",\n    \"doc_a_excerpt\": \"The project is within budget. Expenditures to date total $412,000 against an approved budget of $2,400,000 (17% spent). We have no budget concerns at this time and expect to deliver within the approved envelope.\",\n    \"doc_b_artifact_id\": \"art_f2e46b768d\",\n    \"doc_b_excerpt\": \"The original budget of $2,400,000 is insufficient... Estimated cost of remediation: $340,000. Revised Projected Cost: $2,740,000 \u2014 representing a budget overrun of $340,000 (approximately 14% above approved envelope).\",\n    \"severity\": \"critical\"\n  },\n  {\n    \"description\": \"Contradiction regarding project schedule status and delivery timeline risk\",\n    \"doc_a_artifact_id\": \"art_ec8e1781d8\",\n    \"doc_b_artifact_id\": \"art_f2e46b768d\",\n    \"doc_a_excerpt\": \"The project remains on track to meet its Q3 2026 delivery commitment... The project is progressing according to the approved baseline schedule.\",\n    \"doc_b_artifact_id\": \"art_f2e46b768d\",\n    \"doc_b_excerpt\": \"The Q3 2026 delivery target is now uncertain. The project manager has been advised to reassess the schedule baseline... Timeline at risk.\",\n    \"severity\": \"critical\"\n  },\n  {\n    \"description\": \"Contradiction regarding the existence and status of identified risks\",\n    \"doc_a_artifact_id\": \"art_ec8e1781d8\",\n    \"doc_b_artifact_id\": \"art_f2e46b768d\",\n    \"doc_a_excerpt\": \"The project risk profile is low. Our risk register contains three risks, all rated Low. No risk escalations are required.\",\n    \"doc_b_artifact_id\": \"art_f2e46b768d\",\n    \"doc_b_excerpt\": \"The assessment revealed mandatory middleware remediation requirements that were not captured in the initial scope... Budget overrun confirmed. Timeline at risk.\",\n    \"severity\": \"high\"\n  },\n  {\n    \"description\": \"Contradiction regarding the completion status of the infrastructure assessment phase\",\n    \"doc_a_artifact_id\": \"art_ec8e1781d8\",\n    \"doc_b_artifact_id\": \"art_f2e46b768d\",\n    \"doc_a_excerpt\": \"The infrastructure assessment phase concluded on time on February 25. We are now entering the procurement and planning phase as planned.\",\n    \"doc_b_artifact_id\": \"art_f2e46b768d\",\n    \"doc_b_excerpt\": \"Following the infrastructure assessment completed February 25, the project team has identified that the original budget... is insufficient. The middleware remediation will require an estimated three weeks of additional effort before cloud migration workloads can begin.\",\n    \"severity\": \"high\"\n  }\n]\n```",
+      "parsed_json": [
+        {
+          "description": "Contradiction regarding project budget status and financial health",
+          "doc_a_artifact_id": "art_ec8e1781d8",
+          "doc_b_artifact_id": "art_f2e46b768d",
+          "doc_a_excerpt": "The project is within budget. Expenditures to date total $412,000 against an approved budget of $2,400,000 (17% spent). We have no budget concerns at this time and expect to deliver within the approved envelope.",
+          "doc_b_excerpt": "The original budget of $2,400,000 is insufficient... Estimated cost of remediation: $340,000. Revised Projected Cost: $2,740,000 \u2014 representing a budget overrun of $340,000 (approximately 14% above approved envelope).",
+          "severity": "critical"
+        },
+        {
+          "description": "Contradiction regarding project schedule status and delivery timeline risk",
+          "doc_a_artifact_id": "art_ec8e1781d8",
+          "doc_b_artifact_id": "art_f2e46b768d",
+          "doc_a_excerpt": "The project remains on track to meet its Q3 2026 delivery commitment... The project is progressing according to the approved baseline schedule.",
+          "doc_b_excerpt": "The Q3 2026 delivery target is now uncertain. The project manager has been advised to reassess the schedule baseline... Timeline at risk.",
+          "severity": "critical"
+        },
+        {
+          "description": "Contradiction regarding the existence and status of identified risks",
+          "doc_a_artifact_id": "art_ec8e1781d8",
+          "doc_b_artifact_id": "art_f2e46b768d",
+          "doc_a_excerpt": "The project risk profile is low. Our risk register contains three risks, all rated Low. No risk escalations are required.",
+          "doc_b_excerpt": "The assessment revealed mandatory middleware remediation requirements that were not captured in the initial scope... Budget overrun confirmed. Timeline at risk.",
+          "severity": "high"
+        },
+        {
+          "description": "Contradiction regarding the completion status of the infrastructure assessment phase",
+          "doc_a_artifact_id": "art_ec8e1781d8",
+          "doc_b_artifact_id": "art_f2e46b768d",
+          "doc_a_excerpt": "The infrastructure assessment phase concluded on time on February 25. We are now entering the procurement and planning phase as planned.",
+          "doc_b_excerpt": "Following the infrastructure assessment completed February 25, the project team has identified that the original budget... is insufficient. The middleware remediation will require an estimated three weeks of additional effort before cloud migration workloads can begin.",
+          "severity": "high"
+        }
+      ],
+      "error": null
+    }
+  ]
+}

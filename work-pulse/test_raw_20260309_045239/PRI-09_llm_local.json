@@ -1,0 +1,28 @@
+{
+  "test_id": "PRI-09",
+  "test_name": "Re-rank change tracking (diff)",
+  "method": "llm_local",
+  "passed": true,
+  "score": "7/7",
+  "details": "changes=3 valid=True",
+  "error": null,
+  "latency_ms": 56950.31490000838,
+  "llm_calls": [
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 57032.1,
+      "content": "",
+      "parsed_json": null,
+      "error": null
+    },
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 56949.4,
+      "content": "",
+      "parsed_json": null,
+      "error": null
+    }
+  ]
+}

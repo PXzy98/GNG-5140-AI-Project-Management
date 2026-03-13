@@ -1,0 +1,105 @@
+{
+  "test_id": "RSK-05",
+  "test_name": "Cross-document inconsistency detection",
+  "method": "llm_medium",
+  "passed": true,
+  "score": "10/10",
+  "details": "inconsistencies=4",
+  "error": null,
+  "latency_ms": 5405.099700001301,
+  "artifact": {
+    "artifact_id": "art_874ec683f0",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 203,
+    "content_preview": "GC-CLOUD WAVE 4 \u2014 FINANCE REVIEW COMMITTEE BRIEFING\nDate: March 3, 2026\nPrepared by: Fran\u00e7ois Lemieux, Finance Representative\nFor: Finance Review Committee\n\nPROJECT FINANCIAL STATUS \u2014 CONFIDENTIAL\n\nThis briefing provides the Finance Review Committee with an accurate\nassessment of the GC-Cloud Wave 4 financial situation.\n\nBUDGET OVERRUN: Following the infrastructure assessment completed\nFebruary 25, the project team has identified that the original budget\nof $2,400,000 is insufficient. The assess",
+    "extracted_tasks": [
+      {
+        "task_id": "art_874ec683f0_t001",
+        "text": "will be required as",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will be required as",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_874ec683f0_t002",
+        "text": "will require an estimated",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will require an estimated",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_874ec683f0_t003",
+        "text": "should flag this project for",
+        "owner": "Finance Committee",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "should flag this project for",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_874ec683f0_t004",
+        "text": "should be expedited",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "should be expedited",
+        "confidence": 0.7
+      }
+    ],
+    "metadata": {
+      "date": "March 3, 2026"
+    }
+  },
+  "llm_calls": [
+    {
+      "tier": "medium",
+      "model": "google/gemini-3-flash-preview",
+      "latency_ms": 5404.9,
+      "content": "```json\n[\n  {\n    \"description\": \"Contradictory reporting on budget health and projected costs. The Director's briefing claims the project is within budget with no concerns, while the Finance briefing confirms a $340,000 overrun due to middleware remediation.\",\n    \"doc_a_artifact_id\": \"art_c8d35f6f54\",\n    \"doc_b_artifact_id\": \"art_874ec683f0\",\n    \"doc_a_excerpt\": \"The project is within budget... We have no budget concerns at this time and expect to deliver within the approved envelope.\",\n    \"doc_b_excerpt\": \"The project team has identified that the original budget of $2,400,000 is insufficient... Revised projected cost: $2,740,000 \u2014 representing a budget overrun of $340,000.\",\n    \"severity\": \"critical\"\n  },\n  {\n    \"description\": \"Conflicting claims regarding schedule adherence and the Q3 2026 delivery target. The Project Manager reports the project is on track, whereas Finance reports the timeline is at risk and the target is uncertain.\",\n    \"doc_a_artifact_id\": \"art_c8d35f6f54\",\n    \"doc_b_artifact_id\": \"art_874ec683f0\",\n    \"doc_a_excerpt\": \"The project remains on track to meet its Q3 2026 delivery commitment. SCHEDULE: The project is progressing according to the approved baseline schedule.\",\n    \"doc_b_excerpt\": \"TIMELINE AT RISK: The middleware remediation will require an estimated three weeks of additional effort... The Q3 2026 delivery target is now uncertain.\",\n    \"severity\": \"high\"\n  },\n  {\n    \"description\": \"Inconsistency in risk assessment. The Project Manager rates the risk profile as 'low' with no escalations, while Finance recommends 'enhanced monitoring' and notes a breach of the Treasury Board 10% variance threshold.\",\n    \"doc_a_artifact_id\": \"art_c8d35f6f54\",\n    \"doc_b_artifact_id\": \"art_874ec683f0\",\n    \"doc_a_excerpt\": \"The project risk profile is low. Our risk register contains three risks, all rated Low. No risk escalations are required.\",\n    \"doc_b_excerpt\": \"Finance Committee should flag this project for enhanced monitoring... Treasury Board notification will be required as the variance exceeds the 10% threshold.\",\n    \"severity\": \"high\"\n  },\n  {\n    \"description\": \"Discrepancy regarding the outcome of the infrastructure assessment phase. The PM claims it concluded on time with no issues, while Finance claims the assessment revealed significant uncaptured scope (middleware remediation).\",\n    \"doc_a_artifact_id\": \"art_c8d35f6f54\",\n    \"doc_b_artifact_id\": \"art_874ec683f0\",\n    \"doc_a_excerpt\": \"The infrastructure assessment phase concluded on time on February 25. We are now entering the procurement and planning phase as planned.\",\n    \"doc_b_excerpt\": \"Following the infrastructure assessment completed February 25, the project team has identified that the original budget of $2,400,000 is insufficient. The assessment revealed mandatory middleware remediation requirements that were not captured in the initial scope.\",\n    \"severity\": \"medium\"\n  }\n]\n```",
+      "parsed_json": [
+        {
+          "description": "Contradictory reporting on budget health and projected costs. The Director's briefing claims the project is within budget with no concerns, while the Finance briefing confirms a $340,000 overrun due to middleware remediation.",
+          "doc_a_artifact_id": "art_c8d35f6f54",
+          "doc_b_artifact_id": "art_874ec683f0",
+          "doc_a_excerpt": "The project is within budget... We have no budget concerns at this time and expect to deliver within the approved envelope.",
+          "doc_b_excerpt": "The project team has identified that the original budget of $2,400,000 is insufficient... Revised projected cost: $2,740,000 \u2014 representing a budget overrun of $340,000.",
+          "severity": "critical"
+        },
+        {
+          "description": "Conflicting claims regarding schedule adherence and the Q3 2026 delivery target. The Project Manager reports the project is on track, whereas Finance reports the timeline is at risk and the target is uncertain.",
+          "doc_a_artifact_id": "art_c8d35f6f54",
+          "doc_b_artifact_id": "art_874ec683f0",
+          "doc_a_excerpt": "The project remains on track to meet its Q3 2026 delivery commitment. SCHEDULE: The project is progressing according to the approved baseline schedule.",
+          "doc_b_excerpt": "TIMELINE AT RISK: The middleware remediation will require an estimated three weeks of additional effort... The Q3 2026 delivery target is now uncertain.",
+          "severity": "high"
+        },
+        {
+          "description": "Inconsistency in risk assessment. The Project Manager rates the risk profile as 'low' with no escalations, while Finance recommends 'enhanced monitoring' and notes a breach of the Treasury Board 10% variance threshold.",
+          "doc_a_artifact_id": "art_c8d35f6f54",
+          "doc_b_artifact_id": "art_874ec683f0",
+          "doc_a_excerpt": "The project risk profile is low. Our risk register contains three risks, all rated Low. No risk escalations are required.",
+          "doc_b_excerpt": "Finance Committee should flag this project for enhanced monitoring... Treasury Board notification will be required as the variance exceeds the 10% threshold.",
+          "severity": "high"
+        },
+        {
+          "description": "Discrepancy regarding the outcome of the infrastructure assessment phase. The PM claims it concluded on time with no issues, while Finance claims the assessment revealed significant uncaptured scope (middleware remediation).",
+          "doc_a_artifact_id": "art_c8d35f6f54",
+          "doc_b_artifact_id": "art_874ec683f0",
+          "doc_a_excerpt": "The infrastructure assessment phase concluded on time on February 25. We are now entering the procurement and planning phase as planned.",
+          "doc_b_excerpt": "Following the infrastructure assessment completed February 25, the project team has identified that the original budget of $2,400,000 is insufficient. The assessment revealed mandatory middleware remediation requirements that were not captured in the initial scope.",
+          "severity": "medium"
+        }
+      ],
+      "error": null
+    }
+  ]
+}

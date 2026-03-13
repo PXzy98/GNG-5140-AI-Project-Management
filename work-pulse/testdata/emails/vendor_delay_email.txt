@@ -1,0 +1,50 @@
+From: j.henderson@techsupplier.ca
+To: alice.tran@ssc-spc.gc.ca
+Cc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca
+Subject: RE: NGIS Phase 3 — Network Equipment Delivery Update
+Date: Mon, 2 Mar 2026 09:14:32 -0500
+
+Alice,
+
+Following our call on Friday, I wanted to confirm in writing the situation
+with the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre
+migration.
+
+Unfortunately, our primary distribution centre experienced a warehouse
+management system failure that has affected outbound shipments since
+February 26. We have now confirmed a 2-week delay on the network equipment
+originally scheduled to arrive at your Gatineau facility on March 6. The
+revised estimated delivery date is March 20, 2026.
+
+I understand this creates significant pressure on your Q2 migration
+timeline. To be transparent: we are currently single-sourced on this
+product line through our Montreal warehouse, and alternative routing via
+our Vancouver depot would add a further 3–5 business days.
+
+I deeply regret the inconvenience. Our team is working around the clock to
+expedite the shipment.
+
+Please let me know how we can best support your planning activities during
+this disruption.
+
+Best regards,
+Jason Henderson
+Account Manager — Federal Public Sector
+TechSupplier Solutions Inc.
+613-555-0182
+
+---
+
+Original message:
+
+From: alice.tran@ssc-spc.gc.ca
+Sent: Friday, February 28, 2026 4:45 PM
+To: j.henderson@techsupplier.ca
+Subject: NGIS Phase 3 — Network Equipment Delivery Update
+
+Jason, can you please confirm the delivery timeline for the Catalyst
+switches? Our migration window opens March 8 and we need the equipment
+on site no later than March 6 for staging and testing.
+
+Thanks,
+Alice

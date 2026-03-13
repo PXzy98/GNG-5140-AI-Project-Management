@@ -1,0 +1,293 @@
+{
+  "test_id": "DFT-11",
+  "test_name": "Baseline versioning",
+  "method": "llm_medium",
+  "passed": true,
+  "score": "6/6",
+  "details": "latest_version=v2",
+  "error": null,
+  "latency_ms": 8972.061200009193,
+  "artifact": {
+    "artifact_id": "art_f08d04f528",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 799,
+    "content_preview": "STATEMENT OF WORK\nPROJECT: NGIS PHASE 3 \u2014 DATA CENTRE CONSOLIDATION\nDocument Number: SOW-NGIS-P3-2024-001\nVersion: 2.1\nDate: September 15, 2024\nContracting Authority: Shared Services Canada (SSC)\nClassification: Protected B\n\n---\n\n1. BACKGROUND AND CONTEXT\n\nShared Services Canada (SSC) is undertaking the Next-Generation\nInfrastructure Strategy (NGIS) Phase 3, which involves the consolidation\nof three Government of Canada (GC) data centre facilities into a single\nmodernized enterprise data centre.",
+    "extracted_tasks": [
+      {
+        "task_id": "art_f08d04f528_t001",
+        "text": "Decommissioning of Sites B and C physical infrastructure",
+        "owner": "Contractor",
+        "deadline": "2026-04-30",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Decommissioning of Sites B and C physical infrastructure",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_f08d04f528_t002",
+        "text": "Migration of all server workloads from Sites B and C to Site A",
+        "owner": "Contractor",
+        "deadline": "2026-04-30",
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "Migration of all server workloads from Sites B and C to Site A",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_f08d04f528_t003",
+        "text": "Replacement and deployment of Cisco Catalyst 9500 series switches",
+        "owner": "Contractor",
+        "deadline": null,
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Replacement and deployment of Cisco Catalyst 9500 series switches across all three sites",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_f08d04f528_t004",
+        "text": "Migration of all on-premise Active Directory domain controllers to Site A",
+        "owner": "Contractor",
+        "deadline": null,
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Migration of all on-premise Active Directory domain controllers to consolidated infrastructure at Site A",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_f08d04f528_t005",
+        "text": "Submit Weekly status reports",
+        "owner": "Contractor",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Weekly status reports to SSC Project Management Office",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_f08d04f528_t006",
+        "text": "Deliver Project Management Plan (D-001)",
+        "owner": "Contractor",
+        "deadline": "2024-10-31",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "D-001: Project Management Plan \u2014 Due: October 31, 2024",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_f08d04f528_t007",
+        "text": "Deliver Technical Design Document (TDD) (D-002)",
+        "owner": "Contractor",
+        "deadline": "2024-12-15",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "D-002: Technical Design Document (TDD) \u2014 Due: December 15, 2024",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_f08d04f528_t008",
+        "text": "Deliver Security Assessment and Authorization (SA&A) Package (D-003)",
+        "owner": "Contractor",
+        "deadline": "2025-01-31",
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "D-003: Security Assessment and Authorization (SA&A) Package \u2014 Due: January 31, 2025",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_f08d04f528_t009",
+        "text": "Deliver Migration Runbook (Sites B and C) (D-004)",
+        "owner": "Contractor",
+        "deadline": "2025-02-28",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "D-004: Migration Runbook (Sites B and C) \u2014 Due: February 28, 2025",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_f08d04f528_t010",
+        "text": "Deliver User Acceptance Test (UAT) Plan (D-005)",
+        "owner": "Contractor",
+        "deadline": "2026-03-10",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "D-005: User Acceptance Test (UAT) Plan \u2014 Due: March 10, 2026",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_f08d04f528_t011",
+        "text": "Site A Consolidation Complete (Go-Live) (D-006)",
+        "owner": "Contractor",
+        "deadline": "2026-04-30",
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "D-006: Site A Consolidation Complete (Go-Live) \u2014 Due: April 30, 2026",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_f08d04f528_t012",
+        "text": "Deliver Post-Migration Validation Report (D-007)",
+        "owner": "Contractor",
+        "deadline": "2026-05-31",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "D-007: Post-Migration Validation Report \u2014 Due: May 31, 2026",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_f08d04f528_t013",
+        "text": "Deliver Project Closure Report (D-008)",
+        "owner": "Contractor",
+        "deadline": "2026-06-30",
+        "priority": "low",
+        "status": "not_started",
+        "source_excerpt": "D-008: Project Closure Report \u2014 Due: June 30, 2026",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_f08d04f528_t014",
+        "text": "Decision: Consolidate three facilities into Site A",
+        "owner": "Shared Services Canada (SSC)",
+        "deadline": null,
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "consolidation of three Government of Canada (GC) data centre facilities into a single modernized enterprise data centre",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_f08d04f528_t015",
+        "text": "Decision: Applications will be migrated as-is (lift and shift only)",
+        "owner": null,
+        "deadline": null,
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Applications will be migrated as-is (lift and shift only).",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_f08d04f528_t016",
+        "text": "Decision: Budget capped at $2,400,000",
+        "owner": "Shared Services Canada (SSC)",
+        "deadline": null,
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "The total approved budget for NGIS Phase 3 is $2,400,000",
+        "confidence": 0.9
+      }
+    ],
+    "metadata": {
+      "date": "September 15, 2024"
+    }
+  },
+  "llm_calls": [
+    {
+      "tier": "medium",
+      "model": "google/gemini-3-flash-preview",
+      "latency_ms": 4524.2,
+      "content": "```json\n{\n  \"in_scope\": [\n    \"Decommissioning of Sites B and C physical infrastructure\",\n    \"Migration of all server workloads from Sites B and C to Site A\",\n    \"Physical server rack consolidation and cable management at Site A\",\n    \"Environmental systems (HVAC, UPS, fire suppression) optimization at Site A\",\n    \"Replacement and deployment of Cisco Catalyst 9500 series switches across all three sites\",\n    \"Network segmentation reconfiguration per updated security zones\",\n    \"BGP routing table migration and validation\",\n    \"Network performance baseline testing post-migration\",\n    \"Migration of all on-premise Active Directory domain controllers to Site A\",\n    \"AD schema extension and forest restructuring\",\n    \"Group Policy Object (GPO) consolidation and testing\",\n    \"Integration testing with downstream applications dependent on AD\",\n    \"Project management, weekly status reports, and risk register maintenance\",\n    \"Steering committee presentations and stakeholder communications\"\n  ],\n  \"out_of_scope\": [\n    \"End-user device refresh or replacement (laptops, desktops, mobile devices)\",\n    \"Application modernization or re-platforming (lift and shift only)\",\n    \"GC-Cloud workload migration (AWS, Azure, GC-Cloud)\",\n    \"End-user training and departmental change management programs\",\n    \"Procurement of new application licenses\",\n    \"Network monitoring tool upgrades (NOC monitoring platform)\"\n  ],\n  \"deliverables\": [\n    \"D-001: Project Management Plan\",\n    \"D-002: Technical Design Document (TDD)\",\n    \"D-003: Security Assessment and Authorization (SA&A) Package\",\n    \"D-004: Migration Runbook (Sites B and C)\",\n    \"D-005: User Acceptance Test (UAT) Plan\",\n    \"D-006: Site A Consolidation Complete (Go-Live)\",\n    \"D-007: Post-Migration Validation Report\",\n    \"D-008: Project Closure Report\"\n  ],\n  \"constraints\": [\n    \"Total approved budget of $2,400,000 inclusive of all fees and taxes\",\n    \"Go-Live (D-006) must be achieved no later than April 30, 2026\",\n    \"Final project closure date of June 30, 2026\",\n    \"Compliance with ITSG-33: IT Security Risk Management\",\n    \"Compliance with Treasury Board Policy on Government Security\",\n    \"Compliance with Privacy Act and Official Languages Act\",\n    \"Adherence to SSC Project Change Management Process for scope/schedule/budget changes\",\n    \"Classification: Protected B security requirements\"\n  ]\n}\n```",
+      "parsed_json": {
+        "in_scope": [
+          "Decommissioning of Sites B and C physical infrastructure",
+          "Migration of all server workloads from Sites B and C to Site A",
+          "Physical server rack consolidation and cable management at Site A",
+          "Environmental systems (HVAC, UPS, fire suppression) optimization at Site A",
+          "Replacement and deployment of Cisco Catalyst 9500 series switches across all three sites",
+          "Network segmentation reconfiguration per updated security zones",
+          "BGP routing table migration and validation",
+          "Network performance baseline testing post-migration",
+          "Migration of all on-premise Active Directory domain controllers to Site A",
+          "AD schema extension and forest restructuring",
+          "Group Policy Object (GPO) consolidation and testing",
+          "Integration testing with downstream applications dependent on AD",
+          "Project management, weekly status reports, and risk register maintenance",
+          "Steering committee presentations and stakeholder communications"
+        ],
+        "out_of_scope": [
+          "End-user device refresh or replacement (laptops, desktops, mobile devices)",
+          "Application modernization or re-platforming (lift and shift only)",
+          "GC-Cloud workload migration (AWS, Azure, GC-Cloud)",
+          "End-user training and departmental change management programs",
+          "Procurement of new application licenses",
+          "Network monitoring tool upgrades (NOC monitoring platform)"
+        ],
+        "deliverables": [
+          "D-001: Project Management Plan",
+          "D-002: Technical Design Document (TDD)",
+          "D-003: Security Assessment and Authorization (SA&A) Package",
+          "D-004: Migration Runbook (Sites B and C)",
+          "D-005: User Acceptance Test (UAT) Plan",
+          "D-006: Site A Consolidation Complete (Go-Live)",
+          "D-007: Post-Migration Validation Report",
+          "D-008: Project Closure Report"
+        ],
+        "constraints": [
+          "Total approved budget of $2,400,000 inclusive of all fees and taxes",
+          "Go-Live (D-006) must be achieved no later than April 30, 2026",
+          "Final project closure date of June 30, 2026",
+          "Compliance with ITSG-33: IT Security Risk Management",
+          "Compliance with Treasury Board Policy on Government Security",
+          "Compliance with Privacy Act and Official Languages Act",
+          "Adherence to SSC Project Change Management Process for scope/schedule/budget changes",
+          "Classification: Protected B security requirements"
+        ]
+      },
+      "error": null
+    },
+    {
+      "tier": "medium",
+      "model": "google/gemini-3-flash-preview",
+      "latency_ms": 4420.7,
+      "content": "```json\n{\n  \"in_scope\": [\n    \"Decommissioning of Sites B and C physical infrastructure\",\n    \"Migration of all server workloads from Sites B and C to Site A\",\n    \"Physical server rack consolidation and cable management at Site A\",\n    \"Environmental systems (HVAC, UPS, fire suppression) optimization at Site A\",\n    \"Replacement and deployment of Cisco Catalyst 9500 series switches across all three sites\",\n    \"Network segmentation reconfiguration per updated security zones\",\n    \"BGP routing table migration and validation\",\n    \"Network performance baseline testing post-migration\",\n    \"Migration of all on-premise Active Directory domain controllers to Site A\",\n    \"AD schema extension and forest restructuring\",\n    \"Group Policy Object (GPO) consolidation and testing\",\n    \"Integration testing with downstream applications dependent on AD\",\n    \"Weekly status reports to SSC Project Management Office\",\n    \"Monthly steering committee presentations\",\n    \"Risk register maintenance\",\n    \"Change management and stakeholder communications\"\n  ],\n  \"out_of_scope\": [\n    \"End-user device refresh or replacement (laptops, desktops, mobile devices)\",\n    \"Application modernization or re-platforming (lift and shift only)\",\n    \"GC-Cloud workload migration (AWS, Azure, GC-Cloud)\",\n    \"End-user training and change management beyond project communications\",\n    \"Procurement of new application licenses\",\n    \"Network monitoring tool upgrades\"\n  ],\n  \"deliverables\": [\n    \"D-001: Project Management Plan\",\n    \"D-002: Technical Design Document (TDD)\",\n    \"D-003: Security Assessment and Authorization (SA&A) Package\",\n    \"D-004: Migration Runbook (Sites B and C)\",\n    \"D-005: User Acceptance Test (UAT) Plan\",\n    \"D-006: Site A Consolidation Complete (Go-Live)\",\n    \"D-007: Post-Migration Validation Report\",\n    \"D-008: Project Closure Report\"\n  ],\n  \"constraints\": [\n    \"Total budget cap of $2,400,000 inclusive of all fees and taxes\",\n    \"Go-Live deadline no later than April 30, 2026\",\n    \"Final project closure by June 30, 2026\",\n    \"Compliance with ITSG-33: IT Security Risk Management\",\n    \"Compliance with Government of Canada Cloud Adoption Strategy\",\n    \"Compliance with Treasury Board Policy on Government Security\",\n    \"Compliance with Privacy Act (R.S.C., 1985, c. P-21)\",\n    \"Compliance with Official Languages Act for client-facing deliverables\",\n    \"Mandatory adherence to SSC Project Change Management Process for scope/schedule/budget changes\"\n  ]\n}\n```",
+      "parsed_json": {
+        "in_scope": [
+          "Decommissioning of Sites B and C physical infrastructure",
+          "Migration of all server workloads from Sites B and C to Site A",
+          "Physical server rack consolidation and cable management at Site A",
+          "Environmental systems (HVAC, UPS, fire suppression) optimization at Site A",
+          "Replacement and deployment of Cisco Catalyst 9500 series switches across all three sites",
+          "Network segmentation reconfiguration per updated security zones",
+          "BGP routing table migration and validation",
+          "Network performance baseline testing post-migration",
+          "Migration of all on-premise Active Directory domain controllers to Site A",
+          "AD schema extension and forest restructuring",
+          "Group Policy Object (GPO) consolidation and testing",
+          "Integration testing with downstream applications dependent on AD",
+          "Weekly status reports to SSC Project Management Office",
+          "Monthly steering committee presentations",
+          "Risk register maintenance",
+          "Change management and stakeholder communications"
+        ],
+        "out_of_scope": [
+          "End-user device refresh or replacement (laptops, desktops, mobile devices)",
+          "Application modernization or re-platforming (lift and shift only)",
+          "GC-Cloud workload migration (AWS, Azure, GC-Cloud)",
+          "End-user training and change management beyond project communications",
+          "Procurement of new application licenses",
+          "Network monitoring tool upgrades"
+        ],
+        "deliverables": [
+          "D-001: Project Management Plan",
+          "D-002: Technical Design Document (TDD)",
+          "D-003: Security Assessment and Authorization (SA&A) Package",
+          "D-004: Migration Runbook (Sites B and C)",
+          "D-005: User Acceptance Test (UAT) Plan",
+          "D-006: Site A Consolidation Complete (Go-Live)",
+          "D-007: Post-Migration Validation Report",
+          "D-008: Project Closure Report"
+        ],
+        "constraints": [
+          "Total budget cap of $2,400,000 inclusive of all fees and taxes",
+          "Go-Live deadline no later than April 30, 2026",
+          "Final project closure by June 30, 2026",
+          "Compliance with ITSG-33: IT Security Risk Management",
+          "Compliance with Government of Canada Cloud Adoption Strategy",
+          "Compliance with Treasury Board Policy on Government Security",
+          "Compliance with Privacy Act (R.S.C., 1985, c. P-21)",
+          "Compliance with Official Languages Act for client-facing deliverables",
+          "Mandatory adherence to SSC Project Change Management Process for scope/schedule/budget changes"
+        ]
+      },
+      "error": null
+    }
+  ]
+}

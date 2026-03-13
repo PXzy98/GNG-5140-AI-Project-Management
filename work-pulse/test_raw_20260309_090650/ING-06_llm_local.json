@@ -1,0 +1,110 @@
+{
+  "test_id": "ING-06",
+  "test_name": "Owner/assignee extraction",
+  "method": "llm_local",
+  "passed": true,
+  "score": "8.0/8",
+  "details": "F1=0.91 pred=['Alice Tran', 'Bob Morrison', 'Dave Chen'] gt=['Alice Tran', 'Bob Morrison', 'Dave Chen']",
+  "error": null,
+  "latency_ms": 9.775099999387749,
+  "artifact": {
+    "artifact_id": "art_1d55b0883a",
+    "artifact_type": "meeting_minutes",
+    "detected_language": "en",
+    "word_count": 446,
+    "content_preview": "NGIS PHASE 3 \u2014 SPRINT REVIEW MEETING MINUTES\nMeeting Date: March 3, 2026\nTime: 13:00\u201314:30 EST\nLocation: WebEx / Room 4C-12, Place du Portage III, Gatineau\n\nAttendees:\n- Alice Tran (Project Manager) \u2014 Chair\n- Bob Morrison (Technical Lead)\n- Carol Nguyen (Infrastructure Architect)\n- Dave Chen (Security Specialist)\n- Marie Lefebvre (Change Management)\n- Farida Osei (QA Lead)\n\nRegrets: Director Okafor (represented by Alice Tran)\n\n---\n\n1. SPRINT 6 REVIEW (Feb 17 \u2013 Mar 3, 2026)\n\nCompleted Items:\n- AD",
+    "extracted_tasks": [
+      {
+        "task_id": "art_1d55b0883a_t001",
+        "text": "contact TechSupplier Account Manager for revised delivery commitment in writing",
+        "owner": "Alice Tran",
+        "deadline": "2026-03-05",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "AI-001: Alice Tran to contact TechSupplier Account Manager for revised delivery commitment in writing. Deadline: March 5, 2026.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_1d55b0883a_t002",
+        "text": "complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen",
+        "owner": "Bob Morrison",
+        "deadline": "2026-03-17",
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "AI-002: Bob Morrison to complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen. Deadline: March 17, 2026.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_1d55b0883a_t003",
+        "text": "prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office",
+        "owner": "Dave Chen",
+        "deadline": "2026-03-12",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "AI-003: Dave Chen to prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office. Deadline: March 12, 2026.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_1d55b0883a_t004",
+        "text": "complete and distribute UAT test plan to all stakeholders for review",
+        "owner": "Farida Osei",
+        "deadline": "2026-03-10",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "AI-004: Farida Osei to complete and distribute UAT test plan to all stakeholders for review. Deadline: March 10, 2026.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_1d55b0883a_t005",
+        "text": "conduct impact assessment on Site A cutover timeline given vendor delay. Present findings to steering committee",
+        "owner": "Carol Nguyen",
+        "deadline": "2026-03-07",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "AI-005: Carol Nguyen to conduct impact assessment on Site A cutover timeline given vendor delay. Present findings to steering committee. Deadline: Mar",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_1d55b0883a_t006",
+        "text": "assess refactoring effort for migration script relying on deprecated 'legacy-sync' API endpoint",
+        "owner": "Bob Morrison",
+        "deadline": null,
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "d) Technical Dependency: The current migration script relies on the deprecated \"legacy-sync\" API endpoint scheduled for decommission on April 1. Bob t",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_1d55b0883a_t007",
+        "text": "initiate knowledge transfer plan immediately given his role as the sole AD migration expert",
+        "owner": null,
+        "deadline": null,
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "c) Resource Risk: Bob Morrison has indicated he is exploring external opportunities and may be leaving SSC within 60 days. Knowledge transfer plan mus",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_1d55b0883a_t008",
+        "text": "notify HR regarding Bob Morrison's potential departure",
+        "owner": null,
+        "deadline": null,
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "c) Resource Risk: Bob Morrison has indicated he is exploring external opportunities and may be leaving SSC within 60 days. Knowledge transfer plan mus",
+        "confidence": 0.9
+      }
+    ],
+    "metadata": {
+      "attendees": [
+        "- Alice Tran (Project Manager) \u2014 Chair",
+        "- Bob Morrison (Technical Lead)",
+        "- Carol Nguyen (Infrastructure Architect)",
+        "- Dave Chen (Security Specialist)",
+        "- Marie Lefebvre (Change Management)",
+        "- Farida Osei (QA Lead)"
+      ]
+    }
+  },
+  "llm_calls": []
+}

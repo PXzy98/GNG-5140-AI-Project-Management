@@ -1,0 +1,172 @@
+{
+  "test_id": "DFT-05",
+  "test_name": "Contradicts-scope detection",
+  "method": "llm_large",
+  "passed": false,
+  "score": "3/10",
+  "details": "type=scope_expansion score=0.35",
+  "error": null,
+  "latency_ms": 17095.332900003996,
+  "artifact": {
+    "artifact_id": "art_042c98aed6",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 212,
+    "content_preview": "From: adm.clarke@ssc-spc.gc.ca\nTo: alice.tran@ssc-spc.gc.ca; carol.nguyen@ssc-spc.gc.ca; finance.review@ssc-spc.gc.ca\nSubject: NGIS Phase 3 \u2014 Decision: Timeline and Budget Revision\nDate: March 9, 2026\n\nProject Team,\n\nFollowing the steering committee session on March 8 and consultation\nwith Treasury Board Secretariat, I am writing to communicate an executive\ndecision regarding the NGIS Phase 3 project parameters.\n\nDECISION 1 \u2014 TIMELINE EXTENSION:\nThe project completion date is hereby extended to ",
+    "extracted_tasks": [
+      {
+        "task_id": "art_042c98aed6_t001",
+        "text": "Project completion date extended to December 31, 2026.",
+        "owner": null,
+        "deadline": "2026-12-31",
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "The project completion date is hereby extended to Q4 2026 (December 31, 2026).",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_042c98aed6_t002",
+        "text": "Approved project budget increased to $3,500,000.",
+        "owner": null,
+        "deadline": null,
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "The approved project budget is increased to $3,500,000",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_042c98aed6_t003",
+        "text": "Submit Treasury Board notification.",
+        "owner": "SSC Finance team",
+        "deadline": null,
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Treasury Board notification will be submitted by the SSC Finance team.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_042c98aed6_t004",
+        "text": "Circulate formal amendment to the project charter for signature.",
+        "owner": "ADM Clarke",
+        "deadline": "2026-03-13",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "A formal amendment to the project charter will be circulated for signature by end of week.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_042c98aed6_t005",
+        "text": "Update all project documentation, risk registers, and reporting templates.",
+        "owner": "Project Team",
+        "deadline": "2026-03-09",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Please update all project documentation, risk registers, and reporting templates to reflect these revised parameters effective immediately.",
+        "confidence": 0.9
+      }
+    ],
+    "metadata": {
+      "sender": "adm.clarke@ssc-spc.gc.ca",
+      "recipients": "alice.tran@ssc-spc.gc.ca; carol.nguyen@ssc-spc.gc.ca; finance.review@ssc-spc.gc.ca",
+      "subject": "NGIS Phase 3 \u2014 Decision: Timeline and Budget Revision",
+      "date": "March 9, 2026"
+    }
+  },
+  "drift_check": {
+    "drift_type": "scope_expansion",
+    "overall_alignment_score": 0.35,
+    "reasoning": null,
+    "alerts": [
+      {
+        "alert_id": "alt_13831cd6",
+        "project_id": "proj_drift_llm_large",
+        "artifact_id": "art_042c98aed6",
+        "drift_type": "scope_expansion",
+        "alignment_score": 0.35,
+        "detected_ask": "Multiple compounding changes: (1) Go-Live extension to December 31, 2026, superseding the April 30, 2026 constraint; (2) budget increase to $3,500,000 CAD, exceeding the approved $2,400,000 envelope by $1,100,000 (45.8%); (3) introduction of middleware remediation ($340,000) as a funded line item; (",
+        "baseline_reference": "CONSTRAINTS: 'Go-Live (D-006) must be achieved no later than April 30, 2026'; 'Final project closure date is June 30, 2026 (end of fiscal year 2025\u20132026); Extensions beyond June 30, 2026 require ADM-level approval'; 'Total approved budget is $2,400,000 CAD inclusive of all fees, disbursements, and a",
+        "suggested_action": "The Project Manager must immediately initiate a formal Change Request (CR) and Impact Assessment covering all four affected dimensions: (1) SCHEDULE \u2014 document the ADM-authorized extension to December 31, 2026, update D-005 through D-008 deliverable dates accordingly, and confirm whether the fiscal ",
+        "severity": "high",
+        "status": "open",
+        "created_at": "2026-03-09T07:43:40.392179"
+      }
+    ]
+  },
+  "llm_calls": [
+    {
+      "tier": "large",
+      "model": "anthropic/claude-sonnet-4.6",
+      "latency_ms": 8371.2,
+      "content": "```json\n{\n  \"in_scope\": [\n    \"Decommissioning of Sites B and C physical infrastructure\",\n    \"Migration of all server workloads from Sites B and C to Site A\",\n    \"Physical server rack consolidation and cable management at Site A\",\n    \"Environmental systems (HVAC, UPS, fire suppression) optimization at Site A\",\n    \"Replacement and deployment of Cisco Catalyst 9500 series switches across all three sites\",\n    \"Network segmentation reconfiguration per updated security zones\",\n    \"BGP routing table migration and validation\",\n    \"Network performance baseline testing post-migration\",\n    \"Migration of all on-premise Active Directory domain controllers to consolidated infrastructure at Site A\",\n    \"AD schema extension and forest restructuring\",\n    \"Group Policy Object (GPO) consolidation and testing\",\n    \"Integration testing with downstream applications dependent on AD\",\n    \"Weekly status reports to SSC Project Management Office\",\n    \"Steering committee presentations (monthly)\",\n    \"Risk register maintenance\",\n    \"Change management and stakeholder communications\"\n  ],\n  \"out_of_scope\": [\n    \"End-user device refresh or replacement (laptops, desktops, mobile devices) \u2014 addressed under NGIS Phase 4\",\n    \"Application modernization or re-platforming \u2014 no changes to application code, architecture, or hosting platform; lift and shift only\",\n    \"GC-Cloud workload migration to public cloud environments (AWS, Azure, GC-Cloud) \u2014 addressed under GC-Cloud Wave 4\",\n    \"End-user training and change management beyond project communications \u2014 responsibility of client departments\",\n    \"Procurement of new application licenses \u2014 software licensing changes resulting from platform migration\",\n    \"Network monitoring tool upgrades \u2014 NOC monitoring platform upgrades deferred to a separate initiative\"\n  ],\n  \"deliverables\": [\n    \"D-001: Project Management Plan \u2014 Due October 31, 2024\",\n    \"D-002: Technical Design Document (TDD) \u2014 Due December 15, 2024\",\n    \"D-003: Security Assessment and Authorization (SA&A) Package \u2014 Due January 31, 2025\",\n    \"D-004: Migration Runbook (Sites B and C) \u2014 Due February 28, 2025\",\n    \"D-005: User Acceptance Test (UAT) Plan \u2014 Due March 10, 2026\",\n    \"D-006: Site A Consolidation Complete (Go-Live) \u2014 Due April 30, 2026\",\n    \"D-007: Post-Migration Validation Report \u2014 Due May 31, 2026\",\n    \"D-008: Project Closure Report \u2014 Due June 30, 2026\"\n  ],\n  \"constraints\": [\n    \"Total approved budget is $2,400,000 CAD inclusive of all fees, disbursements, and applicable taxes\",\n    \"Expenditures beyond the approved budget require a formal budget amendment approved by the Director General of IT Infrastructure\",\n    \"Budget variances exceeding 15% require submission to Treasury Board\",\n    \"Go-Live (D-006) must be achieved no later than April 30, 2026\",\n    \"Final project closure date is June 30, 2026 (end of fiscal year 2025\u20132026)\",\n    \"Extensions beyond June 30, 2026 require ADM-level approval\",\n    \"All work must comply with ITSG-33: IT Security Risk Management \u2014 A Lifecycle Approach\",\n    \"All work must comply with the Government of Canada Cloud Adoption Strategy\",\n    \"All work must comply with the Treasury Board Policy on Government Security\",\n    \"All work must comply with the Privacy Act (R.S.C., 1985, c. P-21)\",\n    \"All client-facing deliverables must comply with the Official Languages Act\",\n    \"Scope, schedule, or budget changes must follow the SSC Project Change Management Process\",\n    \"Scope changes require written approval from the Project Sponsor and must be assessed for cost and schedule impact before implementation\"\n  ]\n}\n```",
+      "parsed_json": {
+        "in_scope": [
+          "Decommissioning of Sites B and C physical infrastructure",
+          "Migration of all server workloads from Sites B and C to Site A",
+          "Physical server rack consolidation and cable management at Site A",
+          "Environmental systems (HVAC, UPS, fire suppression) optimization at Site A",
+          "Replacement and deployment of Cisco Catalyst 9500 series switches across all three sites",
+          "Network segmentation reconfiguration per updated security zones",
+          "BGP routing table migration and validation",
+          "Network performance baseline testing post-migration",
+          "Migration of all on-premise Active Directory domain controllers to consolidated infrastructure at Site A",
+          "AD schema extension and forest restructuring",
+          "Group Policy Object (GPO) consolidation and testing",
+          "Integration testing with downstream applications dependent on AD",
+          "Weekly status reports to SSC Project Management Office",
+          "Steering committee presentations (monthly)",
+          "Risk register maintenance",
+          "Change management and stakeholder communications"
+        ],
+        "out_of_scope": [
+          "End-user device refresh or replacement (laptops, desktops, mobile devices) \u2014 addressed under NGIS Phase 4",
+          "Application modernization or re-platforming \u2014 no changes to application code, architecture, or hosting platform; lift and shift only",
+          "GC-Cloud workload migration to public cloud environments (AWS, Azure, GC-Cloud) \u2014 addressed under GC-Cloud Wave 4",
+          "End-user training and change management beyond project communications \u2014 responsibility of client departments",
+          "Procurement of new application licenses \u2014 software licensing changes resulting from platform migration",
+          "Network monitoring tool upgrades \u2014 NOC monitoring platform upgrades deferred to a separate initiative"
+        ],
+        "deliverables": [
+          "D-001: Project Management Plan \u2014 Due October 31, 2024",
+          "D-002: Technical Design Document (TDD) \u2014 Due December 15, 2024",
+          "D-003: Security Assessment and Authorization (SA&A) Package \u2014 Due January 31, 2025",
+          "D-004: Migration Runbook (Sites B and C) \u2014 Due February 28, 2025",
+          "D-005: User Acceptance Test (UAT) Plan \u2014 Due March 10, 2026",
+          "D-006: Site A Consolidation Complete (Go-Live) \u2014 Due April 30, 2026",
+          "D-007: Post-Migration Validation Report \u2014 Due May 31, 2026",
+          "D-008: Project Closure Report \u2014 Due June 30, 2026"
+        ],
+        "constraints": [
+          "Total approved budget is $2,400,000 CAD inclusive of all fees, disbursements, and applicable taxes",
+          "Expenditures beyond the approved budget require a formal budget amendment approved by the Director General of IT Infrastructure",
+          "Budget variances exceeding 15% require submission to Treasury Board",
+          "Go-Live (D-006) must be achieved no later than April 30, 2026",
+          "Final project closure date is June 30, 2026 (end of fiscal year 2025\u20132026)",
+          "Extensions beyond June 30, 2026 require ADM-level approval",
+          "All work must comply with ITSG-33: IT Security Risk Management \u2014 A Lifecycle Approach",
+          "All work must comply with the Government of Canada Cloud Adoption Strategy",
+          "All work must comply with the Treasury Board Policy on Government Security",
+          "All work must comply with the Privacy Act (R.S.C., 1985, c. P-21)",
+          "All client-facing deliverables must comply with the Official Languages Act",
+          "Scope, schedule, or budget changes must follow the SSC Project Change Management Process",
+          "Scope changes require written approval from the Project Sponsor and must be assessed for cost and schedule impact before implementation"
+        ]
+      },
+      "error": null
+    },
+    {
+      "tier": "large",
+      "model": "anthropic/claude-sonnet-4.6",
+      "latency_ms": 17095.1,
+      "content": "```json\n{\n  \"alignment_score\": 0.35,\n  \"drift_type\": \"scope_expansion\",\n  \"detected_ask\": \"Multiple compounding changes: (1) Go-Live extension to December 31, 2026, superseding the April 30, 2026 constraint; (2) budget increase to $3,500,000 CAD, exceeding the approved $2,400,000 envelope by $1,100,000 (45.8%); (3) introduction of middleware remediation ($340,000) as a funded line item; (4) introduction of a DR site assessment and preliminary design ($400,000) as a funded and scoped activity.\",\n  \"baseline_reference\": \"CONSTRAINTS: 'Go-Live (D-006) must be achieved no later than April 30, 2026'; 'Final project closure date is June 30, 2026 (end of fiscal year 2025\u20132026); Extensions beyond June 30, 2026 require ADM-level approval'; 'Total approved budget is $2,400,000 CAD inclusive of all fees, disbursements, and applicable taxes'; 'Budget variances exceeding 15% require submission to Treasury Board'; OUT OF SCOPE: 'Application modernization or re-platforming \u2014 no changes to application code, architecture, or hosting platform; lift and shift only'\",\n  \"suggested_action\": \"The Project Manager must immediately initiate a formal Change Request (CR) and Impact Assessment covering all four affected dimensions: (1) SCHEDULE \u2014 document the ADM-authorized extension to December 31, 2026, update D-005 through D-008 deliverable dates accordingly, and confirm whether the fiscal year 2025\u20132026 closure constraint is formally waived or superseded by this ADM-level decision; (2) BUDGET \u2014 process a formal budget amendment per the Director General of IT Infrastructure approval process; confirm Treasury Board notification is submitted by SSC Finance as stated, given the 45.8% variance far exceeds the 15% Treasury Board submission threshold; (3) MIDDLEWARE REMEDIATION \u2014 escalate for scope clarification: middleware remediation may constitute application-layer work, which is explicitly out of scope under the 'no changes to application code, architecture, or hosting platform' exclusion; a scope boundary ruling is required before funds are committed; (4) DR SITE ASSESSMENT \u2014 this activity does not appear in the in-scope baseline and must be evaluated as a new requirement; if approved, it requires an updated Technical Design Document (D-002) and potential revision to the SA&A Package (D-003). Update the project charter, risk register, schedule baseline, and all reporting templates only after the CR is formally signed. Do not treat this email alone as sufficient governance documentation.\",\n  \"reasoning\": \"This document originates from an ADM-level authority and carries executive weight, satisfying the constraint that 'Extensions beyond June 30, 2026 require ADM-level approval.' However, the email alone does not constitute a complete governance instrument \u2014 the baseline requires a formal budget amendment and Treasury Board submission for variances exceeding 15%, neither of which is yet complete (the email states these are forthcoming). The alignment score is low (0.35) because while the authorization level is appropriate, four distinct baseline parameters are simultaneously breached or materially altered: the Go-Live date, the project closure date, the total approved budget, and the scope boundary. Most critically, middleware remediation introduces ambiguity against the explicit out-of-scope exclusion of application-layer changes, and the DR site assessment is an entirely new deliverable not referenced anywhere in the baseline. The project cannot be considered within scope until a signed charter amendment, a completed CR with impact assessment, and confirmed Treasury Board notification are in place. The score is not zero because the ADM authorization is a legitimate governance mechanism and the email explicitly references the required downstream processes.\"\n}\n```",
+      "parsed_json": {
+        "alignment_score": 0.35,
+        "drift_type": "scope_expansion",
+        "detected_ask": "Multiple compounding changes: (1) Go-Live extension to December 31, 2026, superseding the April 30, 2026 constraint; (2) budget increase to $3,500,000 CAD, exceeding the approved $2,400,000 envelope by $1,100,000 (45.8%); (3) introduction of middleware remediation ($340,000) as a funded line item; (4) introduction of a DR site assessment and preliminary design ($400,000) as a funded and scoped activity.",
+        "baseline_reference": "CONSTRAINTS: 'Go-Live (D-006) must be achieved no later than April 30, 2026'; 'Final project closure date is June 30, 2026 (end of fiscal year 2025\u20132026); Extensions beyond June 30, 2026 require ADM-level approval'; 'Total approved budget is $2,400,000 CAD inclusive of all fees, disbursements, and applicable taxes'; 'Budget variances exceeding 15% require submission to Treasury Board'; OUT OF SCOPE: 'Application modernization or re-platforming \u2014 no changes to application code, architecture, or hosting platform; lift and shift only'",
+        "suggested_action": "The Project Manager must immediately initiate a formal Change Request (CR) and Impact Assessment covering all four affected dimensions: (1) SCHEDULE \u2014 document the ADM-authorized extension to December 31, 2026, update D-005 through D-008 deliverable dates accordingly, and confirm whether the fiscal year 2025\u20132026 closure constraint is formally waived or superseded by this ADM-level decision; (2) BUDGET \u2014 process a formal budget amendment per the Director General of IT Infrastructure approval process; confirm Treasury Board notification is submitted by SSC Finance as stated, given the 45.8% variance far exceeds the 15% Treasury Board submission threshold; (3) MIDDLEWARE REMEDIATION \u2014 escalate for scope clarification: middleware remediation may constitute application-layer work, which is explicitly out of scope under the 'no changes to application code, architecture, or hosting platform' exclusion; a scope boundary ruling is required before funds are committed; (4) DR SITE ASSESSMENT \u2014 this activity does not appear in the in-scope baseline and must be evaluated as a new requirement; if approved, it requires an updated Technical Design Document (D-002) and potential revision to the SA&A Package (D-003). Update the project charter, risk register, schedule baseline, and all reporting templates only after the CR is formally signed. Do not treat this email alone as sufficient governance documentation.",
+        "reasoning": "This document originates from an ADM-level authority and carries executive weight, satisfying the constraint that 'Extensions beyond June 30, 2026 require ADM-level approval.' However, the email alone does not constitute a complete governance instrument \u2014 the baseline requires a formal budget amendment and Treasury Board submission for variances exceeding 15%, neither of which is yet complete (the email states these are forthcoming). The alignment score is low (0.35) because while the authorization level is appropriate, four distinct baseline parameters are simultaneously breached or materially altered: the Go-Live date, the project closure date, the total approved budget, and the scope boundary. Most critically, middleware remediation introduces ambiguity against the explicit out-of-scope exclusion of application-layer changes, and the DR site assessment is an entirely new deliverable not referenced anywhere in the baseline. The project cannot be considered within scope until a signed charter amendment, a completed CR with impact assessment, and confirmed Treasury Board notification are in place. The score is not zero because the ADM authorization is a legitimate governance mechanism and the email explicitly references the required downstream processes."
+      },
+      "error": null
+    }
+  ]
+}

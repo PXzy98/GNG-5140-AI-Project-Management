@@ -1,0 +1,70 @@
+{
+  "test_id": "DFT-06",
+  "test_name": "Ambiguous case handling",
+  "method": "llm_local",
+  "passed": true,
+  "score": "8/8",
+  "details": "type=ambiguous score=0.00",
+  "error": null,
+  "latency_ms": 28474.36989999551,
+  "artifact": {
+    "artifact_id": "art_4e400a8e30",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 223,
+    "content_preview": "From: noc-team@ssc-spc.gc.ca\nTo: alice.tran@ssc-spc.gc.ca\nSubject: Network Operations Centre \u2014 Monitoring Tooling Question\nDate: March 7, 2026\n\nHi Alice,\n\nDuring our review of the Site A migration runbook, our NOC team raised\na question that we wanted to flag to the project.\n\nCurrently, the NOC uses SolarWinds NPM for network monitoring across all\nGC infrastructure. As part of the Catalyst 9500 switch deployment, we\nwill need to ensure that the new switches are properly onboarded into\nthe SolarW",
+    "extracted_tasks": [],
+    "metadata": {
+      "sender": "noc-team@ssc-spc.gc.ca",
+      "recipients": "alice.tran@ssc-spc.gc.ca",
+      "subject": "Network Operations Centre \u2014 Monitoring Tooling Question",
+      "date": "March 7, 2026"
+    }
+  },
+  "drift_check": {
+    "drift_type": "ambiguous",
+    "overall_alignment_score": 0.0,
+    "reasoning": null,
+    "alerts": [
+      {
+        "alert_id": "alt_8d5888fa",
+        "project_id": "proj_drift_llm_local",
+        "artifact_id": "art_4e400a8e30",
+        "drift_type": "ambiguous",
+        "alignment_score": 0.0,
+        "detected_ask": "",
+        "baseline_reference": "",
+        "suggested_action": "Manual review recommended (LLM unavailable).",
+        "severity": "medium",
+        "status": "open",
+        "created_at": "2026-03-09T05:27:31.460772"
+      }
+    ]
+  },
+  "llm_calls": [
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 39014.8,
+      "content": "",
+      "parsed_json": null,
+      "error": null
+    },
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 38176.8,
+      "content": "",
+      "parsed_json": null,
+      "error": null
+    },
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 28472.2,
+      "content": "",
+      "parsed_json": null,
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+From: dave.chen@ssc-spc.gc.ca
+To: alice.tran@ssc-spc.gc.ca
+Cc: carol.nguyen@ssc-spc.gc.ca
+Subject: Opportunity: Wi-Fi Infrastructure Upgrade During Network Migration
+Date: March 7, 2026
+
+Alice, Carol,
+
+While reviewing the network migration plan for Site A, I wanted to flag
+an opportunity that I think we should discuss with the steering committee.
+
+Given that our contractors will already be on-site and the network
+infrastructure will be partially disrupted during the Catalyst 9500
+switch deployment, this would be an ideal time to also upgrade the
+Wi-Fi access points across all three data centre facilities.
+
+Currently, Sites A, B, and C are running Cisco Aironet 2800 series
+access points that are approaching end-of-support (EOL: June 2026).
+Upgrading to the Catalyst 9120 series during the same migration window
+would avoid a separate disruptive maintenance activity later in the year
+and could deliver 40% better wireless throughput in the server rooms.
+
+Estimated additional cost: $85,000–$110,000.
+Timeline impact: 3 additional days per site (9 days total).
+
+I've already spoken informally with TechSupplier and they can include
+the access points in the same delivery. Could we add this to the scope
+and get steering committee approval before the March 18 window?
+
+Let me know your thoughts.
+
+Dave Chen
+Security and Infrastructure Specialist, NGIS Phase 3

@@ -1,0 +1,127 @@
+{
+  "test_id": "ING-11",
+  "test_name": "Implicit action item extraction",
+  "method": "llm_medium_full",
+  "passed": true,
+  "score": "10/10",
+  "details": "extracted=5 items",
+  "error": null,
+  "latency_ms": 3478.910099991481,
+  "artifact": {
+    "artifact_id": "art_2c9a177242",
+    "artifact_type": "status_report",
+    "detected_language": "en",
+    "word_count": 355,
+    "content_preview": "NGIS PHASE 3 \u2014 WEEKLY STATUS REPORT\nReporting Period: February 24 \u2013 March 3, 2026\nReport Date: March 3, 2026\nProject Manager: Alice Tran\nProject ID: NGIS-P3-2024-001\nOverall Status: GREEN\n\n---\n\nEXECUTIVE SUMMARY\n\nThe NGIS Phase 3 data centre consolidation project continues to progress\naccording to plan. The team has completed the Active Directory migration\nfor the test environment and finalized network topology designs for Sites\nB and C. No risks are identified at this time.\n\n---\n\nACCOMPLISHMENT",
+    "extracted_tasks": [
+      {
+        "task_id": "art_2c9a177242_t001",
+        "text": "Begin production AD migration preparation.",
+        "owner": null,
+        "deadline": "2026-03-10",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Begin production AD migration preparation.",
+        "confidence": 0.95
+      },
+      {
+        "task_id": "art_2c9a177242_t002",
+        "text": "Conduct UAT test script walkthroughs with application owners.",
+        "owner": null,
+        "deadline": "2026-03-10",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Conduct UAT test script walkthroughs with application owners.",
+        "confidence": 0.95
+      },
+      {
+        "task_id": "art_2c9a177242_t003",
+        "text": "Coordinate with TechSupplier for equipment delivery confirmation.",
+        "owner": null,
+        "deadline": "2026-03-10",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Coordinate with TechSupplier for equipment delivery confirmation.",
+        "confidence": 0.95
+      },
+      {
+        "task_id": "art_2c9a177242_t004",
+        "text": "Complete end-user communication plan.",
+        "owner": null,
+        "deadline": "2026-03-10",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Complete end-user communication plan.",
+        "confidence": 0.95
+      },
+      {
+        "task_id": "art_2c9a177242_t005",
+        "text": "End-user communication campaign to launch March 9.",
+        "owner": null,
+        "deadline": "2026-03-09",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "End-user communication campaign to launch March 9.",
+        "confidence": 0.95
+      }
+    ],
+    "metadata": {
+      "title": "NGIS PHASE 3 \u2014 WEEKLY STATUS REPORT",
+      "date": "2026-03-03"
+    }
+  },
+  "llm_calls": [
+    {
+      "tier": "medium",
+      "model": "google/gemini-3-flash-preview",
+      "latency_ms": 3469.5,
+      "content": "```json\n{\n  \"artifact_type\": \"status_report\",\n  \"language\": \"en\",\n  \"metadata\": {\n    \"title\": \"NGIS PHASE 3 \u2014 WEEKLY STATUS REPORT\",\n    \"date\": \"2026-03-03\"\n  },\n  \"action_items\": [\n    {\n      \"text\": \"Begin production AD migration preparation.\",\n      \"owner\": null,\n      \"deadline\": \"2026-03-10\",\n      \"priority\": \"high\",\n      \"source_excerpt\": \"Begin production AD migration preparation.\"\n    },\n    {\n      \"text\": \"Conduct UAT test script walkthroughs with application owners.\",\n      \"owner\": null,\n      \"deadline\": \"2026-03-10\",\n      \"priority\": \"medium\",\n      \"source_excerpt\": \"Conduct UAT test script walkthroughs with application owners.\"\n    },\n    {\n      \"text\": \"Coordinate with TechSupplier for equipment delivery confirmation.\",\n      \"owner\": null,\n      \"deadline\": \"2026-03-10\",\n      \"priority\": \"medium\",\n      \"source_excerpt\": \"Coordinate with TechSupplier for equipment delivery confirmation.\"\n    },\n    {\n      \"text\": \"Complete end-user communication plan.\",\n      \"owner\": null,\n      \"deadline\": \"2026-03-10\",\n      \"priority\": \"medium\",\n      \"source_excerpt\": \"Complete end-user communication plan.\"\n    },\n    {\n      \"text\": \"End-user communication campaign to launch March 9.\",\n      \"owner\": null,\n      \"deadline\": \"2026-03-09\",\n      \"priority\": \"high\",\n      \"source_excerpt\": \"End-user communication campaign to launch March 9.\"\n    }\n  ]\n}\n```",
+      "parsed_json": {
+        "artifact_type": "status_report",
+        "language": "en",
+        "metadata": {
+          "title": "NGIS PHASE 3 \u2014 WEEKLY STATUS REPORT",
+          "date": "2026-03-03"
+        },
+        "action_items": [
+          {
+            "text": "Begin production AD migration preparation.",
+            "owner": null,
+            "deadline": "2026-03-10",
+            "priority": "high",
+            "source_excerpt": "Begin production AD migration preparation."
+          },
+          {
+            "text": "Conduct UAT test script walkthroughs with application owners.",
+            "owner": null,
+            "deadline": "2026-03-10",
+            "priority": "medium",
+            "source_excerpt": "Conduct UAT test script walkthroughs with application owners."
+          },
+          {
+            "text": "Coordinate with TechSupplier for equipment delivery confirmation.",
+            "owner": null,
+            "deadline": "2026-03-10",
+            "priority": "medium",
+            "source_excerpt": "Coordinate with TechSupplier for equipment delivery confirmation."
+          },
+          {
+            "text": "Complete end-user communication plan.",
+            "owner": null,
+            "deadline": "2026-03-10",
+            "priority": "medium",
+            "source_excerpt": "Complete end-user communication plan."
+          },
+          {
+            "text": "End-user communication campaign to launch March 9.",
+            "owner": null,
+            "deadline": "2026-03-09",
+            "priority": "high",
+            "source_excerpt": "End-user communication campaign to launch March 9."
+          }
+        ]
+      },
+      "error": null
+    }
+  ]
+}

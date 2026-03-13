@@ -1,0 +1,82 @@
+{
+  "test_id": "ING-08",
+  "test_name": "Language detection (FR)",
+  "method": "llm_large",
+  "passed": true,
+  "score": "7/7",
+  "details": "detected=fr",
+  "error": null,
+  "latency_ms": 5506.65399999707,
+  "artifact": {
+    "artifact_id": "art_f10f424257",
+    "artifact_type": "meeting_minutes",
+    "detected_language": "fr",
+    "word_count": 414,
+    "content_preview": "COMIT\u00c9 DE GOUVERNANCE DES TI \u2014 COMPTE RENDU DE R\u00c9UNION\nR\u00e9union de r\u00e9vision trimestrielle \u2014 T4 2025\u20132026\nDate : 4 mars 2026\nHeure : 9 h 00 \u2013 11 h 30 HNE\nLieu : Salle de conf\u00e9rence 7B, \u00c9difice Immeuble-Vanier II, Ottawa\n\nPr\u00e9sents :\n- Directeur g\u00e9n\u00e9ral, Sylvain Thibodeau (Pr\u00e9sident)\n- Chef de projet, Marie Lefebvre\n- Gestionnaire des risques, Pierre Gagnon\n- Conseill\u00e8re principale en politique, Diane Beauchamp\n- Repr\u00e9sentant des finances, Fran\u00e7ois Lemieux\n- Architecte de solutions, Nadia Tremblay\n\n",
+    "extracted_tasks": [
+      {
+        "task_id": "art_f10f424257_t001",
+        "text": "Mettre \u00e0 jour le registre des risques pour inclure les risques R-014, R-015 et R-016, et les distribuer \u00e0 l'\u00e9quipe de projet.",
+        "owner": "Pierre Gagnon",
+        "deadline": "2026-03-06",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Pierre Gagnon doit mettre \u00e0 jour le registre des risques pour inclure les risques R-014, R-015 et R-016, et les distribuer \u00e0 l'\u00e9quipe de projet. \u00c9ch\u00e9a",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_f10f424257_t002",
+        "text": "Pr\u00e9senter un plan d'att\u00e9nuation d\u00e9taill\u00e9 pour le risque R-015 (conformit\u00e9 ITSG-33) au Comit\u00e9 de gouvernance.",
+        "owner": "Marie Lefebvre",
+        "deadline": "2026-03-12",
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "Marie Lefebvre doit pr\u00e9senter un plan d'att\u00e9nuation d\u00e9taill\u00e9 pour le risque R-015 (conformit\u00e9 ITSG-33) au Comit\u00e9 de gouvernance. \u00c9ch\u00e9ance : 12 mars 20",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_f10f424257_t003",
+        "text": "Pr\u00e9parer une analyse des incidences budg\u00e9taires du retard du fournisseur et la soumettre \u00e0 la Direction g\u00e9n\u00e9rale des finances.",
+        "owner": "Fran\u00e7ois Lemieux",
+        "deadline": "2026-03-10",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Fran\u00e7ois Lemieux doit pr\u00e9parer une analyse des incidences budg\u00e9taires du retard du fournisseur et la soumettre \u00e0 la Direction g\u00e9n\u00e9rale des finances. \u00c9",
+        "confidence": 0.9
+      }
+    ],
+    "metadata": {}
+  },
+  "llm_calls": [
+    {
+      "tier": "large",
+      "model": "anthropic/claude-sonnet-4.6",
+      "latency_ms": 5497.9,
+      "content": "```json\n[\n  {\n    \"text\": \"Mettre \u00e0 jour le registre des risques pour inclure les risques R-014, R-015 et R-016, et les distribuer \u00e0 l'\u00e9quipe de projet.\",\n    \"owner\": \"Pierre Gagnon\",\n    \"deadline\": \"2026-03-06\",\n    \"priority\": \"high\",\n    \"source_excerpt\": \"Pierre Gagnon doit mettre \u00e0 jour le registre des risques pour inclure les risques R-014, R-015 et R-016, et les distribuer \u00e0 l'\u00e9quipe de projet. \u00c9ch\u00e9ance : 6 mars 2026.\"\n  },\n  {\n    \"text\": \"Pr\u00e9senter un plan d'att\u00e9nuation d\u00e9taill\u00e9 pour le risque R-015 (conformit\u00e9 ITSG-33) au Comit\u00e9 de gouvernance.\",\n    \"owner\": \"Marie Lefebvre\",\n    \"deadline\": \"2026-03-12\",\n    \"priority\": \"critical\",\n    \"source_excerpt\": \"Marie Lefebvre doit pr\u00e9senter un plan d'att\u00e9nuation d\u00e9taill\u00e9 pour le risque R-015 (conformit\u00e9 ITSG-33) au Comit\u00e9 de gouvernance. \u00c9ch\u00e9ance : 12 mars 2026.\"\n  },\n  {\n    \"text\": \"Pr\u00e9parer une analyse des incidences budg\u00e9taires du retard du fournisseur et la soumettre \u00e0 la Direction g\u00e9n\u00e9rale des finances.\",\n    \"owner\": \"Fran\u00e7ois Lemieux\",\n    \"deadline\": \"2026-03-10\",\n    \"priority\": \"high\",\n    \"source_excerpt\": \"Fran\u00e7ois Lemieux doit pr\u00e9parer une analyse des incidences budg\u00e9taires du retard du fournisseur et la soumettre \u00e0 la Direction g\u00e9n\u00e9rale des finances. \u00c9ch\u00e9ance : 10 mars 2026.\"\n  }\n]\n```",
+      "parsed_json": [
+        {
+          "text": "Mettre \u00e0 jour le registre des risques pour inclure les risques R-014, R-015 et R-016, et les distribuer \u00e0 l'\u00e9quipe de projet.",
+          "owner": "Pierre Gagnon",
+          "deadline": "2026-03-06",
+          "priority": "high",
+          "source_excerpt": "Pierre Gagnon doit mettre \u00e0 jour le registre des risques pour inclure les risques R-014, R-015 et R-016, et les distribuer \u00e0 l'\u00e9quipe de projet. \u00c9ch\u00e9ance : 6 mars 2026."
+        },
+        {
+          "text": "Pr\u00e9senter un plan d'att\u00e9nuation d\u00e9taill\u00e9 pour le risque R-015 (conformit\u00e9 ITSG-33) au Comit\u00e9 de gouvernance.",
+          "owner": "Marie Lefebvre",
+          "deadline": "2026-03-12",
+          "priority": "critical",
+          "source_excerpt": "Marie Lefebvre doit pr\u00e9senter un plan d'att\u00e9nuation d\u00e9taill\u00e9 pour le risque R-015 (conformit\u00e9 ITSG-33) au Comit\u00e9 de gouvernance. \u00c9ch\u00e9ance : 12 mars 2026."
+        },
+        {
+          "text": "Pr\u00e9parer une analyse des incidences budg\u00e9taires du retard du fournisseur et la soumettre \u00e0 la Direction g\u00e9n\u00e9rale des finances.",
+          "owner": "Fran\u00e7ois Lemieux",
+          "deadline": "2026-03-10",
+          "priority": "high",
+          "source_excerpt": "Fran\u00e7ois Lemieux doit pr\u00e9parer une analyse des incidences budg\u00e9taires du retard du fournisseur et la soumettre \u00e0 la Direction g\u00e9n\u00e9rale des finances. \u00c9ch\u00e9ance : 10 mars 2026."
+        }
+      ],
+      "error": null
+    }
+  ]
+}

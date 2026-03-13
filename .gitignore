@@ -1,0 +1,20 @@
+# Ignore all Markdown files by default
+*.md
+**/*.md
+
+# Keep README markdown files tracked
+!README.md
+!**/README.md
+!readme.md
+!**/readme.md
+
+# Keep markdown files that contain 'result' in the filename
+!*result*.md
+!**/*result*.md
+
+# Ignore environment file
+.env
+
+/frontend/.next/
+/frontend/node_modules/
+/.claude/

@@ -1,0 +1,134 @@
+{
+  "test_id": "RSK-09",
+  "test_name": "False positive rate",
+  "method": "llm_large",
+  "passed": true,
+  "score": "7/7",
+  "details": "false_positives=2 (threshold: <=2)",
+  "error": null,
+  "latency_ms": 7045.258800004376,
+  "artifact": {
+    "artifact_id": "art_7e0fa411d2",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 241,
+    "content_preview": "From: bob.morrison@ssc-spc.gc.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: ngis-pm@ssc-spc.gc.ca\nSubject: Site A AD Migration \u2014 Progress Update\nDate: March 6, 2026\n\nAlice,\n\nQuick update on the Active Directory migration preparation for Site A:\n\n1. Domain Controller Staging: The two new DC servers at Site A have been\n   racked, powered on, and joined to the test domain. Windows Server\n   patching is complete (all critical patches as of March 1 applied).\n\n2. Schema Extension Testing: The AD schema extensio",
+    "extracted_tasks": [
+      {
+        "task_id": "art_7e0fa411d2_t001",
+        "text": "will be migrated.",
+        "owner": "Dave Chen",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will be migrated.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_7e0fa411d2_t002",
+        "text": "will begin the production DC staging activities next",
+        "owner": "March",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will begin the production DC staging activities next",
+        "confidence": 0.7
+      }
+    ],
+    "metadata": {
+      "sender": "bob.morrison@ssc-spc.gc.ca",
+      "recipients": "alice.tran@ssc-spc.gc.ca",
+      "subject": "Site A AD Migration \u2014 Progress Update",
+      "date": "March 6, 2026"
+    }
+  },
+  "risks": {
+    "count": 2,
+    "analysis_method": "llm_large",
+    "risks": [
+      {
+        "risk_id": "rsk_6905a5c5",
+        "description": "No backup supplier identified for network switches \u2014 single-sourced risk blocking DC connectivity testing",
+        "category": "resource",
+        "likelihood": 3,
+        "impact": 5,
+        "risk_score": 15.0,
+        "risk_level": "high",
+        "affected_stakeholders": [
+          "Bob Morrison",
+          "NGIS Phase 3 team",
+          "Alice Tran"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_7e0fa411d2",
+            "excerpt": "The only dependency is the network switch delivery \u2014 we need the Catalyst 9500s in place before we can do final network connectivity testing for the DCs.",
+            "location": null,
+            "evidence_strength": 0.6
+          }
+        ],
+        "source_artifact_id": "art_7e0fa411d2",
+        "created_at": "2026-03-09T07:26:27.565188"
+      },
+      {
+        "risk_id": "rsk_357df3f2",
+        "description": "Switch delivery delay risks 'four days of buffer' before March 18 migration window",
+        "category": "schedule",
+        "likelihood": 3,
+        "impact": 5,
+        "risk_score": 15.0,
+        "risk_level": "high",
+        "affected_stakeholders": [
+          "Bob Morrison",
+          "Alice Tran",
+          "NGIS Phase 3 team"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_7e0fa411d2",
+            "excerpt": "targeting completion by March 14 to give us four days of buffer before the March 18 migration window",
+            "location": null,
+            "evidence_strength": 0.6
+          }
+        ],
+        "source_artifact_id": "art_7e0fa411d2",
+        "created_at": "2026-03-09T07:26:27.567095"
+      }
+    ]
+  },
+  "llm_calls": [
+    {
+      "tier": "large",
+      "model": "anthropic/claude-sonnet-4.6",
+      "latency_ms": 7044.7,
+      "content": "```json\n[\n  {\n    \"description\": \"No backup supplier identified for network switches \u2014 single-sourced risk blocking DC connectivity testing\",\n    \"category\": \"resource\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"The only dependency is the network switch delivery \u2014 we need the Catalyst 9500s in place before we can do final network connectivity testing for the DCs.\",\n    \"affected_stakeholders\": [\"Bob Morrison\", \"NGIS Phase 3 team\", \"Alice Tran\"]\n  },\n  {\n    \"description\": \"Switch delivery delay risks 'four days of buffer' before March 18 migration window\",\n    \"category\": \"schedule\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"targeting completion by March 14 to give us four days of buffer before the March 18 migration window\",\n    \"affected_stakeholders\": [\"Bob Morrison\", \"Alice Tran\", \"NGIS Phase 3 team\"]\n  }\n]\n```",
+      "parsed_json": [
+        {
+          "description": "No backup supplier identified for network switches \u2014 single-sourced risk blocking DC connectivity testing",
+          "category": "resource",
+          "likelihood": 3,
+          "impact": 4,
+          "evidence_excerpt": "The only dependency is the network switch delivery \u2014 we need the Catalyst 9500s in place before we can do final network connectivity testing for the DCs.",
+          "affected_stakeholders": [
+            "Bob Morrison",
+            "NGIS Phase 3 team",
+            "Alice Tran"
+          ]
+        },
+        {
+          "description": "Switch delivery delay risks 'four days of buffer' before March 18 migration window",
+          "category": "schedule",
+          "likelihood": 3,
+          "impact": 4,
+          "evidence_excerpt": "targeting completion by March 14 to give us four days of buffer before the March 18 migration window",
+          "affected_stakeholders": [
+            "Bob Morrison",
+            "Alice Tran",
+            "NGIS Phase 3 team"
+          ]
+        }
+      ],
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+NGIS PHASE 3 — SPRINT REVIEW MEETING MINUTES
+Meeting Date: March 3, 2026
+Time: 13:00–14:30 EST
+Location: WebEx / Room 4C-12, Place du Portage III, Gatineau
+
+Attendees:
+- Alice Tran (Project Manager) — Chair
+- Bob Morrison (Technical Lead)
+- Carol Nguyen (Infrastructure Architect)
+- Dave Chen (Security Specialist)
+- Marie Lefebvre (Change Management)
+- Farida Osei (QA Lead)
+
+Regrets: Director Okafor (represented by Alice Tran)
+
+---
+
+1. SPRINT 6 REVIEW (Feb 17 – Mar 3, 2026)
+
+Completed Items:
+- AD Schema Extension deployed to test environment (Bob Morrison)
+- Network topology design finalized for Sites B and C (Carol Nguyen)
+- User acceptance testing scripts drafted (Farida Osei)
+- Legacy application inventory completed — 14 apps catalogued (Dave Chen)
+
+Incomplete / Carried Forward:
+- PAW architecture documentation for SA&A package (blocked — see Item 3)
+- End-user communication plan (in progress — 60% complete)
+
+2. DEMO
+
+Bob Morrison demonstrated the Active Directory migration wizard in the
+staging environment. The pilot migration of 120 test accounts completed
+successfully with zero errors. Rollback mechanism tested and confirmed
+functional.
+
+3. BLOCKERS AND RISKS
+
+a) Vendor Delay: TechSupplier has confirmed a 2-week delay on Cisco
+   Catalyst 9500 switches. Revised delivery is March 20. This threatens
+   the March 18 migration window. Carol to assess impact on Site A cutover.
+
+b) Compliance Gap: TBS Audit identified an ITSG-33 IA-5 finding
+   (see separate email from TBS). Dave Chen confirmed the PAW
+   documentation was inadvertently omitted from the SA&A package.
+
+c) Resource Risk: Bob Morrison has indicated he is exploring external
+   opportunities and may be leaving SSC within 60 days. Knowledge
+   transfer plan must be initiated immediately given his role as the
+   sole AD migration expert. HR to be notified.
+
+d) Technical Dependency: The current migration script relies on the
+   deprecated "legacy-sync" API endpoint scheduled for decommission
+   on April 1. Bob to assess refactoring effort.
+
+4. SPRINT 7 PLANNING (Mar 4 – Mar 17, 2026)
+
+5. ACTION ITEMS
+
+AI-001: Alice Tran to contact TechSupplier Account Manager for revised
+        delivery commitment in writing. Deadline: March 5, 2026.
+
+AI-002: Bob Morrison to complete knowledge transfer documentation for AD
+        migration procedures and hand off to Carol Nguyen.
+        Deadline: March 17, 2026.
+
+AI-003: Dave Chen to prepare and submit updated SA&A documentation
+        (PAW architecture, IA-5 controls) to TBS audit office.
+        Deadline: March 12, 2026.
+
+AI-004: Farida Osei to complete and distribute UAT test plan to all
+        stakeholders for review. Deadline: March 10, 2026.
+
+AI-005: Carol Nguyen to conduct impact assessment on Site A cutover
+        timeline given vendor delay. Present findings to steering
+        committee. Deadline: March 7, 2026.
+
+6. NEXT MEETING
+
+Sprint 7 Review: March 17, 2026, 13:00–14:30 EST
+
+Minutes recorded by: Marie Lefebvre
+Approved by: Alice Tran

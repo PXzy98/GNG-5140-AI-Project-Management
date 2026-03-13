@@ -1,0 +1,28 @@
+{
+  "test_id": "PRI-09",
+  "test_name": "Re-rank change tracking (diff)",
+  "method": "llm_local",
+  "passed": true,
+  "score": "7/7",
+  "details": "changes=3 valid=True",
+  "error": null,
+  "latency_ms": 5781.754299998283,
+  "llm_calls": [
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b-a3b",
+      "latency_ms": 0.0,
+      "content": "",
+      "parsed_json": null,
+      "error": "HTTP 404: {\"error\":{\"message\":\"model 'qwen3.5:35b-a3b' not found\",\"type\":\"api_error\",\"param\":null,\"code\":null}}\n"
+    },
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b-a3b",
+      "latency_ms": 0.0,
+      "content": "",
+      "parsed_json": null,
+      "error": "HTTP 404: {\"error\":{\"message\":\"model 'qwen3.5:35b-a3b' not found\",\"type\":\"api_error\",\"param\":null,\"code\":null}}\n"
+    }
+  ]
+}

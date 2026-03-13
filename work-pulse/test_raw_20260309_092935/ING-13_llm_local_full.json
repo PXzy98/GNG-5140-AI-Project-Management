@@ -1,0 +1,27 @@
+{
+  "test_id": "ING-13",
+  "test_name": "Duplicate detection (content hash)",
+  "method": "llm_local_full",
+  "passed": true,
+  "score": "7/7",
+  "details": "id1=art_28606a2c73 id2=art_28606a2c73 dedup=True",
+  "error": null,
+  "latency_ms": 6.259899993892759,
+  "artifact": {
+    "artifact_id": "art_28606a2c73",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 246,
+    "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+    "extracted_tasks": [],
+    "metadata": {
+      "sender": "j.henderson@techsupplier.ca",
+      "recipients": [
+        "alice.tran@ssc-spc.gc.ca"
+      ],
+      "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+      "date": "2026-03-02"
+    }
+  },
+  "llm_calls": []
+}

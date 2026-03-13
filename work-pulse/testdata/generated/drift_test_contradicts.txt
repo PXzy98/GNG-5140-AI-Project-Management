@@ -1,0 +1,35 @@
+From: adm.clarke@ssc-spc.gc.ca
+To: alice.tran@ssc-spc.gc.ca; carol.nguyen@ssc-spc.gc.ca; finance.review@ssc-spc.gc.ca
+Subject: NGIS Phase 3 — Decision: Timeline and Budget Revision
+Date: March 9, 2026
+
+Project Team,
+
+Following the steering committee session on March 8 and consultation
+with Treasury Board Secretariat, I am writing to communicate an executive
+decision regarding the NGIS Phase 3 project parameters.
+
+DECISION 1 — TIMELINE EXTENSION:
+The project completion date is hereby extended to Q4 2026 (December 31, 2026).
+The original Q2 2026 (April 30, 2026) Go-Live target is no longer operative.
+This extension accommodates the vendor delay, the ITSG-33 compliance
+remediation, and the DR site assessment requested at the March 8 meeting.
+
+DECISION 2 — BUDGET INCREASE:
+The approved project budget is increased to $3,500,000 (three million
+five hundred thousand dollars), effective immediately. This supersedes
+the previously approved envelope of $2,400,000. The additional $1,100,000
+covers: middleware remediation ($340,000), DR site assessment and
+preliminary design ($400,000), extended contract costs due to timeline
+extension ($260,000), and contingency reserve ($100,000).
+
+Treasury Board notification will be submitted by the SSC Finance team.
+A formal amendment to the project charter will be circulated for signature
+by end of week.
+
+Please update all project documentation, risk registers, and reporting
+templates to reflect these revised parameters effective immediately.
+
+ADM Clarke
+Assistant Deputy Minister, Digital Services
+Shared Services Canada

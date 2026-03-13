@@ -1,0 +1,82 @@
+IT PORTFOLIO — COMBINED PROJECT STATUS UPDATE
+Reporting Period: March 2026 (Week 1)
+Portfolio Manager: Bob Morrison
+Distribution: IT Executive Committee; ADM Digital Services
+
+---
+
+PROJECT 1: NGIS PHASE 3 — DATA CENTRE CONSOLIDATION
+Project ID: NGIS-P3-2024-001 | Project Manager: Alice Tran
+Status: YELLOW | Budget: $2.4M | Deadline: Q2 2026
+
+Summary: Project has encountered a 2-week vendor delay on critical
+network equipment. TechSupplier has confirmed revised delivery of March 20
+(was March 6). This puts the planned March 18 migration window at risk.
+Additionally, a TBS audit finding (ITSG-33 IA-5) was raised on March 5
+and must be resolved before migration can proceed.
+
+Key actions in progress:
+- Impact assessment on migration timeline (Carol Nguyen, due Mar 7)
+- SA&A documentation update for TBS (Dave Chen, due Mar 12)
+- Alternative supplier evaluation initiated
+
+Dependencies: NGIS Phase 3 completion is a prerequisite for decommissioning
+3 legacy server rooms (Sites A, B, C), which in turn is required before
+the GC-Cloud Wave 4 workloads can be migrated.
+
+---
+
+PROJECT 2: GC-CLOUD WAVE 4 — WORKLOAD MIGRATION
+Project ID: GCCLOUD-W4-2026 | Project Manager: Carol Nguyen
+Status: YELLOW | Budget: $2.4M (revision pending) | Deadline: Q3 2026
+
+Summary: A budget revision request of $340,000 has been submitted to
+cover unplanned middleware remediation costs identified during the
+infrastructure assessment. The revision requires Director approval by
+March 10 and Treasury Board submission by March 15. Project is on pause
+for new commitments pending budget approval.
+
+Key actions in progress:
+- Director approval of revised budget (deadline: Mar 10)
+- TB submission preparation (deadline: Mar 15)
+- Middleware remediation scoping (to begin post-approval)
+
+Dependencies: NGIS Phase 3 completion (AD infrastructure must be
+migrated before GC-Cloud workloads can be onboarded).
+
+---
+
+PROJECT 3: ATTACK SURFACE MANAGEMENT (ASM) — GATE 2
+Project ID: PRJ-1234 | Project Manager: Farida Osei
+Status: GREEN | Budget: $1.1M | Deadline: Q4 2026
+
+Summary: Gate 2 review (Business Case and Project Charter) was
+successfully completed on February 28, 2026. Steering committee approved
+advancement to Gate 3 with no conditions. The project team is now
+preparing the procurement strategy for the ASM tooling platform.
+
+Accomplishments:
+- Business case approved by ADM
+- Project charter signed
+- Procurement strategy kick-off scheduled for March 9
+
+No risks or issues at this time. Project is tracking on schedule and
+within budget.
+
+---
+
+PORTFOLIO-LEVEL RISKS
+
+1. NGIS-to-GC-Cloud dependency chain: Delays in NGIS Phase 3 will
+   cascade to GC-Cloud Wave 4, potentially pushing the Q3 target.
+   Portfolio risk level: HIGH.
+
+2. Shared resource constraint: Bob Morrison is the lead technical
+   resource on both NGIS Phase 3 (AD migration) and GC-Cloud Wave 4
+   (infrastructure architecture). His potential departure (flagged in
+   NGIS Sprint Review) would impact both projects simultaneously.
+   Risk level: HIGH.
+
+---
+
+Report prepared by: Bob Morrison, Portfolio Manager

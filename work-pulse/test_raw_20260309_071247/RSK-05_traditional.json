@@ -1,0 +1,63 @@
+{
+  "test_id": "RSK-05",
+  "test_name": "Cross-document inconsistency detection",
+  "method": "traditional",
+  "passed": true,
+  "score": "10/10",
+  "details": "inconsistencies=1",
+  "error": null,
+  "latency_ms": 0.0509000092279166,
+  "artifact": {
+    "artifact_id": "art_57a1431ae7",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 203,
+    "content_preview": "GC-CLOUD WAVE 4 \u2014 FINANCE REVIEW COMMITTEE BRIEFING\nDate: March 3, 2026\nPrepared by: Fran\u00e7ois Lemieux, Finance Representative\nFor: Finance Review Committee\n\nPROJECT FINANCIAL STATUS \u2014 CONFIDENTIAL\n\nThis briefing provides the Finance Review Committee with an accurate\nassessment of the GC-Cloud Wave 4 financial situation.\n\nBUDGET OVERRUN: Following the infrastructure assessment completed\nFebruary 25, the project team has identified that the original budget\nof $2,400,000 is insufficient. The assess",
+    "extracted_tasks": [
+      {
+        "task_id": "art_57a1431ae7_t001",
+        "text": "will be required as",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will be required as",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_57a1431ae7_t002",
+        "text": "will require an estimated",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will require an estimated",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_57a1431ae7_t003",
+        "text": "should flag this project for",
+        "owner": "Finance Committee",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "should flag this project for",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_57a1431ae7_t004",
+        "text": "should be expedited",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "should be expedited",
+        "confidence": 0.7
+      }
+    ],
+    "metadata": {
+      "date": "March 3, 2026"
+    }
+  },
+  "llm_calls": []
+}

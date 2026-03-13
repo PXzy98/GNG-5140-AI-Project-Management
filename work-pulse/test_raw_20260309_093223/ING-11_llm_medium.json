@@ -1,0 +1,167 @@
+{
+  "test_id": "ING-11",
+  "test_name": "Implicit action item extraction",
+  "method": "llm_medium",
+  "passed": true,
+  "score": "10/10",
+  "details": "extracted=8 items",
+  "error": null,
+  "latency_ms": 4234.190599992871,
+  "artifact": {
+    "artifact_id": "art_05cb28e068",
+    "artifact_type": "status_report",
+    "detected_language": "en",
+    "word_count": 355,
+    "content_preview": "NGIS PHASE 3 \u2014 WEEKLY STATUS REPORT\nReporting Period: February 24 \u2013 March 3, 2026\nReport Date: March 3, 2026\nProject Manager: Alice Tran\nProject ID: NGIS-P3-2024-001\nOverall Status: GREEN\n\n---\n\nEXECUTIVE SUMMARY\n\nThe NGIS Phase 3 data centre consolidation project continues to progress\naccording to plan. The team has completed the Active Directory migration\nfor the test environment and finalized network topology designs for Sites\nB and C. No risks are identified at this time.\n\n---\n\nACCOMPLISHMENT",
+    "extracted_tasks": [
+      {
+        "task_id": "art_05cb28e068_t001",
+        "text": "Begin production AD migration preparation.",
+        "owner": null,
+        "deadline": "2026-03-10",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Begin production AD migration preparation.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_05cb28e068_t002",
+        "text": "Conduct UAT test script walkthroughs with application owners.",
+        "owner": null,
+        "deadline": "2026-03-10",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Conduct UAT test script walkthroughs with application owners.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_05cb28e068_t003",
+        "text": "Coordinate with TechSupplier for equipment delivery confirmation.",
+        "owner": null,
+        "deadline": "2026-03-10",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Coordinate with TechSupplier for equipment delivery confirmation.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_05cb28e068_t004",
+        "text": "Complete end-user communication plan.",
+        "owner": null,
+        "deadline": "2026-03-10",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Complete end-user communication plan.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_05cb28e068_t005",
+        "text": "Site A Network Staging",
+        "owner": null,
+        "deadline": "2026-03-06",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Site A Network Staging             | Mar 6",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_05cb28e068_t006",
+        "text": "Migration Window \u2014 Site A",
+        "owner": null,
+        "deadline": "2026-03-18",
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "Migration Window \u2014 Site A          | Mar 18",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_05cb28e068_t007",
+        "text": "TBS audit team scheduled for March site visit (details TBD).",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "TBS audit team scheduled for March site visit (details TBD).",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_05cb28e068_t008",
+        "text": "End-user communication campaign to launch March 9.",
+        "owner": null,
+        "deadline": "2026-03-09",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "End-user communication campaign to launch March 9.",
+        "confidence": 0.9
+      }
+    ],
+    "metadata": {}
+  },
+  "llm_calls": [
+    {
+      "tier": "medium",
+      "model": "google/gemini-3-flash-preview",
+      "latency_ms": 4225.0,
+      "content": "```json\n[\n  {\n    \"text\": \"Begin production AD migration preparation.\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-10\",\n    \"priority\": \"high\",\n    \"source_excerpt\": \"Begin production AD migration preparation.\"\n  },\n  {\n    \"text\": \"Conduct UAT test script walkthroughs with application owners.\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-10\",\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"Conduct UAT test script walkthroughs with application owners.\"\n  },\n  {\n    \"text\": \"Coordinate with TechSupplier for equipment delivery confirmation.\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-10\",\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"Coordinate with TechSupplier for equipment delivery confirmation.\"\n  },\n  {\n    \"text\": \"Complete end-user communication plan.\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-10\",\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"Complete end-user communication plan.\"\n  },\n  {\n    \"text\": \"Site A Network Staging\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-06\",\n    \"priority\": \"high\",\n    \"source_excerpt\": \"Site A Network Staging             | Mar 6\"\n  },\n  {\n    \"text\": \"Migration Window \u2014 Site A\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-18\",\n    \"priority\": \"critical\",\n    \"source_excerpt\": \"Migration Window \u2014 Site A          | Mar 18\"\n  },\n  {\n    \"text\": \"TBS audit team scheduled for March site visit (details TBD).\",\n    \"owner\": null,\n    \"deadline\": null,\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"TBS audit team scheduled for March site visit (details TBD).\"\n  },\n  {\n    \"text\": \"End-user communication campaign to launch March 9.\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-09\",\n    \"priority\": \"high\",\n    \"source_excerpt\": \"End-user communication campaign to launch March 9.\"\n  }\n]\n```",
+      "parsed_json": [
+        {
+          "text": "Begin production AD migration preparation.",
+          "owner": null,
+          "deadline": "2026-03-10",
+          "priority": "high",
+          "source_excerpt": "Begin production AD migration preparation."
+        },
+        {
+          "text": "Conduct UAT test script walkthroughs with application owners.",
+          "owner": null,
+          "deadline": "2026-03-10",
+          "priority": "medium",
+          "source_excerpt": "Conduct UAT test script walkthroughs with application owners."
+        },
+        {
+          "text": "Coordinate with TechSupplier for equipment delivery confirmation.",
+          "owner": null,
+          "deadline": "2026-03-10",
+          "priority": "medium",
+          "source_excerpt": "Coordinate with TechSupplier for equipment delivery confirmation."
+        },
+        {
+          "text": "Complete end-user communication plan.",
+          "owner": null,
+          "deadline": "2026-03-10",
+          "priority": "medium",
+          "source_excerpt": "Complete end-user communication plan."
+        },
+        {
+          "text": "Site A Network Staging",
+          "owner": null,
+          "deadline": "2026-03-06",
+          "priority": "high",
+          "source_excerpt": "Site A Network Staging             | Mar 6"
+        },
+        {
+          "text": "Migration Window \u2014 Site A",
+          "owner": null,
+          "deadline": "2026-03-18",
+          "priority": "critical",
+          "source_excerpt": "Migration Window \u2014 Site A          | Mar 18"
+        },
+        {
+          "text": "TBS audit team scheduled for March site visit (details TBD).",
+          "owner": null,
+          "deadline": null,
+          "priority": "medium",
+          "source_excerpt": "TBS audit team scheduled for March site visit (details TBD)."
+        },
+        {
+          "text": "End-user communication campaign to launch March 9.",
+          "owner": null,
+          "deadline": "2026-03-09",
+          "priority": "high",
+          "source_excerpt": "End-user communication campaign to launch March 9."
+        }
+      ],
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "test_id": "ING-13",
+  "test_name": "Duplicate detection (content hash)",
+  "method": "llm_local",
+  "passed": false,
+  "score": "0/7",
+  "details": "id1=art_5ea3391e8f id2=art_3c608bc4ea dedup=False",
+  "error": null,
+  "latency_ms": 4629.664399995818,
+  "artifact": {
+    "artifact_id": "art_3c608bc4ea",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 246,
+    "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+    "extracted_tasks": [
+      {
+        "task_id": "art_3c608bc4ea_t001",
+        "text": "Confirm the delivery timeline for the Catalyst switches",
+        "owner": "Jason Henderson",
+        "deadline": null,
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Jason, can you please confirm the delivery timeline for the Catalyst switches?",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_3c608bc4ea_t002",
+        "text": "Expedite the shipment of the Cisco Catalyst 9500 switches",
+        "owner": "TechSupplier Solutions Inc. team",
+        "deadline": null,
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "Our team is working around the clock to expedite the shipment.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_3c608bc4ea_t003",
+        "text": "Let Jason Henderson know how TechSupplier can best support planning activities during this disruption",
+        "owner": "Alice Tran",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Please let me know how we can best support your planning activities during this disruption.",
+        "confidence": 0.9
+      }
+    ],
+    "metadata": {
+      "sender": "j.henderson@techsupplier.ca",
+      "recipients": "alice.tran@ssc-spc.gc.ca",
+      "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+      "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+    }
+  },
+  "llm_calls": [
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 5592.9,
+      "content": "[\n  {\n    \"text\": \"Confirm in writing the situation with the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre migration\",\n    \"owner\": \"Jason Henderson\",\n    \"deadline\": null,\n    \"priority\": \"high\",\n    \"source_excerpt\": \"I wanted to confirm in writing the situation with the Cisco Catalyst 9500 switches\"\n  },\n  {\n    \"text\": \"Confirm the delivery timeline for the Catalyst switches\",\n    \"owner\": \"Alice Tran\",\n    \"deadline\": null,\n    \"priority\": \"high\",\n    \"source_excerpt\": \"Jason, can you please confirm the delivery timeline for the Catalyst switches?\"\n  },\n  {\n    \"text\": \"Let Jason know how we can best support planning activities during this disruption\",\n    \"owner\": \"Alice Tran\",\n    \"deadline\": null,\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"Please let me know how we can best support your planning activities during this disruption.\"\n  }\n]",
+      "parsed_json": [
+        {
+          "text": "Confirm in writing the situation with the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre migration",
+          "owner": "Jason Henderson",
+          "deadline": null,
+          "priority": "high",
+          "source_excerpt": "I wanted to confirm in writing the situation with the Cisco Catalyst 9500 switches"
+        },
+        {
+          "text": "Confirm the delivery timeline for the Catalyst switches",
+          "owner": "Alice Tran",
+          "deadline": null,
+          "priority": "high",
+          "source_excerpt": "Jason, can you please confirm the delivery timeline for the Catalyst switches?"
+        },
+        {
+          "text": "Let Jason know how we can best support planning activities during this disruption",
+          "owner": "Alice Tran",
+          "deadline": null,
+          "priority": "medium",
+          "source_excerpt": "Please let me know how we can best support your planning activities during this disruption."
+        }
+      ],
+      "error": null
+    },
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 4622.3,
+      "content": "[\n  {\n    \"text\": \"Confirm the delivery timeline for the Catalyst switches\",\n    \"owner\": \"Jason Henderson\",\n    \"deadline\": null,\n    \"priority\": \"high\",\n    \"source_excerpt\": \"Jason, can you please confirm the delivery timeline for the Catalyst switches?\"\n  },\n  {\n    \"text\": \"Expedite the shipment of the Cisco Catalyst 9500 switches\",\n    \"owner\": \"TechSupplier Solutions Inc. team\",\n    \"deadline\": null,\n    \"priority\": \"critical\",\n    \"source_excerpt\": \"Our team is working around the clock to expedite the shipment.\"\n  },\n  {\n    \"text\": \"Let Jason Henderson know how TechSupplier can best support planning activities during this disruption\",\n    \"owner\": \"Alice Tran\",\n    \"deadline\": null,\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"Please let me know how we can best support your planning activities during this disruption.\"\n  }\n]",
+      "parsed_json": [
+        {
+          "text": "Confirm the delivery timeline for the Catalyst switches",
+          "owner": "Jason Henderson",
+          "deadline": null,
+          "priority": "high",
+          "source_excerpt": "Jason, can you please confirm the delivery timeline for the Catalyst switches?"
+        },
+        {
+          "text": "Expedite the shipment of the Cisco Catalyst 9500 switches",
+          "owner": "TechSupplier Solutions Inc. team",
+          "deadline": null,
+          "priority": "critical",
+          "source_excerpt": "Our team is working around the clock to expedite the shipment."
+        },
+        {
+          "text": "Let Jason Henderson know how TechSupplier can best support planning activities during this disruption",
+          "owner": "Alice Tran",
+          "deadline": null,
+          "priority": "medium",
+          "source_excerpt": "Please let me know how we can best support your planning activities during this disruption."
+        }
+      ],
+      "error": null
+    }
+  ]
+}

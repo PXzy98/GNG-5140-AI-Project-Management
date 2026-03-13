@@ -1,0 +1,105 @@
+{
+  "test_id": "RSK-05",
+  "test_name": "Cross-document inconsistency detection",
+  "method": "llm_large",
+  "passed": true,
+  "score": "10/10",
+  "details": "inconsistencies=4",
+  "error": null,
+  "latency_ms": 11224.658000006457,
+  "artifact": {
+    "artifact_id": "art_eb4d50a059",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 203,
+    "content_preview": "GC-CLOUD WAVE 4 \u2014 FINANCE REVIEW COMMITTEE BRIEFING\nDate: March 3, 2026\nPrepared by: Fran\u00e7ois Lemieux, Finance Representative\nFor: Finance Review Committee\n\nPROJECT FINANCIAL STATUS \u2014 CONFIDENTIAL\n\nThis briefing provides the Finance Review Committee with an accurate\nassessment of the GC-Cloud Wave 4 financial situation.\n\nBUDGET OVERRUN: Following the infrastructure assessment completed\nFebruary 25, the project team has identified that the original budget\nof $2,400,000 is insufficient. The assess",
+    "extracted_tasks": [
+      {
+        "task_id": "art_eb4d50a059_t001",
+        "text": "will be required as",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will be required as",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_eb4d50a059_t002",
+        "text": "will require an estimated",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will require an estimated",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_eb4d50a059_t003",
+        "text": "should flag this project for",
+        "owner": "Finance Committee",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "should flag this project for",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_eb4d50a059_t004",
+        "text": "should be expedited",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "should be expedited",
+        "confidence": 0.7
+      }
+    ],
+    "metadata": {
+      "date": "March 3, 2026"
+    }
+  },
+  "llm_calls": [
+    {
+      "tier": "large",
+      "model": "anthropic/claude-sonnet-4.6",
+      "latency_ms": 11224.5,
+      "content": "```json\n[\n  {\n    \"description\": \"Contradictory budget status: The Director's Briefing claims the project is within budget with no concerns, while the Finance Review Committee Briefing confirms a $340,000 budget overrun (14% above the approved envelope) requiring a formal budget revision and Treasury Board notification.\",\n    \"doc_a_artifact_id\": \"art_12a3f0769b\",\n    \"doc_b_artifact_id\": \"art_eb4d50a059\",\n    \"doc_a_excerpt\": \"The project is within budget. Expenditures to date total $412,000 against an approved budget of $2,400,000 (17% spent). We have no budget concerns at this time and expect to deliver within the approved envelope.\",\n    \"doc_b_excerpt\": \"BUDGET OVERRUN: Following the infrastructure assessment completed February 25, the project team has identified that the original budget of $2,400,000 is insufficient... Estimated cost of remediation: $340,000. REVISED PROJECTED COST: $2,740,000 \u2014 representing a budget overrun of $340,000 (approximately 14% above approved envelope).\",\n    \"severity\": \"critical\"\n  },\n  {\n    \"description\": \"Contradictory schedule status: The Director's Briefing states the project is on track for its Q3 2026 delivery commitment with no issues anticipated, while the Finance Review Committee Briefing states the Q3 2026 delivery target is now uncertain due to an estimated three weeks of additional remediation effort.\",\n    \"doc_a_artifact_id\": \"art_12a3f0769b\",\n    \"doc_b_artifact_id\": \"art_eb4d50a059\",\n    \"doc_a_excerpt\": \"The project remains on track to meet its Q3 2026 delivery commitment... The project is progressing according to the approved baseline schedule... No issues are anticipated.\",\n    \"doc_b_excerpt\": \"TIMELINE AT RISK: The middleware remediation will require an estimated three weeks of additional effort before cloud migration workloads can begin. The Q3 2026 delivery target is now uncertain. The project manager has been advised to reassess the schedule baseline.\",\n    \"severity\": \"critical\"\n  },\n  {\n    \"description\": \"Contradictory risk profile: The Director's Briefing characterizes the project risk profile as low with all risks rated Low and no escalations required, while the Finance Review Committee Briefing identifies confirmed budget and schedule risks significant enough to warrant enhanced monitoring, a formal budget revision, and Treasury Board notification.\",\n    \"doc_a_artifact_id\": \"art_12a3f0769b\",\n    \"doc_b_artifact_id\": \"art_eb4d50a059\",\n    \"doc_a_excerpt\": \"The project risk profile is low. Our risk register contains three risks, all rated Low. No risk escalations are required.\",\n    \"doc_b_excerpt\": \"Finance Committee should flag this project for enhanced monitoring. Budget revision approval should be expedited to prevent further schedule slippage. STATUS: Budget overrun confirmed. Timeline at risk.\",\n    \"severity\": \"high\"\n  },\n  {\n    \"description\": \"Omission of known scope change in Director's Briefing: The Finance Review Committee Briefing states that mandatory middleware remediation requirements were identified following the infrastructure assessment and that the project manager has already been advised to reassess the schedule baseline. The Director's Briefing, prepared on the same date, makes no mention of this newly identified scope or any remediation requirements, suggesting material information was withheld from the Director.\",\n    \"doc_a_artifact_id\": \"art_12a3f0769b\",\n    \"doc_b_artifact_id\": \"art_eb4d50a059\",\n    \"doc_a_excerpt\": \"The infrastructure assessment phase concluded on time on February 25. We are now entering the procurement and planning phase as planned... The team is well-positioned to execute the procurement phase and we anticipate issuing the RFP in mid-March as planned.\",\n    \"doc_b_excerpt\": \"The assessment revealed mandatory middleware remediation requirements that were not captured in the initial scope... The project manager has been advised to reassess the schedule baseline. A formal budget revision request has been prepared and is awaiting Director approval.\",\n    \"severity\": \"critical\"\n  }\n]\n```",
+      "parsed_json": [
+        {
+          "description": "Contradictory budget status: The Director's Briefing claims the project is within budget with no concerns, while the Finance Review Committee Briefing confirms a $340,000 budget overrun (14% above the approved envelope) requiring a formal budget revision and Treasury Board notification.",
+          "doc_a_artifact_id": "art_12a3f0769b",
+          "doc_b_artifact_id": "art_eb4d50a059",
+          "doc_a_excerpt": "The project is within budget. Expenditures to date total $412,000 against an approved budget of $2,400,000 (17% spent). We have no budget concerns at this time and expect to deliver within the approved envelope.",
+          "doc_b_excerpt": "BUDGET OVERRUN: Following the infrastructure assessment completed February 25, the project team has identified that the original budget of $2,400,000 is insufficient... Estimated cost of remediation: $340,000. REVISED PROJECTED COST: $2,740,000 \u2014 representing a budget overrun of $340,000 (approximately 14% above approved envelope).",
+          "severity": "critical"
+        },
+        {
+          "description": "Contradictory schedule status: The Director's Briefing states the project is on track for its Q3 2026 delivery commitment with no issues anticipated, while the Finance Review Committee Briefing states the Q3 2026 delivery target is now uncertain due to an estimated three weeks of additional remediation effort.",
+          "doc_a_artifact_id": "art_12a3f0769b",
+          "doc_b_artifact_id": "art_eb4d50a059",
+          "doc_a_excerpt": "The project remains on track to meet its Q3 2026 delivery commitment... The project is progressing according to the approved baseline schedule... No issues are anticipated.",
+          "doc_b_excerpt": "TIMELINE AT RISK: The middleware remediation will require an estimated three weeks of additional effort before cloud migration workloads can begin. The Q3 2026 delivery target is now uncertain. The project manager has been advised to reassess the schedule baseline.",
+          "severity": "critical"
+        },
+        {
+          "description": "Contradictory risk profile: The Director's Briefing characterizes the project risk profile as low with all risks rated Low and no escalations required, while the Finance Review Committee Briefing identifies confirmed budget and schedule risks significant enough to warrant enhanced monitoring, a formal budget revision, and Treasury Board notification.",
+          "doc_a_artifact_id": "art_12a3f0769b",
+          "doc_b_artifact_id": "art_eb4d50a059",
+          "doc_a_excerpt": "The project risk profile is low. Our risk register contains three risks, all rated Low. No risk escalations are required.",
+          "doc_b_excerpt": "Finance Committee should flag this project for enhanced monitoring. Budget revision approval should be expedited to prevent further schedule slippage. STATUS: Budget overrun confirmed. Timeline at risk.",
+          "severity": "high"
+        },
+        {
+          "description": "Omission of known scope change in Director's Briefing: The Finance Review Committee Briefing states that mandatory middleware remediation requirements were identified following the infrastructure assessment and that the project manager has already been advised to reassess the schedule baseline. The Director's Briefing, prepared on the same date, makes no mention of this newly identified scope or any remediation requirements, suggesting material information was withheld from the Director.",
+          "doc_a_artifact_id": "art_12a3f0769b",
+          "doc_b_artifact_id": "art_eb4d50a059",
+          "doc_a_excerpt": "The infrastructure assessment phase concluded on time on February 25. We are now entering the procurement and planning phase as planned... The team is well-positioned to execute the procurement phase and we anticipate issuing the RFP in mid-March as planned.",
+          "doc_b_excerpt": "The assessment revealed mandatory middleware remediation requirements that were not captured in the initial scope... The project manager has been advised to reassess the schedule baseline. A formal budget revision request has been prepared and is awaiting Director approval.",
+          "severity": "critical"
+        }
+      ],
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,420 @@
+{
+  "test_id": "RSK-08",
+  "test_name": "Multi-risk extraction from single doc",
+  "method": "llm_large",
+  "passed": true,
+  "score": "8/8",
+  "details": "risks_found=5",
+  "error": null,
+  "latency_ms": 7124.806000007084,
+  "artifact": {
+    "artifact_id": "art_f2e8bf0aca",
+    "artifact_type": "meeting_minutes",
+    "detected_language": "en",
+    "word_count": 446,
+    "content_preview": "NGIS PHASE 3 \u2014 SPRINT REVIEW MEETING MINUTES\nMeeting Date: March 3, 2026\nTime: 13:00\u201314:30 EST\nLocation: WebEx / Room 4C-12, Place du Portage III, Gatineau\n\nAttendees:\n- Alice Tran (Project Manager) \u2014 Chair\n- Bob Morrison (Technical Lead)\n- Carol Nguyen (Infrastructure Architect)\n- Dave Chen (Security Specialist)\n- Marie Lefebvre (Change Management)\n- Farida Osei (QA Lead)\n\nRegrets: Director Okafor (represented by Alice Tran)\n\n---\n\n1. SPRINT 6 REVIEW (Feb 17 \u2013 Mar 3, 2026)\n\nCompleted Items:\n- AD",
+    "extracted_tasks": [
+      {
+        "task_id": "art_f2e8bf0aca_t001",
+        "text": "ACTION ITEMS",
+        "owner": "Tech",
+        "deadline": "Mar 17, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "ACTION ITEMS",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_f2e8bf0aca_t002",
+        "text": "must be initiated immediately given his role as the",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "must be initiated immediately given his role as the",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_f2e8bf0aca_t003",
+        "text": "Deadline: March 5, 2026.",
+        "owner": "Bob Morrison",
+        "deadline": "March 5, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Deadline: March 5, 2026.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_f2e8bf0aca_t004",
+        "text": "Deadline: March 17, 2026.",
+        "owner": "Dave Chen",
+        "deadline": "March 17, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Deadline: March 17, 2026.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_f2e8bf0aca_t005",
+        "text": "Deadline: March 12, 2026.",
+        "owner": "Farida Osei",
+        "deadline": "March 12, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Deadline: March 12, 2026.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_f2e8bf0aca_t006",
+        "text": "Deadline: March 10, 2026.",
+        "owner": "Carol Nguyen",
+        "deadline": "March 10, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Deadline: March 10, 2026.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_f2e8bf0aca_t007",
+        "text": "Deadline: March 7, 2026.",
+        "owner": "Marie Lefe",
+        "deadline": "March 7, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Deadline: March 7, 2026.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_f2e8bf0aca_t008",
+        "text": "- Alice Tran (Project Manager) \u2014 Chair",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Alice Tran (Project Manager) \u2014 Chair",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_f2e8bf0aca_t009",
+        "text": "- Bob Morrison (Technical Lead)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Bob Morrison (Technical Lead)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_f2e8bf0aca_t010",
+        "text": "- Carol Nguyen (Infrastructure Architect)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Carol Nguyen (Infrastructure Architect)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_f2e8bf0aca_t011",
+        "text": "- Dave Chen (Security Specialist)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Dave Chen (Security Specialist)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_f2e8bf0aca_t012",
+        "text": "- Marie Lefebvre (Change Management)",
+        "owner": "Alice Tran",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Marie Lefebvre (Change Management)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_f2e8bf0aca_t013",
+        "text": "- Farida Osei (QA Lead)",
+        "owner": "Alice Tran",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Farida Osei (QA Lead)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_f2e8bf0aca_t014",
+        "text": "- AD Schema Extension deployed to test environment (Bob Morrison)",
+        "owner": null,
+        "deadline": "Mar 3, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- AD Schema Extension deployed to test environment (Bob Morrison)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_f2e8bf0aca_t015",
+        "text": "- Network topology design finalized for Sites B and C (Carol Nguyen)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Network topology design finalized for Sites B and C (Carol Nguyen)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_f2e8bf0aca_t016",
+        "text": "- User acceptance testing scripts drafted (Farida Osei)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- User acceptance testing scripts drafted (Farida Osei)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_f2e8bf0aca_t017",
+        "text": "- Legacy application inventory completed \u2014 14 apps catalogued (Dave Chen)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Legacy application inventory completed \u2014 14 apps catalogued (Dave Chen)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_f2e8bf0aca_t018",
+        "text": "- PAW architecture documentation for SA&A package (blocked \u2014 see Item 3)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- PAW architecture documentation for SA&A package (blocked \u2014 see Item 3)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_f2e8bf0aca_t019",
+        "text": "- End-user communication plan (in progress \u2014 60% complete)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- End-user communication plan (in progress \u2014 60% complete)",
+        "confidence": 0.7
+      }
+    ],
+    "metadata": {
+      "attendees": [
+        "- Alice Tran (Project Manager) \u2014 Chair",
+        "- Bob Morrison (Technical Lead)",
+        "- Carol Nguyen (Infrastructure Architect)",
+        "- Dave Chen (Security Specialist)",
+        "- Marie Lefebvre (Change Management)",
+        "- Farida Osei (QA Lead)"
+      ]
+    }
+  },
+  "risks": {
+    "count": 5,
+    "analysis_method": "llm_large",
+    "risks": [
+      {
+        "risk_id": "rsk_337c1e36",
+        "description": "Vendor delivery delayed 2 weeks to March 20, threatening 'March 18 migration window'",
+        "category": "schedule",
+        "likelihood": 5,
+        "impact": 5,
+        "risk_score": 25.0,
+        "risk_level": "critical",
+        "affected_stakeholders": [
+          "Carol Nguyen",
+          "Alice Tran",
+          "Project Steering Committee"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_f2e8bf0aca",
+            "excerpt": "Revised delivery is March 20. This threatens the March 18 migration window.",
+            "location": null,
+            "evidence_strength": 1.0
+          }
+        ],
+        "source_artifact_id": "art_f2e8bf0aca",
+        "created_at": "2026-03-09T07:18:17.375360"
+      },
+      {
+        "risk_id": "rsk_eb9e411c",
+        "description": "Key person risk: sole AD migration expert 'may be leaving SSC within 60 days'",
+        "category": "resource",
+        "likelihood": 3,
+        "impact": 5,
+        "risk_score": 15.0,
+        "risk_level": "high",
+        "affected_stakeholders": [
+          "Alice Tran",
+          "Carol Nguyen",
+          "HR",
+          "Director Okafor"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_f2e8bf0aca",
+            "excerpt": "Bob Morrison has indicated he is exploring external opportunities and may be leaving SSC within 60 days. Knowledge transfer plan must be initiated immediately given his role as the sole AD migration e",
+            "location": null,
+            "evidence_strength": 0.6
+          }
+        ],
+        "source_artifact_id": "art_f2e8bf0aca",
+        "created_at": "2026-03-09T07:18:17.375360"
+      },
+      {
+        "risk_id": "rsk_254ab0f5",
+        "description": "Compliance gap: ITSG-33 IA-5 finding raised by TBS Audit, PAW documentation omitted from SA&A",
+        "category": "compliance",
+        "likelihood": 5,
+        "impact": 5,
+        "risk_score": 25.0,
+        "risk_level": "critical",
+        "affected_stakeholders": [
+          "Dave Chen",
+          "TBS Audit Office",
+          "Director Okafor",
+          "Alice Tran"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_f2e8bf0aca",
+            "excerpt": "TBS Audit identified an ITSG-33 IA-5 finding. Dave Chen confirmed the PAW documentation was inadvertently omitted from the SA&A package.",
+            "location": null,
+            "evidence_strength": 1.0
+          }
+        ],
+        "source_artifact_id": "art_f2e8bf0aca",
+        "created_at": "2026-03-09T07:18:17.376865"
+      },
+      {
+        "risk_id": "rsk_c3d78fd0",
+        "description": "Migration script depends on deprecated API endpoint 'scheduled for decommission on April 1'",
+        "category": "technical",
+        "likelihood": 5,
+        "impact": 5,
+        "risk_score": 25.0,
+        "risk_level": "critical",
+        "affected_stakeholders": [
+          "Bob Morrison",
+          "Carol Nguyen",
+          "Alice Tran"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_f2e8bf0aca",
+            "excerpt": "The current migration script relies on the deprecated \"legacy-sync\" API endpoint scheduled for decommission on April 1.",
+            "location": null,
+            "evidence_strength": 1.0
+          }
+        ],
+        "source_artifact_id": "art_f2e8bf0aca",
+        "created_at": "2026-03-09T07:18:17.377871"
+      },
+      {
+        "risk_id": "rsk_c2dfa454",
+        "description": "End-user communication plan only '60% complete', risking inadequate stakeholder readiness at cutover",
+        "category": "schedule",
+        "likelihood": 3,
+        "impact": 4,
+        "risk_score": 12.0,
+        "risk_level": "high",
+        "affected_stakeholders": [
+          "Marie Lefebvre",
+          "Alice Tran",
+          "End Users"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_f2e8bf0aca",
+            "excerpt": "End-user communication plan (in progress \u2014 60% complete)",
+            "location": null,
+            "evidence_strength": 0.48
+          }
+        ],
+        "source_artifact_id": "art_f2e8bf0aca",
+        "created_at": "2026-03-09T07:18:17.377871"
+      }
+    ]
+  },
+  "llm_calls": [
+    {
+      "tier": "large",
+      "model": "anthropic/claude-sonnet-4.6",
+      "latency_ms": 7120.6,
+      "content": "```json\n[\n  {\n    \"description\": \"Vendor delivery delayed 2 weeks to March 20, threatening 'March 18 migration window'\",\n    \"category\": \"schedule\",\n    \"likelihood\": 5,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"Revised delivery is March 20. This threatens the March 18 migration window.\",\n    \"affected_stakeholders\": [\"Carol Nguyen\", \"Alice Tran\", \"Project Steering Committee\"]\n  },\n  {\n    \"description\": \"Key person risk: sole AD migration expert 'may be leaving SSC within 60 days'\",\n    \"category\": \"resource\",\n    \"likelihood\": 3,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"Bob Morrison has indicated he is exploring external opportunities and may be leaving SSC within 60 days. Knowledge transfer plan must be initiated immediately given his role as the sole AD migration expert.\",\n    \"affected_stakeholders\": [\"Alice Tran\", \"Carol Nguyen\", \"HR\", \"Director Okafor\"]\n  },\n  {\n    \"description\": \"Compliance gap: ITSG-33 IA-5 finding raised by TBS Audit, PAW documentation omitted from SA&A\",\n    \"category\": \"compliance\",\n    \"likelihood\": 5,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"TBS Audit identified an ITSG-33 IA-5 finding. Dave Chen confirmed the PAW documentation was inadvertently omitted from the SA&A package.\",\n    \"affected_stakeholders\": [\"Dave Chen\", \"TBS Audit Office\", \"Director Okafor\", \"Alice Tran\"]\n  },\n  {\n    \"description\": \"Migration script depends on deprecated API endpoint 'scheduled for decommission on April 1'\",\n    \"category\": \"technical\",\n    \"likelihood\": 5,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"The current migration script relies on the deprecated \\\"legacy-sync\\\" API endpoint scheduled for decommission on April 1.\",\n    \"affected_stakeholders\": [\"Bob Morrison\", \"Carol Nguyen\", \"Alice Tran\"]\n  },\n  {\n    \"description\": \"End-user communication plan only '60% complete', risking inadequate stakeholder readiness at cutover\",\n    \"category\": \"schedule\",\n    \"likelihood\": 3,\n    \"impact\": 3,\n    \"evidence_excerpt\": \"End-user communication plan (in progress \u2014 60% complete)\",\n    \"affected_stakeholders\": [\"Marie Lefebvre\", \"Alice Tran\", \"End Users\"]\n  }\n]\n```",
+      "parsed_json": [
+        {
+          "description": "Vendor delivery delayed 2 weeks to March 20, threatening 'March 18 migration window'",
+          "category": "schedule",
+          "likelihood": 5,
+          "impact": 4,
+          "evidence_excerpt": "Revised delivery is March 20. This threatens the March 18 migration window.",
+          "affected_stakeholders": [
+            "Carol Nguyen",
+            "Alice Tran",
+            "Project Steering Committee"
+          ]
+        },
+        {
+          "description": "Key person risk: sole AD migration expert 'may be leaving SSC within 60 days'",
+          "category": "resource",
+          "likelihood": 3,
+          "impact": 5,
+          "evidence_excerpt": "Bob Morrison has indicated he is exploring external opportunities and may be leaving SSC within 60 days. Knowledge transfer plan must be initiated immediately given his role as the sole AD migration expert.",
+          "affected_stakeholders": [
+            "Alice Tran",
+            "Carol Nguyen",
+            "HR",
+            "Director Okafor"
+          ]
+        },
+        {
+          "description": "Compliance gap: ITSG-33 IA-5 finding raised by TBS Audit, PAW documentation omitted from SA&A",
+          "category": "compliance",
+          "likelihood": 5,
+          "impact": 4,
+          "evidence_excerpt": "TBS Audit identified an ITSG-33 IA-5 finding. Dave Chen confirmed the PAW documentation was inadvertently omitted from the SA&A package.",
+          "affected_stakeholders": [
+            "Dave Chen",
+            "TBS Audit Office",
+            "Director Okafor",
+            "Alice Tran"
+          ]
+        },
+        {
+          "description": "Migration script depends on deprecated API endpoint 'scheduled for decommission on April 1'",
+          "category": "technical",
+          "likelihood": 5,
+          "impact": 4,
+          "evidence_excerpt": "The current migration script relies on the deprecated \"legacy-sync\" API endpoint scheduled for decommission on April 1.",
+          "affected_stakeholders": [
+            "Bob Morrison",
+            "Carol Nguyen",
+            "Alice Tran"
+          ]
+        },
+        {
+          "description": "End-user communication plan only '60% complete', risking inadequate stakeholder readiness at cutover",
+          "category": "schedule",
+          "likelihood": 3,
+          "impact": 3,
+          "evidence_excerpt": "End-user communication plan (in progress \u2014 60% complete)",
+          "affected_stakeholders": [
+            "Marie Lefebvre",
+            "Alice Tran",
+            "End Users"
+          ]
+        }
+      ],
+      "error": null
+    }
+  ]
+}

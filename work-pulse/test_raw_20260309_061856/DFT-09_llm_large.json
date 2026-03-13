@@ -1,0 +1,162 @@
+{
+  "test_id": "DFT-09",
+  "test_name": "Evidence quality \u2014 excerpt provided",
+  "method": "llm_large",
+  "passed": true,
+  "score": "7.0/7",
+  "details": "with_evidence=1/1",
+  "error": null,
+  "latency_ms": 17018.131999997422,
+  "artifact": {
+    "artifact_id": "art_4a8768e6c9",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 202,
+    "content_preview": "From: dave.chen@ssc-spc.gc.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: carol.nguyen@ssc-spc.gc.ca\nSubject: Opportunity: Wi-Fi Infrastructure Upgrade During Network Migration\nDate: March 7, 2026\n\nAlice, Carol,\n\nWhile reviewing the network migration plan for Site A, I wanted to flag\nan opportunity that I think we should discuss with the steering committee.\n\nGiven that our contractors will already be on-site and the network\ninfrastructure will be partially disrupted during the Catalyst 9500\nswitch deployme",
+    "extracted_tasks": [
+      {
+        "task_id": "art_4a8768e6c9_t001",
+        "text": "Discuss Wi-Fi infrastructure upgrade opportunity with the steering committee",
+        "owner": "Alice Tran",
+        "deadline": "2026-03-18",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "I wanted to flag an opportunity that I think we should discuss with the steering committee.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_4a8768e6c9_t002",
+        "text": "Upgrade Wi-Fi access points to Catalyst 9120 series across Sites A, B, and C",
+        "owner": null,
+        "deadline": "2026-06-30",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Upgrading to the Catalyst 9120 series during the same migration window would avoid a separate disruptive maintenance activity",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_4a8768e6c9_t003",
+        "text": "Obtain steering committee approval for the expanded scope and budget",
+        "owner": "Alice Tran",
+        "deadline": "2026-03-18",
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "Could we add this to the scope and get steering committee approval before the March 18 window?",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_4a8768e6c9_t004",
+        "text": "Decision: Use the Catalyst 9500 switch deployment window for concurrent infrastructure upgrades",
+        "owner": "Dave Chen",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "this would be an ideal time to also upgrade the Wi-Fi access points across all three data centre facilities.",
+        "confidence": 0.9
+      }
+    ],
+    "metadata": {
+      "sender": "dave.chen@ssc-spc.gc.ca",
+      "recipients": "alice.tran@ssc-spc.gc.ca",
+      "subject": "Opportunity: Wi-Fi Infrastructure Upgrade During Network Migration",
+      "date": "March 7, 2026"
+    }
+  },
+  "drift_check": {
+    "drift_type": "scope_expansion",
+    "overall_alignment_score": 0.15,
+    "reasoning": null,
+    "alerts": [
+      {
+        "alert_id": "alt_f8839466",
+        "project_id": "proj_drift_llm_large",
+        "artifact_id": "art_4a8768e6c9",
+        "drift_type": "scope_expansion",
+        "alignment_score": 0.15,
+        "detected_ask": "Upgrade Wi-Fi access points (Cisco Aironet 2800 to Catalyst 9120 series) across all three data centre facilities during the Catalyst 9500 switch deployment window, at an estimated additional cost of $85,000\u2013$110,000 and 9 additional days of on-site work.",
+        "baseline_reference": "IN SCOPE: 'Replacement and deployment of Cisco Catalyst 9500 series switches across all three sites' \u2014 Wi-Fi access point hardware is not listed as in-scope network equipment; CONSTRAINTS: 'Total approved budget is $2,400,000 CAD inclusive of all fees, disbursements, and applicable taxes' and 'Expen",
+        "suggested_action": "Do not absorb this request into the current project baseline without formal change control. The Project Manager should: (1) Log this as a formal Change Request (CR) and submit it to the Change Control Board and Steering Committee for review; (2) Commission a formal impact assessment covering budget ",
+        "severity": "high",
+        "status": "open",
+        "created_at": "2026-03-09T06:44:47.277556"
+      }
+    ]
+  },
+  "llm_calls": [
+    {
+      "tier": "large",
+      "model": "anthropic/claude-sonnet-4.6",
+      "latency_ms": 8229.6,
+      "content": "```json\n{\n  \"in_scope\": [\n    \"Decommissioning of Sites B and C physical infrastructure\",\n    \"Migration of all server workloads from Sites B and C to Site A\",\n    \"Physical server rack consolidation and cable management at Site A\",\n    \"Environmental systems (HVAC, UPS, fire suppression) optimization at Site A\",\n    \"Replacement and deployment of Cisco Catalyst 9500 series switches across all three sites\",\n    \"Network segmentation reconfiguration per updated security zones\",\n    \"BGP routing table migration and validation\",\n    \"Network performance baseline testing post-migration\",\n    \"Migration of all on-premise Active Directory domain controllers to consolidated infrastructure at Site A\",\n    \"AD schema extension and forest restructuring\",\n    \"Group Policy Object (GPO) consolidation and testing\",\n    \"Integration testing with downstream applications dependent on AD\",\n    \"Weekly status reports to SSC Project Management Office\",\n    \"Steering committee presentations (monthly)\",\n    \"Risk register maintenance\",\n    \"Change management and stakeholder communications\"\n  ],\n  \"out_of_scope\": [\n    \"End-user device refresh or replacement (laptops, desktops, mobile devices) \u2014 addressed under NGIS Phase 4\",\n    \"Application modernization or re-platforming \u2014 no changes to application code, architecture, or hosting platform; lift and shift only\",\n    \"GC-Cloud workload migration to public cloud environments (AWS, Azure, GC-Cloud) \u2014 addressed under GC-Cloud Wave 4\",\n    \"End-user training and change management beyond project communications \u2014 responsibility of client departments\",\n    \"Procurement of new application licenses \u2014 software licensing changes resulting from platform migration\",\n    \"Network monitoring tool upgrades \u2014 NOC monitoring platform upgrades deferred to a separate initiative\"\n  ],\n  \"deliverables\": [\n    \"D-001: Project Management Plan \u2014 Due October 31, 2024\",\n    \"D-002: Technical Design Document (TDD) \u2014 Due December 15, 2024\",\n    \"D-003: Security Assessment and Authorization (SA&A) Package \u2014 Due January 31, 2025\",\n    \"D-004: Migration Runbook (Sites B and C) \u2014 Due February 28, 2025\",\n    \"D-005: User Acceptance Test (UAT) Plan \u2014 Due March 10, 2026\",\n    \"D-006: Site A Consolidation Complete (Go-Live) \u2014 Due April 30, 2026\",\n    \"D-007: Post-Migration Validation Report \u2014 Due May 31, 2026\",\n    \"D-008: Project Closure Report \u2014 Due June 30, 2026\"\n  ],\n  \"constraints\": [\n    \"Total approved budget is $2,400,000 CAD inclusive of all fees, disbursements, and applicable taxes\",\n    \"Expenditures beyond the approved budget require a formal budget amendment approved by the Director General of IT Infrastructure\",\n    \"Budget variances exceeding 15% require submission to Treasury Board\",\n    \"Go-Live (D-006) must be achieved no later than April 30, 2026\",\n    \"Final project closure date is June 30, 2026 (end of fiscal year 2025\u20132026)\",\n    \"Extensions beyond June 30, 2026 require ADM-level approval\",\n    \"All work must comply with ITSG-33: IT Security Risk Management \u2014 A Lifecycle Approach\",\n    \"All work must comply with the Government of Canada Cloud Adoption Strategy\",\n    \"All work must comply with the Treasury Board Policy on Government Security\",\n    \"All work must comply with the Privacy Act (R.S.C., 1985, c. P-21)\",\n    \"All client-facing deliverables must comply with the Official Languages Act\",\n    \"Scope, schedule, or budget changes must follow the SSC Project Change Management Process\",\n    \"Scope changes require written approval from the Project Sponsor and must be assessed for cost and schedule impact before implementation\"\n  ]\n}\n```",
+      "parsed_json": {
+        "in_scope": [
+          "Decommissioning of Sites B and C physical infrastructure",
+          "Migration of all server workloads from Sites B and C to Site A",
+          "Physical server rack consolidation and cable management at Site A",
+          "Environmental systems (HVAC, UPS, fire suppression) optimization at Site A",
+          "Replacement and deployment of Cisco Catalyst 9500 series switches across all three sites",
+          "Network segmentation reconfiguration per updated security zones",
+          "BGP routing table migration and validation",
+          "Network performance baseline testing post-migration",
+          "Migration of all on-premise Active Directory domain controllers to consolidated infrastructure at Site A",
+          "AD schema extension and forest restructuring",
+          "Group Policy Object (GPO) consolidation and testing",
+          "Integration testing with downstream applications dependent on AD",
+          "Weekly status reports to SSC Project Management Office",
+          "Steering committee presentations (monthly)",
+          "Risk register maintenance",
+          "Change management and stakeholder communications"
+        ],
+        "out_of_scope": [
+          "End-user device refresh or replacement (laptops, desktops, mobile devices) \u2014 addressed under NGIS Phase 4",
+          "Application modernization or re-platforming \u2014 no changes to application code, architecture, or hosting platform; lift and shift only",
+          "GC-Cloud workload migration to public cloud environments (AWS, Azure, GC-Cloud) \u2014 addressed under GC-Cloud Wave 4",
+          "End-user training and change management beyond project communications \u2014 responsibility of client departments",
+          "Procurement of new application licenses \u2014 software licensing changes resulting from platform migration",
+          "Network monitoring tool upgrades \u2014 NOC monitoring platform upgrades deferred to a separate initiative"
+        ],
+        "deliverables": [
+          "D-001: Project Management Plan \u2014 Due October 31, 2024",
+          "D-002: Technical Design Document (TDD) \u2014 Due December 15, 2024",
+          "D-003: Security Assessment and Authorization (SA&A) Package \u2014 Due January 31, 2025",
+          "D-004: Migration Runbook (Sites B and C) \u2014 Due February 28, 2025",
+          "D-005: User Acceptance Test (UAT) Plan \u2014 Due March 10, 2026",
+          "D-006: Site A Consolidation Complete (Go-Live) \u2014 Due April 30, 2026",
+          "D-007: Post-Migration Validation Report \u2014 Due May 31, 2026",
+          "D-008: Project Closure Report \u2014 Due June 30, 2026"
+        ],
+        "constraints": [
+          "Total approved budget is $2,400,000 CAD inclusive of all fees, disbursements, and applicable taxes",
+          "Expenditures beyond the approved budget require a formal budget amendment approved by the Director General of IT Infrastructure",
+          "Budget variances exceeding 15% require submission to Treasury Board",
+          "Go-Live (D-006) must be achieved no later than April 30, 2026",
+          "Final project closure date is June 30, 2026 (end of fiscal year 2025\u20132026)",
+          "Extensions beyond June 30, 2026 require ADM-level approval",
+          "All work must comply with ITSG-33: IT Security Risk Management \u2014 A Lifecycle Approach",
+          "All work must comply with the Government of Canada Cloud Adoption Strategy",
+          "All work must comply with the Treasury Board Policy on Government Security",
+          "All work must comply with the Privacy Act (R.S.C., 1985, c. P-21)",
+          "All client-facing deliverables must comply with the Official Languages Act",
+          "Scope, schedule, or budget changes must follow the SSC Project Change Management Process",
+          "Scope changes require written approval from the Project Sponsor and must be assessed for cost and schedule impact before implementation"
+        ]
+      },
+      "error": null
+    },
+    {
+      "tier": "large",
+      "model": "anthropic/claude-sonnet-4.6",
+      "latency_ms": 17017.8,
+      "content": "```json\n{\n  \"alignment_score\": 0.15,\n  \"drift_type\": \"scope_expansion\",\n  \"detected_ask\": \"Upgrade Wi-Fi access points (Cisco Aironet 2800 to Catalyst 9120 series) across all three data centre facilities during the Catalyst 9500 switch deployment window, at an estimated additional cost of $85,000\u2013$110,000 and 9 additional days of on-site work.\",\n  \"baseline_reference\": \"IN SCOPE: 'Replacement and deployment of Cisco Catalyst 9500 series switches across all three sites' \u2014 Wi-Fi access point hardware is not listed as in-scope network equipment; CONSTRAINTS: 'Total approved budget is $2,400,000 CAD inclusive of all fees, disbursements, and applicable taxes' and 'Expenditures beyond the approved budget require a formal budget amendment approved by the Director General of IT Infrastructure'; OUT OF SCOPE: 'Network monitoring tool upgrades \u2014 NOC monitoring platform upgrades deferred to a separate initiative' establishes a precedent that ancillary network hardware upgrades are deferred; DELIVERABLES: D-006 Go-Live due April 30, 2026 \u2014 a 9-day timeline addition in March 2026 creates schedule risk within 54 days of Go-Live.\",\n  \"suggested_action\": \"Do not absorb this request into the current project baseline without formal change control. The Project Manager should: (1) Log this as a formal Change Request (CR) and submit it to the Change Control Board and Steering Committee for review; (2) Commission a formal impact assessment covering budget delta ($85K\u2013$110K against the approved $2.4M CAD ceiling), schedule risk to D-006 Go-Live (April 30, 2026), and any SA&A implications under ITSG-33 for new wireless hardware; (3) Confirm whether the Wi-Fi upgrade falls under NGIS Phase 4 (end-user device refresh) or warrants a standalone initiative, consistent with the precedent set by deferring NOC monitoring upgrades; (4) Advise Dave Chen that informal vendor discussions (TechSupplier) must cease until a CR is approved, as unauthorized procurement commitments may violate contracting authority; (5) If the CR is approved, initiate a formal budget amendment through the Director General of IT Infrastructure before any procurement action is taken.\",\n  \"reasoning\": \"The email proposes adding Wi-Fi access point hardware procurement and installation to a project whose in-scope network work is explicitly limited to Cisco Catalyst 9500 switch deployment, network segmentation, BGP migration, and cabling. Wireless access point infrastructure is a materially distinct work package not referenced anywhere in the scope baseline. The estimated cost of $85,000\u2013$110,000 represents a 3.5%\u20134.6% budget increase on the approved $2.4M envelope, which \u2014 while below the 15% Treasury Board variance threshold \u2014 still requires a formal Director General-approved budget amendment per the project constraints. The proposed 9-day schedule addition is particularly high-risk given the document is dated March 7, 2026, only 54 days before the contractually fixed D-006 Go-Live deadline of April 30, 2026, with no schedule contingency referenced in the baseline. Additionally, the informal vendor engagement described ('I've already spoken informally with TechSupplier') bypasses formal procurement and change control processes, which is a governance concern independent of the scope question. The efficiency rationale (co-located contractors, reduced future disruption) is commercially reasonable but does not override the requirement for formal scope change authorization.\"\n}\n```",
+      "parsed_json": {
+        "alignment_score": 0.15,
+        "drift_type": "scope_expansion",
+        "detected_ask": "Upgrade Wi-Fi access points (Cisco Aironet 2800 to Catalyst 9120 series) across all three data centre facilities during the Catalyst 9500 switch deployment window, at an estimated additional cost of $85,000\u2013$110,000 and 9 additional days of on-site work.",
+        "baseline_reference": "IN SCOPE: 'Replacement and deployment of Cisco Catalyst 9500 series switches across all three sites' \u2014 Wi-Fi access point hardware is not listed as in-scope network equipment; CONSTRAINTS: 'Total approved budget is $2,400,000 CAD inclusive of all fees, disbursements, and applicable taxes' and 'Expenditures beyond the approved budget require a formal budget amendment approved by the Director General of IT Infrastructure'; OUT OF SCOPE: 'Network monitoring tool upgrades \u2014 NOC monitoring platform upgrades deferred to a separate initiative' establishes a precedent that ancillary network hardware upgrades are deferred; DELIVERABLES: D-006 Go-Live due April 30, 2026 \u2014 a 9-day timeline addition in March 2026 creates schedule risk within 54 days of Go-Live.",
+        "suggested_action": "Do not absorb this request into the current project baseline without formal change control. The Project Manager should: (1) Log this as a formal Change Request (CR) and submit it to the Change Control Board and Steering Committee for review; (2) Commission a formal impact assessment covering budget delta ($85K\u2013$110K against the approved $2.4M CAD ceiling), schedule risk to D-006 Go-Live (April 30, 2026), and any SA&A implications under ITSG-33 for new wireless hardware; (3) Confirm whether the Wi-Fi upgrade falls under NGIS Phase 4 (end-user device refresh) or warrants a standalone initiative, consistent with the precedent set by deferring NOC monitoring upgrades; (4) Advise Dave Chen that informal vendor discussions (TechSupplier) must cease until a CR is approved, as unauthorized procurement commitments may violate contracting authority; (5) If the CR is approved, initiate a formal budget amendment through the Director General of IT Infrastructure before any procurement action is taken.",
+        "reasoning": "The email proposes adding Wi-Fi access point hardware procurement and installation to a project whose in-scope network work is explicitly limited to Cisco Catalyst 9500 switch deployment, network segmentation, BGP migration, and cabling. Wireless access point infrastructure is a materially distinct work package not referenced anywhere in the scope baseline. The estimated cost of $85,000\u2013$110,000 represents a 3.5%\u20134.6% budget increase on the approved $2.4M envelope, which \u2014 while below the 15% Treasury Board variance threshold \u2014 still requires a formal Director General-approved budget amendment per the project constraints. The proposed 9-day schedule addition is particularly high-risk given the document is dated March 7, 2026, only 54 days before the contractually fixed D-006 Go-Live deadline of April 30, 2026, with no schedule contingency referenced in the baseline. Additionally, the informal vendor engagement described ('I've already spoken informally with TechSupplier') bypasses formal procurement and change control processes, which is a governance concern independent of the scope question. The efficiency rationale (co-located contractors, reduced future disruption) is commercially reasonable but does not override the requirement for formal scope change authorization."
+      },
+      "error": null
+    }
+  ]
+}

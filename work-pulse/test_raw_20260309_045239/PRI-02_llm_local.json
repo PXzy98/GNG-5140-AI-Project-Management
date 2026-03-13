@@ -1,0 +1,147 @@
+{
+  "test_id": "PRI-02",
+  "test_name": "Bottom-3 ranking accuracy",
+  "method": "llm_local",
+  "passed": true,
+  "score": "8.0/8",
+  "details": "correct=3/3 bottom3=['task_008', 'task_009', 'task_010']",
+  "error": null,
+  "latency_ms": 56959.46939999703,
+  "ranking": {
+    "analysis_method": "llm_local",
+    "ranked_tasks": [
+      {
+        "task_id": "task_001",
+        "rank": 1,
+        "score": 100.0,
+        "priority_level": "critical",
+        "reasoning": "",
+        "boost_applied": [
+          "deadline_overdue_+20",
+          "high_risk_+8",
+          "deadline_le1d:+20",
+          "high_risk:+8"
+        ],
+        "chronic_blocker": false
+      },
+      {
+        "task_id": "task_003",
+        "rank": 2,
+        "score": 100.0,
+        "priority_level": "critical",
+        "reasoning": "",
+        "boost_applied": [
+          "deadline_overdue_+20",
+          "high_risk_+8",
+          "deadline_le1d:+20",
+          "high_risk:+8"
+        ],
+        "chronic_blocker": false
+      },
+      {
+        "task_id": "task_002",
+        "rank": 3,
+        "score": 100.0,
+        "priority_level": "critical",
+        "reasoning": "",
+        "boost_applied": [
+          "deadline_1d_+10",
+          "high_risk_+8",
+          "deadline_le3d:+10",
+          "high_risk:+8"
+        ],
+        "chronic_blocker": false
+      },
+      {
+        "task_id": "task_005",
+        "rank": 4,
+        "score": 97.0,
+        "priority_level": "critical",
+        "reasoning": "",
+        "boost_applied": [
+          "deadline_overdue_+20",
+          "deadline_le1d:+20"
+        ],
+        "chronic_blocker": false
+      },
+      {
+        "task_id": "task_006",
+        "rank": 5,
+        "score": 93.0,
+        "priority_level": "critical",
+        "reasoning": "",
+        "boost_applied": [
+          "deadline_overdue_+20",
+          "deadline_le1d:+20"
+        ],
+        "chronic_blocker": false
+      },
+      {
+        "task_id": "task_004",
+        "rank": 6,
+        "score": 90.5,
+        "priority_level": "critical",
+        "reasoning": "",
+        "boost_applied": [
+          "deadline_3d_+5",
+          "high_risk_+8",
+          "deadline_le7d:+5",
+          "high_risk:+8"
+        ],
+        "chronic_blocker": false
+      },
+      {
+        "task_id": "task_007",
+        "rank": 7,
+        "score": 52.5,
+        "priority_level": "high",
+        "reasoning": "",
+        "boost_applied": [
+          "deadline_3d_+5",
+          "deadline_le7d:+5"
+        ],
+        "chronic_blocker": false
+      },
+      {
+        "task_id": "task_008",
+        "rank": 8,
+        "score": 45.0,
+        "priority_level": "medium",
+        "reasoning": "",
+        "boost_applied": [
+          "chronic_blocker_+15",
+          "rollover_ge3:+15"
+        ],
+        "chronic_blocker": true
+      },
+      {
+        "task_id": "task_009",
+        "rank": 9,
+        "score": 16.5,
+        "priority_level": "low",
+        "reasoning": "",
+        "boost_applied": [],
+        "chronic_blocker": false
+      },
+      {
+        "task_id": "task_010",
+        "rank": 10,
+        "score": 3.5,
+        "priority_level": "low",
+        "reasoning": "",
+        "boost_applied": [],
+        "chronic_blocker": false
+      }
+    ]
+  },
+  "llm_calls": [
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 56958.4,
+      "content": "",
+      "parsed_json": null,
+      "error": null
+    }
+  ]
+}

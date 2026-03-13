@@ -1,0 +1,133 @@
+{
+  "test_id": "ING-11",
+  "test_name": "Implicit action item extraction",
+  "method": "llm_local",
+  "passed": true,
+  "score": "10/10",
+  "details": "extracted=6 items",
+  "error": null,
+  "latency_ms": 9209.164799991413,
+  "artifact": {
+    "artifact_id": "art_92775bc0ab",
+    "artifact_type": "status_report",
+    "detected_language": "en",
+    "word_count": 355,
+    "content_preview": "NGIS PHASE 3 \u2014 WEEKLY STATUS REPORT\nReporting Period: February 24 \u2013 March 3, 2026\nReport Date: March 3, 2026\nProject Manager: Alice Tran\nProject ID: NGIS-P3-2024-001\nOverall Status: GREEN\n\n---\n\nEXECUTIVE SUMMARY\n\nThe NGIS Phase 3 data centre consolidation project continues to progress\naccording to plan. The team has completed the Active Directory migration\nfor the test environment and finalized network topology designs for Sites\nB and C. No risks are identified at this time.\n\n---\n\nACCOMPLISHMENT",
+    "extracted_tasks": [
+      {
+        "task_id": "art_92775bc0ab_t001",
+        "text": "Begin production AD migration preparation",
+        "owner": null,
+        "deadline": "2026-03-10",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Begin production AD migration preparation.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_92775bc0ab_t002",
+        "text": "Conduct UAT test script walkthroughs with application owners",
+        "owner": null,
+        "deadline": "2026-03-10",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Conduct UAT test script walkthroughs with application owners.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_92775bc0ab_t003",
+        "text": "Coordinate with TechSupplier for equipment delivery confirmation",
+        "owner": null,
+        "deadline": "2026-03-10",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Coordinate with TechSupplier for equipment delivery confirmation.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_92775bc0ab_t004",
+        "text": "Complete end-user communication plan",
+        "owner": null,
+        "deadline": "2026-03-10",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Complete end-user communication plan.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_92775bc0ab_t005",
+        "text": "TBS audit team scheduled for March site visit (details TBD)",
+        "owner": null,
+        "deadline": "2026-03-10",
+        "priority": "low",
+        "status": "not_started",
+        "source_excerpt": "TBS audit team scheduled for March site visit (details TBD).",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_92775bc0ab_t006",
+        "text": "End-user communication campaign to launch March 9",
+        "owner": null,
+        "deadline": "2026-03-09",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "End-user communication campaign to launch March 9.",
+        "confidence": 0.9
+      }
+    ],
+    "metadata": {}
+  },
+  "llm_calls": [
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 9199.0,
+      "content": "[\n  {\n    \"text\": \"Begin production AD migration preparation\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-10\",\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"Begin production AD migration preparation.\"\n  },\n  {\n    \"text\": \"Conduct UAT test script walkthroughs with application owners\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-10\",\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"Conduct UAT test script walkthroughs with application owners.\"\n  },\n  {\n    \"text\": \"Coordinate with TechSupplier for equipment delivery confirmation\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-10\",\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"Coordinate with TechSupplier for equipment delivery confirmation.\"\n  },\n  {\n    \"text\": \"Complete end-user communication plan\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-10\",\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"Complete end-user communication plan.\"\n  },\n  {\n    \"text\": \"TBS audit team scheduled for March site visit (details TBD)\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-10\",\n    \"priority\": \"low\",\n    \"source_excerpt\": \"TBS audit team scheduled for March site visit (details TBD).\"\n  },\n  {\n    \"text\": \"End-user communication campaign to launch March 9\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-09\",\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"End-user communication campaign to launch March 9.\"\n  }\n]",
+      "parsed_json": [
+        {
+          "text": "Begin production AD migration preparation",
+          "owner": null,
+          "deadline": "2026-03-10",
+          "priority": "medium",
+          "source_excerpt": "Begin production AD migration preparation."
+        },
+        {
+          "text": "Conduct UAT test script walkthroughs with application owners",
+          "owner": null,
+          "deadline": "2026-03-10",
+          "priority": "medium",
+          "source_excerpt": "Conduct UAT test script walkthroughs with application owners."
+        },
+        {
+          "text": "Coordinate with TechSupplier for equipment delivery confirmation",
+          "owner": null,
+          "deadline": "2026-03-10",
+          "priority": "medium",
+          "source_excerpt": "Coordinate with TechSupplier for equipment delivery confirmation."
+        },
+        {
+          "text": "Complete end-user communication plan",
+          "owner": null,
+          "deadline": "2026-03-10",
+          "priority": "medium",
+          "source_excerpt": "Complete end-user communication plan."
+        },
+        {
+          "text": "TBS audit team scheduled for March site visit (details TBD)",
+          "owner": null,
+          "deadline": "2026-03-10",
+          "priority": "low",
+          "source_excerpt": "TBS audit team scheduled for March site visit (details TBD)."
+        },
+        {
+          "text": "End-user communication campaign to launch March 9",
+          "owner": null,
+          "deadline": "2026-03-09",
+          "priority": "medium",
+          "source_excerpt": "End-user communication campaign to launch March 9."
+        }
+      ],
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,292 @@
+{
+  "test_id": "PRI-06",
+  "test_name": "Deadline proximity boost",
+  "method": "llm_medium",
+  "passed": true,
+  "score": "8/8",
+  "details": "near_task rank=1 far_task rank=10 (near<far=True)",
+  "error": null,
+  "latency_ms": 9726.076599996304,
+  "ranking": {
+    "analysis_method": "llm_medium",
+    "ranked_tasks": [
+      {
+        "task_id": "task_001",
+        "rank": 1,
+        "score": 100.0,
+        "priority_level": "critical",
+        "reasoning": "This task addresses a critical risk (risk_001) with a high rollover count and blocks 3 dependencies. As a senior PM, resolving vendor delays for NGIS Phase 3 is paramount to prevent project-wide timeline slippage.",
+        "boost_applied": [
+          "deadline_le1d:+20",
+          "high_risk:+8"
+        ],
+        "chronic_blocker": false
+      },
+      {
+        "task_id": "task_002",
+        "rank": 2,
+        "score": 100.0,
+        "priority_level": "critical",
+        "reasoning": "Compliance with TBS audit and ITSG-33 is a non-negotiable government requirement. Failure to submit documentation for the IA-5 finding (risk_002) poses a significant security and regulatory risk.",
+        "boost_applied": [
+          "deadline_le3d:+10",
+          "high_risk:+8"
+        ],
+        "chronic_blocker": false
+      },
+      {
+        "task_id": "task_004",
+        "rank": 3,
+        "score": 100.0,
+        "priority_level": "critical",
+        "reasoning": "While the deadline is further out, this task blocks the highest number of dependencies (4) and addresses a single point of failure risk. Losing an AD expert without knowledge transfer would be catastrophic for migration.",
+        "boost_applied": [
+          "deadline_le7d:+5",
+          "high_risk:+8"
+        ],
+        "chronic_blocker": false
+      },
+      {
+        "task_id": "task_003",
+        "rank": 4,
+        "score": 100.0,
+        "priority_level": "critical",
+        "reasoning": "Addresses a 14% budget overrun (risk_003) which is currently in progress. Approval is required to maintain project velocity and financial compliance for proj_002.",
+        "boost_applied": [
+          "deadline_le1d:+20",
+          "high_risk:+8"
+        ],
+        "chronic_blocker": false
+      },
+      {
+        "task_id": "task_006",
+        "rank": 5,
+        "score": 100.0,
+        "priority_level": "critical",
+        "reasoning": "This has the earliest deadline (March 7) and is a prerequisite for informed decision-making regarding the vendor delay. It must be completed immediately to adjust the Site A migration strategy.",
+        "boost_applied": [
+          "deadline_le1d:+20"
+        ],
+        "chronic_blocker": false
+      },
+      {
+        "task_id": "task_005",
+        "rank": 6,
+        "score": 90.0,
+        "priority_level": "critical",
+        "reasoning": "UAT is essential for quality assurance, but it carries lower risk than the infrastructure and compliance tasks above. The March 10 deadline keeps it in the current priority window.",
+        "boost_applied": [
+          "deadline_le1d:+20"
+        ],
+        "chronic_blocker": false
+      },
+      {
+        "task_id": "task_007",
+        "rank": 7,
+        "score": 70.0,
+        "priority_level": "high",
+        "reasoning": "Treasury Board submissions are high-stakes, but the March 15 deadline and lack of blocked dependencies place it below immediate technical and compliance crises.",
+        "boost_applied": [
+          "deadline_le7d:+5"
+        ],
+        "chronic_blocker": false
+      },
+      {
+        "task_id": "task_008",
+        "rank": 8,
+        "score": 70.0,
+        "priority_level": "high",
+        "reasoning": "Despite a high rollover count (3), this is a contingency task with no set deadline. It is important for long-term risk mitigation but less urgent than resolving the current vendor issue.",
+        "boost_applied": [
+          "rollover_ge3:+15"
+        ],
+        "chronic_blocker": true
+      },
+      {
+        "task_id": "task_009",
+        "rank": 9,
+        "score": 30.0,
+        "priority_level": "medium",
+        "reasoning": "The deadline is April 1, providing ample lead time. Communication is important but follows the resolution of the technical and budgetary issues currently facing the projects.",
+        "boost_applied": [],
+        "chronic_blocker": false
+      },
+      {
+        "task_id": "task_010",
+        "rank": 10,
+        "score": 10.0,
+        "priority_level": "low",
+        "reasoning": "Administrative formatting task with the furthest deadline and no risk impact. This is a low-priority housekeeping item.",
+        "boost_applied": [],
+        "chronic_blocker": false
+      }
+    ]
+  },
+  "llm_calls": [
+    {
+      "tier": "medium",
+      "model": "google/gemini-3-flash-preview",
+      "latency_ms": 9725.5,
+      "content": "[\n  {\n    \"task_id\": \"task_001\",\n    \"rank\": 1,\n    \"priority_level\": \"critical\",\n    \"priority_score\": 98.5,\n    \"reasoning\": \"This task addresses a critical risk (risk_001) with a high rollover count and blocks 3 dependencies. As a senior PM, resolving vendor delays for NGIS Phase 3 is paramount to prevent project-wide timeline slippage.\",\n    \"risk_factors\": [\n      \"Critical risk level\",\n      \"High rollover count (2)\",\n      \"3 blocked dependencies\",\n      \"Direct impact on NGIS Phase 3 timeline\"\n    ],\n    \"evidence_refs\": [\n      \"risk_001\"\n    ],\n    \"confidence\": 0.95\n  },\n  {\n    \"task_id\": \"task_002\",\n    \"rank\": 2,\n    \"priority_level\": \"critical\",\n    \"priority_score\": 95.0,\n    \"reasoning\": \"Compliance with TBS audit and ITSG-33 is a non-negotiable government requirement. Failure to submit documentation for the IA-5 finding (risk_002) poses a significant security and regulatory risk.\",\n    \"risk_factors\": [\n      \"Critical risk level\",\n      \"Regulatory/Audit compliance\",\n      \"TBS oversight\",\n      \"2 blocked dependencies\"\n    ],\n    \"evidence_refs\": [\n      \"risk_002\"\n    ],\n    \"confidence\": 0.98\n  },\n  {\n    \"task_id\": \"task_004\",\n    \"rank\": 3,\n    \"priority_level\": \"high\",\n    \"priority_score\": 88.0,\n    \"reasoning\": \"While the deadline is further out, this task blocks the highest number of dependencies (4) and addresses a single point of failure risk. Losing an AD expert without knowledge transfer would be catastrophic for migration.\",\n    \"risk_factors\": [\n      \"High risk level\",\n      \"4 blocked dependencies\",\n      \"Single point of failure\",\n      \"Resource loss impact\"\n    ],\n    \"evidence_refs\": [\n      \"risk_004\"\n    ],\n    \"confidence\": 0.92\n  },\n  {\n    \"task_id\": \"task_003\",\n    \"rank\": 4,\n    \"priority_level\": \"high\",\n    \"priority_score\": 85.0,\n    \"reasoning\": \"Addresses a 14% budget overrun (risk_003) which is currently in progress. Approval is required to maintain project velocity and financial compliance for proj_002.\",\n    \"risk_factors\": [\n      \"High risk level\",\n      \"Financial overrun (14%)\",\n      \"Rollover count (1)\",\n      \"Director approval required\"\n    ],\n    \"evidence_refs\": [\n      \"risk_003\"\n    ],\n    \"confidence\": 0.90\n  },\n  {\n    \"task_id\": \"task_006\",\n    \"rank\": 5,\n    \"priority_level\": \"high\",\n    \"priority_score\": 82.0,\n    \"reasoning\": \"This has the earliest deadline (March 7) and is a prerequisite for informed decision-making regarding the vendor delay. It must be completed immediately to adjust the Site A migration strategy.\",\n    \"risk_factors\": [\n      \"Immediate deadline (March 7)\",\n      \"Impact assessment requirement\",\n      \"Medium risk level\"\n    ],\n    \"evidence_refs\": [\n      \"risk_001\"\n    ],\n    \"confidence\": 0.88\n  },\n  {\n    \"task_id\": \"task_005\",\n    \"rank\": 6,\n    \"priority_level\": \"medium\",\n    \"priority_score\": 70.0,\n    \"reasoning\": \"UAT is essential for quality assurance, but it carries lower risk than the infrastructure and compliance tasks above. The March 10 deadline keeps it in the current priority window.\",\n    \"risk_factors\": [\n      \"Medium risk level\",\n      \"March 10 deadline\",\n      \"1 blocked dependency\"\n    ],\n    \"evidence_refs\": [],\n    \"confidence\": 0.85\n  },\n  {\n    \"task_id\": \"task_007\",\n    \"rank\": 7,\n    \"priority_level\": \"medium\",\n    \"priority_score\": 65.0,\n    \"reasoning\": \"Treasury Board submissions are high-stakes, but the March 15 deadline and lack of blocked dependencies place it below immediate technical and compliance crises.\",\n    \"risk_factors\": [\n      \"Medium risk level\",\n      \"Governance requirement\",\n      \"March 15 deadline\"\n    ],\n    \"evidence_refs\": [],\n    \"confidence\": 0.80\n  },\n  {\n    \"task_id\": \"task_008\",\n    \"rank\": 8,\n    \"priority_level\": \"medium\",\n    \"priority_score\": 55.0,\n    \"reasoning\": \"Despite a high rollover count (3), this is a contingency task with no set deadline. It is important for long-term risk mitigation but less urgent than resolving the current vendor issue.\",\n    \"risk_factors\": [\n      \"High rollover count (3)\",\n      \"Low risk level\",\n      \"No deadline\"\n    ],\n    \"evidence_refs\": [\n      \"risk_001\"\n    ],\n    \"confidence\": 0.75\n  },\n  {\n    \"task_id\": \"task_009\",\n    \"rank\": 9,\n    \"priority_level\": \"low\",\n    \"priority_score\": 30.0,\n    \"reasoning\": \"The deadline is April 1, providing ample lead time. Communication is important but follows the resolution of the technical and budgetary issues currently facing the projects.\",\n    \"risk_factors\": [\n      \"Low risk level\",\n      \"Distant deadline\",\n      \"Low stakeholder priority\"\n    ],\n    \"evidence_refs\": [],\n    \"confidence\": 0.90\n  },\n  {\n    \"task_id\": \"task_010\",\n    \"rank\": 10,\n    \"priority_level\": \"low\",\n    \"priority_score\": 10.0,\n    \"reasoning\": \"Administrative formatting task with the furthest deadline and no risk impact. This is a low-priority housekeeping item.\",\n    \"risk_factors\": [\n      \"No risk level\",\n      \"Administrative nature\",\n      \"April 15 deadline\"\n    ],\n    \"evidence_refs\": [],\n    \"confidence\": 0.95\n  }\n]",
+      "parsed_json": [
+        {
+          "task_id": "task_001",
+          "rank": 1,
+          "priority_level": "critical",
+          "priority_score": 98.5,
+          "reasoning": "This task addresses a critical risk (risk_001) with a high rollover count and blocks 3 dependencies. As a senior PM, resolving vendor delays for NGIS Phase 3 is paramount to prevent project-wide timeline slippage.",
+          "risk_factors": [
+            "Critical risk level",
+            "High rollover count (2)",
+            "3 blocked dependencies",
+            "Direct impact on NGIS Phase 3 timeline"
+          ],
+          "evidence_refs": [
+            "risk_001"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "task_id": "task_002",
+          "rank": 2,
+          "priority_level": "critical",
+          "priority_score": 95.0,
+          "reasoning": "Compliance with TBS audit and ITSG-33 is a non-negotiable government requirement. Failure to submit documentation for the IA-5 finding (risk_002) poses a significant security and regulatory risk.",
+          "risk_factors": [
+            "Critical risk level",
+            "Regulatory/Audit compliance",
+            "TBS oversight",
+            "2 blocked dependencies"
+          ],
+          "evidence_refs": [
+            "risk_002"
+          ],
+          "confidence": 0.98
+        },
+        {
+          "task_id": "task_004",
+          "rank": 3,
+          "priority_level": "high",
+          "priority_score": 88.0,
+          "reasoning": "While the deadline is further out, this task blocks the highest number of dependencies (4) and addresses a single point of failure risk. Losing an AD expert without knowledge transfer would be catastrophic for migration.",
+          "risk_factors": [
+            "High risk level",
+            "4 blocked dependencies",
+            "Single point of failure",
+            "Resource loss impact"
+          ],
+          "evidence_refs": [
+            "risk_004"
+          ],
+          "confidence": 0.92
+        },
+        {
+          "task_id": "task_003",
+          "rank": 4,
+          "priority_level": "high",
+          "priority_score": 85.0,
+          "reasoning": "Addresses a 14% budget overrun (risk_003) which is currently in progress. Approval is required to maintain project velocity and financial compliance for proj_002.",
+          "risk_factors": [
+            "High risk level",
+            "Financial overrun (14%)",
+            "Rollover count (1)",
+            "Director approval required"
+          ],
+          "evidence_refs": [
+            "risk_003"
+          ],
+          "confidence": 0.9
+        },
+        {
+          "task_id": "task_006",
+          "rank": 5,
+          "priority_level": "high",
+          "priority_score": 82.0,
+          "reasoning": "This has the earliest deadline (March 7) and is a prerequisite for informed decision-making regarding the vendor delay. It must be completed immediately to adjust the Site A migration strategy.",
+          "risk_factors": [
+            "Immediate deadline (March 7)",
+            "Impact assessment requirement",
+            "Medium risk level"
+          ],
+          "evidence_refs": [
+            "risk_001"
+          ],
+          "confidence": 0.88
+        },
+        {
+          "task_id": "task_005",
+          "rank": 6,
+          "priority_level": "medium",
+          "priority_score": 70.0,
+          "reasoning": "UAT is essential for quality assurance, but it carries lower risk than the infrastructure and compliance tasks above. The March 10 deadline keeps it in the current priority window.",
+          "risk_factors": [
+            "Medium risk level",
+            "March 10 deadline",
+            "1 blocked dependency"
+          ],
+          "evidence_refs": [],
+          "confidence": 0.85
+        },
+        {
+          "task_id": "task_007",
+          "rank": 7,
+          "priority_level": "medium",
+          "priority_score": 65.0,
+          "reasoning": "Treasury Board submissions are high-stakes, but the March 15 deadline and lack of blocked dependencies place it below immediate technical and compliance crises.",
+          "risk_factors": [
+            "Medium risk level",
+            "Governance requirement",
+            "March 15 deadline"
+          ],
+          "evidence_refs": [],
+          "confidence": 0.8
+        },
+        {
+          "task_id": "task_008",
+          "rank": 8,
+          "priority_level": "medium",
+          "priority_score": 55.0,
+          "reasoning": "Despite a high rollover count (3), this is a contingency task with no set deadline. It is important for long-term risk mitigation but less urgent than resolving the current vendor issue.",
+          "risk_factors": [
+            "High rollover count (3)",
+            "Low risk level",
+            "No deadline"
+          ],
+          "evidence_refs": [
+            "risk_001"
+          ],
+          "confidence": 0.75
+        },
+        {
+          "task_id": "task_009",
+          "rank": 9,
+          "priority_level": "low",
+          "priority_score": 30.0,
+          "reasoning": "The deadline is April 1, providing ample lead time. Communication is important but follows the resolution of the technical and budgetary issues currently facing the projects.",
+          "risk_factors": [
+            "Low risk level",
+            "Distant deadline",
+            "Low stakeholder priority"
+          ],
+          "evidence_refs": [],
+          "confidence": 0.9
+        },
+        {
+          "task_id": "task_010",
+          "rank": 10,
+          "priority_level": "low",
+          "priority_score": 10.0,
+          "reasoning": "Administrative formatting task with the furthest deadline and no risk impact. This is a low-priority housekeeping item.",
+          "risk_factors": [
+            "No risk level",
+            "Administrative nature",
+            "April 15 deadline"
+          ],
+          "evidence_refs": [],
+          "confidence": 0.95
+        }
+      ],
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "baseline_source": "ngis_phase3_sow.txt",
+  "baseline_summary": {
+    "in_scope": [
+      "Data centre consolidation of Sites A, B, C",
+      "Network equipment migration (Cisco Catalyst 9500 switches)",
+      "Active Directory migration",
+      "BGP routing migration",
+      "Physical server rack consolidation",
+      "Environmental systems optimization",
+      "Project management and reporting"
+    ],
+    "out_of_scope": [
+      "End-user device refresh (laptops, desktops)",
+      "Application modernization or re-platforming",
+      "GC-Cloud workload migration",
+      "End-user training beyond project communications",
+      "Software licensing changes",
+      "Network monitoring tool upgrades"
+    ],
+    "deliverables": [
+      "Project Management Plan",
+      "Technical Design Document",
+      "SA&A Package",
+      "Migration Runbook",
+      "UAT Plan",
+      "Site A Go-Live",
+      "Post-Migration Validation Report",
+      "Project Closure Report"
+    ],
+    "constraints": [
+      "Budget cap: $2,400,000",
+      "Go-Live deadline: April 30, 2026",
+      "Project closure: June 30, 2026",
+      "ITSG-33 compliance required",
+      "Protected B data classification throughout"
+    ]
+  },
+  "test_cases": {
+    "drift_test_within_scope.txt": {
+      "expected_drift_type": "within_scope",
+      "expected_alignment_score_min": 0.8,
+      "expected_alignment_score_max": 1.0,
+      "should_generate_alert": false,
+      "rationale": "Email asks about network switch delivery timeline — directly in scope (network equipment migration)"
+    },
+    "drift_test_scope_expansion.txt": {
+      "expected_drift_type": "scope_expansion",
+      "expected_alignment_score_min": 0.1,
+      "expected_alignment_score_max": 0.4,
+      "should_generate_alert": true,
+      "alert_severity": "high",
+      "rationale": "Request to add Wi-Fi access point upgrades — explicitly excluded as 'network monitoring tool upgrades' and not in scope. Represents scope expansion.",
+      "key_conflict": "SOW out-of-scope: 'network monitoring tool upgrades'"
+    },
+    "drift_test_new_requirement.txt": {
+      "expected_drift_type": "new_requirement",
+      "expected_alignment_score_min": 0.0,
+      "expected_alignment_score_max": 0.3,
+      "should_generate_alert": true,
+      "alert_severity": "high",
+      "rationale": "Request to add a new disaster recovery site — not mentioned anywhere in the SOW. Entirely new requirement with significant cost and schedule implications.",
+      "key_conflict": "No DR site in SOW scope or deliverables"
+    },
+    "drift_test_contradicts.txt": {
+      "expected_drift_type": "contradicts_scope",
+      "expected_alignment_score_min": 0.0,
+      "expected_alignment_score_max": 0.2,
+      "should_generate_alert": true,
+      "alert_severity": "critical",
+      "rationale": "ADM decision extends deadline to Q4 2026 (SOW says April 30, 2026) and increases budget to $3.5M (SOW says $2.4M). Directly contradicts both budget and timeline constraints.",
+      "key_conflict": "Violates budget constraint ($2.4M) and timeline constraint (Q2 2026)"
+    },
+    "drift_test_ambiguous.txt": {
+      "expected_drift_type": "ambiguous",
+      "expected_alignment_score_min": 0.3,
+      "expected_alignment_score_max": 0.7,
+      "should_generate_alert": true,
+      "alert_severity": "medium",
+      "rationale": "SolarWinds NPM upgrade could be interpreted as in-scope (required to monitor in-scope network equipment) or out-of-scope (network monitoring tool upgrade explicitly excluded). Reasonable arguments exist for both interpretations.",
+      "key_conflict": "SOW excludes 'network monitoring tool upgrades' but the upgrade is needed for in-scope network equipment"
+    },
+    "drift_test_clean.txt": {
+      "expected_drift_type": "within_scope",
+      "expected_alignment_score_min": 0.85,
+      "expected_alignment_score_max": 1.0,
+      "should_generate_alert": false,
+      "rationale": "Status update on AD migration preparation — entirely within scope activities (AD migration, DC staging, GPO consolidation, testing)"
+    },
+    "drift_test_fr_scope_creep.txt": {
+      "expected_drift_type": "scope_expansion",
+      "expected_alignment_score_min": 0.0,
+      "expected_alignment_score_max": 0.3,
+      "should_generate_alert": true,
+      "alert_severity": "high",
+      "rationale": "French-language request to add end-user device refresh (85 laptops, 40 desktops) — explicitly out of scope in SOW section 2.2(a). Tests bilingual drift detection.",
+      "key_conflict": "SOW explicitly excludes 'end-user device refresh or replacement'"
+    }
+  }
+}

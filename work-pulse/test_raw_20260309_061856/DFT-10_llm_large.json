@@ -1,0 +1,158 @@
+{
+  "test_id": "DFT-10",
+  "test_name": "Suggested action provided",
+  "method": "llm_large",
+  "passed": true,
+  "score": "6.0/6",
+  "details": "with_action=1/1",
+  "error": null,
+  "latency_ms": 16693.198000008124,
+  "artifact": {
+    "artifact_id": "art_5d19b8b6fd",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 236,
+    "content_preview": "MEETING NOTES \u2014 NGIS PHASE 3 STEERING COMMITTEE\nDate: March 8, 2026 | Attendees: Director Okafor, Alice Tran, Bob Morrison, ADM Clarke\n\nItem 5 (raised by ADM Clarke):\n\nFollowing the recent cyber incident affecting a peer department's primary\ndata centre, ADM Clarke raised the requirement to add a dedicated disaster\nrecovery (DR) site to the NGIS Phase 3 scope.\n\nADM Clarke's request:\n\"Given the current threat environment and Treasury Board's updated guidance\non GC infrastructure resilience, I wou",
+    "extracted_tasks": [
+      {
+        "task_id": "art_5d19b8b6fd_t001",
+        "text": "Investigate adding a new disaster recovery (DR) site as part of the Phase 3 consolidation, including identifying a colocation facility (Borden or Miramichi) and ensuring hot-standby replicas.",
+        "owner": "Alice Tran",
+        "deadline": "2026-03-15",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "I would like the project team to investigate adding a new disaster recovery site as part of the Phase 3 consolidation.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_5d19b8b6fd_t002",
+        "text": "Prepare DR site options analysis.",
+        "owner": "Alice Tran",
+        "deadline": "2026-03-15",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Action: Alice Tran to prepare DR site options analysis. Due: March 15.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_5d19b8b6fd_t003",
+        "text": "Formal scope addition requires a change request, ADM approval, and Treasury Board notification if cost impact exceeds 15%.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Any formal scope addition would require a change request, ADM approval, and Treasury Board notification if the cost impact exceeds 15%",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_5d19b8b6fd_t004",
+        "text": "Decision to add a dedicated disaster recovery (DR) site to the NGIS Phase 3 scope for business continuity compliance.",
+        "owner": "ADM Clarke",
+        "deadline": null,
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "ADM Clarke raised the requirement to add a dedicated disaster recovery (DR) site to the NGIS Phase 3 scope.",
+        "confidence": 0.9
+      }
+    ],
+    "metadata": {
+      "date": "March 8, 2026 | Attendees: Director Okafor, Alice Tran, Bob Morrison, ADM Clarke"
+    }
+  },
+  "drift_check": {
+    "drift_type": "scope_expansion",
+    "overall_alignment_score": 0.05,
+    "reasoning": null,
+    "alerts": [
+      {
+        "alert_id": "alt_5220ffcf",
+        "project_id": "proj_drift_llm_large",
+        "artifact_id": "art_5d19b8b6fd",
+        "drift_type": "scope_expansion",
+        "alignment_score": 0.05,
+        "detected_ask": "ADM Clarke's request to add a dedicated disaster recovery (DR) site \u2014 including identification of a colocation facility (Borden or Miramichi) and hot-standby workload replication for all Phase 3 migrated workloads \u2014 as part of the NGIS Phase 3 consolidation scope.",
+        "baseline_reference": "IN SCOPE: Migration of all server workloads from Sites B and C to Site A (consolidation to a single Site A target only \u2014 no secondary or DR site identified); DELIVERABLES: D-006 Site A Consolidation Complete (Go-Live) \u2014 April 30, 2026 (scope is bounded to Site A as the sole destination); CONSTRAINTS",
+        "suggested_action": "Project Manager Alice Tran should proceed with the committed preliminary DR scoping assessment (due March 15, 2026) and present a formal Impact Assessment to the Steering Committee covering: (1) full cost estimate for DR site identification, colocation procurement, hot-standby replication infrastruc",
+        "severity": "high",
+        "status": "open",
+        "created_at": "2026-03-09T06:45:21.558500"
+      }
+    ]
+  },
+  "llm_calls": [
+    {
+      "tier": "large",
+      "model": "anthropic/claude-sonnet-4.6",
+      "latency_ms": 7870.7,
+      "content": "```json\n{\n  \"in_scope\": [\n    \"Decommissioning of Sites B and C physical infrastructure\",\n    \"Migration of all server workloads from Sites B and C to Site A\",\n    \"Physical server rack consolidation and cable management at Site A\",\n    \"Environmental systems (HVAC, UPS, fire suppression) optimization at Site A\",\n    \"Replacement and deployment of Cisco Catalyst 9500 series switches across all three sites\",\n    \"Network segmentation reconfiguration per updated security zones\",\n    \"BGP routing table migration and validation\",\n    \"Network performance baseline testing post-migration\",\n    \"Migration of all on-premise Active Directory domain controllers to consolidated infrastructure at Site A\",\n    \"AD schema extension and forest restructuring\",\n    \"Group Policy Object (GPO) consolidation and testing\",\n    \"Integration testing with downstream applications dependent on AD\",\n    \"Weekly status reports to SSC Project Management Office\",\n    \"Steering committee presentations (monthly)\",\n    \"Risk register maintenance\",\n    \"Change management and stakeholder communications\"\n  ],\n  \"out_of_scope\": [\n    \"End-user device refresh or replacement (laptops, desktops, mobile devices) \u2014 addressed under NGIS Phase 4\",\n    \"Application modernization or re-platforming \u2014 no changes to application code, architecture, or hosting platform; lift and shift only\",\n    \"GC-Cloud workload migration to public cloud environments (AWS, Azure, GC-Cloud) \u2014 addressed under GC-Cloud Wave 4\",\n    \"End-user training and change management beyond project communications \u2014 responsibility of client departments\",\n    \"Procurement of new application licenses \u2014 software licensing changes resulting from platform migration\",\n    \"Network monitoring tool upgrades \u2014 NOC monitoring platform upgrades deferred to a separate initiative\"\n  ],\n  \"deliverables\": [\n    \"D-001: Project Management Plan \u2014 Due: October 31, 2024\",\n    \"D-002: Technical Design Document (TDD) \u2014 Due: December 15, 2024\",\n    \"D-003: Security Assessment and Authorization (SA&A) Package \u2014 Due: January 31, 2025\",\n    \"D-004: Migration Runbook (Sites B and C) \u2014 Due: February 28, 2025\",\n    \"D-005: User Acceptance Test (UAT) Plan \u2014 Due: March 10, 2026\",\n    \"D-006: Site A Consolidation Complete (Go-Live) \u2014 Due: April 30, 2026\",\n    \"D-007: Post-Migration Validation Report \u2014 Due: May 31, 2026\",\n    \"D-008: Project Closure Report \u2014 Due: June 30, 2026\"\n  ],\n  \"constraints\": [\n    \"Total approved budget is $2,400,000 CAD inclusive of all fees, disbursements, and applicable taxes\",\n    \"Expenditures beyond the approved budget require a formal budget amendment approved by the Director General of IT Infrastructure\",\n    \"Budget variances exceeding 15% require submission to Treasury Board\",\n    \"Go-Live (D-006) must be achieved no later than April 30, 2026\",\n    \"Final project closure date is June 30, 2026 (end of fiscal year 2025\u20132026)\",\n    \"Extensions beyond June 30, 2026 require ADM-level approval\",\n    \"All scope, schedule, or budget changes must follow the SSC Project Change Management Process and require written approval from the Project Sponsor\",\n    \"Compliance required with ITSG-33: IT Security Risk Management \u2014 A Lifecycle Approach\",\n    \"Compliance required with Government of Canada Cloud Adoption Strategy\",\n    \"Compliance required with Treasury Board Policy on Government Security\",\n    \"Compliance required with the Privacy Act (R.S.C., 1985, c. P-21)\",\n    \"Compliance required with the Official Languages Act for all client-facing deliverables\"\n  ]\n}\n```",
+      "parsed_json": {
+        "in_scope": [
+          "Decommissioning of Sites B and C physical infrastructure",
+          "Migration of all server workloads from Sites B and C to Site A",
+          "Physical server rack consolidation and cable management at Site A",
+          "Environmental systems (HVAC, UPS, fire suppression) optimization at Site A",
+          "Replacement and deployment of Cisco Catalyst 9500 series switches across all three sites",
+          "Network segmentation reconfiguration per updated security zones",
+          "BGP routing table migration and validation",
+          "Network performance baseline testing post-migration",
+          "Migration of all on-premise Active Directory domain controllers to consolidated infrastructure at Site A",
+          "AD schema extension and forest restructuring",
+          "Group Policy Object (GPO) consolidation and testing",
+          "Integration testing with downstream applications dependent on AD",
+          "Weekly status reports to SSC Project Management Office",
+          "Steering committee presentations (monthly)",
+          "Risk register maintenance",
+          "Change management and stakeholder communications"
+        ],
+        "out_of_scope": [
+          "End-user device refresh or replacement (laptops, desktops, mobile devices) \u2014 addressed under NGIS Phase 4",
+          "Application modernization or re-platforming \u2014 no changes to application code, architecture, or hosting platform; lift and shift only",
+          "GC-Cloud workload migration to public cloud environments (AWS, Azure, GC-Cloud) \u2014 addressed under GC-Cloud Wave 4",
+          "End-user training and change management beyond project communications \u2014 responsibility of client departments",
+          "Procurement of new application licenses \u2014 software licensing changes resulting from platform migration",
+          "Network monitoring tool upgrades \u2014 NOC monitoring platform upgrades deferred to a separate initiative"
+        ],
+        "deliverables": [
+          "D-001: Project Management Plan \u2014 Due: October 31, 2024",
+          "D-002: Technical Design Document (TDD) \u2014 Due: December 15, 2024",
+          "D-003: Security Assessment and Authorization (SA&A) Package \u2014 Due: January 31, 2025",
+          "D-004: Migration Runbook (Sites B and C) \u2014 Due: February 28, 2025",
+          "D-005: User Acceptance Test (UAT) Plan \u2014 Due: March 10, 2026",
+          "D-006: Site A Consolidation Complete (Go-Live) \u2014 Due: April 30, 2026",
+          "D-007: Post-Migration Validation Report \u2014 Due: May 31, 2026",
+          "D-008: Project Closure Report \u2014 Due: June 30, 2026"
+        ],
+        "constraints": [
+          "Total approved budget is $2,400,000 CAD inclusive of all fees, disbursements, and applicable taxes",
+          "Expenditures beyond the approved budget require a formal budget amendment approved by the Director General of IT Infrastructure",
+          "Budget variances exceeding 15% require submission to Treasury Board",
+          "Go-Live (D-006) must be achieved no later than April 30, 2026",
+          "Final project closure date is June 30, 2026 (end of fiscal year 2025\u20132026)",
+          "Extensions beyond June 30, 2026 require ADM-level approval",
+          "All scope, schedule, or budget changes must follow the SSC Project Change Management Process and require written approval from the Project Sponsor",
+          "Compliance required with ITSG-33: IT Security Risk Management \u2014 A Lifecycle Approach",
+          "Compliance required with Government of Canada Cloud Adoption Strategy",
+          "Compliance required with Treasury Board Policy on Government Security",
+          "Compliance required with the Privacy Act (R.S.C., 1985, c. P-21)",
+          "Compliance required with the Official Languages Act for all client-facing deliverables"
+        ]
+      },
+      "error": null
+    },
+    {
+      "tier": "large",
+      "model": "anthropic/claude-sonnet-4.6",
+      "latency_ms": 16692.9,
+      "content": "```json\n{\n  \"alignment_score\": 0.05,\n  \"drift_type\": \"scope_expansion\",\n  \"detected_ask\": \"ADM Clarke's request to add a dedicated disaster recovery (DR) site \u2014 including identification of a colocation facility (Borden or Miramichi) and hot-standby workload replication for all Phase 3 migrated workloads \u2014 as part of the NGIS Phase 3 consolidation scope.\",\n  \"baseline_reference\": \"IN SCOPE: Migration of all server workloads from Sites B and C to Site A (consolidation to a single Site A target only \u2014 no secondary or DR site identified); DELIVERABLES: D-006 Site A Consolidation Complete (Go-Live) \u2014 April 30, 2026 (scope is bounded to Site A as the sole destination); CONSTRAINTS: Total approved budget $2,400,000 CAD \u2014 budget variances exceeding 15% require Treasury Board submission; All scope changes must follow SSC Project Change Management Process with written Project Sponsor approval.\",\n  \"suggested_action\": \"Project Manager Alice Tran should proceed with the committed preliminary DR scoping assessment (due March 15, 2026) and present a formal Impact Assessment to the Steering Committee covering: (1) full cost estimate for DR site identification, colocation procurement, hot-standby replication infrastructure, and ongoing operational costs against the $2,400,000 CAD approved budget; (2) schedule impact analysis against the April 30, 2026 Go-Live and June 30, 2026 closure hard constraints; (3) a formal Change Request (CR) package per the SSC Project Change Management Process requiring written Project Sponsor approval; (4) Treasury Board notification if cost delta exceeds 15% of approved budget (~$360,000 CAD threshold); (5) ADM-level approval given proximity to fiscal year-end closure date and likelihood of schedule extension beyond June 30, 2026. The DR requirement should not be actioned or resourced until the CR is formally approved. If the timeline and budget cannot absorb the addition, recommend deferral to NGIS Phase 4 or a standalone Business Continuity initiative.\",\n  \"reasoning\": \"The request constitutes a significant and unambiguous scope expansion. The approved baseline explicitly scopes the consolidation to a single destination \u2014 Site A \u2014 with no provision for a secondary disaster recovery site, colocation facility procurement, or hot-standby replication architecture. Introducing a DR site would materially expand the physical infrastructure footprint (new facility at Borden or Miramichi), add new workload replication requirements across all migrated servers, likely require new network connectivity and security zone design, and almost certainly breach the 15% budget variance threshold triggering mandatory Treasury Board submission. With Go-Live set for April 30, 2026 \u2014 only 53 days from the meeting date \u2014 and project closure fixed at June 30, 2026, there is negligible schedule float to absorb a material scope addition of this nature without an ADM-approved extension. Notably, ADM Clarke himself acknowledged this is not in the current SOW and represents a material scope addition, and Alice Tran correctly identified the formal change control obligations. The alignment score of 0.05 reflects that while the document itself is procedurally well-handled (the PM did not accept the scope informally), the underlying request is almost entirely outside the approved baseline.\"\n}\n```",
+      "parsed_json": {
+        "alignment_score": 0.05,
+        "drift_type": "scope_expansion",
+        "detected_ask": "ADM Clarke's request to add a dedicated disaster recovery (DR) site \u2014 including identification of a colocation facility (Borden or Miramichi) and hot-standby workload replication for all Phase 3 migrated workloads \u2014 as part of the NGIS Phase 3 consolidation scope.",
+        "baseline_reference": "IN SCOPE: Migration of all server workloads from Sites B and C to Site A (consolidation to a single Site A target only \u2014 no secondary or DR site identified); DELIVERABLES: D-006 Site A Consolidation Complete (Go-Live) \u2014 April 30, 2026 (scope is bounded to Site A as the sole destination); CONSTRAINTS: Total approved budget $2,400,000 CAD \u2014 budget variances exceeding 15% require Treasury Board submission; All scope changes must follow SSC Project Change Management Process with written Project Sponsor approval.",
+        "suggested_action": "Project Manager Alice Tran should proceed with the committed preliminary DR scoping assessment (due March 15, 2026) and present a formal Impact Assessment to the Steering Committee covering: (1) full cost estimate for DR site identification, colocation procurement, hot-standby replication infrastructure, and ongoing operational costs against the $2,400,000 CAD approved budget; (2) schedule impact analysis against the April 30, 2026 Go-Live and June 30, 2026 closure hard constraints; (3) a formal Change Request (CR) package per the SSC Project Change Management Process requiring written Project Sponsor approval; (4) Treasury Board notification if cost delta exceeds 15% of approved budget (~$360,000 CAD threshold); (5) ADM-level approval given proximity to fiscal year-end closure date and likelihood of schedule extension beyond June 30, 2026. The DR requirement should not be actioned or resourced until the CR is formally approved. If the timeline and budget cannot absorb the addition, recommend deferral to NGIS Phase 4 or a standalone Business Continuity initiative.",
+        "reasoning": "The request constitutes a significant and unambiguous scope expansion. The approved baseline explicitly scopes the consolidation to a single destination \u2014 Site A \u2014 with no provision for a secondary disaster recovery site, colocation facility procurement, or hot-standby replication architecture. Introducing a DR site would materially expand the physical infrastructure footprint (new facility at Borden or Miramichi), add new workload replication requirements across all migrated servers, likely require new network connectivity and security zone design, and almost certainly breach the 15% budget variance threshold triggering mandatory Treasury Board submission. With Go-Live set for April 30, 2026 \u2014 only 53 days from the meeting date \u2014 and project closure fixed at June 30, 2026, there is negligible schedule float to absorb a material scope addition of this nature without an ADM-approved extension. Notably, ADM Clarke himself acknowledged this is not in the current SOW and represents a material scope addition, and Alice Tran correctly identified the formal change control obligations. The alignment score of 0.05 reflects that while the document itself is procedurally well-handled (the PM did not accept the scope informally), the underlying request is almost entirely outside the approved baseline."
+      },
+      "error": null
+    }
+  ]
+}

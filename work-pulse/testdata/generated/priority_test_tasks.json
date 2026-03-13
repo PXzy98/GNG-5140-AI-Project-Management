@@ -1,0 +1,176 @@
+{
+  "description": "10 tasks with known correct priority ordering for Priority Ranker tests (PRI-01 to PRI-12). expected_rank_range is [min, max] inclusive.",
+  "tasks": [
+    {
+      "task_id": "task_001",
+      "name": "Resolve vendor delay for NGIS Phase 3 network equipment",
+      "deadline": "2026-03-10",
+      "risk_level": "critical",
+      "rollover_count": 2,
+      "status": "in_progress",
+      "project_id": "proj_001",
+      "dependencies_blocked": 3,
+      "stakeholder_priority": 5,
+      "expected_rank_range": [1, 2],
+      "rationale": "Critical risk, 2 rollovers, blocks 3 tasks, imminent deadline"
+    },
+    {
+      "task_id": "task_002",
+      "name": "Submit ITSG-33 SA&A documentation to TBS audit office",
+      "deadline": "2026-03-12",
+      "risk_level": "critical",
+      "rollover_count": 0,
+      "status": "not_started",
+      "project_id": "proj_001",
+      "dependencies_blocked": 2,
+      "stakeholder_priority": 5,
+      "expected_rank_range": [1, 3],
+      "rationale": "Compliance risk, regulatory deadline, blocks migration go-live"
+    },
+    {
+      "task_id": "task_003",
+      "name": "Present budget revision request to Director for approval",
+      "deadline": "2026-03-10",
+      "risk_level": "high",
+      "rollover_count": 1,
+      "status": "in_progress",
+      "project_id": "proj_002",
+      "dependencies_blocked": 1,
+      "stakeholder_priority": 4,
+      "expected_rank_range": [2, 4],
+      "rationale": "High financial risk, Director attention, near deadline"
+    },
+    {
+      "task_id": "task_004",
+      "name": "Initiate knowledge transfer for AD migration expert departure",
+      "deadline": "2026-03-17",
+      "risk_level": "high",
+      "rollover_count": 0,
+      "status": "not_started",
+      "project_id": "proj_001",
+      "dependencies_blocked": 4,
+      "stakeholder_priority": 3,
+      "expected_rank_range": [3, 5],
+      "rationale": "High resource risk, no deadline but blocks 4 tasks (tricky case)"
+    },
+    {
+      "task_id": "task_005",
+      "name": "Complete UAT test plan and distribute to stakeholders",
+      "deadline": "2026-03-10",
+      "risk_level": "medium",
+      "rollover_count": 0,
+      "status": "in_progress",
+      "project_id": "proj_001",
+      "dependencies_blocked": 1,
+      "stakeholder_priority": 2,
+      "expected_rank_range": [4, 6],
+      "rationale": "Near deadline, medium risk, moderate priority"
+    },
+    {
+      "task_id": "task_006",
+      "name": "Assess impact of vendor delay on Site A migration cutover",
+      "deadline": "2026-03-07",
+      "risk_level": "medium",
+      "rollover_count": 0,
+      "status": "not_started",
+      "project_id": "proj_001",
+      "dependencies_blocked": 0,
+      "stakeholder_priority": 3,
+      "expected_rank_range": [4, 7],
+      "rationale": "Imminent deadline, medium risk, informs steering committee"
+    },
+    {
+      "task_id": "task_007",
+      "name": "Prepare Treasury Board submission for GC-Cloud Wave 4",
+      "deadline": "2026-03-15",
+      "risk_level": "medium",
+      "rollover_count": 0,
+      "status": "not_started",
+      "project_id": "proj_002",
+      "dependencies_blocked": 0,
+      "stakeholder_priority": 2,
+      "expected_rank_range": [5, 7],
+      "rationale": "Medium priority, regulatory deadline but further out"
+    },
+    {
+      "task_id": "task_008",
+      "name": "Evaluate alternative network equipment suppliers",
+      "deadline": null,
+      "risk_level": "low",
+      "rollover_count": 3,
+      "status": "in_progress",
+      "project_id": "proj_001",
+      "dependencies_blocked": 0,
+      "stakeholder_priority": 2,
+      "expected_rank_range": [5, 8],
+      "rationale": "No deadline but rollover_count=3 (chronic blocker flag, tricky case)"
+    },
+    {
+      "task_id": "task_009",
+      "name": "Draft end-user communication plan for data centre migration",
+      "deadline": "2026-04-01",
+      "risk_level": "low",
+      "rollover_count": 0,
+      "status": "not_started",
+      "project_id": "proj_001",
+      "dependencies_blocked": 0,
+      "stakeholder_priority": 1,
+      "expected_rank_range": [8, 10],
+      "rationale": "Low risk, distant deadline, no dependencies"
+    },
+    {
+      "task_id": "task_010",
+      "name": "Update project charter formatting and version number",
+      "deadline": "2026-04-15",
+      "risk_level": null,
+      "rollover_count": 0,
+      "status": "not_started",
+      "project_id": "proj_001",
+      "dependencies_blocked": 0,
+      "stakeholder_priority": 0,
+      "expected_rank_range": [9, 10],
+      "rationale": "Administrative, no risk, distant deadline, no impact"
+    }
+  ],
+  "context": {
+    "artifacts_summary": "Recent artifacts include: vendor delay email (March 2), TBS compliance finding email (March 5), sprint review minutes (March 3), budget revision request (March 3), and governance committee notes (March 4). Director has been briefed on NGIS vendor delay and ITSG-33 finding.",
+    "active_risks": [
+      {
+        "risk_id": "risk_001",
+        "description": "Vendor delivery delayed by 2 weeks — threatens NGIS Phase 3 migration timeline",
+        "risk_level": "critical",
+        "project_id": "proj_001"
+      },
+      {
+        "risk_id": "risk_002",
+        "description": "ITSG-33 IA-5 compliance finding — PAW architecture missing from SA&A",
+        "risk_level": "critical",
+        "project_id": "proj_001"
+      },
+      {
+        "risk_id": "risk_003",
+        "description": "Budget overrun $340,000 (14%) — revision pending approval",
+        "risk_level": "high",
+        "project_id": "proj_002"
+      },
+      {
+        "risk_id": "risk_004",
+        "description": "Key AD migration expert potential departure — single point of failure",
+        "risk_level": "high",
+        "project_id": "proj_001"
+      }
+    ]
+  },
+  "ground_truth_ranking": [
+    {"task_id": "task_001", "rank": 1},
+    {"task_id": "task_002", "rank": 2},
+    {"task_id": "task_003", "rank": 3},
+    {"task_id": "task_004", "rank": 4},
+    {"task_id": "task_006", "rank": 5},
+    {"task_id": "task_005", "rank": 6},
+    {"task_id": "task_007", "rank": 7},
+    {"task_id": "task_008", "rank": 8},
+    {"task_id": "task_009", "rank": 9},
+    {"task_id": "task_010", "rank": 10}
+  ]
+}

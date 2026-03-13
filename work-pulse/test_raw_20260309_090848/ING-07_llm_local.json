@@ -1,0 +1,46 @@
+{
+  "test_id": "ING-07",
+  "test_name": "Language detection (EN)",
+  "method": "llm_local",
+  "passed": true,
+  "score": "7/7",
+  "details": "detected=en",
+  "error": null,
+  "latency_ms": 6.806300007156096,
+  "artifact": {
+    "artifact_id": "art_813ac9948a",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 246,
+    "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+    "extracted_tasks": [
+      {
+        "task_id": "art_813ac9948a_t001",
+        "text": "Contact to confirm how TechSupplier can best support planning activities during this disruption",
+        "owner": "Alice Tran",
+        "deadline": null,
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Please let me know how we can best support your planning activities during this disruption.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_813ac9948a_t002",
+        "text": "Confirm the delivery timeline for the Catalyst switches",
+        "owner": "Alice Tran",
+        "deadline": null,
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "Jason, can you please confirm the delivery timeline for the Catalyst switches?",
+        "confidence": 0.9
+      }
+    ],
+    "metadata": {
+      "sender": "j.henderson@techsupplier.ca",
+      "recipients": "alice.tran@ssc-spc.gc.ca",
+      "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+      "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+    }
+  },
+  "llm_calls": []
+}

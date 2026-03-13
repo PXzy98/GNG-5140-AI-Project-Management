@@ -1,0 +1,11 @@
+{
+  "test_id": "PRI-09",
+  "test_name": "Re-rank change tracking (diff)",
+  "method": "traditional",
+  "passed": true,
+  "score": "7/7",
+  "details": "changes=3 valid=True",
+  "error": null,
+  "latency_ms": 0.18200000340584666,
+  "llm_calls": []
+}

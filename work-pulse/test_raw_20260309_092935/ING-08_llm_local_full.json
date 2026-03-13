@@ -1,0 +1,107 @@
+{
+  "test_id": "ING-08",
+  "test_name": "Language detection (FR)",
+  "method": "llm_local_full",
+  "passed": true,
+  "score": "7/7",
+  "details": "detected=fr",
+  "error": null,
+  "latency_ms": 10947.61390000349,
+  "artifact": {
+    "artifact_id": "art_5307a41864",
+    "artifact_type": "meeting_minutes",
+    "detected_language": "fr",
+    "word_count": 414,
+    "content_preview": "COMIT\u00c9 DE GOUVERNANCE DES TI \u2014 COMPTE RENDU DE R\u00c9UNION\nR\u00e9union de r\u00e9vision trimestrielle \u2014 T4 2025\u20132026\nDate : 4 mars 2026\nHeure : 9 h 00 \u2013 11 h 30 HNE\nLieu : Salle de conf\u00e9rence 7B, \u00c9difice Immeuble-Vanier II, Ottawa\n\nPr\u00e9sents :\n- Directeur g\u00e9n\u00e9ral, Sylvain Thibodeau (Pr\u00e9sident)\n- Chef de projet, Marie Lefebvre\n- Gestionnaire des risques, Pierre Gagnon\n- Conseill\u00e8re principale en politique, Diane Beauchamp\n- Repr\u00e9sentant des finances, Fran\u00e7ois Lemieux\n- Architecte de solutions, Nadia Tremblay\n\n",
+    "extracted_tasks": [
+      {
+        "task_id": "art_5307a41864_t001",
+        "text": "mettre \u00e0 jour le registre des risques pour inclure les risques R-014, R-015 et R-016, et les distribuer \u00e0 l'\u00e9quipe de projet",
+        "owner": "Pierre Gagnon",
+        "deadline": "2026-03-06",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Pierre Gagnon doit mettre \u00e0 jour le registre des risques pour inclure les risques R-014, R-015 et R-016, et les distribuer \u00e0 l'\u00e9quipe de projet.",
+        "confidence": 0.95
+      },
+      {
+        "task_id": "art_5307a41864_t002",
+        "text": "pr\u00e9senter un plan d'att\u00e9nuation d\u00e9taill\u00e9 pour le risque R-015 (conformit\u00e9 ITSG-33) au Comit\u00e9 de gouvernance",
+        "owner": "Marie Lefebvre",
+        "deadline": "2026-03-12",
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "Marie Lefebvre doit pr\u00e9senter un plan d'att\u00e9nuation d\u00e9taill\u00e9 pour le risque R-015 (conformit\u00e9 ITSG-33) au Comit\u00e9 de gouvernance.",
+        "confidence": 0.95
+      },
+      {
+        "task_id": "art_5307a41864_t003",
+        "text": "pr\u00e9parer une analyse des incidences budg\u00e9taires du retard du fournisseur et la soumettre \u00e0 la Direction g\u00e9n\u00e9rale des finances",
+        "owner": "Fran\u00e7ois Lemieux",
+        "deadline": "2026-03-10",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Fran\u00e7ois Lemieux doit pr\u00e9parer une analyse des incidences budg\u00e9taires du retard du fournisseur et la soumettre \u00e0 la Direction g\u00e9n\u00e9rale des finances.",
+        "confidence": 0.95
+      }
+    ],
+    "metadata": {
+      "attendees": [
+        "Sylvain Thibodeau",
+        "Marie Lefebvre",
+        "Pierre Gagnon",
+        "Diane Beauchamp",
+        "Fran\u00e7ois Lemieux",
+        "Nadia Tremblay"
+      ],
+      "date": "2026-03-04"
+    }
+  },
+  "llm_calls": [
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 10936.5,
+      "content": "{\n  \"artifact_type\": \"meeting_minutes\",\n  \"language\": \"fr\",\n  \"metadata\": {\n    \"attendees\": [\n      \"Sylvain Thibodeau\",\n      \"Marie Lefebvre\",\n      \"Pierre Gagnon\",\n      \"Diane Beauchamp\",\n      \"Fran\u00e7ois Lemieux\",\n      \"Nadia Tremblay\"\n    ],\n    \"date\": \"2026-03-04\"\n  },\n  \"action_items\": [\n    {\n      \"text\": \"mettre \u00e0 jour le registre des risques pour inclure les risques R-014, R-015 et R-016, et les distribuer \u00e0 l'\u00e9quipe de projet\",\n      \"owner\": \"Pierre Gagnon\",\n      \"deadline\": \"2026-03-06\",\n      \"priority\": \"high\",\n      \"source_excerpt\": \"Pierre Gagnon doit mettre \u00e0 jour le registre des risques pour inclure les risques R-014, R-015 et R-016, et les distribuer \u00e0 l'\u00e9quipe de projet.\"\n    },\n    {\n      \"text\": \"pr\u00e9senter un plan d'att\u00e9nuation d\u00e9taill\u00e9 pour le risque R-015 (conformit\u00e9 ITSG-33) au Comit\u00e9 de gouvernance\",\n      \"owner\": \"Marie Lefebvre\",\n      \"deadline\": \"2026-03-12\",\n      \"priority\": \"critical\",\n      \"source_excerpt\": \"Marie Lefebvre doit pr\u00e9senter un plan d'att\u00e9nuation d\u00e9taill\u00e9 pour le risque R-015 (conformit\u00e9 ITSG-33) au Comit\u00e9 de gouvernance.\"\n    },\n    {\n      \"text\": \"pr\u00e9parer une analyse des incidences budg\u00e9taires du retard du fournisseur et la soumettre \u00e0 la Direction g\u00e9n\u00e9rale des finances\",\n      \"owner\": \"Fran\u00e7ois Lemieux\",\n      \"deadline\": \"2026-03-10\",\n      \"priority\": \"high\",\n      \"source_excerpt\": \"Fran\u00e7ois Lemieux doit pr\u00e9parer une analyse des incidences budg\u00e9taires du retard du fournisseur et la soumettre \u00e0 la Direction g\u00e9n\u00e9rale des finances.\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "artifact_type": "meeting_minutes",
+        "language": "fr",
+        "metadata": {
+          "attendees": [
+            "Sylvain Thibodeau",
+            "Marie Lefebvre",
+            "Pierre Gagnon",
+            "Diane Beauchamp",
+            "Fran\u00e7ois Lemieux",
+            "Nadia Tremblay"
+          ],
+          "date": "2026-03-04"
+        },
+        "action_items": [
+          {
+            "text": "mettre \u00e0 jour le registre des risques pour inclure les risques R-014, R-015 et R-016, et les distribuer \u00e0 l'\u00e9quipe de projet",
+            "owner": "Pierre Gagnon",
+            "deadline": "2026-03-06",
+            "priority": "high",
+            "source_excerpt": "Pierre Gagnon doit mettre \u00e0 jour le registre des risques pour inclure les risques R-014, R-015 et R-016, et les distribuer \u00e0 l'\u00e9quipe de projet."
+          },
+          {
+            "text": "pr\u00e9senter un plan d'att\u00e9nuation d\u00e9taill\u00e9 pour le risque R-015 (conformit\u00e9 ITSG-33) au Comit\u00e9 de gouvernance",
+            "owner": "Marie Lefebvre",
+            "deadline": "2026-03-12",
+            "priority": "critical",
+            "source_excerpt": "Marie Lefebvre doit pr\u00e9senter un plan d'att\u00e9nuation d\u00e9taill\u00e9 pour le risque R-015 (conformit\u00e9 ITSG-33) au Comit\u00e9 de gouvernance."
+          },
+          {
+            "text": "pr\u00e9parer une analyse des incidences budg\u00e9taires du retard du fournisseur et la soumettre \u00e0 la Direction g\u00e9n\u00e9rale des finances",
+            "owner": "Fran\u00e7ois Lemieux",
+            "deadline": "2026-03-10",
+            "priority": "high",
+            "source_excerpt": "Fran\u00e7ois Lemieux doit pr\u00e9parer une analyse des incidences budg\u00e9taires du retard du fournisseur et la soumettre \u00e0 la Direction g\u00e9n\u00e9rale des finances."
+          }
+        ]
+      },
+      "error": null
+    }
+  ]
+}

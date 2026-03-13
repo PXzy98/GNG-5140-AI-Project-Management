@@ -1,0 +1,60 @@
+{
+  "test_id": "RSK-09",
+  "test_name": "False positive rate",
+  "method": "llm_large",
+  "passed": true,
+  "score": "7/7",
+  "details": "false_positives=0 (threshold: <=2)",
+  "error": null,
+  "latency_ms": 29439.117100002477,
+  "artifact": {
+    "artifact_id": "art_304a74283f",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 241,
+    "content_preview": "From: bob.morrison@ssc-spc.gc.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: ngis-pm@ssc-spc.gc.ca\nSubject: Site A AD Migration \u2014 Progress Update\nDate: March 6, 2026\n\nAlice,\n\nQuick update on the Active Directory migration preparation for Site A:\n\n1. Domain Controller Staging: The two new DC servers at Site A have been\n   racked, powered on, and joined to the test domain. Windows Server\n   patching is complete (all critical patches as of March 1 applied).\n\n2. Schema Extension Testing: The AD schema extensio",
+    "extracted_tasks": [
+      {
+        "task_id": "art_304a74283f_t001",
+        "text": "will be migrated.",
+        "owner": "Dave Chen",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will be migrated.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_304a74283f_t002",
+        "text": "will begin the production DC staging activities next",
+        "owner": "March",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will begin the production DC staging activities next",
+        "confidence": 0.7
+      }
+    ],
+    "metadata": {
+      "sender": "bob.morrison@ssc-spc.gc.ca",
+      "recipients": "alice.tran@ssc-spc.gc.ca",
+      "subject": "Site A AD Migration \u2014 Progress Update",
+      "date": "March 6, 2026"
+    }
+  },
+  "risks": {
+    "count": 0,
+    "analysis_method": "llm_large",
+    "risks": []
+  },
+  "llm_calls": [
+    {
+      "tier": "large",
+      "model": "anthropic/claude-sonnet-4.6",
+      "latency_ms": 29438.4,
+      "content": "```json\n[\n  {\n    \"description\": \"Network switch delivery delay: The Catalyst 9500 switches have not yet been delivered. If delivery is delayed beyond the March 14 staging completion target or the March 18 migration window, final network connectivity testing for the Domain Controllers cannot be completed, potentially forcing a postponement of the entire migration.\",\n    \"category\": \"schedule\",\n    \"likelihood\": 3,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"The only dependency is the network switch delivery \u2014 we need the Catalyst 9500s in place before we can do final network connectivity testing for the DCs.\",\n    \"affected_stakeholders\": [\"Bob Morrison\", \"Alice Tran\", \"NGIS PM team\", \"Site A end users\"]\n  },\n  {\n    \"description\": \"Insufficient schedule buffer: Only four days of buffer exist between the planned DC staging completion (March 14) and the migration window (March 18). Any slippage in production DC staging activities \u2014 even a single day of unexpected issues \u2014 could consume the entire buffer and force a missed migration window.\",\n    \"category\": \"schedule\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"targeting completion by March 14 to give us four days of buffer before the March 18 migration window.\",\n    \"affected_stakeholders\": [\"Bob Morrison\", \"Alice Tran\", \"NGIS PM team\", \"Site A end users\"]\n  },\n  {\n    \"description\": \"Schema extension promotion to staging may introduce unforeseen conflicts: Although the schema extension ran without errors in the test environment, promoting to the staging environment this weekend may reveal attribute conflicts or replication issues not present in the isolated test domain, potentially blocking further migration steps.\",\n    \"category\": \"technical\",\n    \"likelihood\": 2,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"The AD schema extension ran successfully in the test environment last night. No errors or attribute conflicts detected. Ready to promote to staging this weekend.\",\n    \"affected_stakeholders\": [\"Bob Morrison\", \"Alice Tran\", \"NGIS PM team\"]\n  },\n  {\n    \"description\": \"GPO migration script risk: The 24 unique GPOs being migrated via a migration script carry the risk of misconfiguration or incomplete translation of legacy policy settings into the new environment, potentially causing security policy gaps or application/system failures post-migration.\",\n    \"category\": \"technical\",\n    \"likelihood\": 2,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"24 unique GPOs will be migrated. The migration script is ready and has been reviewed by Dave Chen for security policy compliance.\",\n    \"affected_stakeholders\": [\"Bob Morrison\", \"Dave Chen\", \"Alice Tran\", \"Site A end users\", \"NGIS PM team\"]\n  },\n  {\n    \"description\": \"Single-reviewer security compliance sign-off: GPO security policy compliance was reviewed by only one individual (Dave Chen). A single point of review increases the risk that non-compliant or misconfigured policies pass undetected, creating potential compliance or security vulnerabilities post-migration.\",\n    \"category\": \"compliance\",\n    \"likelihood\": 2,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"The migration script is ready and has been reviewed by Dave Chen for security policy compliance.\",\n    \"affected_stakeholders\": [\"Dave Chen\", \"Bob Morrison\", \"Alice Tran\", \"NGIS PM team\", \"SSC security/compliance teams\"]\n  },\n  {\n    \"description\": \"GPO deletion risk: 23 GPOs identified as duplicates are slated for deletion. If any of these are incorrectly classified as duplicates and are deleted, unique policy settings could be permanently lost, causing unexpected behavior for users or systems that relied on those policies.\",\n    \"category\": \"technical\",\n    \"likelihood\": 2,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"23 are duplicates that can be deleted. 24 unique GPOs will be migrated.\",\n    \"affected_stakeholders\": [\"Bob Morrison\", \"Alice Tran\", \"Site A end users\", \"Sites B and C end users\", \"NGIS PM team\"]\n  },\n  {\n    \"description\": \"Rollback window may be insufficient: The estimated 45-minute rollback time was validated only in a lab environment. In a production scenario with live replication, user load, and network dependencies, actual rollback time could significantly exceed 45 minutes, extending the outage window beyond acceptable limits.\",\n    \"category\": \"technical\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"Rollback procedure tested successfully in lab \u2014 estimated rollback time is 45 minutes from Go-Live.\",\n    \"affected_stakeholders\": [\"Bob Morrison\", \"Alice Tran\", \"NGIS PM team\", \"Site A end users\"]\n  },\n  {\n    \"description\": \"AD backup currency risk: The full AD backup was completed on March 5, one day before this email (March 6), and will be several days older by the time the March 18 migration window arrives. If schema or configuration changes occur between March 5 and March 18, the backup may not represent the latest production state, complicating or invalidating rollback.\",\n    \"category\": \"technical\",\n    \"likelihood\": 2,\n    \"impact\": 3,\n    \"evidence_excerpt\": \"Full AD backup completed and verified on March 5.\",\n    \"affected_stakeholders\": [\"Bob Morrison\", \"Alice Tran\", \"NGIS PM team\"]\n  },\n  {\n    \"description\": \"Key person dependency on Bob Morrison: The email is authored solely by the Technical Lead, and all technical activities (DC staging, schema extension, GPO review, backup, rollback testing) appear to be driven by one individual. If Bob Morrison becomes unavailable due to illness, leave, or other reasons before or during the March 18 migration window, the project has no evident backup resource.\",\n    \"category\": \"resource\",\n    \"likelihood\": 2,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"I will begin the production DC staging activities next week... Bob Morrison, Technical Lead, AD Migration, NGIS Phase 3.\",\n    \"affected_stakeholders\": [\"Alice Tran\", \"NGIS PM team\", \"Site A end users\", \"SSC leadership\"]\n  },\n  {\n    \"description\": \"Implicit scope risk from Sites B and C GPOs: The 47 legacy GPOs reviewed originate from Sites B and C, implying those sites are also in scope or have interdependencies with Site A. Changes to shared GPOs during the Site A migration could inadvertently affect users and systems at Sites B and C, which are not explicitly addressed in this update.\",\n    \"category\": \"technical\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"I've reviewed the 47 legacy GPOs from Sites B and C.\",\n    \"affected_stakeholders\": [\"Sites B and C end users\", \"Bob Morrison\", \"Alice Tran\", \"NGIS PM team\"]\n  },\n  {\n    \"description\": \"No mention of change management or user communication: The update contains no reference to end-user notification, change advisory board (CAB) approval, or formal change management processes. Proceeding to a production migration without documented CAB approval or user communication may violate SSC/GC IT change management policies.\",\n    \"category\": \"compliance\",\n    \"likelihood\": 3,\n    \"impact\": 3,\n    \"evidence_excerpt\": \"Everything is on track on the AD side.\",\n    \"affected_stakeholders\": [\"Alice Tran\", \"NGIS PM team\", \"SSC change management/CAB\", \"Site A end users\"]\n  },\n  {\n    \"description\": \"No mention of application compatibility testing: The email does not reference any validation that applications and services dependent on Active Directory (e.g., authentication, LDAP queries, Kerberos, certificate services) have been tested against the migrated schema and GPO configuration, creating a risk of application outages post-migration.\",\n    \"category\": \"technical\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"Everything is on track on the AD side.\",\n    \"affected_stakeholders\": [\"Site A end users\", \"Application owners\", \"Bob Morrison\", \"Alice Tran\", \"NGIS PM team\"]\n  },\n  {\n    \"description\": \"Patch currency risk for new DC servers: Patching is noted as complete only as of March 1. New critical patches released between March 1 and the March 18 migration window may leave the Domain Controllers with unpatched vulnerabilities at go-live.\",\n    \"category\": \"compliance\",\n    \"likelihood\": 2,\n    \"impact\": 3,\n    \"evidence_excerpt\": \"Windows Server patching is complete (all critical patches as of",
+      "parsed_json": null,
+      "error": null
+    }
+  ]
+}

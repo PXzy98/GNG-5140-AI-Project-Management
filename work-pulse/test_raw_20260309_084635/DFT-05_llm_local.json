@@ -1,0 +1,214 @@
+{
+  "test_id": "DFT-05",
+  "test_name": "Contradicts-scope detection",
+  "method": "llm_local",
+  "passed": false,
+  "score": "3/10",
+  "details": "type=scope_expansion score=0.15",
+  "error": null,
+  "latency_ms": 8292.032700002892,
+  "artifact": {
+    "artifact_id": "art_44574b77f4",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 212,
+    "content_preview": "From: adm.clarke@ssc-spc.gc.ca\nTo: alice.tran@ssc-spc.gc.ca; carol.nguyen@ssc-spc.gc.ca; finance.review@ssc-spc.gc.ca\nSubject: NGIS Phase 3 \u2014 Decision: Timeline and Budget Revision\nDate: March 9, 2026\n\nProject Team,\n\nFollowing the steering committee session on March 8 and consultation\nwith Treasury Board Secretariat, I am writing to communicate an executive\ndecision regarding the NGIS Phase 3 project parameters.\n\nDECISION 1 \u2014 TIMELINE EXTENSION:\nThe project completion date is hereby extended to ",
+    "extracted_tasks": [
+      {
+        "task_id": "art_44574b77f4_t001",
+        "text": "Submit Treasury Board notification regarding budget increase",
+        "owner": "SSC Finance team",
+        "deadline": "2026-03-15",
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "Treasury Board notification will be submitted by the SSC Finance team.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_44574b77f4_t002",
+        "text": "Circulate formal amendment to project charter for signature",
+        "owner": null,
+        "deadline": "2026-03-15",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "A formal amendment to the project charter will be circulated for signature by end of week.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_44574b77f4_t003",
+        "text": "Update all project documentation, risk registers, and reporting templates to reflect revised parameters",
+        "owner": null,
+        "deadline": "2026-03-09",
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "Please update all project documentation, risk registers, and reporting templates to reflect these revised parameters effective immediately.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_44574b77f4_t004",
+        "text": "Extend project completion date to December 31, 2026",
+        "owner": null,
+        "deadline": "2026-12-31",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "The project completion date is hereby extended to Q4 2026 (December 31, 2026).",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_44574b77f4_t005",
+        "text": "Increase approved project budget to $3,500,000",
+        "owner": null,
+        "deadline": "2026-03-09",
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "The approved project budget is increased to $3,500,000 (three million five hundred thousand dollars), effective immediately.",
+        "confidence": 0.9
+      }
+    ],
+    "metadata": {
+      "sender": "adm.clarke@ssc-spc.gc.ca",
+      "recipients": "alice.tran@ssc-spc.gc.ca; carol.nguyen@ssc-spc.gc.ca; finance.review@ssc-spc.gc.ca",
+      "subject": "NGIS Phase 3 \u2014 Decision: Timeline and Budget Revision",
+      "date": "March 9, 2026"
+    }
+  },
+  "drift_check": {
+    "drift_type": "scope_expansion",
+    "overall_alignment_score": 0.15,
+    "reasoning": null,
+    "alerts": [
+      {
+        "alert_id": "alt_086ac8dd",
+        "project_id": "proj_drift_llm_local",
+        "artifact_id": "art_44574b77f4",
+        "drift_type": "scope_expansion",
+        "alignment_score": 0.15,
+        "detected_ask": "Extension of project completion date to December 31, 2026 (Q4 2026) and budget increase to $3,500,000 to fund DR site assessment/preliminary design.",
+        "baseline_reference": "CONSTRAINTS: Go-Live deadline no later than April 30, 2026; Total approved budget cap of $2,400,000. OUT OF SCOPE: DR site assessment and preliminary design (implied as not part of the defined migration/consolidation scope).",
+        "suggested_action": "Formalize a Change Control Request (CCR) to update the Project Charter and Baseline; specifically address the 'DR site assessment' as a new deliverable outside the current scope, and initiate Treasury Board submission for the budget variance exceeding 15%.",
+        "severity": "high",
+        "status": "open",
+        "created_at": "2026-03-09T08:49:20.739832"
+      }
+    ]
+  },
+  "llm_calls": [
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 16262.8,
+      "content": "{\n  \"in_scope\": [\n    \"Decommissioning of Sites B (Ottawa) and C (Hull) physical infrastructure\",\n    \"Migration of all server workloads from Sites B and C to Site A (Gatineau)\",\n    \"Physical server rack consolidation and cable management at Site A\",\n    \"Environmental systems (HVAC, UPS, fire suppression) optimization at Site A\",\n    \"Replacement and deployment of Cisco Catalyst 9500 series switches across all three sites\",\n    \"Network segmentation reconfiguration per updated security zones\",\n    \"BGP routing table migration and validation\",\n    \"Network performance baseline testing post-migration\",\n    \"Migration of all on-premise Active Directory domain controllers to consolidated infrastructure at Site A\",\n    \"Active Directory schema extension and forest restructuring\",\n    \"Group Policy Object (GPO) consolidation and testing\",\n    \"Integration testing with downstream applications dependent on AD\",\n    \"Weekly status reports to SSC Project Management Office\",\n    \"Steering committee presentations (monthly)\",\n    \"Risk register maintenance\",\n    \"Change management and stakeholder communications\"\n  ],\n  \"out_of_scope\": [\n    \"End-user device refresh or replacement (laptops, desktops, mobile devices)\",\n    \"Application modernization or re-platforming (code changes, architecture changes, hosting platform changes)\",\n    \"GC-Cloud workload migration to public cloud environments (AWS, Azure, GC-Cloud)\",\n    \"End-user training and departmental training programs\",\n    \"Procurement of new application licenses\",\n    \"Network monitoring tool upgrades\"\n  ],\n  \"deliverables\": [\n    \"Project Management Plan (Due: October 31, 2024)\",\n    \"Technical Design Document (TDD) (Due: December 15, 2024)\",\n    \"Security Assessment and Authorization (SA&A) Package (Due: January 31, 2025)\",\n    \"Migration Runbook for Sites B and C (Due: February 28, 2025)\",\n    \"User Acceptance Test (UAT) Plan (Due: March 10, 2026)\",\n    \"Site A Consolidation Complete (Go-Live) (Due: April 30, 2026)\",\n    \"Post-Migration Validation Report (Due: May 31, 2026)\",\n    \"Project Closure Report (Due: June 30, 2026)\"\n  ],\n  \"constraints\": [\n    \"Total approved budget cap of $2,400,000 inclusive of all fees and taxes\",\n    \"Budget variance exceeding 15% requires formal amendment and Treasury Board submission\",\n    \"Go-Live deadline no later than April 30, 2026\",\n    \"Final project closure date no later than June 30, 2026\",\n    \"Extensions beyond June 30, 2026 require ADM-level approval\",\n    \"Compliance with ITSG-33: IT Security Risk Management\",\n    \"Compliance with Government of Canada Cloud Adoption Strategy\",\n    \"Compliance with Treasury Board Policy on Government Security\",\n    \"Compliance with Privacy Act (R.S.C., 1985, c. P-21)\",\n    \"Compliance with Official Languages Act for client-facing deliverables\",\n    \"All scope changes require written approval from the Project Sponsor and impact assessment\"\n  ]\n}",
+      "parsed_json": {
+        "in_scope": [
+          "Decommissioning of Sites B (Ottawa) and C (Hull) physical infrastructure",
+          "Migration of all server workloads from Sites B and C to Site A (Gatineau)",
+          "Physical server rack consolidation and cable management at Site A",
+          "Environmental systems (HVAC, UPS, fire suppression) optimization at Site A",
+          "Replacement and deployment of Cisco Catalyst 9500 series switches across all three sites",
+          "Network segmentation reconfiguration per updated security zones",
+          "BGP routing table migration and validation",
+          "Network performance baseline testing post-migration",
+          "Migration of all on-premise Active Directory domain controllers to consolidated infrastructure at Site A",
+          "Active Directory schema extension and forest restructuring",
+          "Group Policy Object (GPO) consolidation and testing",
+          "Integration testing with downstream applications dependent on AD",
+          "Weekly status reports to SSC Project Management Office",
+          "Steering committee presentations (monthly)",
+          "Risk register maintenance",
+          "Change management and stakeholder communications"
+        ],
+        "out_of_scope": [
+          "End-user device refresh or replacement (laptops, desktops, mobile devices)",
+          "Application modernization or re-platforming (code changes, architecture changes, hosting platform changes)",
+          "GC-Cloud workload migration to public cloud environments (AWS, Azure, GC-Cloud)",
+          "End-user training and departmental training programs",
+          "Procurement of new application licenses",
+          "Network monitoring tool upgrades"
+        ],
+        "deliverables": [
+          "Project Management Plan (Due: October 31, 2024)",
+          "Technical Design Document (TDD) (Due: December 15, 2024)",
+          "Security Assessment and Authorization (SA&A) Package (Due: January 31, 2025)",
+          "Migration Runbook for Sites B and C (Due: February 28, 2025)",
+          "User Acceptance Test (UAT) Plan (Due: March 10, 2026)",
+          "Site A Consolidation Complete (Go-Live) (Due: April 30, 2026)",
+          "Post-Migration Validation Report (Due: May 31, 2026)",
+          "Project Closure Report (Due: June 30, 2026)"
+        ],
+        "constraints": [
+          "Total approved budget cap of $2,400,000 inclusive of all fees and taxes",
+          "Budget variance exceeding 15% requires formal amendment and Treasury Board submission",
+          "Go-Live deadline no later than April 30, 2026",
+          "Final project closure date no later than June 30, 2026",
+          "Extensions beyond June 30, 2026 require ADM-level approval",
+          "Compliance with ITSG-33: IT Security Risk Management",
+          "Compliance with Government of Canada Cloud Adoption Strategy",
+          "Compliance with Treasury Board Policy on Government Security",
+          "Compliance with Privacy Act (R.S.C., 1985, c. P-21)",
+          "Compliance with Official Languages Act for client-facing deliverables",
+          "All scope changes require written approval from the Project Sponsor and impact assessment"
+        ]
+      },
+      "error": null
+    },
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 7485.3,
+      "content": "[{\"text\": \"Submit Treasury Board notification regarding budget increase\", \"owner\": \"SSC Finance team\", \"deadline\": \"2026-03-15\", \"priority\": \"critical\", \"source_excerpt\": \"Treasury Board notification will be submitted by the SSC Finance team.\"}, {\"text\": \"Circulate formal amendment to project charter for signature\", \"owner\": null, \"deadline\": \"2026-03-15\", \"priority\": \"high\", \"source_excerpt\": \"A formal amendment to the project charter will be circulated for signature by end of week.\"}, {\"text\": \"Update all project documentation, risk registers, and reporting templates to reflect revised parameters\", \"owner\": null, \"deadline\": \"2026-03-09\", \"priority\": \"critical\", \"source_excerpt\": \"Please update all project documentation, risk registers, and reporting templates to reflect these revised parameters effective immediately.\"}, {\"text\": \"Extend project completion date to December 31, 2026\", \"owner\": null, \"deadline\": \"2026-12-31\", \"priority\": \"high\", \"source_excerpt\": \"The project completion date is hereby extended to Q4 2026 (December 31, 2026).\"}, {\"text\": \"Increase approved project budget to $3,500,000\", \"owner\": null, \"deadline\": \"2026-03-09\", \"priority\": \"critical\", \"source_excerpt\": \"The approved project budget is increased to $3,500,000 (three million five hundred thousand dollars), effective immediately.\"}]",
+      "parsed_json": [
+        {
+          "text": "Submit Treasury Board notification regarding budget increase",
+          "owner": "SSC Finance team",
+          "deadline": "2026-03-15",
+          "priority": "critical",
+          "source_excerpt": "Treasury Board notification will be submitted by the SSC Finance team."
+        },
+        {
+          "text": "Circulate formal amendment to project charter for signature",
+          "owner": null,
+          "deadline": "2026-03-15",
+          "priority": "high",
+          "source_excerpt": "A formal amendment to the project charter will be circulated for signature by end of week."
+        },
+        {
+          "text": "Update all project documentation, risk registers, and reporting templates to reflect revised parameters",
+          "owner": null,
+          "deadline": "2026-03-09",
+          "priority": "critical",
+          "source_excerpt": "Please update all project documentation, risk registers, and reporting templates to reflect these revised parameters effective immediately."
+        },
+        {
+          "text": "Extend project completion date to December 31, 2026",
+          "owner": null,
+          "deadline": "2026-12-31",
+          "priority": "high",
+          "source_excerpt": "The project completion date is hereby extended to Q4 2026 (December 31, 2026)."
+        },
+        {
+          "text": "Increase approved project budget to $3,500,000",
+          "owner": null,
+          "deadline": "2026-03-09",
+          "priority": "critical",
+          "source_excerpt": "The approved project budget is increased to $3,500,000 (three million five hundred thousand dollars), effective immediately."
+        }
+      ],
+      "error": null
+    },
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 8291.9,
+      "content": "```json\n{\n  \"alignment_score\": 0.15,\n  \"drift_type\": \"scope_expansion\",\n  \"detected_ask\": \"Extension of project completion date to December 31, 2026 (Q4 2026) and budget increase to $3,500,000 to fund DR site assessment/preliminary design.\",\n  \"baseline_reference\": \"CONSTRAINTS: Go-Live deadline no later than April 30, 2026; Total approved budget cap of $2,400,000. OUT OF SCOPE: DR site assessment and preliminary design (implied as not part of the defined migration/consolidation scope).\",\n  \"suggested_action\": \"Formalize a Change Control Request (CCR) to update the Project Charter and Baseline; specifically address the 'DR site assessment' as a new deliverable outside the current scope, and initiate Treasury Board submission for the budget variance exceeding 15%.\",\n  \"reasoning\": \"The document explicitly overrides two hard constraints: the Go-Live deadline (extending by ~8 months beyond the June 30, 2026 closure limit) and the budget cap (increasing by 45.8%, which exceeds the 15% variance threshold). Furthermore, it introduces a 'DR site assessment' as a funded activity, which is not listed in the IN SCOPE items and likely falls under OUT OF SCOPE or requires a new scope definition, constituting a significant scope expansion.\"\n}\n```",
+      "parsed_json": {
+        "alignment_score": 0.15,
+        "drift_type": "scope_expansion",
+        "detected_ask": "Extension of project completion date to December 31, 2026 (Q4 2026) and budget increase to $3,500,000 to fund DR site assessment/preliminary design.",
+        "baseline_reference": "CONSTRAINTS: Go-Live deadline no later than April 30, 2026; Total approved budget cap of $2,400,000. OUT OF SCOPE: DR site assessment and preliminary design (implied as not part of the defined migration/consolidation scope).",
+        "suggested_action": "Formalize a Change Control Request (CCR) to update the Project Charter and Baseline; specifically address the 'DR site assessment' as a new deliverable outside the current scope, and initiate Treasury Board submission for the budget variance exceeding 15%.",
+        "reasoning": "The document explicitly overrides two hard constraints: the Go-Live deadline (extending by ~8 months beyond the June 30, 2026 closure limit) and the budget cap (increasing by 45.8%, which exceeds the 15% variance threshold). Furthermore, it introduces a 'DR site assessment' as a funded activity, which is not listed in the IN SCOPE items and likely falls under OUT OF SCOPE or requires a new scope definition, constituting a significant scope expansion."
+      },
+      "error": null
+    }
+  ]
+}

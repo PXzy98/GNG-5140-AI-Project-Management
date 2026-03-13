@@ -1,0 +1,240 @@
+{
+  "test_id": "RSK-09",
+  "test_name": "False positive rate",
+  "method": "llm_large",
+  "passed": false,
+  "score": "1/7",
+  "details": "false_positives=5 (threshold: <=2)",
+  "error": null,
+  "latency_ms": 8133.438099990599,
+  "artifact": {
+    "artifact_id": "art_493454a5bc",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 241,
+    "content_preview": "From: bob.morrison@ssc-spc.gc.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: ngis-pm@ssc-spc.gc.ca\nSubject: Site A AD Migration \u2014 Progress Update\nDate: March 6, 2026\n\nAlice,\n\nQuick update on the Active Directory migration preparation for Site A:\n\n1. Domain Controller Staging: The two new DC servers at Site A have been\n   racked, powered on, and joined to the test domain. Windows Server\n   patching is complete (all critical patches as of March 1 applied).\n\n2. Schema Extension Testing: The AD schema extensio",
+    "extracted_tasks": [
+      {
+        "task_id": "art_493454a5bc_t001",
+        "text": "will be migrated.",
+        "owner": "Dave Chen",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will be migrated.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_493454a5bc_t002",
+        "text": "will begin the production DC staging activities next",
+        "owner": "March",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will begin the production DC staging activities next",
+        "confidence": 0.7
+      }
+    ],
+    "metadata": {
+      "sender": "bob.morrison@ssc-spc.gc.ca",
+      "recipients": "alice.tran@ssc-spc.gc.ca",
+      "subject": "Site A AD Migration \u2014 Progress Update",
+      "date": "March 6, 2026"
+    }
+  },
+  "risks": {
+    "count": 5,
+    "analysis_method": "llm_large",
+    "risks": [
+      {
+        "risk_id": "rsk_e237d9e0",
+        "description": "Network switch delivery delay could block final DC connectivity testing before March 18 migration.",
+        "category": "schedule",
+        "likelihood": 3,
+        "impact": 5,
+        "risk_score": 15.0,
+        "risk_level": "high",
+        "affected_stakeholders": [
+          "Bob Morrison",
+          "Alice Tran",
+          "NGIS PM team"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_493454a5bc",
+            "excerpt": "The only dependency is the network switch delivery \u2014 we need the Catalyst 9500s in place before we can do final network connectivity testing for the DCs.",
+            "location": null,
+            "evidence_strength": 0.6
+          }
+        ],
+        "source_artifact_id": "art_493454a5bc",
+        "created_at": "2026-03-09T07:06:19.204259"
+      },
+      {
+        "risk_id": "rsk_3eb6fce6",
+        "description": "Production DC staging must complete by March 14; any slip eliminates the four-day buffer.",
+        "category": "schedule",
+        "likelihood": 2,
+        "impact": 4,
+        "risk_score": 8.0,
+        "risk_level": "medium",
+        "affected_stakeholders": [
+          "Bob Morrison",
+          "Alice Tran",
+          "NGIS PM team"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_493454a5bc",
+            "excerpt": "targeting completion by March 14 to give us four days of buffer before the March 18 migration window.",
+            "location": null,
+            "evidence_strength": 0.32
+          }
+        ],
+        "source_artifact_id": "art_493454a5bc",
+        "created_at": "2026-03-09T07:06:19.205257"
+      },
+      {
+        "risk_id": "rsk_bc329de2",
+        "description": "Single technical lead (Bob Morrison) owns AD migration; key-person dependency exists.",
+        "category": "resource",
+        "likelihood": 2,
+        "impact": 5,
+        "risk_score": 10.0,
+        "risk_level": "medium",
+        "affected_stakeholders": [
+          "Alice Tran",
+          "NGIS PM team"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_493454a5bc",
+            "excerpt": "Bob Morrison, Technical Lead, AD Migration, NGIS Phase 3",
+            "location": null,
+            "evidence_strength": 0.4
+          }
+        ],
+        "source_artifact_id": "art_493454a5bc",
+        "created_at": "2026-03-09T07:06:19.205257"
+      },
+      {
+        "risk_id": "rsk_96d3ce40",
+        "description": "Schema extension not yet promoted to staging; undetected issues could surface before production.",
+        "category": "technical",
+        "likelihood": 2,
+        "impact": 5,
+        "risk_score": 10.0,
+        "risk_level": "medium",
+        "affected_stakeholders": [
+          "Bob Morrison",
+          "Alice Tran",
+          "NGIS PM team"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_493454a5bc",
+            "excerpt": "The AD schema extension ran successfully in the test environment last night... Ready to promote to staging this weekend.",
+            "location": null,
+            "evidence_strength": 0.4
+          }
+        ],
+        "source_artifact_id": "art_493454a5bc",
+        "created_at": "2026-03-09T07:06:19.205257"
+      },
+      {
+        "risk_id": "rsk_624d4e9e",
+        "description": "Single vendor (Cisco Catalyst 9500) dependency for critical network hardware delivery.",
+        "category": "resource",
+        "likelihood": 3,
+        "impact": 5,
+        "risk_score": 15.0,
+        "risk_level": "high",
+        "affected_stakeholders": [
+          "Bob Morrison",
+          "Alice Tran",
+          "NGIS PM team"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_493454a5bc",
+            "excerpt": "we need the Catalyst 9500s in place before we can do final network connectivity testing for the DCs.",
+            "location": null,
+            "evidence_strength": 0.6
+          }
+        ],
+        "source_artifact_id": "art_493454a5bc",
+        "created_at": "2026-03-09T07:06:19.205761"
+      }
+    ]
+  },
+  "llm_calls": [
+    {
+      "tier": "large",
+      "model": "anthropic/claude-sonnet-4.6",
+      "latency_ms": 8132.2,
+      "content": "```json\n[\n  {\n    \"description\": \"Network switch delivery delay could block final DC connectivity testing before March 18 migration.\",\n    \"category\": \"schedule\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"The only dependency is the network switch delivery \u2014 we need the Catalyst 9500s in place before we can do final network connectivity testing for the DCs.\",\n    \"affected_stakeholders\": [\"Bob Morrison\", \"Alice Tran\", \"NGIS PM team\"]\n  },\n  {\n    \"description\": \"Production DC staging must complete by March 14; any slip eliminates the four-day buffer.\",\n    \"category\": \"schedule\",\n    \"likelihood\": 2,\n    \"impact\": 3,\n    \"evidence_excerpt\": \"targeting completion by March 14 to give us four days of buffer before the March 18 migration window.\",\n    \"affected_stakeholders\": [\"Bob Morrison\", \"Alice Tran\", \"NGIS PM team\"]\n  },\n  {\n    \"description\": \"Single technical lead (Bob Morrison) owns AD migration; key-person dependency exists.\",\n    \"category\": \"resource\",\n    \"likelihood\": 2,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"Bob Morrison, Technical Lead, AD Migration, NGIS Phase 3\",\n    \"affected_stakeholders\": [\"Alice Tran\", \"NGIS PM team\"]\n  },\n  {\n    \"description\": \"Schema extension not yet promoted to staging; undetected issues could surface before production.\",\n    \"category\": \"technical\",\n    \"likelihood\": 2,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"The AD schema extension ran successfully in the test environment last night... Ready to promote to staging this weekend.\",\n    \"affected_stakeholders\": [\"Bob Morrison\", \"Alice Tran\", \"NGIS PM team\"]\n  },\n  {\n    \"description\": \"Single vendor (Cisco Catalyst 9500) dependency for critical network hardware delivery.\",\n    \"category\": \"resource\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"we need the Catalyst 9500s in place before we can do final network connectivity testing for the DCs.\",\n    \"affected_stakeholders\": [\"Bob Morrison\", \"Alice Tran\", \"NGIS PM team\"]\n  }\n]\n```",
+      "parsed_json": [
+        {
+          "description": "Network switch delivery delay could block final DC connectivity testing before March 18 migration.",
+          "category": "schedule",
+          "likelihood": 3,
+          "impact": 4,
+          "evidence_excerpt": "The only dependency is the network switch delivery \u2014 we need the Catalyst 9500s in place before we can do final network connectivity testing for the DCs.",
+          "affected_stakeholders": [
+            "Bob Morrison",
+            "Alice Tran",
+            "NGIS PM team"
+          ]
+        },
+        {
+          "description": "Production DC staging must complete by March 14; any slip eliminates the four-day buffer.",
+          "category": "schedule",
+          "likelihood": 2,
+          "impact": 3,
+          "evidence_excerpt": "targeting completion by March 14 to give us four days of buffer before the March 18 migration window.",
+          "affected_stakeholders": [
+            "Bob Morrison",
+            "Alice Tran",
+            "NGIS PM team"
+          ]
+        },
+        {
+          "description": "Single technical lead (Bob Morrison) owns AD migration; key-person dependency exists.",
+          "category": "resource",
+          "likelihood": 2,
+          "impact": 4,
+          "evidence_excerpt": "Bob Morrison, Technical Lead, AD Migration, NGIS Phase 3",
+          "affected_stakeholders": [
+            "Alice Tran",
+            "NGIS PM team"
+          ]
+        },
+        {
+          "description": "Schema extension not yet promoted to staging; undetected issues could surface before production.",
+          "category": "technical",
+          "likelihood": 2,
+          "impact": 4,
+          "evidence_excerpt": "The AD schema extension ran successfully in the test environment last night... Ready to promote to staging this weekend.",
+          "affected_stakeholders": [
+            "Bob Morrison",
+            "Alice Tran",
+            "NGIS PM team"
+          ]
+        },
+        {
+          "description": "Single vendor (Cisco Catalyst 9500) dependency for critical network hardware delivery.",
+          "category": "resource",
+          "likelihood": 3,
+          "impact": 4,
+          "evidence_excerpt": "we need the Catalyst 9500s in place before we can do final network connectivity testing for the DCs.",
+          "affected_stakeholders": [
+            "Bob Morrison",
+            "Alice Tran",
+            "NGIS PM team"
+          ]
+        }
+      ],
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "test_id": "ING-12",
+  "test_name": "Multi-project artifact linking",
+  "method": "llm_medium",
+  "passed": true,
+  "score": "8/8",
+  "details": "linked_project=proj_multi",
+  "error": null,
+  "latency_ms": 11.00620000215713,
+  "artifact": {
+    "artifact_id": "art_798c5fe97a",
+    "artifact_type": "status_report",
+    "detected_language": "en",
+    "word_count": 460,
+    "content_preview": "IT PORTFOLIO \u2014 COMBINED PROJECT STATUS UPDATE\nReporting Period: March 2026 (Week 1)\nPortfolio Manager: Bob Morrison\nDistribution: IT Executive Committee; ADM Digital Services\n\n---\n\nPROJECT 1: NGIS PHASE 3 \u2014 DATA CENTRE CONSOLIDATION\nProject ID: NGIS-P3-2024-001 | Project Manager: Alice Tran\nStatus: YELLOW | Budget: $2.4M | Deadline: Q2 2026\n\nSummary: Project has encountered a 2-week vendor delay on critical\nnetwork equipment. TechSupplier has confirmed revised delivery of March 20\n(was March 6).",
+    "extracted_tasks": [
+      {
+        "task_id": "art_798c5fe97a_t001",
+        "text": "actions in progress:",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "actions in progress:",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_798c5fe97a_t002",
+        "text": "must be resolved before migration can proceed.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "must be resolved before migration can proceed.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_798c5fe97a_t003",
+        "text": "will\n   cascade to GC-Cloud Wave 4, potentially pushing the Q3 target.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will\n   cascade to GC-Cloud Wave 4, potentially pushing the Q3 target.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_798c5fe97a_t004",
+        "text": "Deadline: Q2 2026",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Deadline: Q2 2026",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_798c5fe97a_t005",
+        "text": "Deadline: Q3 2026",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Deadline: Q3 2026",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_798c5fe97a_t006",
+        "text": "deadline: Mar 10)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "deadline: Mar 10)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_798c5fe97a_t007",
+        "text": "deadline: Mar 15)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "deadline: Mar 15)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_798c5fe97a_t008",
+        "text": "Deadline: Q4 2026",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Deadline: Q4 2026",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_798c5fe97a_t009",
+        "text": "- Impact assessment on migration timeline (Carol Nguyen, due Mar 7)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Impact assessment on migration timeline (Carol Nguyen, due Mar 7)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_798c5fe97a_t010",
+        "text": "- SA&A documentation update for TBS (Dave Chen, due Mar 12)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- SA&A documentation update for TBS (Dave Chen, due Mar 12)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_798c5fe97a_t011",
+        "text": "- Alternative supplier evaluation initiated",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Alternative supplier evaluation initiated",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_798c5fe97a_t012",
+        "text": "- Director approval of revised budget (deadline: Mar 10)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Director approval of revised budget (deadline: Mar 10)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_798c5fe97a_t013",
+        "text": "- TB submission preparation (deadline: Mar 15)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- TB submission preparation (deadline: Mar 15)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_798c5fe97a_t014",
+        "text": "- Middleware remediation scoping (to begin post-approval)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Middleware remediation scoping (to begin post-approval)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_798c5fe97a_t015",
+        "text": "- Business case approved by ADM",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Business case approved by ADM",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_798c5fe97a_t016",
+        "text": "- Project charter signed",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Project charter signed",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_798c5fe97a_t017",
+        "text": "- Procurement strategy kick-off scheduled for March 9",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Procurement strategy kick-off scheduled for March 9",
+        "confidence": 0.7
+      }
+    ],
+    "metadata": {}
+  },
+  "llm_calls": []
+}

@@ -1,0 +1,29 @@
+MEETING NOTES — NGIS PHASE 3 STEERING COMMITTEE
+Date: March 8, 2026 | Attendees: Director Okafor, Alice Tran, Bob Morrison, ADM Clarke
+
+Item 5 (raised by ADM Clarke):
+
+Following the recent cyber incident affecting a peer department's primary
+data centre, ADM Clarke raised the requirement to add a dedicated disaster
+recovery (DR) site to the NGIS Phase 3 scope.
+
+ADM Clarke's request:
+"Given the current threat environment and Treasury Board's updated guidance
+on GC infrastructure resilience, I would like the project team to
+investigate adding a new disaster recovery site as part of the Phase 3
+consolidation. This would involve identifying an additional colocation
+facility — potentially Borden or Miramichi — and ensuring that all
+workloads migrated during Phase 3 have a hot-standby replica at the DR
+site. This is not currently in our SOW and I understand it represents a
+material scope addition, but I believe it is essential for business
+continuity compliance."
+
+Project Manager Response (Alice Tran):
+Alice acknowledged the request and noted that a new disaster recovery
+site was not included in the current Statement of Work (SOW-NGIS-P3-2024-001).
+She committed to conducting a preliminary scoping assessment and presenting
+options to the steering committee by March 15. Any formal scope addition
+would require a change request, ADM approval, and Treasury Board
+notification if the cost impact exceeds 15% of the approved budget.
+
+Action: Alice Tran to prepare DR site options analysis. Due: March 15.

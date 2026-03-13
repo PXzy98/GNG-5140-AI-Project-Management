@@ -1,0 +1,312 @@
+{
+  "test_id": "RSK-07",
+  "test_name": "Compliance risk detection",
+  "method": "llm_large",
+  "passed": true,
+  "score": "9/9",
+  "details": "compliance_risks=2 total=5",
+  "error": null,
+  "latency_ms": 7265.865599998506,
+  "artifact": {
+    "artifact_id": "art_68a49a302b",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 239,
+    "content_preview": "From: security.audit@tbs-sct.gc.ca\nTo: ngis-pm@ssc-spc.gc.ca\nCc: itsec-director@ssc-spc.gc.ca; ciso@ssc-spc.gc.ca\nSubject: URGENT: ITSG-33 Compliance Gap \u2014 NGIS Phase 3 Network Migration\nDate: Thu, 5 Mar 2026 08:47:15 -0500\n\nProject Management Team,\n\nDuring the scheduled ITSG-33 security compliance review for NGIS Phase 3\n(review conducted February 28\u2013March 4, 2026), our audit team identified\na Category 2 finding that must be addressed before the migration proceeds.\n\nFINDING SUMMARY:\nControl: IA",
+    "extracted_tasks": [
+      {
+        "task_id": "art_68a49a302b_t001",
+        "text": "action plan by end of day March 6.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "action plan by end of day March 6.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_68a49a302b_t002",
+        "text": "Please confirm receipt and provide an action plan by end of day March 6.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Please confirm receipt and provide an action plan by end of day March 6.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_68a49a302b_t003",
+        "text": "must be addressed before the migration proceeds.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "must be addressed before the migration proceeds.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_68a49a302b_t004",
+        "text": "must provide the updated SA&A documentation addressing",
+        "owner": null,
+        "deadline": "March 12, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "must provide the updated SA&A documentation addressing",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_68a49a302b_t005",
+        "text": "must\n  be scheduled for the week of March 9 to review the PAW architecture.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "must\n  be scheduled for the week of March 9 to review the PAW architecture.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_68a49a302b_t006",
+        "text": "should\n  be considered at risk.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "should\n  be considered at risk.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_68a49a302b_t007",
+        "text": "- The project team must provide the updated SA&A documentation addressing",
+        "owner": null,
+        "deadline": "March 12, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- The project team must provide the updated SA&A documentation addressing",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_68a49a302b_t008",
+        "text": "- A meeting between the SSC CISO office and the NGIS project team must",
+        "owner": null,
+        "deadline": "March 12, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- A meeting between the SSC CISO office and the NGIS project team must",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_68a49a302b_t009",
+        "text": "- Until this finding is resolved, the March 18 migration window should",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Until this finding is resolved, the March 18 migration window should",
+        "confidence": 0.7
+      }
+    ],
+    "metadata": {
+      "sender": "security.audit@tbs-sct.gc.ca",
+      "recipients": "ngis-pm@ssc-spc.gc.ca",
+      "subject": "URGENT: ITSG-33 Compliance Gap \u2014 NGIS Phase 3 Network Migration",
+      "date": "Thu, 5 Mar 2026 08:47:15 -0500"
+    }
+  },
+  "risks": {
+    "count": 5,
+    "analysis_method": "llm_large",
+    "risks": [
+      {
+        "risk_id": "rsk_58360f58",
+        "description": "Missing PAW architecture documentation may block migration; 'March 18 migration window should be considered at risk'",
+        "category": "schedule",
+        "likelihood": 4,
+        "impact": 5,
+        "risk_score": 20.0,
+        "risk_level": "critical",
+        "affected_stakeholders": [
+          "NGIS project team",
+          "SSC",
+          "GC-Cloud workload owners"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_68a49a302b",
+            "excerpt": "March 18 migration window should be considered at risk",
+            "location": null,
+            "evidence_strength": 0.8
+          }
+        ],
+        "source_artifact_id": "art_68a49a302b",
+        "created_at": "2026-03-09T07:10:22.363971"
+      },
+      {
+        "risk_id": "rsk_30861764",
+        "description": "ITSG-33 'Category 2 finding' non-compliance on IA-5 may halt PBMM cloud hosting authorization",
+        "category": "compliance",
+        "likelihood": 4,
+        "impact": 5,
+        "risk_score": 20.0,
+        "risk_level": "critical",
+        "affected_stakeholders": [
+          "SSC CISO",
+          "TBS",
+          "NGIS project team"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_68a49a302b",
+            "excerpt": "SSC's PBMM cloud hosting authorization may be placed on hold",
+            "location": null,
+            "evidence_strength": 0.8
+          }
+        ],
+        "source_artifact_id": "art_68a49a302b",
+        "created_at": "2026-03-09T07:10:22.363971"
+      },
+      {
+        "risk_id": "rsk_c3b4cd83",
+        "description": "PBMM authorization hold could disrupt 'other GC-Cloud workloads depending on the shared AD infrastructure'",
+        "category": "technical",
+        "likelihood": 3,
+        "impact": 5,
+        "risk_score": 15.0,
+        "risk_level": "high",
+        "affected_stakeholders": [
+          "GC-Cloud workload owners",
+          "SSC",
+          "Government of Canada tenants"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_68a49a302b",
+            "excerpt": "other GC-Cloud workloads depending on the shared AD infrastructure",
+            "location": null,
+            "evidence_strength": 0.6
+          }
+        ],
+        "source_artifact_id": "art_68a49a302b",
+        "created_at": "2026-03-09T07:10:22.363971"
+      },
+      {
+        "risk_id": "rsk_441d7d34",
+        "description": "SA&A package incomplete; 'Privileged Access Workstation (PAW) architecture documentation' missing from submission",
+        "category": "compliance",
+        "likelihood": 5,
+        "impact": 5,
+        "risk_score": 25.0,
+        "risk_level": "critical",
+        "affected_stakeholders": [
+          "NGIS project team",
+          "SSC CISO",
+          "TBS audit office"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_68a49a302b",
+            "excerpt": "SA&A package is missing the Privileged Access Workstation (PAW) architecture documentation",
+            "location": null,
+            "evidence_strength": 1.0
+          }
+        ],
+        "source_artifact_id": "art_68a49a302b",
+        "created_at": "2026-03-09T07:10:22.363971"
+      },
+      {
+        "risk_id": "rsk_f94c4861",
+        "description": "Tight remediation deadline of 'March 12, 2026' risks insufficient time to resolve Category 2 finding",
+        "category": "schedule",
+        "likelihood": 3,
+        "impact": 5,
+        "risk_score": 15.0,
+        "risk_level": "high",
+        "affected_stakeholders": [
+          "NGIS project team",
+          "SSC CISO",
+          "TBS"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_68a49a302b",
+            "excerpt": "updated SA&A documentation addressing Control IA-5 to this office no later than March 12, 2026",
+            "location": null,
+            "evidence_strength": 0.6
+          }
+        ],
+        "source_artifact_id": "art_68a49a302b",
+        "created_at": "2026-03-09T07:10:22.364971"
+      }
+    ]
+  },
+  "llm_calls": [
+    {
+      "tier": "large",
+      "model": "anthropic/claude-sonnet-4.6",
+      "latency_ms": 7264.5,
+      "content": "```json\n[\n  {\n    \"description\": \"Missing PAW architecture documentation may block migration; 'March 18 migration window should be considered at risk'\",\n    \"category\": \"schedule\",\n    \"likelihood\": 4,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"March 18 migration window should be considered at risk\",\n    \"affected_stakeholders\": [\"NGIS project team\", \"SSC\", \"GC-Cloud workload owners\"]\n  },\n  {\n    \"description\": \"ITSG-33 'Category 2 finding' non-compliance on IA-5 may halt PBMM cloud hosting authorization\",\n    \"category\": \"compliance\",\n    \"likelihood\": 4,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"SSC's PBMM cloud hosting authorization may be placed on hold\",\n    \"affected_stakeholders\": [\"SSC CISO\", \"TBS\", \"NGIS project team\"]\n  },\n  {\n    \"description\": \"PBMM authorization hold could disrupt 'other GC-Cloud workloads depending on the shared AD infrastructure'\",\n    \"category\": \"technical\",\n    \"likelihood\": 3,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"other GC-Cloud workloads depending on the shared AD infrastructure\",\n    \"affected_stakeholders\": [\"GC-Cloud workload owners\", \"SSC\", \"Government of Canada tenants\"]\n  },\n  {\n    \"description\": \"SA&A package incomplete; 'Privileged Access Workstation (PAW) architecture documentation' missing from submission\",\n    \"category\": \"compliance\",\n    \"likelihood\": 5,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"SA&A package is missing the Privileged Access Workstation (PAW) architecture documentation\",\n    \"affected_stakeholders\": [\"NGIS project team\", \"SSC CISO\", \"TBS audit office\"]\n  },\n  {\n    \"description\": \"Tight remediation deadline of 'March 12, 2026' risks insufficient time to resolve Category 2 finding\",\n    \"category\": \"schedule\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"updated SA&A documentation addressing Control IA-5 to this office no later than March 12, 2026\",\n    \"affected_stakeholders\": [\"NGIS project team\", \"SSC CISO\", \"TBS\"]\n  }\n]\n```",
+      "parsed_json": [
+        {
+          "description": "Missing PAW architecture documentation may block migration; 'March 18 migration window should be considered at risk'",
+          "category": "schedule",
+          "likelihood": 4,
+          "impact": 4,
+          "evidence_excerpt": "March 18 migration window should be considered at risk",
+          "affected_stakeholders": [
+            "NGIS project team",
+            "SSC",
+            "GC-Cloud workload owners"
+          ]
+        },
+        {
+          "description": "ITSG-33 'Category 2 finding' non-compliance on IA-5 may halt PBMM cloud hosting authorization",
+          "category": "compliance",
+          "likelihood": 4,
+          "impact": 5,
+          "evidence_excerpt": "SSC's PBMM cloud hosting authorization may be placed on hold",
+          "affected_stakeholders": [
+            "SSC CISO",
+            "TBS",
+            "NGIS project team"
+          ]
+        },
+        {
+          "description": "PBMM authorization hold could disrupt 'other GC-Cloud workloads depending on the shared AD infrastructure'",
+          "category": "technical",
+          "likelihood": 3,
+          "impact": 5,
+          "evidence_excerpt": "other GC-Cloud workloads depending on the shared AD infrastructure",
+          "affected_stakeholders": [
+            "GC-Cloud workload owners",
+            "SSC",
+            "Government of Canada tenants"
+          ]
+        },
+        {
+          "description": "SA&A package incomplete; 'Privileged Access Workstation (PAW) architecture documentation' missing from submission",
+          "category": "compliance",
+          "likelihood": 5,
+          "impact": 4,
+          "evidence_excerpt": "SA&A package is missing the Privileged Access Workstation (PAW) architecture documentation",
+          "affected_stakeholders": [
+            "NGIS project team",
+            "SSC CISO",
+            "TBS audit office"
+          ]
+        },
+        {
+          "description": "Tight remediation deadline of 'March 12, 2026' risks insufficient time to resolve Category 2 finding",
+          "category": "schedule",
+          "likelihood": 3,
+          "impact": 4,
+          "evidence_excerpt": "updated SA&A documentation addressing Control IA-5 to this office no later than March 12, 2026",
+          "affected_stakeholders": [
+            "NGIS project team",
+            "SSC CISO",
+            "TBS"
+          ]
+        }
+      ],
+      "error": null
+    }
+  ]
+}

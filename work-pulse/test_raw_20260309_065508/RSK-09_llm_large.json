@@ -1,0 +1,258 @@
+{
+  "test_id": "RSK-09",
+  "test_name": "False positive rate",
+  "method": "llm_large",
+  "passed": false,
+  "score": "1/7",
+  "details": "false_positives=5 (threshold: <=2)",
+  "error": null,
+  "latency_ms": 14032.33220000402,
+  "artifact": {
+    "artifact_id": "art_631cd3d653",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 241,
+    "content_preview": "From: bob.morrison@ssc-spc.gc.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: ngis-pm@ssc-spc.gc.ca\nSubject: Site A AD Migration \u2014 Progress Update\nDate: March 6, 2026\n\nAlice,\n\nQuick update on the Active Directory migration preparation for Site A:\n\n1. Domain Controller Staging: The two new DC servers at Site A have been\n   racked, powered on, and joined to the test domain. Windows Server\n   patching is complete (all critical patches as of March 1 applied).\n\n2. Schema Extension Testing: The AD schema extensio",
+    "extracted_tasks": [
+      {
+        "task_id": "art_631cd3d653_t001",
+        "text": "will be migrated.",
+        "owner": "Dave Chen",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will be migrated.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_631cd3d653_t002",
+        "text": "will begin the production DC staging activities next",
+        "owner": "March",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will begin the production DC staging activities next",
+        "confidence": 0.7
+      }
+    ],
+    "metadata": {
+      "sender": "bob.morrison@ssc-spc.gc.ca",
+      "recipients": "alice.tran@ssc-spc.gc.ca",
+      "subject": "Site A AD Migration \u2014 Progress Update",
+      "date": "March 6, 2026"
+    }
+  },
+  "risks": {
+    "count": 5,
+    "analysis_method": "llm_large",
+    "risks": [
+      {
+        "risk_id": "rsk_28bcf9a0",
+        "description": "Critical dependency on Catalyst 9500 network switch delivery creates a hard blocker for final DC network connectivity testing. If switches are delayed beyond approximately March 14, the four-day buffer before the March 18 migration window is consumed, making the migration date unachievable.",
+        "category": "schedule",
+        "likelihood": 4,
+        "impact": 5,
+        "risk_score": 20.0,
+        "risk_level": "critical",
+        "affected_stakeholders": [
+          "Bob Morrison",
+          "Alice Tran",
+          "NGIS PM team",
+          "Site A end users"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_631cd3d653",
+            "excerpt": "The only dependency is the network switch delivery \u2014 we need the Catalyst 9500s in place before we can do final network connectivity testing for the DCs.",
+            "location": null,
+            "evidence_strength": 0.8
+          }
+        ],
+        "source_artifact_id": "art_631cd3d653",
+        "created_at": "2026-03-09T06:57:27.507646"
+      },
+      {
+        "risk_id": "rsk_b7f78abb",
+        "description": "The production DC staging window (targeting March 14) leaves only four days of buffer before the March 18 migration. Any slippage in staging, unforeseen patching issues, or GPO migration errors in production will eliminate all schedule contingency with no recovery time built in.",
+        "category": "schedule",
+        "likelihood": 3,
+        "impact": 5,
+        "risk_score": 15.0,
+        "risk_level": "high",
+        "affected_stakeholders": [
+          "Bob Morrison",
+          "Alice Tran",
+          "NGIS PM team",
+          "Site A end users",
+          "Sites B and C stakeholders"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_631cd3d653",
+            "excerpt": "I will begin the production DC staging activities next week, targeting completion by March 14 to give us four days of buffer before the March 18 migration window.",
+            "location": null,
+            "evidence_strength": 0.6
+          }
+        ],
+        "source_artifact_id": "art_631cd3d653",
+        "created_at": "2026-03-09T06:57:27.507646"
+      },
+      {
+        "risk_id": "rsk_51e00749",
+        "description": "The AD schema extension has only been validated in a test environment and is scheduled for promotion to staging this weekend \u2014 not yet validated in a production-equivalent environment. Schema changes are irreversible in Active Directory; any undiscovered conflicts in staging or production could corrupt the directory and require full rollback.",
+        "category": "technical",
+        "likelihood": 2,
+        "impact": 5,
+        "risk_score": 10.0,
+        "risk_level": "medium",
+        "affected_stakeholders": [
+          "Bob Morrison",
+          "Alice Tran",
+          "NGIS PM team",
+          "All AD-dependent users across Sites A, B, and C"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_631cd3d653",
+            "excerpt": "The AD schema extension ran successfully in the test environment last night. No errors or attribute conflicts detected. Ready to promote to staging this weekend.",
+            "location": null,
+            "evidence_strength": 0.4
+          }
+        ],
+        "source_artifact_id": "art_631cd3d653",
+        "created_at": "2026-03-09T06:57:27.507646"
+      },
+      {
+        "risk_id": "rsk_4cf27aa5",
+        "description": "24 unique GPOs migrated from Sites B and C may contain environment-specific settings that behave differently when applied at Site A, potentially causing security policy misconfigurations or service disruptions post-migration. Security review was performed by a single reviewer (Dave Chen), introducing a single-point-of-failure in the compliance validation process.",
+        "category": "compliance",
+        "likelihood": 3,
+        "impact": 5,
+        "risk_score": 15.0,
+        "risk_level": "high",
+        "affected_stakeholders": [
+          "Dave Chen",
+          "Bob Morrison",
+          "Alice Tran",
+          "Site A end users",
+          "Security/compliance team"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_631cd3d653",
+            "excerpt": "24 unique GPOs will be migrated. The migration script is ready and has been reviewed by Dave Chen for security policy compliance.",
+            "location": null,
+            "evidence_strength": 0.6
+          }
+        ],
+        "source_artifact_id": "art_631cd3d653",
+        "created_at": "2026-03-09T06:57:27.509416"
+      },
+      {
+        "risk_id": "rsk_bc7a73ae",
+        "description": "The rollback procedure has only been tested in a lab environment, not under production load or network conditions. The 45-minute rollback estimate may be optimistic in a live scenario involving real replication latency, active user sessions, and production data volumes, leaving the organization exposed to extended outage if Go-Live fails.",
+        "category": "technical",
+        "likelihood": 2,
+        "impact": 5,
+        "risk_score": 10.0,
+        "risk_level": "medium",
+        "affected_stakeholders": [
+          "Bob Morrison",
+          "Alice Tran",
+          "NGIS PM team",
+          "Site A end users",
+          "IT operations team"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_631cd3d653",
+            "excerpt": "Rollback procedure tested successfully in lab \u2014 estimated rollback time is 45 minutes from Go-Live.",
+            "location": null,
+            "evidence_strength": 0.4
+          }
+        ],
+        "source_artifact_id": "art_631cd3d653",
+        "created_at": "2026-03-09T06:57:27.509416"
+      }
+    ]
+  },
+  "llm_calls": [
+    {
+      "tier": "large",
+      "model": "anthropic/claude-sonnet-4.6",
+      "latency_ms": 14030.8,
+      "content": "```json\n[\n  {\n    \"description\": \"Critical dependency on Catalyst 9500 network switch delivery creates a hard blocker for final DC network connectivity testing. If switches are delayed beyond approximately March 14, the four-day buffer before the March 18 migration window is consumed, making the migration date unachievable.\",\n    \"category\": \"schedule\",\n    \"likelihood\": 4,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"The only dependency is the network switch delivery \u2014 we need the Catalyst 9500s in place before we can do final network connectivity testing for the DCs.\",\n    \"affected_stakeholders\": [\"Bob Morrison\", \"Alice Tran\", \"NGIS PM team\", \"Site A end users\"]\n  },\n  {\n    \"description\": \"The production DC staging window (targeting March 14) leaves only four days of buffer before the March 18 migration. Any slippage in staging, unforeseen patching issues, or GPO migration errors in production will eliminate all schedule contingency with no recovery time built in.\",\n    \"category\": \"schedule\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"I will begin the production DC staging activities next week, targeting completion by March 14 to give us four days of buffer before the March 18 migration window.\",\n    \"affected_stakeholders\": [\"Bob Morrison\", \"Alice Tran\", \"NGIS PM team\", \"Site A end users\", \"Sites B and C stakeholders\"]\n  },\n  {\n    \"description\": \"The AD schema extension has only been validated in a test environment and is scheduled for promotion to staging this weekend \u2014 not yet validated in a production-equivalent environment. Schema changes are irreversible in Active Directory; any undiscovered conflicts in staging or production could corrupt the directory and require full rollback.\",\n    \"category\": \"technical\",\n    \"likelihood\": 2,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"The AD schema extension ran successfully in the test environment last night. No errors or attribute conflicts detected. Ready to promote to staging this weekend.\",\n    \"affected_stakeholders\": [\"Bob Morrison\", \"Alice Tran\", \"NGIS PM team\", \"All AD-dependent users across Sites A, B, and C\"]\n  },\n  {\n    \"description\": \"24 unique GPOs migrated from Sites B and C may contain environment-specific settings that behave differently when applied at Site A, potentially causing security policy misconfigurations or service disruptions post-migration. Security review was performed by a single reviewer (Dave Chen), introducing a single-point-of-failure in the compliance validation process.\",\n    \"category\": \"compliance\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"24 unique GPOs will be migrated. The migration script is ready and has been reviewed by Dave Chen for security policy compliance.\",\n    \"affected_stakeholders\": [\"Dave Chen\", \"Bob Morrison\", \"Alice Tran\", \"Site A end users\", \"Security/compliance team\"]\n  },\n  {\n    \"description\": \"The rollback procedure has only been tested in a lab environment, not under production load or network conditions. The 45-minute rollback estimate may be optimistic in a live scenario involving real replication latency, active user sessions, and production data volumes, leaving the organization exposed to extended outage if Go-Live fails.\",\n    \"category\": \"technical\",\n    \"likelihood\": 2,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"Rollback procedure tested successfully in lab \u2014 estimated rollback time is 45 minutes from Go-Live.\",\n    \"affected_stakeholders\": [\"Bob Morrison\", \"Alice Tran\", \"NGIS PM team\", \"Site A end users\", \"IT operations team\"]\n  }\n]\n```",
+      "parsed_json": [
+        {
+          "description": "Critical dependency on Catalyst 9500 network switch delivery creates a hard blocker for final DC network connectivity testing. If switches are delayed beyond approximately March 14, the four-day buffer before the March 18 migration window is consumed, making the migration date unachievable.",
+          "category": "schedule",
+          "likelihood": 4,
+          "impact": 5,
+          "evidence_excerpt": "The only dependency is the network switch delivery \u2014 we need the Catalyst 9500s in place before we can do final network connectivity testing for the DCs.",
+          "affected_stakeholders": [
+            "Bob Morrison",
+            "Alice Tran",
+            "NGIS PM team",
+            "Site A end users"
+          ]
+        },
+        {
+          "description": "The production DC staging window (targeting March 14) leaves only four days of buffer before the March 18 migration. Any slippage in staging, unforeseen patching issues, or GPO migration errors in production will eliminate all schedule contingency with no recovery time built in.",
+          "category": "schedule",
+          "likelihood": 3,
+          "impact": 4,
+          "evidence_excerpt": "I will begin the production DC staging activities next week, targeting completion by March 14 to give us four days of buffer before the March 18 migration window.",
+          "affected_stakeholders": [
+            "Bob Morrison",
+            "Alice Tran",
+            "NGIS PM team",
+            "Site A end users",
+            "Sites B and C stakeholders"
+          ]
+        },
+        {
+          "description": "The AD schema extension has only been validated in a test environment and is scheduled for promotion to staging this weekend \u2014 not yet validated in a production-equivalent environment. Schema changes are irreversible in Active Directory; any undiscovered conflicts in staging or production could corrupt the directory and require full rollback.",
+          "category": "technical",
+          "likelihood": 2,
+          "impact": 5,
+          "evidence_excerpt": "The AD schema extension ran successfully in the test environment last night. No errors or attribute conflicts detected. Ready to promote to staging this weekend.",
+          "affected_stakeholders": [
+            "Bob Morrison",
+            "Alice Tran",
+            "NGIS PM team",
+            "All AD-dependent users across Sites A, B, and C"
+          ]
+        },
+        {
+          "description": "24 unique GPOs migrated from Sites B and C may contain environment-specific settings that behave differently when applied at Site A, potentially causing security policy misconfigurations or service disruptions post-migration. Security review was performed by a single reviewer (Dave Chen), introducing a single-point-of-failure in the compliance validation process.",
+          "category": "compliance",
+          "likelihood": 3,
+          "impact": 4,
+          "evidence_excerpt": "24 unique GPOs will be migrated. The migration script is ready and has been reviewed by Dave Chen for security policy compliance.",
+          "affected_stakeholders": [
+            "Dave Chen",
+            "Bob Morrison",
+            "Alice Tran",
+            "Site A end users",
+            "Security/compliance team"
+          ]
+        },
+        {
+          "description": "The rollback procedure has only been tested in a lab environment, not under production load or network conditions. The 45-minute rollback estimate may be optimistic in a live scenario involving real replication latency, active user sessions, and production data volumes, leaving the organization exposed to extended outage if Go-Live fails.",
+          "category": "technical",
+          "likelihood": 2,
+          "impact": 4,
+          "evidence_excerpt": "Rollback procedure tested successfully in lab \u2014 estimated rollback time is 45 minutes from Go-Live.",
+          "affected_stakeholders": [
+            "Bob Morrison",
+            "Alice Tran",
+            "NGIS PM team",
+            "Site A end users",
+            "IT operations team"
+          ]
+        }
+      ],
+      "error": null
+    }
+  ]
+}

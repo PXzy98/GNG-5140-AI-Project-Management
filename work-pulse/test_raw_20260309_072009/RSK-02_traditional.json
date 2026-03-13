@@ -1,0 +1,107 @@
+{
+  "test_id": "RSK-02",
+  "test_name": "Risk identification \u2014 implicit/hidden risks",
+  "method": "traditional",
+  "passed": false,
+  "score": "0.0/10",
+  "details": "recall=0.00 found=2 gt=2",
+  "error": null,
+  "latency_ms": 0.9557000012136996,
+  "artifact": {
+    "artifact_id": "art_3405bb632b",
+    "artifact_type": "status_report",
+    "detected_language": "en",
+    "word_count": 441,
+    "content_preview": "GC-CLOUD WAVE 4 \u2014 MONTHLY STATUS REPORT\nReporting Period: February 2026\nReport Date: March 1, 2026\nProject Manager: Carol Nguyen\nStatus: GREEN\n\n---\n\nEXECUTIVE SUMMARY\n\nGC-Cloud Wave 4 is progressing excellently. The team has made strong\nprogress across all workstreams and stakeholder engagement remains high.\nWe are confident in our ability to deliver the project on schedule and\nwithin the approved parameters.\n\n---\n\nSCHEDULE HIGHLIGHTS\n\nThe project timeline is performing well. While we have exper",
+    "extracted_tasks": [
+      {
+        "task_id": "art_3405bb632b_t001",
+        "text": "will be well-supported by the",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will be well-supported by the",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_3405bb632b_t002",
+        "text": "will be submitted to the Director for consideration.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will be submitted to the Director for consideration.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_3405bb632b_t003",
+        "text": "will materially affect project",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will materially affect project",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_3405bb632b_t004",
+        "text": "owners are engaged and active.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "owners are engaged and active.",
+        "confidence": 0.7
+      }
+    ],
+    "metadata": {}
+  },
+  "risks": {
+    "count": 2,
+    "analysis_method": "traditional",
+    "risks": [
+      {
+        "risk_id": "rsk_f6838dbd",
+        "description": "Schedule risk detected: adjustment mentioned (also: adjustment, slight adjustment)",
+        "category": "schedule",
+        "likelihood": 1,
+        "impact": 4,
+        "risk_score": 4.0,
+        "risk_level": "low",
+        "affected_stakeholders": [],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_3405bb632b",
+            "excerpt": "has worked proactively to absorb these adjustments through schedule\noptimization. Our Q3",
+            "location": null,
+            "evidence_strength": 0.16
+          }
+        ],
+        "source_artifact_id": "art_3405bb632b",
+        "created_at": "2026-03-09T07:20:18.140277"
+      },
+      {
+        "risk_id": "rsk_c70ca14b",
+        "description": "Budget risk detected: budget revision mentioned (also: revised figures, above the approved envelope)",
+        "category": "budget",
+        "likelihood": 2,
+        "impact": 4,
+        "risk_score": 8.0,
+        "risk_level": "medium",
+        "affected_stakeholders": [],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_3405bb632b",
+            "excerpt": "proved envelope of $2,400,000. A formal\nbudget revision request will be submitted to the Direct",
+            "location": null,
+            "evidence_strength": 0.32
+          }
+        ],
+        "source_artifact_id": "art_3405bb632b",
+        "created_at": "2026-03-09T07:20:18.140277"
+      }
+    ]
+  },
+  "llm_calls": []
+}

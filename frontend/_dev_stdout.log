@@ -1,0 +1,35 @@
+
+> work-pulse-frontend@0.1.0 dev
+> next dev --port 3001
+
+   ▲ Next.js 15.2.4
+   - Local:        http://localhost:3001
+   - Network:      http://192.168.2.39:3001
+
+ ✓ Starting...
+ ✓ Ready in 1409ms
+ ○ Compiling / ...
+ ✓ Compiled / in 2.7s (745 modules)
+ GET / 200 in 2889ms
+ ✓ Compiled /chat in 270ms (745 modules)
+ GET /chat 200 in 327ms
+ GET /chat 200 in 23ms
+ ✓ Compiled /pipeline in 151ms (738 modules)
+ GET /pipeline 200 in 182ms
+ GET / 200 in 17ms
+ GET /pipeline 200 in 13ms
+ GET /chat 200 in 12ms
+ ✓ Compiled /file-recognition in 273ms (745 modules)
+ GET /file-recognition 200 in 321ms
+ ✓ Compiled /settings in 170ms (752 modules)
+ GET /settings 200 in 213ms
+ GET /chat 200 in 12ms
+ GET /file-recognition 200 in 16ms
+ GET /settings 200 in 8ms
+ GET / 200 in 13ms
+ GET /pipeline 200 in 19ms
+ GET / 200 in 11ms
+ GET /pipeline 200 in 12ms
+ GET /chat 200 in 13ms
+ GET /file-recognition 200 in 12ms
+ GET /settings 200 in 12ms

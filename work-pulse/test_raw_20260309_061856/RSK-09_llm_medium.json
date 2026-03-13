@@ -1,0 +1,318 @@
+{
+  "test_id": "RSK-09",
+  "test_name": "False positive rate",
+  "method": "llm_medium",
+  "passed": false,
+  "score": "0/7",
+  "details": "false_positives=7 (threshold: <=2)",
+  "error": null,
+  "latency_ms": 7847.0272999984445,
+  "artifact": {
+    "artifact_id": "art_304a74283f",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 241,
+    "content_preview": "From: bob.morrison@ssc-spc.gc.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: ngis-pm@ssc-spc.gc.ca\nSubject: Site A AD Migration \u2014 Progress Update\nDate: March 6, 2026\n\nAlice,\n\nQuick update on the Active Directory migration preparation for Site A:\n\n1. Domain Controller Staging: The two new DC servers at Site A have been\n   racked, powered on, and joined to the test domain. Windows Server\n   patching is complete (all critical patches as of March 1 applied).\n\n2. Schema Extension Testing: The AD schema extensio",
+    "extracted_tasks": [
+      {
+        "task_id": "art_304a74283f_t001",
+        "text": "will be migrated.",
+        "owner": "Dave Chen",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will be migrated.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_304a74283f_t002",
+        "text": "will begin the production DC staging activities next",
+        "owner": "March",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "will begin the production DC staging activities next",
+        "confidence": 0.7
+      }
+    ],
+    "metadata": {
+      "sender": "bob.morrison@ssc-spc.gc.ca",
+      "recipients": "alice.tran@ssc-spc.gc.ca",
+      "subject": "Site A AD Migration \u2014 Progress Update",
+      "date": "March 6, 2026"
+    }
+  },
+  "risks": {
+    "count": 7,
+    "analysis_method": "llm_medium",
+    "risks": [
+      {
+        "risk_id": "rsk_f0b3dc35",
+        "description": "Critical hardware dependency: The migration relies on the delivery and installation of Catalyst 9500 network switches. Any delay in shipping or installation will halt final connectivity testing.",
+        "category": "schedule",
+        "likelihood": 3,
+        "impact": 5,
+        "risk_score": 15.0,
+        "risk_level": "high",
+        "affected_stakeholders": [
+          "Bob Morrison",
+          "Alice Tran",
+          "NGIS Project Management Team",
+          "Network Operations Team"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_304a74283f",
+            "excerpt": "The only dependency is the network switch delivery \u2014 we need the Catalyst 9500s in place before we can do final network connectivity testing for the DCs.",
+            "location": null,
+            "evidence_strength": 0.6
+          }
+        ],
+        "source_artifact_id": "art_304a74283f",
+        "created_at": "2026-03-09T06:24:12.585299"
+      },
+      {
+        "risk_id": "rsk_4589de4b",
+        "description": "Tight schedule buffer: There is only a four-day buffer between the planned completion of staging (March 14) and the hard migration window (March 18). Any technical issues during staging will likely push the Go-Live date.",
+        "category": "schedule",
+        "likelihood": 4,
+        "impact": 4,
+        "risk_score": 16.0,
+        "risk_level": "high",
+        "affected_stakeholders": [
+          "Alice Tran",
+          "NGIS Project Management Team",
+          "Site A End Users"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_304a74283f",
+            "excerpt": "targeting completion by March 14 to give us four days of buffer before the March 18 migration window.",
+            "location": null,
+            "evidence_strength": 0.64
+          }
+        ],
+        "source_artifact_id": "art_304a74283f",
+        "created_at": "2026-03-09T06:24:12.585299"
+      },
+      {
+        "risk_id": "rsk_30590d37",
+        "description": "Legacy GPO Migration Complexity: Consolidating 47 legacy GPOs from different sites (B and C) into Site A carries a risk of unforeseen policy conflicts or 'ghost' settings that may not have been captured in the manual review.",
+        "category": "technical",
+        "likelihood": 3,
+        "impact": 5,
+        "risk_score": 15.0,
+        "risk_level": "high",
+        "affected_stakeholders": [
+          "Bob Morrison",
+          "Dave Chen",
+          "Site A End Users",
+          "Security Operations"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_304a74283f",
+            "excerpt": "I've reviewed the 47 legacy GPOs from Sites B and C. 23 are duplicates that can be deleted. 24 unique GPOs will be migrated.",
+            "location": null,
+            "evidence_strength": 0.6
+          }
+        ],
+        "source_artifact_id": "art_304a74283f",
+        "created_at": "2026-03-09T06:24:12.585299"
+      },
+      {
+        "risk_id": "rsk_591ca70c",
+        "description": "Patching Gap: Servers were patched as of March 1. If the migration occurs on March 18, there is a risk of 'Patch Tuesday' (typically the second Tuesday of the month, March 10) introducing new critical vulnerabilities or required updates that haven't been applied or tested.",
+        "category": "compliance",
+        "likelihood": 3,
+        "impact": 3,
+        "risk_score": 9.0,
+        "risk_level": "medium",
+        "affected_stakeholders": [
+          "Bob Morrison",
+          "Dave Chen",
+          "Security Operations"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_304a74283f",
+            "excerpt": "Windows Server patching is complete (all critical patches as of March 1 applied).",
+            "location": null,
+            "evidence_strength": 0.36
+          }
+        ],
+        "source_artifact_id": "art_304a74283f",
+        "created_at": "2026-03-09T06:24:12.586802"
+      },
+      {
+        "risk_id": "rsk_0babbd1c",
+        "description": "Single Point of Failure in Review: The migration script and security compliance review were performed by a single individual (Dave Chen). This represents a resource/knowledge silo risk if the script fails during production.",
+        "category": "resource",
+        "likelihood": 2,
+        "impact": 4,
+        "risk_score": 8.0,
+        "risk_level": "medium",
+        "affected_stakeholders": [
+          "Dave Chen",
+          "Bob Morrison",
+          "NGIS Project Management Team"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_304a74283f",
+            "excerpt": "The migration script is ready and has been reviewed by Dave Chen for security policy compliance.",
+            "location": null,
+            "evidence_strength": 0.32
+          }
+        ],
+        "source_artifact_id": "art_304a74283f",
+        "created_at": "2026-03-09T06:24:12.586802"
+      },
+      {
+        "risk_id": "rsk_eaa58b46",
+        "description": "Rollback Downtime: While the rollback procedure is tested, a 45-minute rollback time plus the time taken to identify a failure could exceed the maintenance window, leading to service outages for Site A.",
+        "category": "technical",
+        "likelihood": 2,
+        "impact": 5,
+        "risk_score": 10.0,
+        "risk_level": "medium",
+        "affected_stakeholders": [
+          "Site A End Users",
+          "Alice Tran",
+          "Technical Support Desk"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_304a74283f",
+            "excerpt": "estimated rollback time is 45 minutes from Go-Live.",
+            "location": null,
+            "evidence_strength": 0.4
+          }
+        ],
+        "source_artifact_id": "art_304a74283f",
+        "created_at": "2026-03-09T06:24:12.587306"
+      },
+      {
+        "risk_id": "rsk_e7626291",
+        "description": "Environment Disparity: Schema extensions were successful in 'test,' but production environments often have latent metadata or lingering objects not present in test, which can cause schema failures during the promotion to staging/production.",
+        "category": "technical",
+        "likelihood": 2,
+        "impact": 5,
+        "risk_score": 10.0,
+        "risk_level": "medium",
+        "affected_stakeholders": [
+          "Bob Morrison",
+          "Alice Tran",
+          "NGIS Project Management Team"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_304a74283f",
+            "excerpt": "The AD schema extension ran successfully in the test environment last night... Ready to promote to staging this weekend.",
+            "location": null,
+            "evidence_strength": 0.4
+          }
+        ],
+        "source_artifact_id": "art_304a74283f",
+        "created_at": "2026-03-09T06:24:12.587306"
+      }
+    ]
+  },
+  "llm_calls": [
+    {
+      "tier": "medium",
+      "model": "google/gemini-3-flash-preview",
+      "latency_ms": 7845.4,
+      "content": "```json\n[\n  {\n    \"description\": \"Critical hardware dependency: The migration relies on the delivery and installation of Catalyst 9500 network switches. Any delay in shipping or installation will halt final connectivity testing.\",\n    \"category\": \"schedule\",\n    \"likelihood\": 3,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"The only dependency is the network switch delivery \u2014 we need the Catalyst 9500s in place before we can do final network connectivity testing for the DCs.\",\n    \"affected_stakeholders\": [\n      \"Bob Morrison\",\n      \"Alice Tran\",\n      \"NGIS Project Management Team\",\n      \"Network Operations Team\"\n    ]\n  },\n  {\n    \"description\": \"Tight schedule buffer: There is only a four-day buffer between the planned completion of staging (March 14) and the hard migration window (March 18). Any technical issues during staging will likely push the Go-Live date.\",\n    \"category\": \"schedule\",\n    \"likelihood\": 4,\n    \"impact\": 3,\n    \"evidence_excerpt\": \"targeting completion by March 14 to give us four days of buffer before the March 18 migration window.\",\n    \"affected_stakeholders\": [\n      \"Alice Tran\",\n      \"NGIS Project Management Team\",\n      \"Site A End Users\"\n    ]\n  },\n  {\n    \"description\": \"Legacy GPO Migration Complexity: Consolidating 47 legacy GPOs from different sites (B and C) into Site A carries a risk of unforeseen policy conflicts or 'ghost' settings that may not have been captured in the manual review.\",\n    \"category\": \"technical\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"I've reviewed the 47 legacy GPOs from Sites B and C. 23 are duplicates that can be deleted. 24 unique GPOs will be migrated.\",\n    \"affected_stakeholders\": [\n      \"Bob Morrison\",\n      \"Dave Chen\",\n      \"Site A End Users\",\n      \"Security Operations\"\n    ]\n  },\n  {\n    \"description\": \"Patching Gap: Servers were patched as of March 1. If the migration occurs on March 18, there is a risk of 'Patch Tuesday' (typically the second Tuesday of the month, March 10) introducing new critical vulnerabilities or required updates that haven't been applied or tested.\",\n    \"category\": \"compliance\",\n    \"likelihood\": 3,\n    \"impact\": 2,\n    \"evidence_excerpt\": \"Windows Server patching is complete (all critical patches as of March 1 applied).\",\n    \"affected_stakeholders\": [\n      \"Bob Morrison\",\n      \"Dave Chen\",\n      \"Security Operations\"\n    ]\n  },\n  {\n    \"description\": \"Single Point of Failure in Review: The migration script and security compliance review were performed by a single individual (Dave Chen). This represents a resource/knowledge silo risk if the script fails during production.\",\n    \"category\": \"resource\",\n    \"likelihood\": 2,\n    \"impact\": 3,\n    \"evidence_excerpt\": \"The migration script is ready and has been reviewed by Dave Chen for security policy compliance.\",\n    \"affected_stakeholders\": [\n      \"Dave Chen\",\n      \"Bob Morrison\",\n      \"NGIS Project Management Team\"\n    ]\n  },\n  {\n    \"description\": \"Rollback Downtime: While the rollback procedure is tested, a 45-minute rollback time plus the time taken to identify a failure could exceed the maintenance window, leading to service outages for Site A.\",\n    \"category\": \"technical\",\n    \"likelihood\": 2,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"estimated rollback time is 45 minutes from Go-Live.\",\n    \"affected_stakeholders\": [\n      \"Site A End Users\",\n      \"Alice Tran\",\n      \"Technical Support Desk\"\n    ]\n  },\n  {\n    \"description\": \"Environment Disparity: Schema extensions were successful in 'test,' but production environments often have latent metadata or lingering objects not present in test, which can cause schema failures during the promotion to staging/production.\",\n    \"category\": \"technical\",\n    \"likelihood\": 2,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"The AD schema extension ran successfully in the test environment last night... Ready to promote to staging this weekend.\",\n    \"affected_stakeholders\": [\n      \"Bob Morrison\",\n      \"Alice Tran\",\n      \"NGIS Project Management Team\"\n    ]\n  }\n]\n```",
+      "parsed_json": [
+        {
+          "description": "Critical hardware dependency: The migration relies on the delivery and installation of Catalyst 9500 network switches. Any delay in shipping or installation will halt final connectivity testing.",
+          "category": "schedule",
+          "likelihood": 3,
+          "impact": 5,
+          "evidence_excerpt": "The only dependency is the network switch delivery \u2014 we need the Catalyst 9500s in place before we can do final network connectivity testing for the DCs.",
+          "affected_stakeholders": [
+            "Bob Morrison",
+            "Alice Tran",
+            "NGIS Project Management Team",
+            "Network Operations Team"
+          ]
+        },
+        {
+          "description": "Tight schedule buffer: There is only a four-day buffer between the planned completion of staging (March 14) and the hard migration window (March 18). Any technical issues during staging will likely push the Go-Live date.",
+          "category": "schedule",
+          "likelihood": 4,
+          "impact": 3,
+          "evidence_excerpt": "targeting completion by March 14 to give us four days of buffer before the March 18 migration window.",
+          "affected_stakeholders": [
+            "Alice Tran",
+            "NGIS Project Management Team",
+            "Site A End Users"
+          ]
+        },
+        {
+          "description": "Legacy GPO Migration Complexity: Consolidating 47 legacy GPOs from different sites (B and C) into Site A carries a risk of unforeseen policy conflicts or 'ghost' settings that may not have been captured in the manual review.",
+          "category": "technical",
+          "likelihood": 3,
+          "impact": 4,
+          "evidence_excerpt": "I've reviewed the 47 legacy GPOs from Sites B and C. 23 are duplicates that can be deleted. 24 unique GPOs will be migrated.",
+          "affected_stakeholders": [
+            "Bob Morrison",
+            "Dave Chen",
+            "Site A End Users",
+            "Security Operations"
+          ]
+        },
+        {
+          "description": "Patching Gap: Servers were patched as of March 1. If the migration occurs on March 18, there is a risk of 'Patch Tuesday' (typically the second Tuesday of the month, March 10) introducing new critical vulnerabilities or required updates that haven't been applied or tested.",
+          "category": "compliance",
+          "likelihood": 3,
+          "impact": 2,
+          "evidence_excerpt": "Windows Server patching is complete (all critical patches as of March 1 applied).",
+          "affected_stakeholders": [
+            "Bob Morrison",
+            "Dave Chen",
+            "Security Operations"
+          ]
+        },
+        {
+          "description": "Single Point of Failure in Review: The migration script and security compliance review were performed by a single individual (Dave Chen). This represents a resource/knowledge silo risk if the script fails during production.",
+          "category": "resource",
+          "likelihood": 2,
+          "impact": 3,
+          "evidence_excerpt": "The migration script is ready and has been reviewed by Dave Chen for security policy compliance.",
+          "affected_stakeholders": [
+            "Dave Chen",
+            "Bob Morrison",
+            "NGIS Project Management Team"
+          ]
+        },
+        {
+          "description": "Rollback Downtime: While the rollback procedure is tested, a 45-minute rollback time plus the time taken to identify a failure could exceed the maintenance window, leading to service outages for Site A.",
+          "category": "technical",
+          "likelihood": 2,
+          "impact": 4,
+          "evidence_excerpt": "estimated rollback time is 45 minutes from Go-Live.",
+          "affected_stakeholders": [
+            "Site A End Users",
+            "Alice Tran",
+            "Technical Support Desk"
+          ]
+        },
+        {
+          "description": "Environment Disparity: Schema extensions were successful in 'test,' but production environments often have latent metadata or lingering objects not present in test, which can cause schema failures during the promotion to staging/production.",
+          "category": "technical",
+          "likelihood": 2,
+          "impact": 5,
+          "evidence_excerpt": "The AD schema extension ran successfully in the test environment last night... Ready to promote to staging this weekend.",
+          "affected_stakeholders": [
+            "Bob Morrison",
+            "Alice Tran",
+            "NGIS Project Management Team"
+          ]
+        }
+      ],
+      "error": null
+    }
+  ]
+}

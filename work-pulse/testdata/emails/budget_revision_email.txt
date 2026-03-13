@@ -1,0 +1,40 @@
+From: carol.nguyen@ssc-spc.gc.ca
+To: director.it-projects@ssc-spc.gc.ca
+Cc: bob.morrison@ssc-spc.gc.ca; finance-review@ssc-spc.gc.ca
+Subject: ACTION REQUIRED: GC-Cloud Wave 4 — Budget Revision Request
+Date: Tue, 3 Mar 2026 14:22:08 -0500
+
+Director Okafor,
+
+I am writing to formally request approval for a budget revision to the
+GC-Cloud Wave 4 migration project (Project ID: GCCLOUD-W4-2026).
+
+Background:
+Following the infrastructure assessment completed on February 25, our
+technical team has identified that the original cost estimate did not
+account for legacy middleware remediation required before workload
+migration. The remediation effort adds approximately $340,000 to the
+projected cost, bringing the revised total to $2,740,000 (original
+approved budget: $2,400,000).
+
+The remediation is non-optional — without it, we risk data integrity
+failures during the cloud migration cutover, which would trigger a
+mandatory rollback and further delay the Q3 2026 target.
+
+Action Required:
+1. Please review and approve the attached Revised Budget Proposal
+   (GC-Cloud-W4-Budget-Rev2.pdf) by March 10, 2026 so we can proceed
+   with the Treasury Board amendment request.
+
+2. Once approved, our team will submit the updated Business Case and
+   amended project charter to Treasury Board Secretariat no later than
+   March 15, 2026.
+
+I am available for a call this week to discuss. Please advise on your
+availability.
+
+Respectfully,
+Carol Nguyen, PMP
+Project Manager, Cloud Migration Portfolio
+Shared Services Canada
+carol.nguyen@ssc-spc.gc.ca | 613-555-0247

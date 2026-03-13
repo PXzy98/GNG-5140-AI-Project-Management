@@ -1,0 +1,126 @@
+{
+  "test_id": "ING-01",
+  "test_name": "Plain text ingestion + storage",
+  "method": "llm_large_full",
+  "passed": true,
+  "score": "10/10",
+  "details": "id=art_8bbaf57792 words=246 hash=ac526da6",
+  "error": null,
+  "latency_ms": 7268.985400005477,
+  "artifact": {
+    "artifact_id": "art_8bbaf57792",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 246,
+    "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+    "extracted_tasks": [
+      {
+        "task_id": "art_8bbaf57792_t001",
+        "text": "Let Jason Henderson know how TechSupplier can best support planning activities during this disruption",
+        "owner": "Alice Tran",
+        "deadline": null,
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Please let me know how we can best support your planning activities during this disruption.",
+        "confidence": 0.95
+      },
+      {
+        "task_id": "art_8bbaf57792_t002",
+        "text": "Confirm the delivery timeline for the Catalyst switches; equipment needed on site no later than March 6 for staging and testing",
+        "owner": "Jason Henderson",
+        "deadline": "2026-03-06",
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "can you please confirm the delivery timeline for the Catalyst switches? Our migration window opens March 8 and we need the equipment on site no later ",
+        "confidence": 0.95
+      },
+      {
+        "task_id": "art_8bbaf57792_t003",
+        "text": "Expedite the shipment of Cisco Catalyst 9500 switches to the Gatineau facility; revised estimated delivery date is March 20, 2026",
+        "owner": "Jason Henderson",
+        "deadline": "2026-03-20",
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "Our team is working around the clock to expedite the shipment. The revised estimated delivery date is March 20, 2026.",
+        "confidence": 0.95
+      },
+      {
+        "task_id": "art_8bbaf57792_t004",
+        "text": "Assess impact of 2-week delivery delay on Q2 migration timeline and determine whether alternative routing via Vancouver depot is acceptable despite additional 3\u20135 business days",
+        "owner": "Alice Tran",
+        "deadline": null,
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "I understand this creates significant pressure on your Q2 migration timeline... alternative routing via our Vancouver depot would add a further 3\u20135 bu",
+        "confidence": 0.95
+      }
+    ],
+    "metadata": {
+      "sender": "j.henderson@techsupplier.ca",
+      "recipients": [
+        "alice.tran@ssc-spc.gc.ca"
+      ],
+      "cc": [
+        "bob.morrison@ssc-spc.gc.ca",
+        "ngis-pm@ssc-spc.gc.ca"
+      ],
+      "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+      "date": "2026-03-02"
+    }
+  },
+  "llm_calls": [
+    {
+      "tier": "large",
+      "model": "anthropic/claude-sonnet-4.6",
+      "latency_ms": 7262.2,
+      "content": "```json\n{\n  \"artifact_type\": \"email\",\n  \"language\": \"en\",\n  \"metadata\": {\n    \"sender\": \"j.henderson@techsupplier.ca\",\n    \"recipients\": [\n      \"alice.tran@ssc-spc.gc.ca\"\n    ],\n    \"cc\": [\n      \"bob.morrison@ssc-spc.gc.ca\",\n      \"ngis-pm@ssc-spc.gc.ca\"\n    ],\n    \"subject\": \"RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\",\n    \"date\": \"2026-03-02\"\n  },\n  \"action_items\": [\n    {\n      \"text\": \"Let Jason Henderson know how TechSupplier can best support planning activities during this disruption\",\n      \"owner\": \"Alice Tran\",\n      \"deadline\": null,\n      \"priority\": \"high\",\n      \"source_excerpt\": \"Please let me know how we can best support your planning activities during this disruption.\"\n    },\n    {\n      \"text\": \"Confirm the delivery timeline for the Catalyst switches; equipment needed on site no later than March 6 for staging and testing\",\n      \"owner\": \"Jason Henderson\",\n      \"deadline\": \"2026-03-06\",\n      \"priority\": \"critical\",\n      \"source_excerpt\": \"can you please confirm the delivery timeline for the Catalyst switches? Our migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing.\"\n    },\n    {\n      \"text\": \"Expedite the shipment of Cisco Catalyst 9500 switches to the Gatineau facility; revised estimated delivery date is March 20, 2026\",\n      \"owner\": \"Jason Henderson\",\n      \"deadline\": \"2026-03-20\",\n      \"priority\": \"critical\",\n      \"source_excerpt\": \"Our team is working around the clock to expedite the shipment. The revised estimated delivery date is March 20, 2026.\"\n    },\n    {\n      \"text\": \"Assess impact of 2-week delivery delay on Q2 migration timeline and determine whether alternative routing via Vancouver depot is acceptable despite additional 3\u20135 business days\",\n      \"owner\": \"Alice Tran\",\n      \"deadline\": null,\n      \"priority\": \"high\",\n      \"source_excerpt\": \"I understand this creates significant pressure on your Q2 migration timeline... alternative routing via our Vancouver depot would add a further 3\u20135 business days.\"\n    }\n  ]\n}\n```",
+      "parsed_json": {
+        "artifact_type": "email",
+        "language": "en",
+        "metadata": {
+          "sender": "j.henderson@techsupplier.ca",
+          "recipients": [
+            "alice.tran@ssc-spc.gc.ca"
+          ],
+          "cc": [
+            "bob.morrison@ssc-spc.gc.ca",
+            "ngis-pm@ssc-spc.gc.ca"
+          ],
+          "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+          "date": "2026-03-02"
+        },
+        "action_items": [
+          {
+            "text": "Let Jason Henderson know how TechSupplier can best support planning activities during this disruption",
+            "owner": "Alice Tran",
+            "deadline": null,
+            "priority": "high",
+            "source_excerpt": "Please let me know how we can best support your planning activities during this disruption."
+          },
+          {
+            "text": "Confirm the delivery timeline for the Catalyst switches; equipment needed on site no later than March 6 for staging and testing",
+            "owner": "Jason Henderson",
+            "deadline": "2026-03-06",
+            "priority": "critical",
+            "source_excerpt": "can you please confirm the delivery timeline for the Catalyst switches? Our migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing."
+          },
+          {
+            "text": "Expedite the shipment of Cisco Catalyst 9500 switches to the Gatineau facility; revised estimated delivery date is March 20, 2026",
+            "owner": "Jason Henderson",
+            "deadline": "2026-03-20",
+            "priority": "critical",
+            "source_excerpt": "Our team is working around the clock to expedite the shipment. The revised estimated delivery date is March 20, 2026."
+          },
+          {
+            "text": "Assess impact of 2-week delivery delay on Q2 migration timeline and determine whether alternative routing via Vancouver depot is acceptable despite additional 3\u20135 business days",
+            "owner": "Alice Tran",
+            "deadline": null,
+            "priority": "high",
+            "source_excerpt": "I understand this creates significant pressure on your Q2 migration timeline... alternative routing via our Vancouver depot would add a further 3\u20135 business days."
+          }
+        ]
+      },
+      "error": null
+    }
+  ]
+}

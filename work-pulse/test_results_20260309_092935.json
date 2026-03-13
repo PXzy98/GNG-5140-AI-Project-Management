@@ -1,0 +1,2789 @@
+{
+  "timestamp": "20260309_092935",
+  "total_tests": 30,
+  "passed": 28,
+  "failed": 2,
+  "errors": 0,
+  "scores": {
+    "by_module": {
+      "ingestion": {
+        "llm_local": 118.7,
+        "llm_local_full": 120.1
+      },
+      "risk": {},
+      "priority": {},
+      "drift": {}
+    },
+    "by_method": {
+      "llm_local": 118.7,
+      "llm_local_full": 120.1
+    },
+    "total_possible": {
+      "ingestion": 121,
+      "risk": 104,
+      "priority": 97,
+      "drift": 104
+    },
+    "avg_latency_ms": {
+      "ingestion": {
+        "llm_local": 4837.5,
+        "llm_local_full": 3863.1
+      },
+      "risk": {},
+      "priority": {},
+      "drift": {}
+    }
+  },
+  "results": [
+    {
+      "test_id": "ING-01",
+      "test_name": "Plain text ingestion + storage",
+      "module": "ingestion",
+      "method": "llm_local",
+      "max_score": 10,
+      "earned_score": 10,
+      "passed": true,
+      "details": "id=art_d0694cefb7 words=246 hash=ac526da6",
+      "latency_ms": 17281.620300011127,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_d0694cefb7",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 246,
+          "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+          "extracted_tasks": [
+            {
+              "task_id": "art_d0694cefb7_t001",
+              "text": "Contact to discuss how TechSupplier can best support planning activities during this disruption",
+              "owner": null,
+              "deadline": null,
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Please let me know how we can best support your planning activities during this disruption.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_d0694cefb7_t002",
+              "text": "Confirm the delivery timeline for the Catalyst switches",
+              "owner": "Jason Henderson",
+              "deadline": null,
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Jason, can you please confirm the delivery timeline for the Catalyst switches?",
+              "confidence": 0.9
+            }
+          ],
+          "metadata": {
+            "sender": "j.henderson@techsupplier.ca",
+            "recipients": "alice.tran@ssc-spc.gc.ca",
+            "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+            "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+          }
+        },
+        "llm_calls": [
+          {
+            "tier": "local",
+            "model": "qwen3.5:35b",
+            "latency_ms": 17096.2,
+            "content": "[\n  {\n    \"text\": \"Contact to discuss how TechSupplier can best support planning activities during this disruption\",\n    \"owner\": null,\n    \"deadline\": null,\n    \"priority\": \"high\",\n    \"source_excerpt\": \"Please let me know how we can best support your planning activities during this disruption.\"\n  },\n  {\n    \"text\": \"Confirm the delivery timeline for the Catalyst switches\",\n    \"owner\": \"Jason Henderson\",\n    \"deadline\": null,\n    \"priority\": \"high\",\n    \"source_excerpt\": \"Jason, can you please confirm the delivery timeline for the Catalyst switches?\"\n  }\n]",
+            "parsed_json": [
+              {
+                "text": "Contact to discuss how TechSupplier can best support planning activities during this disruption",
+                "owner": null,
+                "deadline": null,
+                "priority": "high",
+                "source_excerpt": "Please let me know how we can best support your planning activities during this disruption."
+              },
+              {
+                "text": "Confirm the delivery timeline for the Catalyst switches",
+                "owner": "Jason Henderson",
+                "deadline": null,
+                "priority": "high",
+                "source_excerpt": "Jason, can you please confirm the delivery timeline for the Catalyst switches?"
+              }
+            ],
+            "error": null
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-01",
+      "test_name": "Plain text ingestion + storage",
+      "module": "ingestion",
+      "method": "llm_local_full",
+      "max_score": 10,
+      "earned_score": 10,
+      "passed": true,
+      "details": "id=art_28606a2c73 words=246 hash=ac526da6",
+      "latency_ms": 3564.026099993498,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_28606a2c73",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 246,
+          "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+          "extracted_tasks": [],
+          "metadata": {
+            "sender": "j.henderson@techsupplier.ca",
+            "recipients": [
+              "alice.tran@ssc-spc.gc.ca"
+            ],
+            "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+            "date": "2026-03-02"
+          }
+        },
+        "llm_calls": [
+          {
+            "tier": "local",
+            "model": "qwen3.5:35b",
+            "latency_ms": 3554.6,
+            "content": "{\n  \"artifact_type\": \"email\",\n  \"language\": \"en\",\n  \"metadata\": {\n    \"sender\": \"j.henderson@techsupplier.ca\",\n    \"recipients\": [\n      \"alice.tran@ssc-spc.gc.ca\"\n    ],\n    \"subject\": \"RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\",\n    \"date\": \"2026-03-02\"\n  },\n  \"action_items\": []\n}",
+            "parsed_json": {
+              "artifact_type": "email",
+              "language": "en",
+              "metadata": {
+                "sender": "j.henderson@techsupplier.ca",
+                "recipients": [
+                  "alice.tran@ssc-spc.gc.ca"
+                ],
+                "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+                "date": "2026-03-02"
+              },
+              "action_items": []
+            },
+            "error": null
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-02",
+      "test_name": "Email format detection",
+      "module": "ingestion",
+      "method": "llm_local",
+      "max_score": 8,
+      "earned_score": 8,
+      "passed": true,
+      "details": "detected=email",
+      "latency_ms": 7.953100008307956,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_d0694cefb7",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 246,
+          "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+          "extracted_tasks": [
+            {
+              "task_id": "art_d0694cefb7_t001",
+              "text": "Contact to discuss how TechSupplier can best support planning activities during this disruption",
+              "owner": null,
+              "deadline": null,
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Please let me know how we can best support your planning activities during this disruption.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_d0694cefb7_t002",
+              "text": "Confirm the delivery timeline for the Catalyst switches",
+              "owner": "Jason Henderson",
+              "deadline": null,
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Jason, can you please confirm the delivery timeline for the Catalyst switches?",
+              "confidence": 0.9
+            }
+          ],
+          "metadata": {
+            "sender": "j.henderson@techsupplier.ca",
+            "recipients": "alice.tran@ssc-spc.gc.ca",
+            "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+            "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+          }
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-02",
+      "test_name": "Email format detection",
+      "module": "ingestion",
+      "method": "llm_local_full",
+      "max_score": 8,
+      "earned_score": 8,
+      "passed": true,
+      "details": "detected=email",
+      "latency_ms": 6.508100006612949,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_28606a2c73",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 246,
+          "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+          "extracted_tasks": [],
+          "metadata": {
+            "sender": "j.henderson@techsupplier.ca",
+            "recipients": [
+              "alice.tran@ssc-spc.gc.ca"
+            ],
+            "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+            "date": "2026-03-02"
+          }
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-03",
+      "test_name": "Meeting minutes format detection",
+      "module": "ingestion",
+      "method": "llm_local",
+      "max_score": 8,
+      "earned_score": 8,
+      "passed": true,
+      "details": "detected=meeting_minutes",
+      "latency_ms": 16549.722100011422,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_e005febfa2",
+          "artifact_type": "meeting_minutes",
+          "detected_language": "en",
+          "word_count": 446,
+          "content_preview": "NGIS PHASE 3 \u2014 SPRINT REVIEW MEETING MINUTES\nMeeting Date: March 3, 2026\nTime: 13:00\u201314:30 EST\nLocation: WebEx / Room 4C-12, Place du Portage III, Gatineau\n\nAttendees:\n- Alice Tran (Project Manager) \u2014 Chair\n- Bob Morrison (Technical Lead)\n- Carol Nguyen (Infrastructure Architect)\n- Dave Chen (Security Specialist)\n- Marie Lefebvre (Change Management)\n- Farida Osei (QA Lead)\n\nRegrets: Director Okafor (represented by Alice Tran)\n\n---\n\n1. SPRINT 6 REVIEW (Feb 17 \u2013 Mar 3, 2026)\n\nCompleted Items:\n- AD",
+          "extracted_tasks": [
+            {
+              "task_id": "art_e005febfa2_t001",
+              "text": "Contact TechSupplier Account Manager for revised delivery commitment in writing",
+              "owner": "Alice Tran",
+              "deadline": "2026-03-05",
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "AI-001: Alice Tran to contact TechSupplier Account Manager for revised delivery commitment in writing. Deadline: March 5, 2026.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t002",
+              "text": "Complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen",
+              "owner": "Bob Morrison",
+              "deadline": "2026-03-17",
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "AI-002: Bob Morrison to complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen. Deadline: March 17, 2026.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t003",
+              "text": "Prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office",
+              "owner": "Dave Chen",
+              "deadline": "2026-03-12",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "AI-003: Dave Chen to prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office. Deadline: March 12, 2026.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t004",
+              "text": "Complete and distribute UAT test plan to all stakeholders for review",
+              "owner": "Farida Osei",
+              "deadline": "2026-03-10",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "AI-004: Farida Osei to complete and distribute UAT test plan to all stakeholders for review. Deadline: March 10, 2026.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t005",
+              "text": "Conduct impact assessment on Site A cutover timeline given vendor delay. Present findings to steering committee",
+              "owner": "Carol Nguyen",
+              "deadline": "2026-03-07",
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "AI-005: Carol Nguyen to conduct impact assessment on Site A cutover timeline given vendor delay. Present findings to steering committee. Deadline: Mar",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t006",
+              "text": "Assess refactoring effort for migration script relying on deprecated legacy-sync API endpoint",
+              "owner": "Bob Morrison",
+              "deadline": null,
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "d) Technical Dependency: The current migration script relies on the deprecated \"legacy-sync\" API endpoint scheduled for decommission on April 1. Bob t",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t007",
+              "text": "Initiate knowledge transfer plan immediately given Bob Morrison's role as sole AD migration expert",
+              "owner": null,
+              "deadline": null,
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "c) Resource Risk: Bob Morrison has indicated he is exploring external opportunities and may be leaving SSC within 60 days. Knowledge transfer plan mus",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t008",
+              "text": "Notify HR regarding Bob Morrison's potential departure",
+              "owner": null,
+              "deadline": null,
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "c) Resource Risk: ... Knowledge transfer plan must be initiated immediately given his role as the sole AD migration expert. HR to be notified.",
+              "confidence": 0.9
+            }
+          ],
+          "metadata": {
+            "attendees": [
+              "- Alice Tran (Project Manager) \u2014 Chair",
+              "- Bob Morrison (Technical Lead)",
+              "- Carol Nguyen (Infrastructure Architect)",
+              "- Dave Chen (Security Specialist)",
+              "- Marie Lefebvre (Change Management)",
+              "- Farida Osei (QA Lead)"
+            ]
+          }
+        },
+        "llm_calls": [
+          {
+            "tier": "local",
+            "model": "qwen3.5:35b",
+            "latency_ms": 16536.4,
+            "content": "[\n  {\n    \"text\": \"Contact TechSupplier Account Manager for revised delivery commitment in writing\",\n    \"owner\": \"Alice Tran\",\n    \"deadline\": \"2026-03-05\",\n    \"priority\": \"critical\",\n    \"source_excerpt\": \"AI-001: Alice Tran to contact TechSupplier Account Manager for revised delivery commitment in writing. Deadline: March 5, 2026.\"\n  },\n  {\n    \"text\": \"Complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen\",\n    \"owner\": \"Bob Morrison\",\n    \"deadline\": \"2026-03-17\",\n    \"priority\": \"critical\",\n    \"source_excerpt\": \"AI-002: Bob Morrison to complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen. Deadline: March 17, 2026.\"\n  },\n  {\n    \"text\": \"Prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office\",\n    \"owner\": \"Dave Chen\",\n    \"deadline\": \"2026-03-12\",\n    \"priority\": \"high\",\n    \"source_excerpt\": \"AI-003: Dave Chen to prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office. Deadline: March 12, 2026.\"\n  },\n  {\n    \"text\": \"Complete and distribute UAT test plan to all stakeholders for review\",\n    \"owner\": \"Farida Osei\",\n    \"deadline\": \"2026-03-10\",\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"AI-004: Farida Osei to complete and distribute UAT test plan to all stakeholders for review. Deadline: March 10, 2026.\"\n  },\n  {\n    \"text\": \"Conduct impact assessment on Site A cutover timeline given vendor delay. Present findings to steering committee\",\n    \"owner\": \"Carol Nguyen\",\n    \"deadline\": \"2026-03-07\",\n    \"priority\": \"critical\",\n    \"source_excerpt\": \"AI-005: Carol Nguyen to conduct impact assessment on Site A cutover timeline given vendor delay. Present findings to steering committee. Deadline: March 7, 2026.\"\n  },\n  {\n    \"text\": \"Assess refactoring effort for migration script relying on deprecated legacy-sync API endpoint\",\n    \"owner\": \"Bob Morrison\",\n    \"deadline\": null,\n    \"priority\": \"high\",\n    \"source_excerpt\": \"d) Technical Dependency: The current migration script relies on the deprecated \\\"legacy-sync\\\" API endpoint scheduled for decommission on April 1. Bob to assess refactoring effort.\"\n  },\n  {\n    \"text\": \"Initiate knowledge transfer plan immediately given Bob Morrison's role as sole AD migration expert\",\n    \"owner\": null,\n    \"deadline\": null,\n    \"priority\": \"critical\",\n    \"source_excerpt\": \"c) Resource Risk: Bob Morrison has indicated he is exploring external opportunities and may be leaving SSC within 60 days. Knowledge transfer plan must be initiated immediately given his role as the sole AD migration expert.\"\n  },\n  {\n    \"text\": \"Notify HR regarding Bob Morrison's potential departure\",\n    \"owner\": null,\n    \"deadline\": null,\n    \"priority\": \"critical\",\n    \"source_excerpt\": \"c) Resource Risk: ... Knowledge transfer plan must be initiated immediately given his role as the sole AD migration expert. HR to be notified.\"\n  }\n]",
+            "parsed_json": [
+              {
+                "text": "Contact TechSupplier Account Manager for revised delivery commitment in writing",
+                "owner": "Alice Tran",
+                "deadline": "2026-03-05",
+                "priority": "critical",
+                "source_excerpt": "AI-001: Alice Tran to contact TechSupplier Account Manager for revised delivery commitment in writing. Deadline: March 5, 2026."
+              },
+              {
+                "text": "Complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen",
+                "owner": "Bob Morrison",
+                "deadline": "2026-03-17",
+                "priority": "critical",
+                "source_excerpt": "AI-002: Bob Morrison to complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen. Deadline: March 17, 2026."
+              },
+              {
+                "text": "Prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office",
+                "owner": "Dave Chen",
+                "deadline": "2026-03-12",
+                "priority": "high",
+                "source_excerpt": "AI-003: Dave Chen to prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office. Deadline: March 12, 2026."
+              },
+              {
+                "text": "Complete and distribute UAT test plan to all stakeholders for review",
+                "owner": "Farida Osei",
+                "deadline": "2026-03-10",
+                "priority": "medium",
+                "source_excerpt": "AI-004: Farida Osei to complete and distribute UAT test plan to all stakeholders for review. Deadline: March 10, 2026."
+              },
+              {
+                "text": "Conduct impact assessment on Site A cutover timeline given vendor delay. Present findings to steering committee",
+                "owner": "Carol Nguyen",
+                "deadline": "2026-03-07",
+                "priority": "critical",
+                "source_excerpt": "AI-005: Carol Nguyen to conduct impact assessment on Site A cutover timeline given vendor delay. Present findings to steering committee. Deadline: March 7, 2026."
+              },
+              {
+                "text": "Assess refactoring effort for migration script relying on deprecated legacy-sync API endpoint",
+                "owner": "Bob Morrison",
+                "deadline": null,
+                "priority": "high",
+                "source_excerpt": "d) Technical Dependency: The current migration script relies on the deprecated \"legacy-sync\" API endpoint scheduled for decommission on April 1. Bob to assess refactoring effort."
+              },
+              {
+                "text": "Initiate knowledge transfer plan immediately given Bob Morrison's role as sole AD migration expert",
+                "owner": null,
+                "deadline": null,
+                "priority": "critical",
+                "source_excerpt": "c) Resource Risk: Bob Morrison has indicated he is exploring external opportunities and may be leaving SSC within 60 days. Knowledge transfer plan must be initiated immediately given his role as the sole AD migration expert."
+              },
+              {
+                "text": "Notify HR regarding Bob Morrison's potential departure",
+                "owner": null,
+                "deadline": null,
+                "priority": "critical",
+                "source_excerpt": "c) Resource Risk: ... Knowledge transfer plan must be initiated immediately given his role as the sole AD migration expert. HR to be notified."
+              }
+            ],
+            "error": null
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-03",
+      "test_name": "Meeting minutes format detection",
+      "module": "ingestion",
+      "method": "llm_local_full",
+      "max_score": 8,
+      "earned_score": 8,
+      "passed": true,
+      "details": "detected=meeting_minutes",
+      "latency_ms": 12700.01190000039,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_f3f660b27c",
+          "artifact_type": "meeting_minutes",
+          "detected_language": "en",
+          "word_count": 446,
+          "content_preview": "NGIS PHASE 3 \u2014 SPRINT REVIEW MEETING MINUTES\nMeeting Date: March 3, 2026\nTime: 13:00\u201314:30 EST\nLocation: WebEx / Room 4C-12, Place du Portage III, Gatineau\n\nAttendees:\n- Alice Tran (Project Manager) \u2014 Chair\n- Bob Morrison (Technical Lead)\n- Carol Nguyen (Infrastructure Architect)\n- Dave Chen (Security Specialist)\n- Marie Lefebvre (Change Management)\n- Farida Osei (QA Lead)\n\nRegrets: Director Okafor (represented by Alice Tran)\n\n---\n\n1. SPRINT 6 REVIEW (Feb 17 \u2013 Mar 3, 2026)\n\nCompleted Items:\n- AD",
+          "extracted_tasks": [
+            {
+              "task_id": "art_f3f660b27c_t001",
+              "text": "assess impact on Site A cutover",
+              "owner": "Carol Nguyen",
+              "deadline": "2026-03-07",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Carol to assess impact on Site A cutover",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_f3f660b27c_t002",
+              "text": "contact TechSupplier Account Manager for revised delivery commitment in writing",
+              "owner": "Alice Tran",
+              "deadline": "2026-03-05",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Alice Tran to contact TechSupplier Account Manager for revised delivery commitment in writing",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_f3f660b27c_t003",
+              "text": "complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen",
+              "owner": "Bob Morrison",
+              "deadline": "2026-03-17",
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "Bob Morrison to complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_f3f660b27c_t004",
+              "text": "prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office",
+              "owner": "Dave Chen",
+              "deadline": "2026-03-12",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Dave Chen to prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_f3f660b27c_t005",
+              "text": "complete and distribute UAT test plan to all stakeholders for review",
+              "owner": "Farida Osei",
+              "deadline": "2026-03-10",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Farida Osei to complete and distribute UAT test plan to all stakeholders for review",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_f3f660b27c_t006",
+              "text": "assess refactoring effort",
+              "owner": "Bob Morrison",
+              "deadline": null,
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Bob to assess refactoring effort",
+              "confidence": 0.95
+            }
+          ],
+          "metadata": {
+            "attendees": [
+              "Alice Tran",
+              "Bob Morrison",
+              "Carol Nguyen",
+              "Dave Chen",
+              "Marie Lefebvre",
+              "Farida Osei"
+            ],
+            "date": "2026-03-03"
+          }
+        },
+        "llm_calls": [
+          {
+            "tier": "local",
+            "model": "qwen3.5:35b",
+            "latency_ms": 12687.5,
+            "content": "{\n  \"artifact_type\": \"meeting_minutes\",\n  \"language\": \"en\",\n  \"metadata\": {\n    \"attendees\": [\n      \"Alice Tran\",\n      \"Bob Morrison\",\n      \"Carol Nguyen\",\n      \"Dave Chen\",\n      \"Marie Lefebvre\",\n      \"Farida Osei\"\n    ],\n    \"date\": \"2026-03-03\"\n  },\n  \"action_items\": [\n    {\n      \"text\": \"assess impact on Site A cutover\",\n      \"owner\": \"Carol Nguyen\",\n      \"deadline\": \"2026-03-07\",\n      \"priority\": \"high\",\n      \"source_excerpt\": \"Carol to assess impact on Site A cutover\"\n    },\n    {\n      \"text\": \"contact TechSupplier Account Manager for revised delivery commitment in writing\",\n      \"owner\": \"Alice Tran\",\n      \"deadline\": \"2026-03-05\",\n      \"priority\": \"high\",\n      \"source_excerpt\": \"Alice Tran to contact TechSupplier Account Manager for revised delivery commitment in writing\"\n    },\n    {\n      \"text\": \"complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen\",\n      \"owner\": \"Bob Morrison\",\n      \"deadline\": \"2026-03-17\",\n      \"priority\": \"critical\",\n      \"source_excerpt\": \"Bob Morrison to complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen\"\n    },\n    {\n      \"text\": \"prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office\",\n      \"owner\": \"Dave Chen\",\n      \"deadline\": \"2026-03-12\",\n      \"priority\": \"high\",\n      \"source_excerpt\": \"Dave Chen to prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office\"\n    },\n    {\n      \"text\": \"complete and distribute UAT test plan to all stakeholders for review\",\n      \"owner\": \"Farida Osei\",\n      \"deadline\": \"2026-03-10\",\n      \"priority\": \"medium\",\n      \"source_excerpt\": \"Farida Osei to complete and distribute UAT test plan to all stakeholders for review\"\n    },\n    {\n      \"text\": \"assess refactoring effort\",\n      \"owner\": \"Bob Morrison\",\n      \"deadline\": null,\n      \"priority\": \"high\",\n      \"source_excerpt\": \"Bob to assess refactoring effort\"\n    }\n  ]\n}",
+            "parsed_json": {
+              "artifact_type": "meeting_minutes",
+              "language": "en",
+              "metadata": {
+                "attendees": [
+                  "Alice Tran",
+                  "Bob Morrison",
+                  "Carol Nguyen",
+                  "Dave Chen",
+                  "Marie Lefebvre",
+                  "Farida Osei"
+                ],
+                "date": "2026-03-03"
+              },
+              "action_items": [
+                {
+                  "text": "assess impact on Site A cutover",
+                  "owner": "Carol Nguyen",
+                  "deadline": "2026-03-07",
+                  "priority": "high",
+                  "source_excerpt": "Carol to assess impact on Site A cutover"
+                },
+                {
+                  "text": "contact TechSupplier Account Manager for revised delivery commitment in writing",
+                  "owner": "Alice Tran",
+                  "deadline": "2026-03-05",
+                  "priority": "high",
+                  "source_excerpt": "Alice Tran to contact TechSupplier Account Manager for revised delivery commitment in writing"
+                },
+                {
+                  "text": "complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen",
+                  "owner": "Bob Morrison",
+                  "deadline": "2026-03-17",
+                  "priority": "critical",
+                  "source_excerpt": "Bob Morrison to complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen"
+                },
+                {
+                  "text": "prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office",
+                  "owner": "Dave Chen",
+                  "deadline": "2026-03-12",
+                  "priority": "high",
+                  "source_excerpt": "Dave Chen to prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office"
+                },
+                {
+                  "text": "complete and distribute UAT test plan to all stakeholders for review",
+                  "owner": "Farida Osei",
+                  "deadline": "2026-03-10",
+                  "priority": "medium",
+                  "source_excerpt": "Farida Osei to complete and distribute UAT test plan to all stakeholders for review"
+                },
+                {
+                  "text": "assess refactoring effort",
+                  "owner": "Bob Morrison",
+                  "deadline": null,
+                  "priority": "high",
+                  "source_excerpt": "Bob to assess refactoring effort"
+                }
+              ]
+            },
+            "error": null
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-04",
+      "test_name": "Action item extraction accuracy",
+      "module": "ingestion",
+      "method": "llm_local",
+      "max_score": 10,
+      "earned_score": 7.7,
+      "passed": false,
+      "details": "F1=0.62 recall=0.80 pred=8 gt=5",
+      "latency_ms": 10.704600004828535,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_e005febfa2",
+          "artifact_type": "meeting_minutes",
+          "detected_language": "en",
+          "word_count": 446,
+          "content_preview": "NGIS PHASE 3 \u2014 SPRINT REVIEW MEETING MINUTES\nMeeting Date: March 3, 2026\nTime: 13:00\u201314:30 EST\nLocation: WebEx / Room 4C-12, Place du Portage III, Gatineau\n\nAttendees:\n- Alice Tran (Project Manager) \u2014 Chair\n- Bob Morrison (Technical Lead)\n- Carol Nguyen (Infrastructure Architect)\n- Dave Chen (Security Specialist)\n- Marie Lefebvre (Change Management)\n- Farida Osei (QA Lead)\n\nRegrets: Director Okafor (represented by Alice Tran)\n\n---\n\n1. SPRINT 6 REVIEW (Feb 17 \u2013 Mar 3, 2026)\n\nCompleted Items:\n- AD",
+          "extracted_tasks": [
+            {
+              "task_id": "art_e005febfa2_t001",
+              "text": "Contact TechSupplier Account Manager for revised delivery commitment in writing",
+              "owner": "Alice Tran",
+              "deadline": "2026-03-05",
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "AI-001: Alice Tran to contact TechSupplier Account Manager for revised delivery commitment in writing. Deadline: March 5, 2026.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t002",
+              "text": "Complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen",
+              "owner": "Bob Morrison",
+              "deadline": "2026-03-17",
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "AI-002: Bob Morrison to complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen. Deadline: March 17, 2026.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t003",
+              "text": "Prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office",
+              "owner": "Dave Chen",
+              "deadline": "2026-03-12",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "AI-003: Dave Chen to prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office. Deadline: March 12, 2026.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t004",
+              "text": "Complete and distribute UAT test plan to all stakeholders for review",
+              "owner": "Farida Osei",
+              "deadline": "2026-03-10",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "AI-004: Farida Osei to complete and distribute UAT test plan to all stakeholders for review. Deadline: March 10, 2026.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t005",
+              "text": "Conduct impact assessment on Site A cutover timeline given vendor delay. Present findings to steering committee",
+              "owner": "Carol Nguyen",
+              "deadline": "2026-03-07",
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "AI-005: Carol Nguyen to conduct impact assessment on Site A cutover timeline given vendor delay. Present findings to steering committee. Deadline: Mar",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t006",
+              "text": "Assess refactoring effort for migration script relying on deprecated legacy-sync API endpoint",
+              "owner": "Bob Morrison",
+              "deadline": null,
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "d) Technical Dependency: The current migration script relies on the deprecated \"legacy-sync\" API endpoint scheduled for decommission on April 1. Bob t",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t007",
+              "text": "Initiate knowledge transfer plan immediately given Bob Morrison's role as sole AD migration expert",
+              "owner": null,
+              "deadline": null,
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "c) Resource Risk: Bob Morrison has indicated he is exploring external opportunities and may be leaving SSC within 60 days. Knowledge transfer plan mus",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t008",
+              "text": "Notify HR regarding Bob Morrison's potential departure",
+              "owner": null,
+              "deadline": null,
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "c) Resource Risk: ... Knowledge transfer plan must be initiated immediately given his role as the sole AD migration expert. HR to be notified.",
+              "confidence": 0.9
+            }
+          ],
+          "metadata": {
+            "attendees": [
+              "- Alice Tran (Project Manager) \u2014 Chair",
+              "- Bob Morrison (Technical Lead)",
+              "- Carol Nguyen (Infrastructure Architect)",
+              "- Dave Chen (Security Specialist)",
+              "- Marie Lefebvre (Change Management)",
+              "- Farida Osei (QA Lead)"
+            ]
+          }
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-04",
+      "test_name": "Action item extraction accuracy",
+      "module": "ingestion",
+      "method": "llm_local_full",
+      "max_score": 10,
+      "earned_score": 9.1,
+      "passed": false,
+      "details": "F1=0.73 recall=0.80 pred=6 gt=5",
+      "latency_ms": 11.80979999480769,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_f3f660b27c",
+          "artifact_type": "meeting_minutes",
+          "detected_language": "en",
+          "word_count": 446,
+          "content_preview": "NGIS PHASE 3 \u2014 SPRINT REVIEW MEETING MINUTES\nMeeting Date: March 3, 2026\nTime: 13:00\u201314:30 EST\nLocation: WebEx / Room 4C-12, Place du Portage III, Gatineau\n\nAttendees:\n- Alice Tran (Project Manager) \u2014 Chair\n- Bob Morrison (Technical Lead)\n- Carol Nguyen (Infrastructure Architect)\n- Dave Chen (Security Specialist)\n- Marie Lefebvre (Change Management)\n- Farida Osei (QA Lead)\n\nRegrets: Director Okafor (represented by Alice Tran)\n\n---\n\n1. SPRINT 6 REVIEW (Feb 17 \u2013 Mar 3, 2026)\n\nCompleted Items:\n- AD",
+          "extracted_tasks": [
+            {
+              "task_id": "art_f3f660b27c_t001",
+              "text": "assess impact on Site A cutover",
+              "owner": "Carol Nguyen",
+              "deadline": "2026-03-07",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Carol to assess impact on Site A cutover",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_f3f660b27c_t002",
+              "text": "contact TechSupplier Account Manager for revised delivery commitment in writing",
+              "owner": "Alice Tran",
+              "deadline": "2026-03-05",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Alice Tran to contact TechSupplier Account Manager for revised delivery commitment in writing",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_f3f660b27c_t003",
+              "text": "complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen",
+              "owner": "Bob Morrison",
+              "deadline": "2026-03-17",
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "Bob Morrison to complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_f3f660b27c_t004",
+              "text": "prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office",
+              "owner": "Dave Chen",
+              "deadline": "2026-03-12",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Dave Chen to prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_f3f660b27c_t005",
+              "text": "complete and distribute UAT test plan to all stakeholders for review",
+              "owner": "Farida Osei",
+              "deadline": "2026-03-10",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Farida Osei to complete and distribute UAT test plan to all stakeholders for review",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_f3f660b27c_t006",
+              "text": "assess refactoring effort",
+              "owner": "Bob Morrison",
+              "deadline": null,
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Bob to assess refactoring effort",
+              "confidence": 0.95
+            }
+          ],
+          "metadata": {
+            "attendees": [
+              "Alice Tran",
+              "Bob Morrison",
+              "Carol Nguyen",
+              "Dave Chen",
+              "Marie Lefebvre",
+              "Farida Osei"
+            ],
+            "date": "2026-03-03"
+          }
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-05",
+      "test_name": "Deadline extraction accuracy",
+      "module": "ingestion",
+      "method": "llm_local",
+      "max_score": 9,
+      "earned_score": 9.0,
+      "passed": true,
+      "details": "F1=1.00 pred=['2026-03-05', '2026-03-17', '2026-03-12', '2026-03-10', '2026-03-07'] gt=['2026-03-05', '2026-03-17', '2026-03-12', '2026-03-10', '2026-03-07']",
+      "latency_ms": 10.037100000772625,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_e005febfa2",
+          "artifact_type": "meeting_minutes",
+          "detected_language": "en",
+          "word_count": 446,
+          "content_preview": "NGIS PHASE 3 \u2014 SPRINT REVIEW MEETING MINUTES\nMeeting Date: March 3, 2026\nTime: 13:00\u201314:30 EST\nLocation: WebEx / Room 4C-12, Place du Portage III, Gatineau\n\nAttendees:\n- Alice Tran (Project Manager) \u2014 Chair\n- Bob Morrison (Technical Lead)\n- Carol Nguyen (Infrastructure Architect)\n- Dave Chen (Security Specialist)\n- Marie Lefebvre (Change Management)\n- Farida Osei (QA Lead)\n\nRegrets: Director Okafor (represented by Alice Tran)\n\n---\n\n1. SPRINT 6 REVIEW (Feb 17 \u2013 Mar 3, 2026)\n\nCompleted Items:\n- AD",
+          "extracted_tasks": [
+            {
+              "task_id": "art_e005febfa2_t001",
+              "text": "Contact TechSupplier Account Manager for revised delivery commitment in writing",
+              "owner": "Alice Tran",
+              "deadline": "2026-03-05",
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "AI-001: Alice Tran to contact TechSupplier Account Manager for revised delivery commitment in writing. Deadline: March 5, 2026.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t002",
+              "text": "Complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen",
+              "owner": "Bob Morrison",
+              "deadline": "2026-03-17",
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "AI-002: Bob Morrison to complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen. Deadline: March 17, 2026.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t003",
+              "text": "Prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office",
+              "owner": "Dave Chen",
+              "deadline": "2026-03-12",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "AI-003: Dave Chen to prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office. Deadline: March 12, 2026.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t004",
+              "text": "Complete and distribute UAT test plan to all stakeholders for review",
+              "owner": "Farida Osei",
+              "deadline": "2026-03-10",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "AI-004: Farida Osei to complete and distribute UAT test plan to all stakeholders for review. Deadline: March 10, 2026.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t005",
+              "text": "Conduct impact assessment on Site A cutover timeline given vendor delay. Present findings to steering committee",
+              "owner": "Carol Nguyen",
+              "deadline": "2026-03-07",
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "AI-005: Carol Nguyen to conduct impact assessment on Site A cutover timeline given vendor delay. Present findings to steering committee. Deadline: Mar",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t006",
+              "text": "Assess refactoring effort for migration script relying on deprecated legacy-sync API endpoint",
+              "owner": "Bob Morrison",
+              "deadline": null,
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "d) Technical Dependency: The current migration script relies on the deprecated \"legacy-sync\" API endpoint scheduled for decommission on April 1. Bob t",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t007",
+              "text": "Initiate knowledge transfer plan immediately given Bob Morrison's role as sole AD migration expert",
+              "owner": null,
+              "deadline": null,
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "c) Resource Risk: Bob Morrison has indicated he is exploring external opportunities and may be leaving SSC within 60 days. Knowledge transfer plan mus",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t008",
+              "text": "Notify HR regarding Bob Morrison's potential departure",
+              "owner": null,
+              "deadline": null,
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "c) Resource Risk: ... Knowledge transfer plan must be initiated immediately given his role as the sole AD migration expert. HR to be notified.",
+              "confidence": 0.9
+            }
+          ],
+          "metadata": {
+            "attendees": [
+              "- Alice Tran (Project Manager) \u2014 Chair",
+              "- Bob Morrison (Technical Lead)",
+              "- Carol Nguyen (Infrastructure Architect)",
+              "- Dave Chen (Security Specialist)",
+              "- Marie Lefebvre (Change Management)",
+              "- Farida Osei (QA Lead)"
+            ]
+          }
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-05",
+      "test_name": "Deadline extraction accuracy",
+      "module": "ingestion",
+      "method": "llm_local_full",
+      "max_score": 9,
+      "earned_score": 9.0,
+      "passed": true,
+      "details": "F1=1.00 pred=['2026-03-07', '2026-03-05', '2026-03-17', '2026-03-12', '2026-03-10'] gt=['2026-03-05', '2026-03-17', '2026-03-12', '2026-03-10', '2026-03-07']",
+      "latency_ms": 12.205199993331917,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_f3f660b27c",
+          "artifact_type": "meeting_minutes",
+          "detected_language": "en",
+          "word_count": 446,
+          "content_preview": "NGIS PHASE 3 \u2014 SPRINT REVIEW MEETING MINUTES\nMeeting Date: March 3, 2026\nTime: 13:00\u201314:30 EST\nLocation: WebEx / Room 4C-12, Place du Portage III, Gatineau\n\nAttendees:\n- Alice Tran (Project Manager) \u2014 Chair\n- Bob Morrison (Technical Lead)\n- Carol Nguyen (Infrastructure Architect)\n- Dave Chen (Security Specialist)\n- Marie Lefebvre (Change Management)\n- Farida Osei (QA Lead)\n\nRegrets: Director Okafor (represented by Alice Tran)\n\n---\n\n1. SPRINT 6 REVIEW (Feb 17 \u2013 Mar 3, 2026)\n\nCompleted Items:\n- AD",
+          "extracted_tasks": [
+            {
+              "task_id": "art_f3f660b27c_t001",
+              "text": "assess impact on Site A cutover",
+              "owner": "Carol Nguyen",
+              "deadline": "2026-03-07",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Carol to assess impact on Site A cutover",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_f3f660b27c_t002",
+              "text": "contact TechSupplier Account Manager for revised delivery commitment in writing",
+              "owner": "Alice Tran",
+              "deadline": "2026-03-05",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Alice Tran to contact TechSupplier Account Manager for revised delivery commitment in writing",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_f3f660b27c_t003",
+              "text": "complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen",
+              "owner": "Bob Morrison",
+              "deadline": "2026-03-17",
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "Bob Morrison to complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_f3f660b27c_t004",
+              "text": "prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office",
+              "owner": "Dave Chen",
+              "deadline": "2026-03-12",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Dave Chen to prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_f3f660b27c_t005",
+              "text": "complete and distribute UAT test plan to all stakeholders for review",
+              "owner": "Farida Osei",
+              "deadline": "2026-03-10",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Farida Osei to complete and distribute UAT test plan to all stakeholders for review",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_f3f660b27c_t006",
+              "text": "assess refactoring effort",
+              "owner": "Bob Morrison",
+              "deadline": null,
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Bob to assess refactoring effort",
+              "confidence": 0.95
+            }
+          ],
+          "metadata": {
+            "attendees": [
+              "Alice Tran",
+              "Bob Morrison",
+              "Carol Nguyen",
+              "Dave Chen",
+              "Marie Lefebvre",
+              "Farida Osei"
+            ],
+            "date": "2026-03-03"
+          }
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-06",
+      "test_name": "Owner/assignee extraction",
+      "module": "ingestion",
+      "method": "llm_local",
+      "max_score": 8,
+      "earned_score": 8.0,
+      "passed": true,
+      "details": "F1=0.91 pred=['Alice Tran', 'Bob Morrison', 'Dave Chen'] gt=['Alice Tran', 'Bob Morrison', 'Dave Chen']",
+      "latency_ms": 12.73290000972338,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_e005febfa2",
+          "artifact_type": "meeting_minutes",
+          "detected_language": "en",
+          "word_count": 446,
+          "content_preview": "NGIS PHASE 3 \u2014 SPRINT REVIEW MEETING MINUTES\nMeeting Date: March 3, 2026\nTime: 13:00\u201314:30 EST\nLocation: WebEx / Room 4C-12, Place du Portage III, Gatineau\n\nAttendees:\n- Alice Tran (Project Manager) \u2014 Chair\n- Bob Morrison (Technical Lead)\n- Carol Nguyen (Infrastructure Architect)\n- Dave Chen (Security Specialist)\n- Marie Lefebvre (Change Management)\n- Farida Osei (QA Lead)\n\nRegrets: Director Okafor (represented by Alice Tran)\n\n---\n\n1. SPRINT 6 REVIEW (Feb 17 \u2013 Mar 3, 2026)\n\nCompleted Items:\n- AD",
+          "extracted_tasks": [
+            {
+              "task_id": "art_e005febfa2_t001",
+              "text": "Contact TechSupplier Account Manager for revised delivery commitment in writing",
+              "owner": "Alice Tran",
+              "deadline": "2026-03-05",
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "AI-001: Alice Tran to contact TechSupplier Account Manager for revised delivery commitment in writing. Deadline: March 5, 2026.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t002",
+              "text": "Complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen",
+              "owner": "Bob Morrison",
+              "deadline": "2026-03-17",
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "AI-002: Bob Morrison to complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen. Deadline: March 17, 2026.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t003",
+              "text": "Prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office",
+              "owner": "Dave Chen",
+              "deadline": "2026-03-12",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "AI-003: Dave Chen to prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office. Deadline: March 12, 2026.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t004",
+              "text": "Complete and distribute UAT test plan to all stakeholders for review",
+              "owner": "Farida Osei",
+              "deadline": "2026-03-10",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "AI-004: Farida Osei to complete and distribute UAT test plan to all stakeholders for review. Deadline: March 10, 2026.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t005",
+              "text": "Conduct impact assessment on Site A cutover timeline given vendor delay. Present findings to steering committee",
+              "owner": "Carol Nguyen",
+              "deadline": "2026-03-07",
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "AI-005: Carol Nguyen to conduct impact assessment on Site A cutover timeline given vendor delay. Present findings to steering committee. Deadline: Mar",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t006",
+              "text": "Assess refactoring effort for migration script relying on deprecated legacy-sync API endpoint",
+              "owner": "Bob Morrison",
+              "deadline": null,
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "d) Technical Dependency: The current migration script relies on the deprecated \"legacy-sync\" API endpoint scheduled for decommission on April 1. Bob t",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t007",
+              "text": "Initiate knowledge transfer plan immediately given Bob Morrison's role as sole AD migration expert",
+              "owner": null,
+              "deadline": null,
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "c) Resource Risk: Bob Morrison has indicated he is exploring external opportunities and may be leaving SSC within 60 days. Knowledge transfer plan mus",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t008",
+              "text": "Notify HR regarding Bob Morrison's potential departure",
+              "owner": null,
+              "deadline": null,
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "c) Resource Risk: ... Knowledge transfer plan must be initiated immediately given his role as the sole AD migration expert. HR to be notified.",
+              "confidence": 0.9
+            }
+          ],
+          "metadata": {
+            "attendees": [
+              "- Alice Tran (Project Manager) \u2014 Chair",
+              "- Bob Morrison (Technical Lead)",
+              "- Carol Nguyen (Infrastructure Architect)",
+              "- Dave Chen (Security Specialist)",
+              "- Marie Lefebvre (Change Management)",
+              "- Farida Osei (QA Lead)"
+            ]
+          }
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-06",
+      "test_name": "Owner/assignee extraction",
+      "module": "ingestion",
+      "method": "llm_local_full",
+      "max_score": 8,
+      "earned_score": 8.0,
+      "passed": true,
+      "details": "F1=0.91 pred=['Carol Nguyen', 'Alice Tran', 'Bob Morrison'] gt=['Alice Tran', 'Bob Morrison', 'Dave Chen']",
+      "latency_ms": 10.37279999582097,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_f3f660b27c",
+          "artifact_type": "meeting_minutes",
+          "detected_language": "en",
+          "word_count": 446,
+          "content_preview": "NGIS PHASE 3 \u2014 SPRINT REVIEW MEETING MINUTES\nMeeting Date: March 3, 2026\nTime: 13:00\u201314:30 EST\nLocation: WebEx / Room 4C-12, Place du Portage III, Gatineau\n\nAttendees:\n- Alice Tran (Project Manager) \u2014 Chair\n- Bob Morrison (Technical Lead)\n- Carol Nguyen (Infrastructure Architect)\n- Dave Chen (Security Specialist)\n- Marie Lefebvre (Change Management)\n- Farida Osei (QA Lead)\n\nRegrets: Director Okafor (represented by Alice Tran)\n\n---\n\n1. SPRINT 6 REVIEW (Feb 17 \u2013 Mar 3, 2026)\n\nCompleted Items:\n- AD",
+          "extracted_tasks": [
+            {
+              "task_id": "art_f3f660b27c_t001",
+              "text": "assess impact on Site A cutover",
+              "owner": "Carol Nguyen",
+              "deadline": "2026-03-07",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Carol to assess impact on Site A cutover",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_f3f660b27c_t002",
+              "text": "contact TechSupplier Account Manager for revised delivery commitment in writing",
+              "owner": "Alice Tran",
+              "deadline": "2026-03-05",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Alice Tran to contact TechSupplier Account Manager for revised delivery commitment in writing",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_f3f660b27c_t003",
+              "text": "complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen",
+              "owner": "Bob Morrison",
+              "deadline": "2026-03-17",
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "Bob Morrison to complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_f3f660b27c_t004",
+              "text": "prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office",
+              "owner": "Dave Chen",
+              "deadline": "2026-03-12",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Dave Chen to prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_f3f660b27c_t005",
+              "text": "complete and distribute UAT test plan to all stakeholders for review",
+              "owner": "Farida Osei",
+              "deadline": "2026-03-10",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Farida Osei to complete and distribute UAT test plan to all stakeholders for review",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_f3f660b27c_t006",
+              "text": "assess refactoring effort",
+              "owner": "Bob Morrison",
+              "deadline": null,
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Bob to assess refactoring effort",
+              "confidence": 0.95
+            }
+          ],
+          "metadata": {
+            "attendees": [
+              "Alice Tran",
+              "Bob Morrison",
+              "Carol Nguyen",
+              "Dave Chen",
+              "Marie Lefebvre",
+              "Farida Osei"
+            ],
+            "date": "2026-03-03"
+          }
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-07",
+      "test_name": "Language detection (EN)",
+      "module": "ingestion",
+      "method": "llm_local",
+      "max_score": 7,
+      "earned_score": 7,
+      "passed": true,
+      "details": "detected=en",
+      "latency_ms": 7.0503000024473295,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_d0694cefb7",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 246,
+          "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+          "extracted_tasks": [
+            {
+              "task_id": "art_d0694cefb7_t001",
+              "text": "Contact to discuss how TechSupplier can best support planning activities during this disruption",
+              "owner": null,
+              "deadline": null,
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Please let me know how we can best support your planning activities during this disruption.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_d0694cefb7_t002",
+              "text": "Confirm the delivery timeline for the Catalyst switches",
+              "owner": "Jason Henderson",
+              "deadline": null,
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Jason, can you please confirm the delivery timeline for the Catalyst switches?",
+              "confidence": 0.9
+            }
+          ],
+          "metadata": {
+            "sender": "j.henderson@techsupplier.ca",
+            "recipients": "alice.tran@ssc-spc.gc.ca",
+            "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+            "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+          }
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-07",
+      "test_name": "Language detection (EN)",
+      "module": "ingestion",
+      "method": "llm_local_full",
+      "max_score": 7,
+      "earned_score": 7,
+      "passed": true,
+      "details": "detected=en",
+      "latency_ms": 8.864000003086403,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_28606a2c73",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 246,
+          "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+          "extracted_tasks": [],
+          "metadata": {
+            "sender": "j.henderson@techsupplier.ca",
+            "recipients": [
+              "alice.tran@ssc-spc.gc.ca"
+            ],
+            "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+            "date": "2026-03-02"
+          }
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-08",
+      "test_name": "Language detection (FR)",
+      "module": "ingestion",
+      "method": "llm_local",
+      "max_score": 7,
+      "earned_score": 7,
+      "passed": true,
+      "details": "detected=fr",
+      "latency_ms": 9224.748399996315,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_e908bc9f45",
+          "artifact_type": "meeting_minutes",
+          "detected_language": "fr",
+          "word_count": 414,
+          "content_preview": "COMIT\u00c9 DE GOUVERNANCE DES TI \u2014 COMPTE RENDU DE R\u00c9UNION\nR\u00e9union de r\u00e9vision trimestrielle \u2014 T4 2025\u20132026\nDate : 4 mars 2026\nHeure : 9 h 00 \u2013 11 h 30 HNE\nLieu : Salle de conf\u00e9rence 7B, \u00c9difice Immeuble-Vanier II, Ottawa\n\nPr\u00e9sents :\n- Directeur g\u00e9n\u00e9ral, Sylvain Thibodeau (Pr\u00e9sident)\n- Chef de projet, Marie Lefebvre\n- Gestionnaire des risques, Pierre Gagnon\n- Conseill\u00e8re principale en politique, Diane Beauchamp\n- Repr\u00e9sentant des finances, Fran\u00e7ois Lemieux\n- Architecte de solutions, Nadia Tremblay\n\n",
+          "extracted_tasks": [
+            {
+              "task_id": "art_e908bc9f45_t001",
+              "text": "Pierre Gagnon doit mettre \u00e0 jour le registre des risques pour inclure les risques R-014, R-015 et R-016, et les distribuer \u00e0 l'\u00e9quipe de projet",
+              "owner": "Pierre Gagnon",
+              "deadline": "2026-03-06",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "EA-001 : Pierre Gagnon doit mettre \u00e0 jour le registre des risques pour inclure les risques R-014, R-015 et R-016, et les distribuer \u00e0 l'\u00e9quipe de proj",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e908bc9f45_t002",
+              "text": "Marie Lefebvre doit pr\u00e9senter un plan d'att\u00e9nuation d\u00e9taill\u00e9 pour le risque R-015 (conformit\u00e9 ITSG-33) au Comit\u00e9 de gouvernance",
+              "owner": "Marie Lefebvre",
+              "deadline": "2026-03-12",
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "EA-002 : Marie Lefebvre doit pr\u00e9senter un plan d'att\u00e9nuation d\u00e9taill\u00e9 pour le risque R-015 (conformit\u00e9 ITSG-33) au Comit\u00e9 de gouvernance. \u00c9ch\u00e9ance : 1",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e908bc9f45_t003",
+              "text": "Fran\u00e7ois Lemieux doit pr\u00e9parer une analyse des incidences budg\u00e9taires du retard du fournisseur et la soumettre \u00e0 la Direction g\u00e9n\u00e9rale des finances",
+              "owner": "Fran\u00e7ois Lemieux",
+              "deadline": "2026-03-10",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "EA-003 : Fran\u00e7ois Lemieux doit pr\u00e9parer une analyse des incidences budg\u00e9taires du retard du fournisseur et la soumettre \u00e0 la Direction g\u00e9n\u00e9rale des fi",
+              "confidence": 0.9
+            }
+          ],
+          "metadata": {}
+        },
+        "llm_calls": [
+          {
+            "tier": "local",
+            "model": "qwen3.5:35b",
+            "latency_ms": 9211.3,
+            "content": "[{\"text\": \"Pierre Gagnon doit mettre \u00e0 jour le registre des risques pour inclure les risques R-014, R-015 et R-016, et les distribuer \u00e0 l'\u00e9quipe de projet\", \"owner\": \"Pierre Gagnon\", \"deadline\": \"2026-03-06\", \"priority\": \"high\", \"source_excerpt\": \"EA-001 : Pierre Gagnon doit mettre \u00e0 jour le registre des risques pour inclure les risques R-014, R-015 et R-016, et les distribuer \u00e0 l'\u00e9quipe de projet. \u00c9ch\u00e9ance : 6 mars 2026.\"}, {\"text\": \"Marie Lefebvre doit pr\u00e9senter un plan d'att\u00e9nuation d\u00e9taill\u00e9 pour le risque R-015 (conformit\u00e9 ITSG-33) au Comit\u00e9 de gouvernance\", \"owner\": \"Marie Lefebvre\", \"deadline\": \"2026-03-12\", \"priority\": \"critical\", \"source_excerpt\": \"EA-002 : Marie Lefebvre doit pr\u00e9senter un plan d'att\u00e9nuation d\u00e9taill\u00e9 pour le risque R-015 (conformit\u00e9 ITSG-33) au Comit\u00e9 de gouvernance. \u00c9ch\u00e9ance : 12 mars 2026.\"}, {\"text\": \"Fran\u00e7ois Lemieux doit pr\u00e9parer une analyse des incidences budg\u00e9taires du retard du fournisseur et la soumettre \u00e0 la Direction g\u00e9n\u00e9rale des finances\", \"owner\": \"Fran\u00e7ois Lemieux\", \"deadline\": \"2026-03-10\", \"priority\": \"high\", \"source_excerpt\": \"EA-003 : Fran\u00e7ois Lemieux doit pr\u00e9parer une analyse des incidences budg\u00e9taires du retard du fournisseur et la soumettre \u00e0 la Direction g\u00e9n\u00e9rale des finances. \u00c9ch\u00e9ance : 10 mars 2026.\"}]",
+            "parsed_json": [
+              {
+                "text": "Pierre Gagnon doit mettre \u00e0 jour le registre des risques pour inclure les risques R-014, R-015 et R-016, et les distribuer \u00e0 l'\u00e9quipe de projet",
+                "owner": "Pierre Gagnon",
+                "deadline": "2026-03-06",
+                "priority": "high",
+                "source_excerpt": "EA-001 : Pierre Gagnon doit mettre \u00e0 jour le registre des risques pour inclure les risques R-014, R-015 et R-016, et les distribuer \u00e0 l'\u00e9quipe de projet. \u00c9ch\u00e9ance : 6 mars 2026."
+              },
+              {
+                "text": "Marie Lefebvre doit pr\u00e9senter un plan d'att\u00e9nuation d\u00e9taill\u00e9 pour le risque R-015 (conformit\u00e9 ITSG-33) au Comit\u00e9 de gouvernance",
+                "owner": "Marie Lefebvre",
+                "deadline": "2026-03-12",
+                "priority": "critical",
+                "source_excerpt": "EA-002 : Marie Lefebvre doit pr\u00e9senter un plan d'att\u00e9nuation d\u00e9taill\u00e9 pour le risque R-015 (conformit\u00e9 ITSG-33) au Comit\u00e9 de gouvernance. \u00c9ch\u00e9ance : 12 mars 2026."
+              },
+              {
+                "text": "Fran\u00e7ois Lemieux doit pr\u00e9parer une analyse des incidences budg\u00e9taires du retard du fournisseur et la soumettre \u00e0 la Direction g\u00e9n\u00e9rale des finances",
+                "owner": "Fran\u00e7ois Lemieux",
+                "deadline": "2026-03-10",
+                "priority": "high",
+                "source_excerpt": "EA-003 : Fran\u00e7ois Lemieux doit pr\u00e9parer une analyse des incidences budg\u00e9taires du retard du fournisseur et la soumettre \u00e0 la Direction g\u00e9n\u00e9rale des finances. \u00c9ch\u00e9ance : 10 mars 2026."
+              }
+            ],
+            "error": null
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-08",
+      "test_name": "Language detection (FR)",
+      "module": "ingestion",
+      "method": "llm_local_full",
+      "max_score": 7,
+      "earned_score": 7,
+      "passed": true,
+      "details": "detected=fr",
+      "latency_ms": 10947.61390000349,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_5307a41864",
+          "artifact_type": "meeting_minutes",
+          "detected_language": "fr",
+          "word_count": 414,
+          "content_preview": "COMIT\u00c9 DE GOUVERNANCE DES TI \u2014 COMPTE RENDU DE R\u00c9UNION\nR\u00e9union de r\u00e9vision trimestrielle \u2014 T4 2025\u20132026\nDate : 4 mars 2026\nHeure : 9 h 00 \u2013 11 h 30 HNE\nLieu : Salle de conf\u00e9rence 7B, \u00c9difice Immeuble-Vanier II, Ottawa\n\nPr\u00e9sents :\n- Directeur g\u00e9n\u00e9ral, Sylvain Thibodeau (Pr\u00e9sident)\n- Chef de projet, Marie Lefebvre\n- Gestionnaire des risques, Pierre Gagnon\n- Conseill\u00e8re principale en politique, Diane Beauchamp\n- Repr\u00e9sentant des finances, Fran\u00e7ois Lemieux\n- Architecte de solutions, Nadia Tremblay\n\n",
+          "extracted_tasks": [
+            {
+              "task_id": "art_5307a41864_t001",
+              "text": "mettre \u00e0 jour le registre des risques pour inclure les risques R-014, R-015 et R-016, et les distribuer \u00e0 l'\u00e9quipe de projet",
+              "owner": "Pierre Gagnon",
+              "deadline": "2026-03-06",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Pierre Gagnon doit mettre \u00e0 jour le registre des risques pour inclure les risques R-014, R-015 et R-016, et les distribuer \u00e0 l'\u00e9quipe de projet.",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_5307a41864_t002",
+              "text": "pr\u00e9senter un plan d'att\u00e9nuation d\u00e9taill\u00e9 pour le risque R-015 (conformit\u00e9 ITSG-33) au Comit\u00e9 de gouvernance",
+              "owner": "Marie Lefebvre",
+              "deadline": "2026-03-12",
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "Marie Lefebvre doit pr\u00e9senter un plan d'att\u00e9nuation d\u00e9taill\u00e9 pour le risque R-015 (conformit\u00e9 ITSG-33) au Comit\u00e9 de gouvernance.",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_5307a41864_t003",
+              "text": "pr\u00e9parer une analyse des incidences budg\u00e9taires du retard du fournisseur et la soumettre \u00e0 la Direction g\u00e9n\u00e9rale des finances",
+              "owner": "Fran\u00e7ois Lemieux",
+              "deadline": "2026-03-10",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Fran\u00e7ois Lemieux doit pr\u00e9parer une analyse des incidences budg\u00e9taires du retard du fournisseur et la soumettre \u00e0 la Direction g\u00e9n\u00e9rale des finances.",
+              "confidence": 0.95
+            }
+          ],
+          "metadata": {
+            "attendees": [
+              "Sylvain Thibodeau",
+              "Marie Lefebvre",
+              "Pierre Gagnon",
+              "Diane Beauchamp",
+              "Fran\u00e7ois Lemieux",
+              "Nadia Tremblay"
+            ],
+            "date": "2026-03-04"
+          }
+        },
+        "llm_calls": [
+          {
+            "tier": "local",
+            "model": "qwen3.5:35b",
+            "latency_ms": 10936.5,
+            "content": "{\n  \"artifact_type\": \"meeting_minutes\",\n  \"language\": \"fr\",\n  \"metadata\": {\n    \"attendees\": [\n      \"Sylvain Thibodeau\",\n      \"Marie Lefebvre\",\n      \"Pierre Gagnon\",\n      \"Diane Beauchamp\",\n      \"Fran\u00e7ois Lemieux\",\n      \"Nadia Tremblay\"\n    ],\n    \"date\": \"2026-03-04\"\n  },\n  \"action_items\": [\n    {\n      \"text\": \"mettre \u00e0 jour le registre des risques pour inclure les risques R-014, R-015 et R-016, et les distribuer \u00e0 l'\u00e9quipe de projet\",\n      \"owner\": \"Pierre Gagnon\",\n      \"deadline\": \"2026-03-06\",\n      \"priority\": \"high\",\n      \"source_excerpt\": \"Pierre Gagnon doit mettre \u00e0 jour le registre des risques pour inclure les risques R-014, R-015 et R-016, et les distribuer \u00e0 l'\u00e9quipe de projet.\"\n    },\n    {\n      \"text\": \"pr\u00e9senter un plan d'att\u00e9nuation d\u00e9taill\u00e9 pour le risque R-015 (conformit\u00e9 ITSG-33) au Comit\u00e9 de gouvernance\",\n      \"owner\": \"Marie Lefebvre\",\n      \"deadline\": \"2026-03-12\",\n      \"priority\": \"critical\",\n      \"source_excerpt\": \"Marie Lefebvre doit pr\u00e9senter un plan d'att\u00e9nuation d\u00e9taill\u00e9 pour le risque R-015 (conformit\u00e9 ITSG-33) au Comit\u00e9 de gouvernance.\"\n    },\n    {\n      \"text\": \"pr\u00e9parer une analyse des incidences budg\u00e9taires du retard du fournisseur et la soumettre \u00e0 la Direction g\u00e9n\u00e9rale des finances\",\n      \"owner\": \"Fran\u00e7ois Lemieux\",\n      \"deadline\": \"2026-03-10\",\n      \"priority\": \"high\",\n      \"source_excerpt\": \"Fran\u00e7ois Lemieux doit pr\u00e9parer une analyse des incidences budg\u00e9taires du retard du fournisseur et la soumettre \u00e0 la Direction g\u00e9n\u00e9rale des finances.\"\n    }\n  ]\n}",
+            "parsed_json": {
+              "artifact_type": "meeting_minutes",
+              "language": "fr",
+              "metadata": {
+                "attendees": [
+                  "Sylvain Thibodeau",
+                  "Marie Lefebvre",
+                  "Pierre Gagnon",
+                  "Diane Beauchamp",
+                  "Fran\u00e7ois Lemieux",
+                  "Nadia Tremblay"
+                ],
+                "date": "2026-03-04"
+              },
+              "action_items": [
+                {
+                  "text": "mettre \u00e0 jour le registre des risques pour inclure les risques R-014, R-015 et R-016, et les distribuer \u00e0 l'\u00e9quipe de projet",
+                  "owner": "Pierre Gagnon",
+                  "deadline": "2026-03-06",
+                  "priority": "high",
+                  "source_excerpt": "Pierre Gagnon doit mettre \u00e0 jour le registre des risques pour inclure les risques R-014, R-015 et R-016, et les distribuer \u00e0 l'\u00e9quipe de projet."
+                },
+                {
+                  "text": "pr\u00e9senter un plan d'att\u00e9nuation d\u00e9taill\u00e9 pour le risque R-015 (conformit\u00e9 ITSG-33) au Comit\u00e9 de gouvernance",
+                  "owner": "Marie Lefebvre",
+                  "deadline": "2026-03-12",
+                  "priority": "critical",
+                  "source_excerpt": "Marie Lefebvre doit pr\u00e9senter un plan d'att\u00e9nuation d\u00e9taill\u00e9 pour le risque R-015 (conformit\u00e9 ITSG-33) au Comit\u00e9 de gouvernance."
+                },
+                {
+                  "text": "pr\u00e9parer une analyse des incidences budg\u00e9taires du retard du fournisseur et la soumettre \u00e0 la Direction g\u00e9n\u00e9rale des finances",
+                  "owner": "Fran\u00e7ois Lemieux",
+                  "deadline": "2026-03-10",
+                  "priority": "high",
+                  "source_excerpt": "Fran\u00e7ois Lemieux doit pr\u00e9parer une analyse des incidences budg\u00e9taires du retard du fournisseur et la soumettre \u00e0 la Direction g\u00e9n\u00e9rale des finances."
+                }
+              ]
+            },
+            "error": null
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-09",
+      "test_name": "Language detection (Mixed EN/FR)",
+      "module": "ingestion",
+      "method": "llm_local",
+      "max_score": 9,
+      "earned_score": 9,
+      "passed": true,
+      "details": "detected=mixed",
+      "latency_ms": 9932.284199996502,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_69325640da",
+          "artifact_type": "email",
+          "detected_language": "mixed",
+          "word_count": 234,
+          "content_preview": "From: marie.lefebvre@ssc-spc.gc.ca\nTo: project-team-ngis@ssc-spc.gc.ca\nSubject: NGIS Phase 3 \u2014 Weekly Status / Mise \u00e0 jour hebdomadaire\nDate: Wed, 4 Mar 2026 10:05:00 -0500\n\nHello team / Bonjour l'\u00e9quipe,\n\nENGLISH SECTION:\n\nThis week's status update for NGIS Phase 3 is as follows:\n\nWork completed:\n- Active Directory migration for Site A (Gatineau) is 80% complete.\n- Network topology diagrams updated to reflect revised switch placement.\n\nAction Items (English):\n1. Please schedule a follow-up tech",
+          "extracted_tasks": [
+            {
+              "task_id": "art_69325640da_t001",
+              "text": "schedule a follow-up technical review meeting before March 11 to finalize the AD migration cutover plan. Coordinate with Dave Chen",
+              "owner": null,
+              "deadline": "2026-03-11",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Please schedule a follow-up technical review meeting before March 11 to finalize the AD migration cutover plan. Coordinate with Dave Chen.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_69325640da_t002",
+              "text": "All team members must review the updated security compliance checklist (attached) and confirm sign-off by March 9, 2026",
+              "owner": null,
+              "deadline": "2026-03-09",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "All team members must review the updated security compliance checklist (attached) and confirm sign-off by March 9, 2026.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_69325640da_t003",
+              "text": "Veuillez mettre \u00e0 jour le registre des risques du projet d'ici le 10 mars 2026 pour inclure le risque de d\u00e9lai du fournisseur",
+              "owner": "\u00e9quipe de gestion des risques",
+              "deadline": "2026-03-10",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Veuillez mettre \u00e0 jour le registre des risques du projet d'ici le 10 mars 2026 pour inclure le risque de d\u00e9lai du fournisseur. Responsable : \u00e9quipe de",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_69325640da_t004",
+              "text": "Confirmez les livrables r\u00e9vis\u00e9s avec le fournisseur principal (TechSupplier) d'ici le 12 mars 2026",
+              "owner": "Gestionnaire de projet",
+              "deadline": "2026-03-12",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Confirmez les livrables r\u00e9vis\u00e9s avec le fournisseur principal (TechSupplier) d'ici le 12 mars 2026. Responsable : Gestionnaire de projet.",
+              "confidence": 0.9
+            }
+          ],
+          "metadata": {
+            "sender": "marie.lefebvre@ssc-spc.gc.ca",
+            "recipients": "project-team-ngis@ssc-spc.gc.ca",
+            "subject": "NGIS Phase 3 \u2014 Weekly Status / Mise \u00e0 jour hebdomadaire",
+            "date": "Wed, 4 Mar 2026 10:05:00 -0500"
+          }
+        },
+        "llm_calls": [
+          {
+            "tier": "local",
+            "model": "qwen3.5:35b",
+            "latency_ms": 9922.1,
+            "content": "[\n  {\n    \"text\": \"schedule a follow-up technical review meeting before March 11 to finalize the AD migration cutover plan. Coordinate with Dave Chen\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-11\",\n    \"priority\": \"high\",\n    \"source_excerpt\": \"Please schedule a follow-up technical review meeting before March 11 to finalize the AD migration cutover plan. Coordinate with Dave Chen.\"\n  },\n  {\n    \"text\": \"All team members must review the updated security compliance checklist (attached) and confirm sign-off by March 9, 2026\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-09\",\n    \"priority\": \"high\",\n    \"source_excerpt\": \"All team members must review the updated security compliance checklist (attached) and confirm sign-off by March 9, 2026.\"\n  },\n  {\n    \"text\": \"Veuillez mettre \u00e0 jour le registre des risques du projet d'ici le 10 mars 2026 pour inclure le risque de d\u00e9lai du fournisseur\",\n    \"owner\": \"\u00e9quipe de gestion des risques\",\n    \"deadline\": \"2026-03-10\",\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"Veuillez mettre \u00e0 jour le registre des risques du projet d'ici le 10 mars 2026 pour inclure le risque de d\u00e9lai du fournisseur. Responsable : \u00e9quipe de gestion des risques.\"\n  },\n  {\n    \"text\": \"Confirmez les livrables r\u00e9vis\u00e9s avec le fournisseur principal (TechSupplier) d'ici le 12 mars 2026\",\n    \"owner\": \"Gestionnaire de projet\",\n    \"deadline\": \"2026-03-12\",\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"Confirmez les livrables r\u00e9vis\u00e9s avec le fournisseur principal (TechSupplier) d'ici le 12 mars 2026. Responsable : Gestionnaire de projet.\"\n  }\n]",
+            "parsed_json": [
+              {
+                "text": "schedule a follow-up technical review meeting before March 11 to finalize the AD migration cutover plan. Coordinate with Dave Chen",
+                "owner": null,
+                "deadline": "2026-03-11",
+                "priority": "high",
+                "source_excerpt": "Please schedule a follow-up technical review meeting before March 11 to finalize the AD migration cutover plan. Coordinate with Dave Chen."
+              },
+              {
+                "text": "All team members must review the updated security compliance checklist (attached) and confirm sign-off by March 9, 2026",
+                "owner": null,
+                "deadline": "2026-03-09",
+                "priority": "high",
+                "source_excerpt": "All team members must review the updated security compliance checklist (attached) and confirm sign-off by March 9, 2026."
+              },
+              {
+                "text": "Veuillez mettre \u00e0 jour le registre des risques du projet d'ici le 10 mars 2026 pour inclure le risque de d\u00e9lai du fournisseur",
+                "owner": "\u00e9quipe de gestion des risques",
+                "deadline": "2026-03-10",
+                "priority": "medium",
+                "source_excerpt": "Veuillez mettre \u00e0 jour le registre des risques du projet d'ici le 10 mars 2026 pour inclure le risque de d\u00e9lai du fournisseur. Responsable : \u00e9quipe de gestion des risques."
+              },
+              {
+                "text": "Confirmez les livrables r\u00e9vis\u00e9s avec le fournisseur principal (TechSupplier) d'ici le 12 mars 2026",
+                "owner": "Gestionnaire de projet",
+                "deadline": "2026-03-12",
+                "priority": "medium",
+                "source_excerpt": "Confirmez les livrables r\u00e9vis\u00e9s avec le fournisseur principal (TechSupplier) d'ici le 12 mars 2026. Responsable : Gestionnaire de projet."
+              }
+            ],
+            "error": null
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-09",
+      "test_name": "Language detection (Mixed EN/FR)",
+      "module": "ingestion",
+      "method": "llm_local_full",
+      "max_score": 9,
+      "earned_score": 9,
+      "passed": true,
+      "details": "detected=mixed",
+      "latency_ms": 11700.078800000483,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_3f89951d67",
+          "artifact_type": "email",
+          "detected_language": "mixed",
+          "word_count": 234,
+          "content_preview": "From: marie.lefebvre@ssc-spc.gc.ca\nTo: project-team-ngis@ssc-spc.gc.ca\nSubject: NGIS Phase 3 \u2014 Weekly Status / Mise \u00e0 jour hebdomadaire\nDate: Wed, 4 Mar 2026 10:05:00 -0500\n\nHello team / Bonjour l'\u00e9quipe,\n\nENGLISH SECTION:\n\nThis week's status update for NGIS Phase 3 is as follows:\n\nWork completed:\n- Active Directory migration for Site A (Gatineau) is 80% complete.\n- Network topology diagrams updated to reflect revised switch placement.\n\nAction Items (English):\n1. Please schedule a follow-up tech",
+          "extracted_tasks": [
+            {
+              "task_id": "art_3f89951d67_t001",
+              "text": "schedule a follow-up technical review meeting before March 11 to finalize the AD migration cutover plan. Coordinate with Dave Chen.",
+              "owner": null,
+              "deadline": "2026-03-11",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Please schedule a follow-up technical review meeting before March 11 to finalize the AD migration cutover plan. Coordinate with Dave Chen.",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_3f89951d67_t002",
+              "text": "review the updated security compliance checklist (attached) and confirm sign-off by March 9, 2026.",
+              "owner": "All team members",
+              "deadline": "2026-03-09",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "All team members must review the updated security compliance checklist (attached) and confirm sign-off by March 9, 2026.",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_3f89951d67_t003",
+              "text": "mettre \u00e0 jour le registre des risques du projet d'ici le 10 mars 2026 pour inclure le risque de d\u00e9lai du fournisseur.",
+              "owner": "\u00e9quipe de gestion des risques",
+              "deadline": "2026-03-10",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Veuillez mettre \u00e0 jour le registre des risques du projet d'ici le 10 mars 2026 pour inclure le risque de d\u00e9lai du fournisseur.",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_3f89951d67_t004",
+              "text": "Confirmez les livrables r\u00e9vis\u00e9s avec le fournisseur principal (TechSupplier) d'ici le 12 mars 2026.",
+              "owner": "Gestionnaire de projet",
+              "deadline": "2026-03-12",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Confirmez les livrables r\u00e9vis\u00e9s avec le fournisseur principal (TechSupplier) d'ici le 12 mars 2026.",
+              "confidence": 0.95
+            }
+          ],
+          "metadata": {
+            "sender": "Marie Lefebvre",
+            "recipients": [
+              "project-team-ngis@ssc-spc.gc.ca"
+            ],
+            "subject": "NGIS Phase 3 \u2014 Weekly Status / Mise \u00e0 jour hebdomadaire",
+            "date": "2026-03-04"
+          }
+        },
+        "llm_calls": [
+          {
+            "tier": "local",
+            "model": "qwen3.5:35b",
+            "latency_ms": 11689.5,
+            "content": "{\n  \"artifact_type\": \"email\",\n  \"language\": \"mixed\",\n  \"metadata\": {\n    \"sender\": \"Marie Lefebvre\",\n    \"recipients\": [\n      \"project-team-ngis@ssc-spc.gc.ca\"\n    ],\n    \"subject\": \"NGIS Phase 3 \u2014 Weekly Status / Mise \u00e0 jour hebdomadaire\",\n    \"date\": \"2026-03-04\"\n  },\n  \"action_items\": [\n    {\n      \"text\": \"schedule a follow-up technical review meeting before March 11 to finalize the AD migration cutover plan. Coordinate with Dave Chen.\",\n      \"owner\": null,\n      \"deadline\": \"2026-03-11\",\n      \"priority\": \"high\",\n      \"source_excerpt\": \"Please schedule a follow-up technical review meeting before March 11 to finalize the AD migration cutover plan. Coordinate with Dave Chen.\"\n    },\n    {\n      \"text\": \"review the updated security compliance checklist (attached) and confirm sign-off by March 9, 2026.\",\n      \"owner\": \"All team members\",\n      \"deadline\": \"2026-03-09\",\n      \"priority\": \"high\",\n      \"source_excerpt\": \"All team members must review the updated security compliance checklist (attached) and confirm sign-off by March 9, 2026.\"\n    },\n    {\n      \"text\": \"mettre \u00e0 jour le registre des risques du projet d'ici le 10 mars 2026 pour inclure le risque de d\u00e9lai du fournisseur.\",\n      \"owner\": \"\u00e9quipe de gestion des risques\",\n      \"deadline\": \"2026-03-10\",\n      \"priority\": \"high\",\n      \"source_excerpt\": \"Veuillez mettre \u00e0 jour le registre des risques du projet d'ici le 10 mars 2026 pour inclure le risque de d\u00e9lai du fournisseur.\"\n    },\n    {\n      \"text\": \"Confirmez les livrables r\u00e9vis\u00e9s avec le fournisseur principal (TechSupplier) d'ici le 12 mars 2026.\",\n      \"owner\": \"Gestionnaire de projet\",\n      \"deadline\": \"2026-03-12\",\n      \"priority\": \"high\",\n      \"source_excerpt\": \"Confirmez les livrables r\u00e9vis\u00e9s avec le fournisseur principal (TechSupplier) d'ici le 12 mars 2026.\"\n    }\n  ]\n}",
+            "parsed_json": {
+              "artifact_type": "email",
+              "language": "mixed",
+              "metadata": {
+                "sender": "Marie Lefebvre",
+                "recipients": [
+                  "project-team-ngis@ssc-spc.gc.ca"
+                ],
+                "subject": "NGIS Phase 3 \u2014 Weekly Status / Mise \u00e0 jour hebdomadaire",
+                "date": "2026-03-04"
+              },
+              "action_items": [
+                {
+                  "text": "schedule a follow-up technical review meeting before March 11 to finalize the AD migration cutover plan. Coordinate with Dave Chen.",
+                  "owner": null,
+                  "deadline": "2026-03-11",
+                  "priority": "high",
+                  "source_excerpt": "Please schedule a follow-up technical review meeting before March 11 to finalize the AD migration cutover plan. Coordinate with Dave Chen."
+                },
+                {
+                  "text": "review the updated security compliance checklist (attached) and confirm sign-off by March 9, 2026.",
+                  "owner": "All team members",
+                  "deadline": "2026-03-09",
+                  "priority": "high",
+                  "source_excerpt": "All team members must review the updated security compliance checklist (attached) and confirm sign-off by March 9, 2026."
+                },
+                {
+                  "text": "mettre \u00e0 jour le registre des risques du projet d'ici le 10 mars 2026 pour inclure le risque de d\u00e9lai du fournisseur.",
+                  "owner": "\u00e9quipe de gestion des risques",
+                  "deadline": "2026-03-10",
+                  "priority": "high",
+                  "source_excerpt": "Veuillez mettre \u00e0 jour le registre des risques du projet d'ici le 10 mars 2026 pour inclure le risque de d\u00e9lai du fournisseur."
+                },
+                {
+                  "text": "Confirmez les livrables r\u00e9vis\u00e9s avec le fournisseur principal (TechSupplier) d'ici le 12 mars 2026.",
+                  "owner": "Gestionnaire de projet",
+                  "deadline": "2026-03-12",
+                  "priority": "high",
+                  "source_excerpt": "Confirmez les livrables r\u00e9vis\u00e9s avec le fournisseur principal (TechSupplier) d'ici le 12 mars 2026."
+                }
+              ]
+            },
+            "error": null
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-10",
+      "test_name": "Bilingual content preservation",
+      "module": "ingestion",
+      "method": "llm_local",
+      "max_score": 9,
+      "earned_score": 9.0,
+      "passed": true,
+      "details": "FR recall=0.50 pred=4 fr_gt=2",
+      "latency_ms": 9.961200004909188,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_69325640da",
+          "artifact_type": "email",
+          "detected_language": "mixed",
+          "word_count": 234,
+          "content_preview": "From: marie.lefebvre@ssc-spc.gc.ca\nTo: project-team-ngis@ssc-spc.gc.ca\nSubject: NGIS Phase 3 \u2014 Weekly Status / Mise \u00e0 jour hebdomadaire\nDate: Wed, 4 Mar 2026 10:05:00 -0500\n\nHello team / Bonjour l'\u00e9quipe,\n\nENGLISH SECTION:\n\nThis week's status update for NGIS Phase 3 is as follows:\n\nWork completed:\n- Active Directory migration for Site A (Gatineau) is 80% complete.\n- Network topology diagrams updated to reflect revised switch placement.\n\nAction Items (English):\n1. Please schedule a follow-up tech",
+          "extracted_tasks": [
+            {
+              "task_id": "art_69325640da_t001",
+              "text": "schedule a follow-up technical review meeting before March 11 to finalize the AD migration cutover plan. Coordinate with Dave Chen",
+              "owner": null,
+              "deadline": "2026-03-11",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Please schedule a follow-up technical review meeting before March 11 to finalize the AD migration cutover plan. Coordinate with Dave Chen.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_69325640da_t002",
+              "text": "All team members must review the updated security compliance checklist (attached) and confirm sign-off by March 9, 2026",
+              "owner": null,
+              "deadline": "2026-03-09",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "All team members must review the updated security compliance checklist (attached) and confirm sign-off by March 9, 2026.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_69325640da_t003",
+              "text": "Veuillez mettre \u00e0 jour le registre des risques du projet d'ici le 10 mars 2026 pour inclure le risque de d\u00e9lai du fournisseur",
+              "owner": "\u00e9quipe de gestion des risques",
+              "deadline": "2026-03-10",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Veuillez mettre \u00e0 jour le registre des risques du projet d'ici le 10 mars 2026 pour inclure le risque de d\u00e9lai du fournisseur. Responsable : \u00e9quipe de",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_69325640da_t004",
+              "text": "Confirmez les livrables r\u00e9vis\u00e9s avec le fournisseur principal (TechSupplier) d'ici le 12 mars 2026",
+              "owner": "Gestionnaire de projet",
+              "deadline": "2026-03-12",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Confirmez les livrables r\u00e9vis\u00e9s avec le fournisseur principal (TechSupplier) d'ici le 12 mars 2026. Responsable : Gestionnaire de projet.",
+              "confidence": 0.9
+            }
+          ],
+          "metadata": {
+            "sender": "marie.lefebvre@ssc-spc.gc.ca",
+            "recipients": "project-team-ngis@ssc-spc.gc.ca",
+            "subject": "NGIS Phase 3 \u2014 Weekly Status / Mise \u00e0 jour hebdomadaire",
+            "date": "Wed, 4 Mar 2026 10:05:00 -0500"
+          }
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-10",
+      "test_name": "Bilingual content preservation",
+      "module": "ingestion",
+      "method": "llm_local_full",
+      "max_score": 9,
+      "earned_score": 9.0,
+      "passed": true,
+      "details": "FR recall=0.50 pred=4 fr_gt=2",
+      "latency_ms": 9.857600001851097,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_3f89951d67",
+          "artifact_type": "email",
+          "detected_language": "mixed",
+          "word_count": 234,
+          "content_preview": "From: marie.lefebvre@ssc-spc.gc.ca\nTo: project-team-ngis@ssc-spc.gc.ca\nSubject: NGIS Phase 3 \u2014 Weekly Status / Mise \u00e0 jour hebdomadaire\nDate: Wed, 4 Mar 2026 10:05:00 -0500\n\nHello team / Bonjour l'\u00e9quipe,\n\nENGLISH SECTION:\n\nThis week's status update for NGIS Phase 3 is as follows:\n\nWork completed:\n- Active Directory migration for Site A (Gatineau) is 80% complete.\n- Network topology diagrams updated to reflect revised switch placement.\n\nAction Items (English):\n1. Please schedule a follow-up tech",
+          "extracted_tasks": [
+            {
+              "task_id": "art_3f89951d67_t001",
+              "text": "schedule a follow-up technical review meeting before March 11 to finalize the AD migration cutover plan. Coordinate with Dave Chen.",
+              "owner": null,
+              "deadline": "2026-03-11",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Please schedule a follow-up technical review meeting before March 11 to finalize the AD migration cutover plan. Coordinate with Dave Chen.",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_3f89951d67_t002",
+              "text": "review the updated security compliance checklist (attached) and confirm sign-off by March 9, 2026.",
+              "owner": "All team members",
+              "deadline": "2026-03-09",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "All team members must review the updated security compliance checklist (attached) and confirm sign-off by March 9, 2026.",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_3f89951d67_t003",
+              "text": "mettre \u00e0 jour le registre des risques du projet d'ici le 10 mars 2026 pour inclure le risque de d\u00e9lai du fournisseur.",
+              "owner": "\u00e9quipe de gestion des risques",
+              "deadline": "2026-03-10",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Veuillez mettre \u00e0 jour le registre des risques du projet d'ici le 10 mars 2026 pour inclure le risque de d\u00e9lai du fournisseur.",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_3f89951d67_t004",
+              "text": "Confirmez les livrables r\u00e9vis\u00e9s avec le fournisseur principal (TechSupplier) d'ici le 12 mars 2026.",
+              "owner": "Gestionnaire de projet",
+              "deadline": "2026-03-12",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Confirmez les livrables r\u00e9vis\u00e9s avec le fournisseur principal (TechSupplier) d'ici le 12 mars 2026.",
+              "confidence": 0.95
+            }
+          ],
+          "metadata": {
+            "sender": "Marie Lefebvre",
+            "recipients": [
+              "project-team-ngis@ssc-spc.gc.ca"
+            ],
+            "subject": "NGIS Phase 3 \u2014 Weekly Status / Mise \u00e0 jour hebdomadaire",
+            "date": "2026-03-04"
+          }
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-11",
+      "test_name": "Implicit action item extraction",
+      "module": "ingestion",
+      "method": "llm_local",
+      "max_score": 10,
+      "earned_score": 10,
+      "passed": true,
+      "details": "extracted=6 items",
+      "latency_ms": 9209.164799991413,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_92775bc0ab",
+          "artifact_type": "status_report",
+          "detected_language": "en",
+          "word_count": 355,
+          "content_preview": "NGIS PHASE 3 \u2014 WEEKLY STATUS REPORT\nReporting Period: February 24 \u2013 March 3, 2026\nReport Date: March 3, 2026\nProject Manager: Alice Tran\nProject ID: NGIS-P3-2024-001\nOverall Status: GREEN\n\n---\n\nEXECUTIVE SUMMARY\n\nThe NGIS Phase 3 data centre consolidation project continues to progress\naccording to plan. The team has completed the Active Directory migration\nfor the test environment and finalized network topology designs for Sites\nB and C. No risks are identified at this time.\n\n---\n\nACCOMPLISHMENT",
+          "extracted_tasks": [
+            {
+              "task_id": "art_92775bc0ab_t001",
+              "text": "Begin production AD migration preparation",
+              "owner": null,
+              "deadline": "2026-03-10",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Begin production AD migration preparation.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_92775bc0ab_t002",
+              "text": "Conduct UAT test script walkthroughs with application owners",
+              "owner": null,
+              "deadline": "2026-03-10",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Conduct UAT test script walkthroughs with application owners.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_92775bc0ab_t003",
+              "text": "Coordinate with TechSupplier for equipment delivery confirmation",
+              "owner": null,
+              "deadline": "2026-03-10",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Coordinate with TechSupplier for equipment delivery confirmation.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_92775bc0ab_t004",
+              "text": "Complete end-user communication plan",
+              "owner": null,
+              "deadline": "2026-03-10",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Complete end-user communication plan.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_92775bc0ab_t005",
+              "text": "TBS audit team scheduled for March site visit (details TBD)",
+              "owner": null,
+              "deadline": "2026-03-10",
+              "priority": "low",
+              "status": "not_started",
+              "source_excerpt": "TBS audit team scheduled for March site visit (details TBD).",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_92775bc0ab_t006",
+              "text": "End-user communication campaign to launch March 9",
+              "owner": null,
+              "deadline": "2026-03-09",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "End-user communication campaign to launch March 9.",
+              "confidence": 0.9
+            }
+          ],
+          "metadata": {}
+        },
+        "llm_calls": [
+          {
+            "tier": "local",
+            "model": "qwen3.5:35b",
+            "latency_ms": 9199.0,
+            "content": "[\n  {\n    \"text\": \"Begin production AD migration preparation\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-10\",\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"Begin production AD migration preparation.\"\n  },\n  {\n    \"text\": \"Conduct UAT test script walkthroughs with application owners\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-10\",\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"Conduct UAT test script walkthroughs with application owners.\"\n  },\n  {\n    \"text\": \"Coordinate with TechSupplier for equipment delivery confirmation\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-10\",\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"Coordinate with TechSupplier for equipment delivery confirmation.\"\n  },\n  {\n    \"text\": \"Complete end-user communication plan\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-10\",\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"Complete end-user communication plan.\"\n  },\n  {\n    \"text\": \"TBS audit team scheduled for March site visit (details TBD)\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-10\",\n    \"priority\": \"low\",\n    \"source_excerpt\": \"TBS audit team scheduled for March site visit (details TBD).\"\n  },\n  {\n    \"text\": \"End-user communication campaign to launch March 9\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-09\",\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"End-user communication campaign to launch March 9.\"\n  }\n]",
+            "parsed_json": [
+              {
+                "text": "Begin production AD migration preparation",
+                "owner": null,
+                "deadline": "2026-03-10",
+                "priority": "medium",
+                "source_excerpt": "Begin production AD migration preparation."
+              },
+              {
+                "text": "Conduct UAT test script walkthroughs with application owners",
+                "owner": null,
+                "deadline": "2026-03-10",
+                "priority": "medium",
+                "source_excerpt": "Conduct UAT test script walkthroughs with application owners."
+              },
+              {
+                "text": "Coordinate with TechSupplier for equipment delivery confirmation",
+                "owner": null,
+                "deadline": "2026-03-10",
+                "priority": "medium",
+                "source_excerpt": "Coordinate with TechSupplier for equipment delivery confirmation."
+              },
+              {
+                "text": "Complete end-user communication plan",
+                "owner": null,
+                "deadline": "2026-03-10",
+                "priority": "medium",
+                "source_excerpt": "Complete end-user communication plan."
+              },
+              {
+                "text": "TBS audit team scheduled for March site visit (details TBD)",
+                "owner": null,
+                "deadline": "2026-03-10",
+                "priority": "low",
+                "source_excerpt": "TBS audit team scheduled for March site visit (details TBD)."
+              },
+              {
+                "text": "End-user communication campaign to launch March 9",
+                "owner": null,
+                "deadline": "2026-03-09",
+                "priority": "medium",
+                "source_excerpt": "End-user communication campaign to launch March 9."
+              }
+            ],
+            "error": null
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-11",
+      "test_name": "Implicit action item extraction",
+      "module": "ingestion",
+      "method": "llm_local_full",
+      "max_score": 10,
+      "earned_score": 10,
+      "passed": true,
+      "details": "extracted=5 items",
+      "latency_ms": 9147.788799993577,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_2c9dd6a24c",
+          "artifact_type": "status_report",
+          "detected_language": "en",
+          "word_count": 355,
+          "content_preview": "NGIS PHASE 3 \u2014 WEEKLY STATUS REPORT\nReporting Period: February 24 \u2013 March 3, 2026\nReport Date: March 3, 2026\nProject Manager: Alice Tran\nProject ID: NGIS-P3-2024-001\nOverall Status: GREEN\n\n---\n\nEXECUTIVE SUMMARY\n\nThe NGIS Phase 3 data centre consolidation project continues to progress\naccording to plan. The team has completed the Active Directory migration\nfor the test environment and finalized network topology designs for Sites\nB and C. No risks are identified at this time.\n\n---\n\nACCOMPLISHMENT",
+          "extracted_tasks": [
+            {
+              "task_id": "art_2c9dd6a24c_t001",
+              "text": "Begin production AD migration preparation.",
+              "owner": null,
+              "deadline": "2026-03-10",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Begin production AD migration preparation.",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_2c9dd6a24c_t002",
+              "text": "Conduct UAT test script walkthroughs with application owners.",
+              "owner": null,
+              "deadline": "2026-03-10",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Conduct UAT test script walkthroughs with application owners.",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_2c9dd6a24c_t003",
+              "text": "Coordinate with TechSupplier for equipment delivery confirmation.",
+              "owner": null,
+              "deadline": "2026-03-10",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Coordinate with TechSupplier for equipment delivery confirmation.",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_2c9dd6a24c_t004",
+              "text": "Complete end-user communication plan.",
+              "owner": null,
+              "deadline": "2026-03-10",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Complete end-user communication plan.",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_2c9dd6a24c_t005",
+              "text": "Launch end-user communication campaign.",
+              "owner": null,
+              "deadline": "2026-03-09",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "End-user communication campaign to launch March 9.",
+              "confidence": 0.95
+            }
+          ],
+          "metadata": {
+            "title": "NGIS PHASE 3 \u2014 WEEKLY STATUS REPORT",
+            "date": "2026-03-03"
+          }
+        },
+        "llm_calls": [
+          {
+            "tier": "local",
+            "model": "qwen3.5:35b",
+            "latency_ms": 9137.9,
+            "content": "{\n  \"artifact_type\": \"status_report\",\n  \"language\": \"en\",\n  \"metadata\": {\n    \"title\": \"NGIS PHASE 3 \u2014 WEEKLY STATUS REPORT\",\n    \"date\": \"2026-03-03\"\n  },\n  \"action_items\": [\n    {\n      \"text\": \"Begin production AD migration preparation.\",\n      \"owner\": null,\n      \"deadline\": \"2026-03-10\",\n      \"priority\": \"medium\",\n      \"source_excerpt\": \"Begin production AD migration preparation.\"\n    },\n    {\n      \"text\": \"Conduct UAT test script walkthroughs with application owners.\",\n      \"owner\": null,\n      \"deadline\": \"2026-03-10\",\n      \"priority\": \"medium\",\n      \"source_excerpt\": \"Conduct UAT test script walkthroughs with application owners.\"\n    },\n    {\n      \"text\": \"Coordinate with TechSupplier for equipment delivery confirmation.\",\n      \"owner\": null,\n      \"deadline\": \"2026-03-10\",\n      \"priority\": \"medium\",\n      \"source_excerpt\": \"Coordinate with TechSupplier for equipment delivery confirmation.\"\n    },\n    {\n      \"text\": \"Complete end-user communication plan.\",\n      \"owner\": null,\n      \"deadline\": \"2026-03-10\",\n      \"priority\": \"medium\",\n      \"source_excerpt\": \"Complete end-user communication plan.\"\n    },\n    {\n      \"text\": \"Launch end-user communication campaign.\",\n      \"owner\": null,\n      \"deadline\": \"2026-03-09\",\n      \"priority\": \"medium\",\n      \"source_excerpt\": \"End-user communication campaign to launch March 9.\"\n    }\n  ]\n}",
+            "parsed_json": {
+              "artifact_type": "status_report",
+              "language": "en",
+              "metadata": {
+                "title": "NGIS PHASE 3 \u2014 WEEKLY STATUS REPORT",
+                "date": "2026-03-03"
+              },
+              "action_items": [
+                {
+                  "text": "Begin production AD migration preparation.",
+                  "owner": null,
+                  "deadline": "2026-03-10",
+                  "priority": "medium",
+                  "source_excerpt": "Begin production AD migration preparation."
+                },
+                {
+                  "text": "Conduct UAT test script walkthroughs with application owners.",
+                  "owner": null,
+                  "deadline": "2026-03-10",
+                  "priority": "medium",
+                  "source_excerpt": "Conduct UAT test script walkthroughs with application owners."
+                },
+                {
+                  "text": "Coordinate with TechSupplier for equipment delivery confirmation.",
+                  "owner": null,
+                  "deadline": "2026-03-10",
+                  "priority": "medium",
+                  "source_excerpt": "Coordinate with TechSupplier for equipment delivery confirmation."
+                },
+                {
+                  "text": "Complete end-user communication plan.",
+                  "owner": null,
+                  "deadline": "2026-03-10",
+                  "priority": "medium",
+                  "source_excerpt": "Complete end-user communication plan."
+                },
+                {
+                  "text": "Launch end-user communication campaign.",
+                  "owner": null,
+                  "deadline": "2026-03-09",
+                  "priority": "medium",
+                  "source_excerpt": "End-user communication campaign to launch March 9."
+                }
+              ]
+            },
+            "error": null
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-12",
+      "test_name": "Multi-project artifact linking",
+      "module": "ingestion",
+      "method": "llm_local",
+      "max_score": 8,
+      "earned_score": 8,
+      "passed": true,
+      "details": "linked_project=proj_multi",
+      "latency_ms": 10282.793199992739,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_25b57afeef",
+          "artifact_type": "status_report",
+          "detected_language": "en",
+          "word_count": 460,
+          "content_preview": "IT PORTFOLIO \u2014 COMBINED PROJECT STATUS UPDATE\nReporting Period: March 2026 (Week 1)\nPortfolio Manager: Bob Morrison\nDistribution: IT Executive Committee; ADM Digital Services\n\n---\n\nPROJECT 1: NGIS PHASE 3 \u2014 DATA CENTRE CONSOLIDATION\nProject ID: NGIS-P3-2024-001 | Project Manager: Alice Tran\nStatus: YELLOW | Budget: $2.4M | Deadline: Q2 2026\n\nSummary: Project has encountered a 2-week vendor delay on critical\nnetwork equipment. TechSupplier has confirmed revised delivery of March 20\n(was March 6).",
+          "extracted_tasks": [
+            {
+              "task_id": "art_25b57afeef_t001",
+              "text": "Impact assessment on migration timeline",
+              "owner": "Carol Nguyen",
+              "deadline": "2026-03-07",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Impact assessment on migration timeline (Carol Nguyen, due Mar 7)",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_25b57afeef_t002",
+              "text": "SA&A documentation update for TBS",
+              "owner": "Dave Chen",
+              "deadline": "2026-03-12",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "SA&A documentation update for TBS (Dave Chen, due Mar 12)",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_25b57afeef_t003",
+              "text": "Alternative supplier evaluation initiated",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Alternative supplier evaluation initiated",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_25b57afeef_t004",
+              "text": "Director approval of revised budget",
+              "owner": null,
+              "deadline": "2026-03-10",
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "Director approval of revised budget (deadline: Mar 10)",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_25b57afeef_t005",
+              "text": "TB submission preparation",
+              "owner": null,
+              "deadline": "2026-03-15",
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "TB submission preparation (deadline: Mar 15)",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_25b57afeef_t006",
+              "text": "Middleware remediation scoping",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Middleware remediation scoping (to begin post-approval)",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_25b57afeef_t007",
+              "text": "Procurement strategy kick-off",
+              "owner": null,
+              "deadline": "2026-03-09",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Procurement strategy kick-off scheduled for March 9",
+              "confidence": 0.9
+            }
+          ],
+          "metadata": {}
+        },
+        "llm_calls": [
+          {
+            "tier": "local",
+            "model": "qwen3.5:35b",
+            "latency_ms": 10271.5,
+            "content": "[\n  {\n    \"text\": \"Impact assessment on migration timeline\",\n    \"owner\": \"Carol Nguyen\",\n    \"deadline\": \"2026-03-07\",\n    \"priority\": \"high\",\n    \"source_excerpt\": \"Impact assessment on migration timeline (Carol Nguyen, due Mar 7)\"\n  },\n  {\n    \"text\": \"SA&A documentation update for TBS\",\n    \"owner\": \"Dave Chen\",\n    \"deadline\": \"2026-03-12\",\n    \"priority\": \"high\",\n    \"source_excerpt\": \"SA&A documentation update for TBS (Dave Chen, due Mar 12)\"\n  },\n  {\n    \"text\": \"Alternative supplier evaluation initiated\",\n    \"owner\": null,\n    \"deadline\": null,\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"Alternative supplier evaluation initiated\"\n  },\n  {\n    \"text\": \"Director approval of revised budget\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-10\",\n    \"priority\": \"critical\",\n    \"source_excerpt\": \"Director approval of revised budget (deadline: Mar 10)\"\n  },\n  {\n    \"text\": \"TB submission preparation\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-15\",\n    \"priority\": \"critical\",\n    \"source_excerpt\": \"TB submission preparation (deadline: Mar 15)\"\n  },\n  {\n    \"text\": \"Middleware remediation scoping\",\n    \"owner\": null,\n    \"deadline\": null,\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"Middleware remediation scoping (to begin post-approval)\"\n  },\n  {\n    \"text\": \"Procurement strategy kick-off\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-09\",\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"Procurement strategy kick-off scheduled for March 9\"\n  }\n]",
+            "parsed_json": [
+              {
+                "text": "Impact assessment on migration timeline",
+                "owner": "Carol Nguyen",
+                "deadline": "2026-03-07",
+                "priority": "high",
+                "source_excerpt": "Impact assessment on migration timeline (Carol Nguyen, due Mar 7)"
+              },
+              {
+                "text": "SA&A documentation update for TBS",
+                "owner": "Dave Chen",
+                "deadline": "2026-03-12",
+                "priority": "high",
+                "source_excerpt": "SA&A documentation update for TBS (Dave Chen, due Mar 12)"
+              },
+              {
+                "text": "Alternative supplier evaluation initiated",
+                "owner": null,
+                "deadline": null,
+                "priority": "medium",
+                "source_excerpt": "Alternative supplier evaluation initiated"
+              },
+              {
+                "text": "Director approval of revised budget",
+                "owner": null,
+                "deadline": "2026-03-10",
+                "priority": "critical",
+                "source_excerpt": "Director approval of revised budget (deadline: Mar 10)"
+              },
+              {
+                "text": "TB submission preparation",
+                "owner": null,
+                "deadline": "2026-03-15",
+                "priority": "critical",
+                "source_excerpt": "TB submission preparation (deadline: Mar 15)"
+              },
+              {
+                "text": "Middleware remediation scoping",
+                "owner": null,
+                "deadline": null,
+                "priority": "medium",
+                "source_excerpt": "Middleware remediation scoping (to begin post-approval)"
+              },
+              {
+                "text": "Procurement strategy kick-off",
+                "owner": null,
+                "deadline": "2026-03-09",
+                "priority": "medium",
+                "source_excerpt": "Procurement strategy kick-off scheduled for March 9"
+              }
+            ],
+            "error": null
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-12",
+      "test_name": "Multi-project artifact linking",
+      "module": "ingestion",
+      "method": "llm_local_full",
+      "max_score": 8,
+      "earned_score": 8,
+      "passed": true,
+      "details": "linked_project=proj_multi",
+      "latency_ms": 9804.879699993762,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_366cc11b76",
+          "artifact_type": "status_report",
+          "detected_language": "en",
+          "word_count": 460,
+          "content_preview": "IT PORTFOLIO \u2014 COMBINED PROJECT STATUS UPDATE\nReporting Period: March 2026 (Week 1)\nPortfolio Manager: Bob Morrison\nDistribution: IT Executive Committee; ADM Digital Services\n\n---\n\nPROJECT 1: NGIS PHASE 3 \u2014 DATA CENTRE CONSOLIDATION\nProject ID: NGIS-P3-2024-001 | Project Manager: Alice Tran\nStatus: YELLOW | Budget: $2.4M | Deadline: Q2 2026\n\nSummary: Project has encountered a 2-week vendor delay on critical\nnetwork equipment. TechSupplier has confirmed revised delivery of March 20\n(was March 6).",
+          "extracted_tasks": [
+            {
+              "task_id": "art_366cc11b76_t001",
+              "text": "Impact assessment on migration timeline",
+              "owner": "Carol Nguyen",
+              "deadline": "2026-03-07",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Impact assessment on migration timeline (Carol Nguyen, due Mar 7)",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_366cc11b76_t002",
+              "text": "SA&A documentation update for TBS",
+              "owner": "Dave Chen",
+              "deadline": "2026-03-12",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "SA&A documentation update for TBS (Dave Chen, due Mar 12)",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_366cc11b76_t003",
+              "text": "Director approval of revised budget",
+              "owner": null,
+              "deadline": "2026-03-10",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Director approval of revised budget (deadline: Mar 10)",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_366cc11b76_t004",
+              "text": "TB submission preparation",
+              "owner": null,
+              "deadline": "2026-03-15",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "TB submission preparation (deadline: Mar 15)",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_366cc11b76_t005",
+              "text": "Procurement strategy kick-off",
+              "owner": null,
+              "deadline": "2026-03-09",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Procurement strategy kick-off scheduled for March 9",
+              "confidence": 0.95
+            }
+          ],
+          "metadata": {
+            "title": "IT PORTFOLIO \u2014 COMBINED PROJECT STATUS UPDATE",
+            "date": "2026-03-01"
+          }
+        },
+        "llm_calls": [
+          {
+            "tier": "local",
+            "model": "qwen3.5:35b",
+            "latency_ms": 9794.1,
+            "content": "{\n  \"artifact_type\": \"status_report\",\n  \"language\": \"en\",\n  \"metadata\": {\n    \"title\": \"IT PORTFOLIO \u2014 COMBINED PROJECT STATUS UPDATE\",\n    \"date\": \"2026-03-01\"\n  },\n  \"action_items\": [\n    {\n      \"text\": \"Impact assessment on migration timeline\",\n      \"owner\": \"Carol Nguyen\",\n      \"deadline\": \"2026-03-07\",\n      \"priority\": \"medium\",\n      \"source_excerpt\": \"Impact assessment on migration timeline (Carol Nguyen, due Mar 7)\"\n    },\n    {\n      \"text\": \"SA&A documentation update for TBS\",\n      \"owner\": \"Dave Chen\",\n      \"deadline\": \"2026-03-12\",\n      \"priority\": \"medium\",\n      \"source_excerpt\": \"SA&A documentation update for TBS (Dave Chen, due Mar 12)\"\n    },\n    {\n      \"text\": \"Director approval of revised budget\",\n      \"owner\": null,\n      \"deadline\": \"2026-03-10\",\n      \"priority\": \"high\",\n      \"source_excerpt\": \"Director approval of revised budget (deadline: Mar 10)\"\n    },\n    {\n      \"text\": \"TB submission preparation\",\n      \"owner\": null,\n      \"deadline\": \"2026-03-15\",\n      \"priority\": \"high\",\n      \"source_excerpt\": \"TB submission preparation (deadline: Mar 15)\"\n    },\n    {\n      \"text\": \"Procurement strategy kick-off\",\n      \"owner\": null,\n      \"deadline\": \"2026-03-09\",\n      \"priority\": \"medium\",\n      \"source_excerpt\": \"Procurement strategy kick-off scheduled for March 9\"\n    }\n  ]\n}",
+            "parsed_json": {
+              "artifact_type": "status_report",
+              "language": "en",
+              "metadata": {
+                "title": "IT PORTFOLIO \u2014 COMBINED PROJECT STATUS UPDATE",
+                "date": "2026-03-01"
+              },
+              "action_items": [
+                {
+                  "text": "Impact assessment on migration timeline",
+                  "owner": "Carol Nguyen",
+                  "deadline": "2026-03-07",
+                  "priority": "medium",
+                  "source_excerpt": "Impact assessment on migration timeline (Carol Nguyen, due Mar 7)"
+                },
+                {
+                  "text": "SA&A documentation update for TBS",
+                  "owner": "Dave Chen",
+                  "deadline": "2026-03-12",
+                  "priority": "medium",
+                  "source_excerpt": "SA&A documentation update for TBS (Dave Chen, due Mar 12)"
+                },
+                {
+                  "text": "Director approval of revised budget",
+                  "owner": null,
+                  "deadline": "2026-03-10",
+                  "priority": "high",
+                  "source_excerpt": "Director approval of revised budget (deadline: Mar 10)"
+                },
+                {
+                  "text": "TB submission preparation",
+                  "owner": null,
+                  "deadline": "2026-03-15",
+                  "priority": "high",
+                  "source_excerpt": "TB submission preparation (deadline: Mar 15)"
+                },
+                {
+                  "text": "Procurement strategy kick-off",
+                  "owner": null,
+                  "deadline": "2026-03-09",
+                  "priority": "medium",
+                  "source_excerpt": "Procurement strategy kick-off scheduled for March 9"
+                }
+              ]
+            },
+            "error": null
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-13",
+      "test_name": "Duplicate detection (content hash)",
+      "module": "ingestion",
+      "method": "llm_local",
+      "max_score": 7,
+      "earned_score": 7,
+      "passed": true,
+      "details": "id1=art_d0694cefb7 id2=art_d0694cefb7 dedup=True",
+      "latency_ms": 6.735200004186481,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_d0694cefb7",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 246,
+          "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+          "extracted_tasks": [
+            {
+              "task_id": "art_d0694cefb7_t001",
+              "text": "Contact to discuss how TechSupplier can best support planning activities during this disruption",
+              "owner": null,
+              "deadline": null,
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Please let me know how we can best support your planning activities during this disruption.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_d0694cefb7_t002",
+              "text": "Confirm the delivery timeline for the Catalyst switches",
+              "owner": "Jason Henderson",
+              "deadline": null,
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Jason, can you please confirm the delivery timeline for the Catalyst switches?",
+              "confidence": 0.9
+            }
+          ],
+          "metadata": {
+            "sender": "j.henderson@techsupplier.ca",
+            "recipients": "alice.tran@ssc-spc.gc.ca",
+            "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+            "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+          }
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-13",
+      "test_name": "Duplicate detection (content hash)",
+      "module": "ingestion",
+      "method": "llm_local_full",
+      "max_score": 7,
+      "earned_score": 7,
+      "passed": true,
+      "details": "id1=art_28606a2c73 id2=art_28606a2c73 dedup=True",
+      "latency_ms": 6.259899993892759,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_28606a2c73",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 246,
+          "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+          "extracted_tasks": [],
+          "metadata": {
+            "sender": "j.henderson@techsupplier.ca",
+            "recipients": [
+              "alice.tran@ssc-spc.gc.ca"
+            ],
+            "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+            "date": "2026-03-02"
+          }
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-14",
+      "test_name": "API response schema validation",
+      "module": "ingestion",
+      "method": "llm_local",
+      "max_score": 6,
+      "earned_score": 6,
+      "passed": true,
+      "details": "Schema valid",
+      "latency_ms": 6.488800005172379,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_d0694cefb7",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 246,
+          "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+          "extracted_tasks": [
+            {
+              "task_id": "art_d0694cefb7_t001",
+              "text": "Contact to discuss how TechSupplier can best support planning activities during this disruption",
+              "owner": null,
+              "deadline": null,
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Please let me know how we can best support your planning activities during this disruption.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_d0694cefb7_t002",
+              "text": "Confirm the delivery timeline for the Catalyst switches",
+              "owner": "Jason Henderson",
+              "deadline": null,
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Jason, can you please confirm the delivery timeline for the Catalyst switches?",
+              "confidence": 0.9
+            }
+          ],
+          "metadata": {
+            "sender": "j.henderson@techsupplier.ca",
+            "recipients": "alice.tran@ssc-spc.gc.ca",
+            "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+            "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+          }
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-14",
+      "test_name": "API response schema validation",
+      "module": "ingestion",
+      "method": "llm_local_full",
+      "max_score": 6,
+      "earned_score": 6,
+      "passed": true,
+      "details": "Schema valid",
+      "latency_ms": 6.677500001387671,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_28606a2c73",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 246,
+          "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+          "extracted_tasks": [],
+          "metadata": {
+            "sender": "j.henderson@techsupplier.ca",
+            "recipients": [
+              "alice.tran@ssc-spc.gc.ca"
+            ],
+            "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+            "date": "2026-03-02"
+          }
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-15",
+      "test_name": "Processing latency",
+      "module": "ingestion",
+      "method": "llm_local",
+      "max_score": 5,
+      "earned_score": 5,
+      "passed": true,
+      "details": "latency=11ms",
+      "latency_ms": 10.5489999987185,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_e005febfa2",
+          "artifact_type": "meeting_minutes",
+          "detected_language": "en",
+          "word_count": 446,
+          "content_preview": "NGIS PHASE 3 \u2014 SPRINT REVIEW MEETING MINUTES\nMeeting Date: March 3, 2026\nTime: 13:00\u201314:30 EST\nLocation: WebEx / Room 4C-12, Place du Portage III, Gatineau\n\nAttendees:\n- Alice Tran (Project Manager) \u2014 Chair\n- Bob Morrison (Technical Lead)\n- Carol Nguyen (Infrastructure Architect)\n- Dave Chen (Security Specialist)\n- Marie Lefebvre (Change Management)\n- Farida Osei (QA Lead)\n\nRegrets: Director Okafor (represented by Alice Tran)\n\n---\n\n1. SPRINT 6 REVIEW (Feb 17 \u2013 Mar 3, 2026)\n\nCompleted Items:\n- AD",
+          "extracted_tasks": [
+            {
+              "task_id": "art_e005febfa2_t001",
+              "text": "Contact TechSupplier Account Manager for revised delivery commitment in writing",
+              "owner": "Alice Tran",
+              "deadline": "2026-03-05",
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "AI-001: Alice Tran to contact TechSupplier Account Manager for revised delivery commitment in writing. Deadline: March 5, 2026.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t002",
+              "text": "Complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen",
+              "owner": "Bob Morrison",
+              "deadline": "2026-03-17",
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "AI-002: Bob Morrison to complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen. Deadline: March 17, 2026.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t003",
+              "text": "Prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office",
+              "owner": "Dave Chen",
+              "deadline": "2026-03-12",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "AI-003: Dave Chen to prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office. Deadline: March 12, 2026.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t004",
+              "text": "Complete and distribute UAT test plan to all stakeholders for review",
+              "owner": "Farida Osei",
+              "deadline": "2026-03-10",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "AI-004: Farida Osei to complete and distribute UAT test plan to all stakeholders for review. Deadline: March 10, 2026.",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t005",
+              "text": "Conduct impact assessment on Site A cutover timeline given vendor delay. Present findings to steering committee",
+              "owner": "Carol Nguyen",
+              "deadline": "2026-03-07",
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "AI-005: Carol Nguyen to conduct impact assessment on Site A cutover timeline given vendor delay. Present findings to steering committee. Deadline: Mar",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t006",
+              "text": "Assess refactoring effort for migration script relying on deprecated legacy-sync API endpoint",
+              "owner": "Bob Morrison",
+              "deadline": null,
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "d) Technical Dependency: The current migration script relies on the deprecated \"legacy-sync\" API endpoint scheduled for decommission on April 1. Bob t",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t007",
+              "text": "Initiate knowledge transfer plan immediately given Bob Morrison's role as sole AD migration expert",
+              "owner": null,
+              "deadline": null,
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "c) Resource Risk: Bob Morrison has indicated he is exploring external opportunities and may be leaving SSC within 60 days. Knowledge transfer plan mus",
+              "confidence": 0.9
+            },
+            {
+              "task_id": "art_e005febfa2_t008",
+              "text": "Notify HR regarding Bob Morrison's potential departure",
+              "owner": null,
+              "deadline": null,
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "c) Resource Risk: ... Knowledge transfer plan must be initiated immediately given his role as the sole AD migration expert. HR to be notified.",
+              "confidence": 0.9
+            }
+          ],
+          "metadata": {
+            "attendees": [
+              "- Alice Tran (Project Manager) \u2014 Chair",
+              "- Bob Morrison (Technical Lead)",
+              "- Carol Nguyen (Infrastructure Architect)",
+              "- Dave Chen (Security Specialist)",
+              "- Marie Lefebvre (Change Management)",
+              "- Farida Osei (QA Lead)"
+            ]
+          }
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "ING-15",
+      "test_name": "Processing latency",
+      "module": "ingestion",
+      "method": "llm_local_full",
+      "max_score": 5,
+      "earned_score": 5,
+      "passed": true,
+      "details": "latency=10ms",
+      "latency_ms": 10.124199994606897,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_f3f660b27c",
+          "artifact_type": "meeting_minutes",
+          "detected_language": "en",
+          "word_count": 446,
+          "content_preview": "NGIS PHASE 3 \u2014 SPRINT REVIEW MEETING MINUTES\nMeeting Date: March 3, 2026\nTime: 13:00\u201314:30 EST\nLocation: WebEx / Room 4C-12, Place du Portage III, Gatineau\n\nAttendees:\n- Alice Tran (Project Manager) \u2014 Chair\n- Bob Morrison (Technical Lead)\n- Carol Nguyen (Infrastructure Architect)\n- Dave Chen (Security Specialist)\n- Marie Lefebvre (Change Management)\n- Farida Osei (QA Lead)\n\nRegrets: Director Okafor (represented by Alice Tran)\n\n---\n\n1. SPRINT 6 REVIEW (Feb 17 \u2013 Mar 3, 2026)\n\nCompleted Items:\n- AD",
+          "extracted_tasks": [
+            {
+              "task_id": "art_f3f660b27c_t001",
+              "text": "assess impact on Site A cutover",
+              "owner": "Carol Nguyen",
+              "deadline": "2026-03-07",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Carol to assess impact on Site A cutover",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_f3f660b27c_t002",
+              "text": "contact TechSupplier Account Manager for revised delivery commitment in writing",
+              "owner": "Alice Tran",
+              "deadline": "2026-03-05",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Alice Tran to contact TechSupplier Account Manager for revised delivery commitment in writing",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_f3f660b27c_t003",
+              "text": "complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen",
+              "owner": "Bob Morrison",
+              "deadline": "2026-03-17",
+              "priority": "critical",
+              "status": "not_started",
+              "source_excerpt": "Bob Morrison to complete knowledge transfer documentation for AD migration procedures and hand off to Carol Nguyen",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_f3f660b27c_t004",
+              "text": "prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office",
+              "owner": "Dave Chen",
+              "deadline": "2026-03-12",
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Dave Chen to prepare and submit updated SA&A documentation (PAW architecture, IA-5 controls) to TBS audit office",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_f3f660b27c_t005",
+              "text": "complete and distribute UAT test plan to all stakeholders for review",
+              "owner": "Farida Osei",
+              "deadline": "2026-03-10",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Farida Osei to complete and distribute UAT test plan to all stakeholders for review",
+              "confidence": 0.95
+            },
+            {
+              "task_id": "art_f3f660b27c_t006",
+              "text": "assess refactoring effort",
+              "owner": "Bob Morrison",
+              "deadline": null,
+              "priority": "high",
+              "status": "not_started",
+              "source_excerpt": "Bob to assess refactoring effort",
+              "confidence": 0.95
+            }
+          ],
+          "metadata": {
+            "attendees": [
+              "Alice Tran",
+              "Bob Morrison",
+              "Carol Nguyen",
+              "Dave Chen",
+              "Marie Lefebvre",
+              "Farida Osei"
+            ],
+            "date": "2026-03-03"
+          }
+        },
+        "llm_calls": []
+      },
+      "error": null
+    }
+  ]
+}

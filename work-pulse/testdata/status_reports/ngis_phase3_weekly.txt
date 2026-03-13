@@ -1,0 +1,81 @@
+NGIS PHASE 3 — WEEKLY STATUS REPORT
+Reporting Period: February 24 – March 3, 2026
+Report Date: March 3, 2026
+Project Manager: Alice Tran
+Project ID: NGIS-P3-2024-001
+Overall Status: GREEN
+
+---
+
+EXECUTIVE SUMMARY
+
+The NGIS Phase 3 data centre consolidation project continues to progress
+according to plan. The team has completed the Active Directory migration
+for the test environment and finalized network topology designs for Sites
+B and C. No risks are identified at this time.
+
+---
+
+ACCOMPLISHMENTS THIS WEEK
+
+- Active Directory test migration completed successfully: 120 test
+  accounts migrated with zero errors.
+- Network topology diagrams finalized and signed off by infrastructure
+  team.
+- Legacy application inventory completed: 14 applications catalogued.
+- Site A staging area prepared and equipment rack installation initiated.
+
+---
+
+PLANNED ACTIVITIES NEXT WEEK (Mar 4–10)
+
+- Begin production AD migration preparation.
+- Conduct UAT test script walkthroughs with application owners.
+- Coordinate with TechSupplier for equipment delivery confirmation.
+- Complete end-user communication plan.
+
+---
+
+SCHEDULE STATUS: ON TRACK
+
+Milestone                          | Planned    | Forecast   | Status
+Site A Network Staging             | Mar 6      | Mar 6      | On Track
+AD Migration — Test Complete       | Mar 3      | Mar 3      | COMPLETE
+Migration Window — Site A          | Mar 18     | Mar 18     | On Track
+Project Closure                    | Jun 30     | Jun 30     | On Track
+
+---
+
+BUDGET STATUS: WITHIN APPROVED ENVELOPE
+
+Approved Budget:        $2,400,000
+Expenditures to Date:   $1,104,000 (46%)
+Forecast Total Cost:    $2,395,000
+Variance:               $5,000 (favourable)
+
+Note: Equipment costs are tracking slightly below estimate due to volume
+discount negotiated in Q3. Finance team has advised the variance is
+within acceptable tolerance.
+
+---
+
+RISK AND ISSUES LOG
+
+No new risks or issues to report this week. All previously identified
+risks remain at low residual level following mitigations applied in
+Sprint 5.
+
+---
+
+STAKEHOLDER UPDATES
+
+- Director Okafor briefed on milestone progress — satisfied with current
+  trajectory.
+- TBS audit team scheduled for March site visit (details TBD).
+- End-user communication campaign to launch March 9.
+
+---
+
+Report prepared by: Marie Lefebvre, Change Management Lead
+Reviewed by: Alice Tran, Project Manager
+Distribution: NGIS Steering Committee; Director Okafor; Finance Review Board

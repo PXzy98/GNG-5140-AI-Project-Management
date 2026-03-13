@@ -1,0 +1,116 @@
+{
+  "test_id": "ING-09",
+  "test_name": "Language detection (Mixed EN/FR)",
+  "method": "traditional",
+  "passed": true,
+  "score": "9/9",
+  "details": "detected=mixed",
+  "error": null,
+  "latency_ms": 11.060699995141476,
+  "artifact": {
+    "artifact_id": "art_6267abb8dc",
+    "artifact_type": "email",
+    "detected_language": "mixed",
+    "word_count": 234,
+    "content_preview": "From: marie.lefebvre@ssc-spc.gc.ca\nTo: project-team-ngis@ssc-spc.gc.ca\nSubject: NGIS Phase 3 \u2014 Weekly Status / Mise \u00e0 jour hebdomadaire\nDate: Wed, 4 Mar 2026 10:05:00 -0500\n\nHello team / Bonjour l'\u00e9quipe,\n\nENGLISH SECTION:\n\nThis week's status update for NGIS Phase 3 is as follows:\n\nWork completed:\n- Active Directory migration for Site A (Gatineau) is 80% complete.\n- Network topology diagrams updated to reflect revised switch placement.\n\nAction Items (English):\n1. Please schedule a follow-up tech",
+    "extracted_tasks": [
+      {
+        "task_id": "art_6267abb8dc_t001",
+        "text": "Action Items (English):",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Action Items (English):",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_6267abb8dc_t002",
+        "text": "action (fran\u00e7ais) :",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "action (fran\u00e7ais) :",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_6267abb8dc_t003",
+        "text": "follow-up technical review meeting before March 11",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "follow-up technical review meeting before March 11",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_6267abb8dc_t004",
+        "text": "Please schedule a follow-up technical review meeting before March 11",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Please schedule a follow-up technical review meeting before March 11",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_6267abb8dc_t005",
+        "text": "must review the updated security compliance checklist",
+        "owner": "March",
+        "deadline": "March 9, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "must review the updated security compliance checklist",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_6267abb8dc_t006",
+        "text": "- Active Directory migration for Site A (Gatineau) is 80% complete.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Active Directory migration for Site A (Gatineau) is 80% complete.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_6267abb8dc_t007",
+        "text": "- Network topology diagrams updated to reflect revised switch placement.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Network topology diagrams updated to reflect revised switch placement.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_6267abb8dc_t008",
+        "text": "- La migration Active Directory pour le Site A (Gatineau) est compl\u00e8te \u00e0 80 %.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- La migration Active Directory pour le Site A (Gatineau) est compl\u00e8te \u00e0 80 %.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_6267abb8dc_t009",
+        "text": "- Les diagrammes de topologie r\u00e9seau ont \u00e9t\u00e9 mis \u00e0 jour.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Les diagrammes de topologie r\u00e9seau ont \u00e9t\u00e9 mis \u00e0 jour.",
+        "confidence": 0.7
+      }
+    ],
+    "metadata": {
+      "sender": "marie.lefebvre@ssc-spc.gc.ca",
+      "recipients": "project-team-ngis@ssc-spc.gc.ca",
+      "subject": "NGIS Phase 3 \u2014 Weekly Status / Mise \u00e0 jour hebdomadaire",
+      "date": "Wed, 4 Mar 2026 10:05:00 -0500"
+    }
+  },
+  "llm_calls": []
+}

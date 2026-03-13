@@ -1,0 +1,117 @@
+{
+  "vendor_delay_email.txt": {
+    "risks": [
+      {
+        "description": "Vendor delivery delayed by 2 weeks, threatening NGIS Phase 3 migration timeline",
+        "category": "schedule",
+        "likelihood": 4,
+        "impact": 5,
+        "risk_level": "critical",
+        "evidence_excerpt": "vendor confirmed 2-week delay on network equipment"
+      },
+      {
+        "description": "No backup supplier identified for critical network equipment — single-sourced risk",
+        "category": "resource",
+        "likelihood": 3,
+        "impact": 4,
+        "risk_level": "high",
+        "evidence_excerpt": "currently single-sourced on this product line"
+      }
+    ]
+  },
+  "ngis_phase3_weekly.txt": {
+    "risks": [
+      {
+        "description": "Status report states 'no risks identified' but vendor delay and compliance findings exist — reporting inconsistency",
+        "category": "schedule",
+        "likelihood": 3,
+        "impact": 4,
+        "risk_level": "high",
+        "evidence_excerpt": "No new risks or issues to report this week",
+        "note": "Contradicts Sprint Review minutes which document vendor delay and TBS audit finding"
+      },
+      {
+        "description": "Budget variance reported as $5,000 favourable, but middleware costs not yet surfaced",
+        "category": "budget",
+        "likelihood": 2,
+        "impact": 3,
+        "risk_level": "medium",
+        "evidence_excerpt": "Forecast Total Cost: $2,395,000"
+      }
+    ]
+  },
+  "optimistic_report.txt": {
+    "risks": [
+      {
+        "description": "Budget overrun of $340,000 (14%) buried in appendix — not surfaced in executive summary",
+        "category": "budget",
+        "likelihood": 4,
+        "impact": 4,
+        "risk_level": "high",
+        "evidence_excerpt": "estimated cost of this remediation is $340,000, representing approximately 14% above the approved envelope"
+      },
+      {
+        "description": "Three-week schedule slip acknowledged as 'slight adjustment' — timeline at risk",
+        "category": "schedule",
+        "likelihood": 3,
+        "impact": 4,
+        "risk_level": "high",
+        "evidence_excerpt": "required a slight adjustment of approximately three weeks from the original internal planning estimate"
+      }
+    ]
+  },
+  "sprint_review_minutes.txt": {
+    "risks": [
+      {
+        "description": "Key AD migration expert (Bob Morrison) may leave SSC within 60 days — single point of failure",
+        "category": "resource",
+        "likelihood": 3,
+        "impact": 5,
+        "risk_level": "critical",
+        "evidence_excerpt": "Bob Morrison has indicated he is exploring external opportunities and may be leaving SSC within 60 days"
+      },
+      {
+        "description": "Migration script depends on deprecated legacy-sync API scheduled for decommission April 1",
+        "category": "technical",
+        "likelihood": 4,
+        "impact": 4,
+        "risk_level": "high",
+        "evidence_excerpt": "current migration script relies on the deprecated 'legacy-sync' API endpoint scheduled for decommission on April 1"
+      }
+    ]
+  },
+  "compliance_concern_email.txt": {
+    "risks": [
+      {
+        "description": "ITSG-33 IA-5 compliance finding — PAW architecture documentation missing from SA&A package",
+        "category": "compliance",
+        "likelihood": 4,
+        "impact": 5,
+        "risk_level": "critical",
+        "evidence_excerpt": "SA&A package is missing the Privileged Access Workstation (PAW) architecture documentation required under ITSG-33 Annex 3A"
+      },
+      {
+        "description": "PBMM cloud hosting authorization may be placed on hold affecting GC-Cloud workloads",
+        "category": "compliance",
+        "likelihood": 3,
+        "impact": 5,
+        "risk_level": "critical",
+        "evidence_excerpt": "SSC's PBMM cloud hosting authorization may be placed on hold"
+      }
+    ]
+  },
+  "cross_check_pair": {
+    "inconsistencies": [
+      {
+        "description": "Director's Briefing Note (Pair A) states 'no budget concerns' and project is 'within budget', while Finance Committee Briefing (Pair B) reports a confirmed $340,000 budget overrun (14% above approved envelope)",
+        "doc_a_excerpt": "We have no budget concerns at this time and expect to deliver within the approved envelope",
+        "doc_b_excerpt": "budget overrun of $340,000 (approximately 14% above approved envelope)"
+      },
+      {
+        "description": "Pair A describes risk profile as 'low' with no escalations required, while Pair B flags the project for 'enhanced monitoring' and describes timeline as 'at risk'",
+        "doc_a_excerpt": "risk profile is low. Our risk register contains three risks, all rated Low. No risk escalations are required",
+        "doc_b_excerpt": "Finance Committee should flag this project for enhanced monitoring. Timeline at risk"
+      }
+    ]
+  }
+}

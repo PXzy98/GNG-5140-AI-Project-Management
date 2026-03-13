@@ -1,0 +1,226 @@
+{
+  "test_id": "RSK-06",
+  "test_name": "Risk scoring accuracy",
+  "method": "llm_large",
+  "passed": true,
+  "score": "8.0/8",
+  "details": "within_1_level=2/2 pairs=[('critical', 'critical'), ('critical', 'high')]",
+  "error": null,
+  "latency_ms": 7854.97580000083,
+  "artifact": {
+    "artifact_id": "art_994b938246",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 246,
+    "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+    "extracted_tasks": [
+      {
+        "task_id": "art_994b938246_t001",
+        "text": "please confirm the delivery timeline for the Catalyst",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "please confirm the delivery timeline for the Catalyst",
+        "confidence": 0.7
+      }
+    ],
+    "metadata": {
+      "sender": "j.henderson@techsupplier.ca",
+      "recipients": "alice.tran@ssc-spc.gc.ca",
+      "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+      "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+    }
+  },
+  "risks": {
+    "count": 5,
+    "analysis_method": "llm_large",
+    "risks": [
+      {
+        "risk_id": "rsk_60dac44c",
+        "description": "2-week equipment delivery delay threatens March 8 migration window opening.",
+        "category": "schedule",
+        "likelihood": 5,
+        "impact": 5,
+        "risk_score": 25.0,
+        "risk_level": "critical",
+        "affected_stakeholders": [
+          "alice.tran@ssc-spc.gc.ca",
+          "ngis-pm@ssc-spc.gc.ca",
+          "bob.morrison@ssc-spc.gc.ca"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_994b938246",
+            "excerpt": "confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6",
+            "location": null,
+            "evidence_strength": 1.0
+          }
+        ],
+        "source_artifact_id": "art_994b938246",
+        "created_at": "2026-03-09T07:05:53.197823"
+      },
+      {
+        "risk_id": "rsk_f935e0f3",
+        "description": "Single-source supplier dependency; no viable alternative without further delay.",
+        "category": "resource",
+        "likelihood": 4,
+        "impact": 5,
+        "risk_score": 20.0,
+        "risk_level": "critical",
+        "affected_stakeholders": [
+          "alice.tran@ssc-spc.gc.ca",
+          "ngis-pm@ssc-spc.gc.ca"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_994b938246",
+            "excerpt": "we are currently single-sourced on this product line through our Montreal warehouse",
+            "location": null,
+            "evidence_strength": 0.8
+          }
+        ],
+        "source_artifact_id": "art_994b938246",
+        "created_at": "2026-03-09T07:05:53.197823"
+      },
+      {
+        "risk_id": "rsk_4ecce928",
+        "description": "Warehouse management system failure causing ongoing outbound shipment disruption.",
+        "category": "technical",
+        "likelihood": 4,
+        "impact": 5,
+        "risk_score": 20.0,
+        "risk_level": "critical",
+        "affected_stakeholders": [
+          "alice.tran@ssc-spc.gc.ca",
+          "bob.morrison@ssc-spc.gc.ca"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_994b938246",
+            "excerpt": "primary distribution centre experienced a warehouse management system failure that has affected outbound shipments since February 26",
+            "location": null,
+            "evidence_strength": 0.8
+          }
+        ],
+        "source_artifact_id": "art_994b938246",
+        "created_at": "2026-03-09T07:05:53.198829"
+      },
+      {
+        "risk_id": "rsk_c59f5e1d",
+        "description": "Alternative Vancouver routing adds 3\u20135 further business days, worsening delay.",
+        "category": "schedule",
+        "likelihood": 3,
+        "impact": 4,
+        "risk_score": 12.0,
+        "risk_level": "high",
+        "affected_stakeholders": [
+          "alice.tran@ssc-spc.gc.ca",
+          "ngis-pm@ssc-spc.gc.ca"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_994b938246",
+            "excerpt": "alternative routing via our Vancouver depot would add a further 3\u20135 business days",
+            "location": null,
+            "evidence_strength": 0.48
+          }
+        ],
+        "source_artifact_id": "art_994b938246",
+        "created_at": "2026-03-09T07:05:53.198829"
+      },
+      {
+        "risk_id": "rsk_091c4cdd",
+        "description": "Q2 migration timeline at risk due to equipment staging and testing window lost.",
+        "category": "schedule",
+        "likelihood": 5,
+        "impact": 5,
+        "risk_score": 25.0,
+        "risk_level": "critical",
+        "affected_stakeholders": [
+          "alice.tran@ssc-spc.gc.ca",
+          "bob.morrison@ssc-spc.gc.ca",
+          "ngis-pm@ssc-spc.gc.ca"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_994b938246",
+            "excerpt": "I understand this creates significant pressure on your Q2 migration timeline",
+            "location": null,
+            "evidence_strength": 1.0
+          }
+        ],
+        "source_artifact_id": "art_994b938246",
+        "created_at": "2026-03-09T07:05:53.198829"
+      }
+    ]
+  },
+  "llm_calls": [
+    {
+      "tier": "large",
+      "model": "anthropic/claude-sonnet-4.6",
+      "latency_ms": 7853.3,
+      "content": "```json\n[\n  {\n    \"description\": \"2-week equipment delivery delay threatens March 8 migration window opening.\",\n    \"category\": \"schedule\",\n    \"likelihood\": 5,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\", \"bob.morrison@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"Single-source supplier dependency; no viable alternative without further delay.\",\n    \"category\": \"resource\",\n    \"likelihood\": 4,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"we are currently single-sourced on this product line through our Montreal warehouse\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"Warehouse management system failure causing ongoing outbound shipment disruption.\",\n    \"category\": \"technical\",\n    \"likelihood\": 4,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"primary distribution centre experienced a warehouse management system failure that has affected outbound shipments since February 26\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"bob.morrison@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"Alternative Vancouver routing adds 3\u20135 further business days, worsening delay.\",\n    \"category\": \"schedule\",\n    \"likelihood\": 3,\n    \"impact\": 3,\n    \"evidence_excerpt\": \"alternative routing via our Vancouver depot would add a further 3\u20135 business days\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"Q2 migration timeline at risk due to equipment staging and testing window lost.\",\n    \"category\": \"schedule\",\n    \"likelihood\": 5,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"I understand this creates significant pressure on your Q2 migration timeline\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"bob.morrison@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\"]\n  }\n]\n```",
+      "parsed_json": [
+        {
+          "description": "2-week equipment delivery delay threatens March 8 migration window opening.",
+          "category": "schedule",
+          "likelihood": 5,
+          "impact": 5,
+          "evidence_excerpt": "confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6",
+          "affected_stakeholders": [
+            "alice.tran@ssc-spc.gc.ca",
+            "ngis-pm@ssc-spc.gc.ca",
+            "bob.morrison@ssc-spc.gc.ca"
+          ]
+        },
+        {
+          "description": "Single-source supplier dependency; no viable alternative without further delay.",
+          "category": "resource",
+          "likelihood": 4,
+          "impact": 4,
+          "evidence_excerpt": "we are currently single-sourced on this product line through our Montreal warehouse",
+          "affected_stakeholders": [
+            "alice.tran@ssc-spc.gc.ca",
+            "ngis-pm@ssc-spc.gc.ca"
+          ]
+        },
+        {
+          "description": "Warehouse management system failure causing ongoing outbound shipment disruption.",
+          "category": "technical",
+          "likelihood": 4,
+          "impact": 4,
+          "evidence_excerpt": "primary distribution centre experienced a warehouse management system failure that has affected outbound shipments since February 26",
+          "affected_stakeholders": [
+            "alice.tran@ssc-spc.gc.ca",
+            "bob.morrison@ssc-spc.gc.ca"
+          ]
+        },
+        {
+          "description": "Alternative Vancouver routing adds 3\u20135 further business days, worsening delay.",
+          "category": "schedule",
+          "likelihood": 3,
+          "impact": 3,
+          "evidence_excerpt": "alternative routing via our Vancouver depot would add a further 3\u20135 business days",
+          "affected_stakeholders": [
+            "alice.tran@ssc-spc.gc.ca",
+            "ngis-pm@ssc-spc.gc.ca"
+          ]
+        },
+        {
+          "description": "Q2 migration timeline at risk due to equipment staging and testing window lost.",
+          "category": "schedule",
+          "likelihood": 5,
+          "impact": 5,
+          "evidence_excerpt": "I understand this creates significant pressure on your Q2 migration timeline",
+          "affected_stakeholders": [
+            "alice.tran@ssc-spc.gc.ca",
+            "bob.morrison@ssc-spc.gc.ca",
+            "ngis-pm@ssc-spc.gc.ca"
+          ]
+        }
+      ],
+      "error": null
+    }
+  ]
+}

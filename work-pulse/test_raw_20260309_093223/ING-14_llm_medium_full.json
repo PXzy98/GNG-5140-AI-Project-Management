@@ -1,0 +1,58 @@
+{
+  "test_id": "ING-14",
+  "test_name": "API response schema validation",
+  "method": "llm_medium_full",
+  "passed": true,
+  "score": "6/6",
+  "details": "Schema valid",
+  "error": null,
+  "latency_ms": 7.259199992404319,
+  "artifact": {
+    "artifact_id": "art_747674cd3e",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 246,
+    "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+    "extracted_tasks": [
+      {
+        "task_id": "art_747674cd3e_t001",
+        "text": "confirm the delivery timeline for the Catalyst switches",
+        "owner": "Jason Henderson",
+        "deadline": "2026-03-02",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Jason, can you please confirm the delivery timeline for the Catalyst switches?",
+        "confidence": 0.95
+      },
+      {
+        "task_id": "art_747674cd3e_t002",
+        "text": "expedite the shipment",
+        "owner": "Jason Henderson",
+        "deadline": "2026-03-20",
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "Our team is working around the clock to expedite the shipment.",
+        "confidence": 0.95
+      },
+      {
+        "task_id": "art_747674cd3e_t003",
+        "text": "let me know how we can best support your planning activities during this disruption",
+        "owner": "Alice Tran",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Please let me know how we can best support your planning activities during this disruption.",
+        "confidence": 0.95
+      }
+    ],
+    "metadata": {
+      "sender": "j.henderson@techsupplier.ca",
+      "recipients": [
+        "alice.tran@ssc-spc.gc.ca"
+      ],
+      "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+      "date": "2026-03-02"
+    }
+  },
+  "llm_calls": []
+}

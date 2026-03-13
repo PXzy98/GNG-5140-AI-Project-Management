@@ -1,0 +1,67 @@
+COMITÉ DE GOUVERNANCE DES TI — COMPTE RENDU DE RÉUNION
+Réunion de révision trimestrielle — T4 2025–2026
+Date : 4 mars 2026
+Heure : 9 h 00 – 11 h 30 HNE
+Lieu : Salle de conférence 7B, Édifice Immeuble-Vanier II, Ottawa
+
+Présents :
+- Directeur général, Sylvain Thibodeau (Président)
+- Chef de projet, Marie Lefebvre
+- Gestionnaire des risques, Pierre Gagnon
+- Conseillère principale en politique, Diane Beauchamp
+- Représentant des finances, François Lemieux
+- Architecte de solutions, Nadia Tremblay
+
+Absents avec regrets : Directrice des opérations (représentée par Diane Beauchamp)
+
+---
+
+1. OUVERTURE ET APPROBATION DE L'ORDRE DU JOUR
+
+Le président a ouvert la réunion à 9 h 05. L'ordre du jour a été approuvé
+sans modification.
+
+2. RAPPORT DE SITUATION — NGIS PHASE 3
+
+Marie Lefebvre a présenté le rapport de situation du projet NGIS Phase 3.
+Le projet affiche un avancement global de 65 % par rapport à l'échéancier
+prévu. Les jalons clés pour le T4 sont partiellement à risque en raison
+du retard du fournisseur de matériel réseau.
+
+Points soulevés :
+- Le retard de livraison du fournisseur TechSupplier menace la fenêtre
+  de migration du 18 mars.
+- Un écart de conformité ITSG-33 a été identifié par le Bureau du CISO
+  du SCT et doit être résolu avant la migration.
+- Un risque de ressource humaine a été identifié (départ potentiel d'un
+  expert clé en migration AD).
+
+3. RÉVISION DES RISQUES
+
+Pierre Gagnon a présenté la mise à jour du registre des risques. Trois
+nouveaux risques ont été ajoutés :
+
+R-014 : Retard fournisseur (Probabilité : Élevée / Impact : Élevé)
+R-015 : Écart de conformité ITSG-33 (Probabilité : Élevée / Impact : Critique)
+R-016 : Perte de ressource clé — expert AD (Probabilité : Moyenne / Impact : Élevé)
+
+4. ÉLÉMENTS D'ACTION
+
+EA-001 : Pierre Gagnon doit mettre à jour le registre des risques
+         pour inclure les risques R-014, R-015 et R-016, et les
+         distribuer à l'équipe de projet. Échéance : 6 mars 2026.
+
+EA-002 : Marie Lefebvre doit présenter un plan d'atténuation détaillé
+         pour le risque R-015 (conformité ITSG-33) au Comité de
+         gouvernance. Échéance : 12 mars 2026.
+
+EA-003 : François Lemieux doit préparer une analyse des incidences
+         budgétaires du retard du fournisseur et la soumettre à la
+         Direction générale des finances. Échéance : 10 mars 2026.
+
+5. PROCHAINE RÉUNION
+
+La prochaine réunion du Comité de gouvernance aura lieu le 1er avril 2026.
+
+Compte rendu préparé par : Diane Beauchamp
+Approuvé par : Sylvain Thibodeau, DG TI

@@ -1,0 +1,212 @@
+{
+  "test_id": "DFT-05",
+  "test_name": "Contradicts-scope detection",
+  "method": "llm_medium",
+  "passed": false,
+  "score": "3/10",
+  "details": "type=scope_expansion score=0.40",
+  "error": null,
+  "latency_ms": 3696.028299993486,
+  "artifact": {
+    "artifact_id": "art_5de3112cdd",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 212,
+    "content_preview": "From: adm.clarke@ssc-spc.gc.ca\nTo: alice.tran@ssc-spc.gc.ca; carol.nguyen@ssc-spc.gc.ca; finance.review@ssc-spc.gc.ca\nSubject: NGIS Phase 3 \u2014 Decision: Timeline and Budget Revision\nDate: March 9, 2026\n\nProject Team,\n\nFollowing the steering committee session on March 8 and consultation\nwith Treasury Board Secretariat, I am writing to communicate an executive\ndecision regarding the NGIS Phase 3 project parameters.\n\nDECISION 1 \u2014 TIMELINE EXTENSION:\nThe project completion date is hereby extended to ",
+    "extracted_tasks": [
+      {
+        "task_id": "art_5de3112cdd_t001",
+        "text": "Project completion date extended to December 31, 2026.",
+        "owner": null,
+        "deadline": "2026-12-31",
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "The project completion date is hereby extended to Q4 2026 (December 31, 2026).",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_5de3112cdd_t002",
+        "text": "Approved project budget increased to $3,500,000.",
+        "owner": null,
+        "deadline": null,
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "The approved project budget is increased to $3,500,000",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_5de3112cdd_t003",
+        "text": "Submit Treasury Board notification.",
+        "owner": "SSC Finance team",
+        "deadline": null,
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Treasury Board notification will be submitted by the SSC Finance team.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_5de3112cdd_t004",
+        "text": "Circulate formal amendment to the project charter for signature.",
+        "owner": "ADM Clarke",
+        "deadline": "2026-03-13",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "A formal amendment to the project charter will be circulated for signature by end of week.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_5de3112cdd_t005",
+        "text": "Update all project documentation, risk registers, and reporting templates.",
+        "owner": "Project Team",
+        "deadline": "2026-03-09",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Please update all project documentation, risk registers, and reporting templates to reflect these revised parameters effective immediately.",
+        "confidence": 0.9
+      }
+    ],
+    "metadata": {
+      "sender": "adm.clarke@ssc-spc.gc.ca",
+      "recipients": "alice.tran@ssc-spc.gc.ca; carol.nguyen@ssc-spc.gc.ca; finance.review@ssc-spc.gc.ca",
+      "subject": "NGIS Phase 3 \u2014 Decision: Timeline and Budget Revision",
+      "date": "March 9, 2026"
+    }
+  },
+  "drift_check": {
+    "drift_type": "scope_expansion",
+    "overall_alignment_score": 0.4,
+    "reasoning": null,
+    "alerts": [
+      {
+        "alert_id": "alt_71068c50",
+        "project_id": "proj_drift_llm_medium",
+        "artifact_id": "art_5de3112cdd",
+        "drift_type": "scope_expansion",
+        "alignment_score": 0.4,
+        "detected_ask": "DR site assessment and preliminary design ($400,000) and middleware remediation ($340,000).",
+        "baseline_reference": "CONSTRAINTS: Total approved budget of $2,400,000; Go-Live (D-006) no later than April 30, 2026; OUT OF SCOPE: Application modernization or re-platforming.",
+        "suggested_action": "Initiate the SSC Project Change Management Process immediately to formalize these executive decisions. Update the Project Charter, TDD (D-002), and Project Management Plan (D-001) to reflect the new $3.5M budget and December 31, 2026, completion date. Ensure the 'middleware remediation' is clearly d",
+        "severity": "high",
+        "status": "open",
+        "created_at": "2026-03-09T06:42:04.648686"
+      }
+    ]
+  },
+  "llm_calls": [
+    {
+      "tier": "medium",
+      "model": "google/gemini-3-flash-preview",
+      "latency_ms": 4985.6,
+      "content": "```json\n{\n  \"in_scope\": [\n    \"Decommissioning of Sites B and C physical infrastructure\",\n    \"Migration of all server workloads from Sites B and C to Site A\",\n    \"Physical server rack consolidation and cable management at Site A\",\n    \"Environmental systems (HVAC, UPS, fire suppression) optimization at Site A\",\n    \"Replacement and deployment of Cisco Catalyst 9500 series switches across all three sites\",\n    \"Network segmentation reconfiguration per updated security zones\",\n    \"BGP routing table migration and validation\",\n    \"Network performance baseline testing post-migration\",\n    \"Migration of all on-premise Active Directory domain controllers to Site A\",\n    \"AD schema extension and forest restructuring\",\n    \"Group Policy Object (GPO) consolidation and testing\",\n    \"Integration testing with downstream applications dependent on AD\",\n    \"Weekly status reports to SSC Project Management Office\",\n    \"Monthly steering committee presentations\",\n    \"Risk register maintenance\",\n    \"Change management and stakeholder communications\"\n  ],\n  \"out_of_scope\": [\n    \"End-user device refresh or replacement (laptops, desktops, mobile devices)\",\n    \"Application modernization or re-platforming (lift and shift only)\",\n    \"GC-Cloud workload migration (AWS, Azure, GC-Cloud)\",\n    \"End-user training and change management beyond project communications\",\n    \"Procurement of new application licenses\",\n    \"Network monitoring tool upgrades\"\n  ],\n  \"deliverables\": [\n    \"D-001: Project Management Plan\",\n    \"D-002: Technical Design Document (TDD)\",\n    \"D-003: Security Assessment and Authorization (SA&A) Package\",\n    \"D-004: Migration Runbook (Sites B and C)\",\n    \"D-005: User Acceptance Test (UAT) Plan\",\n    \"D-006: Site A Consolidation Complete (Go-Live)\",\n    \"D-007: Post-Migration Validation Report\",\n    \"D-008: Project Closure Report\"\n  ],\n  \"constraints\": [\n    \"Total approved budget of $2,400,000 inclusive of all fees and taxes\",\n    \"Go-Live (D-006) must be achieved no later than April 30, 2026\",\n    \"Final project closure date of June 30, 2026\",\n    \"Compliance with ITSG-33: IT Security Risk Management\",\n    \"Compliance with Government of Canada Cloud Adoption Strategy\",\n    \"Compliance with Treasury Board Policy on Government Security\",\n    \"Compliance with Privacy Act (R.S.C., 1985, c. P-21)\",\n    \"Compliance with Official Languages Act for all client-facing deliverables\",\n    \"Adherence to SSC Project Change Management Process for scope, schedule, or budget changes\"\n  ]\n}\n```",
+      "parsed_json": {
+        "in_scope": [
+          "Decommissioning of Sites B and C physical infrastructure",
+          "Migration of all server workloads from Sites B and C to Site A",
+          "Physical server rack consolidation and cable management at Site A",
+          "Environmental systems (HVAC, UPS, fire suppression) optimization at Site A",
+          "Replacement and deployment of Cisco Catalyst 9500 series switches across all three sites",
+          "Network segmentation reconfiguration per updated security zones",
+          "BGP routing table migration and validation",
+          "Network performance baseline testing post-migration",
+          "Migration of all on-premise Active Directory domain controllers to Site A",
+          "AD schema extension and forest restructuring",
+          "Group Policy Object (GPO) consolidation and testing",
+          "Integration testing with downstream applications dependent on AD",
+          "Weekly status reports to SSC Project Management Office",
+          "Monthly steering committee presentations",
+          "Risk register maintenance",
+          "Change management and stakeholder communications"
+        ],
+        "out_of_scope": [
+          "End-user device refresh or replacement (laptops, desktops, mobile devices)",
+          "Application modernization or re-platforming (lift and shift only)",
+          "GC-Cloud workload migration (AWS, Azure, GC-Cloud)",
+          "End-user training and change management beyond project communications",
+          "Procurement of new application licenses",
+          "Network monitoring tool upgrades"
+        ],
+        "deliverables": [
+          "D-001: Project Management Plan",
+          "D-002: Technical Design Document (TDD)",
+          "D-003: Security Assessment and Authorization (SA&A) Package",
+          "D-004: Migration Runbook (Sites B and C)",
+          "D-005: User Acceptance Test (UAT) Plan",
+          "D-006: Site A Consolidation Complete (Go-Live)",
+          "D-007: Post-Migration Validation Report",
+          "D-008: Project Closure Report"
+        ],
+        "constraints": [
+          "Total approved budget of $2,400,000 inclusive of all fees and taxes",
+          "Go-Live (D-006) must be achieved no later than April 30, 2026",
+          "Final project closure date of June 30, 2026",
+          "Compliance with ITSG-33: IT Security Risk Management",
+          "Compliance with Government of Canada Cloud Adoption Strategy",
+          "Compliance with Treasury Board Policy on Government Security",
+          "Compliance with Privacy Act (R.S.C., 1985, c. P-21)",
+          "Compliance with Official Languages Act for all client-facing deliverables",
+          "Adherence to SSC Project Change Management Process for scope, schedule, or budget changes"
+        ]
+      },
+      "error": null
+    },
+    {
+      "tier": "medium",
+      "model": "google/gemini-3-flash-preview",
+      "latency_ms": 3414.3,
+      "content": "[\n  {\n    \"text\": \"Project completion date extended to December 31, 2026.\",\n    \"owner\": null,\n    \"deadline\": \"2026-12-31\",\n    \"priority\": \"critical\",\n    \"source_excerpt\": \"The project completion date is hereby extended to Q4 2026 (December 31, 2026).\"\n  },\n  {\n    \"text\": \"Approved project budget increased to $3,500,000.\",\n    \"owner\": null,\n    \"deadline\": null,\n    \"priority\": \"critical\",\n    \"source_excerpt\": \"The approved project budget is increased to $3,500,000\"\n  },\n  {\n    \"text\": \"Submit Treasury Board notification.\",\n    \"owner\": \"SSC Finance team\",\n    \"deadline\": null,\n    \"priority\": \"high\",\n    \"source_excerpt\": \"Treasury Board notification will be submitted by the SSC Finance team.\"\n  },\n  {\n    \"text\": \"Circulate formal amendment to the project charter for signature.\",\n    \"owner\": \"ADM Clarke\",\n    \"deadline\": \"2026-03-13\",\n    \"priority\": \"high\",\n    \"source_excerpt\": \"A formal amendment to the project charter will be circulated for signature by end of week.\"\n  },\n  {\n    \"text\": \"Update all project documentation, risk registers, and reporting templates.\",\n    \"owner\": \"Project Team\",\n    \"deadline\": \"2026-03-09\",\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"Please update all project documentation, risk registers, and reporting templates to reflect these revised parameters effective immediately.\"\n  }\n]",
+      "parsed_json": [
+        {
+          "text": "Project completion date extended to December 31, 2026.",
+          "owner": null,
+          "deadline": "2026-12-31",
+          "priority": "critical",
+          "source_excerpt": "The project completion date is hereby extended to Q4 2026 (December 31, 2026)."
+        },
+        {
+          "text": "Approved project budget increased to $3,500,000.",
+          "owner": null,
+          "deadline": null,
+          "priority": "critical",
+          "source_excerpt": "The approved project budget is increased to $3,500,000"
+        },
+        {
+          "text": "Submit Treasury Board notification.",
+          "owner": "SSC Finance team",
+          "deadline": null,
+          "priority": "high",
+          "source_excerpt": "Treasury Board notification will be submitted by the SSC Finance team."
+        },
+        {
+          "text": "Circulate formal amendment to the project charter for signature.",
+          "owner": "ADM Clarke",
+          "deadline": "2026-03-13",
+          "priority": "high",
+          "source_excerpt": "A formal amendment to the project charter will be circulated for signature by end of week."
+        },
+        {
+          "text": "Update all project documentation, risk registers, and reporting templates.",
+          "owner": "Project Team",
+          "deadline": "2026-03-09",
+          "priority": "medium",
+          "source_excerpt": "Please update all project documentation, risk registers, and reporting templates to reflect these revised parameters effective immediately."
+        }
+      ],
+      "error": null
+    },
+    {
+      "tier": "medium",
+      "model": "google/gemini-3-flash-preview",
+      "latency_ms": 3695.7,
+      "content": "```json\n{\n  \"alignment_score\": 0.4,\n  \"drift_type\": \"scope_expansion\",\n  \"detected_ask\": \"DR site assessment and preliminary design ($400,000) and middleware remediation ($340,000).\",\n  \"baseline_reference\": \"CONSTRAINTS: Total approved budget of $2,400,000; Go-Live (D-006) no later than April 30, 2026; OUT OF SCOPE: Application modernization or re-platforming.\",\n  \"suggested_action\": \"Initiate the SSC Project Change Management Process immediately to formalize these executive decisions. Update the Project Charter, TDD (D-002), and Project Management Plan (D-001) to reflect the new $3.5M budget and December 31, 2026, completion date. Ensure the 'middleware remediation' is clearly defined to avoid further drift into 'application modernization' which remains out of scope.\",\n  \"reasoning\": \"The document represents significant scope expansion and a breach of original constraints. It introduces new technical requirements (DR assessment and middleware remediation) not found in the baseline. Furthermore, it explicitly overrides the 'Constraints' section regarding the $2.4M budget ceiling and the April 30, 2026, Go-Live deadline. While authorized by an ADM, these changes constitute formal scope drift from the original baseline that requires documented change control.\"\n}\n```",
+      "parsed_json": {
+        "alignment_score": 0.4,
+        "drift_type": "scope_expansion",
+        "detected_ask": "DR site assessment and preliminary design ($400,000) and middleware remediation ($340,000).",
+        "baseline_reference": "CONSTRAINTS: Total approved budget of $2,400,000; Go-Live (D-006) no later than April 30, 2026; OUT OF SCOPE: Application modernization or re-platforming.",
+        "suggested_action": "Initiate the SSC Project Change Management Process immediately to formalize these executive decisions. Update the Project Charter, TDD (D-002), and Project Management Plan (D-001) to reflect the new $3.5M budget and December 31, 2026, completion date. Ensure the 'middleware remediation' is clearly defined to avoid further drift into 'application modernization' which remains out of scope.",
+        "reasoning": "The document represents significant scope expansion and a breach of original constraints. It introduces new technical requirements (DR assessment and middleware remediation) not found in the baseline. Furthermore, it explicitly overrides the 'Constraints' section regarding the $2.4M budget ceiling and the April 30, 2026, Go-Live deadline. While authorized by an ADM, these changes constitute formal scope drift from the original baseline that requires documented change control."
+      },
+      "error": null
+    }
+  ]
+}

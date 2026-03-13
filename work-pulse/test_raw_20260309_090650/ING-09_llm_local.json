@@ -1,0 +1,104 @@
+{
+  "test_id": "ING-09",
+  "test_name": "Language detection (Mixed EN/FR)",
+  "method": "llm_local",
+  "passed": true,
+  "score": "9/9",
+  "details": "detected=mixed",
+  "error": null,
+  "latency_ms": 9863.705699986895,
+  "artifact": {
+    "artifact_id": "art_099375bd84",
+    "artifact_type": "email",
+    "detected_language": "mixed",
+    "word_count": 234,
+    "content_preview": "From: marie.lefebvre@ssc-spc.gc.ca\nTo: project-team-ngis@ssc-spc.gc.ca\nSubject: NGIS Phase 3 \u2014 Weekly Status / Mise \u00e0 jour hebdomadaire\nDate: Wed, 4 Mar 2026 10:05:00 -0500\n\nHello team / Bonjour l'\u00e9quipe,\n\nENGLISH SECTION:\n\nThis week's status update for NGIS Phase 3 is as follows:\n\nWork completed:\n- Active Directory migration for Site A (Gatineau) is 80% complete.\n- Network topology diagrams updated to reflect revised switch placement.\n\nAction Items (English):\n1. Please schedule a follow-up tech",
+    "extracted_tasks": [
+      {
+        "task_id": "art_099375bd84_t001",
+        "text": "schedule a follow-up technical review meeting before March 11 to finalize the AD migration cutover plan. Coordinate with Dave Chen",
+        "owner": null,
+        "deadline": "2026-03-11",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Please schedule a follow-up technical review meeting before March 11 to finalize the AD migration cutover plan. Coordinate with Dave Chen.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_099375bd84_t002",
+        "text": "review the updated security compliance checklist (attached) and confirm sign-off by March 9, 2026",
+        "owner": null,
+        "deadline": "2026-03-09",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "All team members must review the updated security compliance checklist (attached) and confirm sign-off by March 9, 2026.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_099375bd84_t003",
+        "text": "mettre \u00e0 jour le registre des risques du projet d'ici le 10 mars 2026 pour inclure le risque de d\u00e9lai du fournisseur",
+        "owner": "\u00e9quipe de gestion des risques",
+        "deadline": "2026-03-10",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Veuillez mettre \u00e0 jour le registre des risques du projet d'ici le 10 mars 2026 pour inclure le risque de d\u00e9lai du fournisseur. Responsable : \u00e9quipe de",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_099375bd84_t004",
+        "text": "Confirmez les livrables r\u00e9vis\u00e9s avec le fournisseur principal (TechSupplier) d'ici le 12 mars 2026",
+        "owner": "Gestionnaire de projet",
+        "deadline": "2026-03-12",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Confirmez les livrables r\u00e9vis\u00e9s avec le fournisseur principal (TechSupplier) d'ici le 12 mars 2026. Responsable : Gestionnaire de projet.",
+        "confidence": 0.9
+      }
+    ],
+    "metadata": {
+      "sender": "marie.lefebvre@ssc-spc.gc.ca",
+      "recipients": "project-team-ngis@ssc-spc.gc.ca",
+      "subject": "NGIS Phase 3 \u2014 Weekly Status / Mise \u00e0 jour hebdomadaire",
+      "date": "Wed, 4 Mar 2026 10:05:00 -0500"
+    }
+  },
+  "llm_calls": [
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 9854.1,
+      "content": "[\n  {\n    \"text\": \"schedule a follow-up technical review meeting before March 11 to finalize the AD migration cutover plan. Coordinate with Dave Chen\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-11\",\n    \"priority\": \"high\",\n    \"source_excerpt\": \"Please schedule a follow-up technical review meeting before March 11 to finalize the AD migration cutover plan. Coordinate with Dave Chen.\"\n  },\n  {\n    \"text\": \"review the updated security compliance checklist (attached) and confirm sign-off by March 9, 2026\",\n    \"owner\": null,\n    \"deadline\": \"2026-03-09\",\n    \"priority\": \"high\",\n    \"source_excerpt\": \"All team members must review the updated security compliance checklist (attached) and confirm sign-off by March 9, 2026.\"\n  },\n  {\n    \"text\": \"mettre \u00e0 jour le registre des risques du projet d'ici le 10 mars 2026 pour inclure le risque de d\u00e9lai du fournisseur\",\n    \"owner\": \"\u00e9quipe de gestion des risques\",\n    \"deadline\": \"2026-03-10\",\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"Veuillez mettre \u00e0 jour le registre des risques du projet d'ici le 10 mars 2026 pour inclure le risque de d\u00e9lai du fournisseur. Responsable : \u00e9quipe de gestion des risques.\"\n  },\n  {\n    \"text\": \"Confirmez les livrables r\u00e9vis\u00e9s avec le fournisseur principal (TechSupplier) d'ici le 12 mars 2026\",\n    \"owner\": \"Gestionnaire de projet\",\n    \"deadline\": \"2026-03-12\",\n    \"priority\": \"medium\",\n    \"source_excerpt\": \"Confirmez les livrables r\u00e9vis\u00e9s avec le fournisseur principal (TechSupplier) d'ici le 12 mars 2026. Responsable : Gestionnaire de projet.\"\n  }\n]",
+      "parsed_json": [
+        {
+          "text": "schedule a follow-up technical review meeting before March 11 to finalize the AD migration cutover plan. Coordinate with Dave Chen",
+          "owner": null,
+          "deadline": "2026-03-11",
+          "priority": "high",
+          "source_excerpt": "Please schedule a follow-up technical review meeting before March 11 to finalize the AD migration cutover plan. Coordinate with Dave Chen."
+        },
+        {
+          "text": "review the updated security compliance checklist (attached) and confirm sign-off by March 9, 2026",
+          "owner": null,
+          "deadline": "2026-03-09",
+          "priority": "high",
+          "source_excerpt": "All team members must review the updated security compliance checklist (attached) and confirm sign-off by March 9, 2026."
+        },
+        {
+          "text": "mettre \u00e0 jour le registre des risques du projet d'ici le 10 mars 2026 pour inclure le risque de d\u00e9lai du fournisseur",
+          "owner": "\u00e9quipe de gestion des risques",
+          "deadline": "2026-03-10",
+          "priority": "medium",
+          "source_excerpt": "Veuillez mettre \u00e0 jour le registre des risques du projet d'ici le 10 mars 2026 pour inclure le risque de d\u00e9lai du fournisseur. Responsable : \u00e9quipe de gestion des risques."
+        },
+        {
+          "text": "Confirmez les livrables r\u00e9vis\u00e9s avec le fournisseur principal (TechSupplier) d'ici le 12 mars 2026",
+          "owner": "Gestionnaire de projet",
+          "deadline": "2026-03-12",
+          "priority": "medium",
+          "source_excerpt": "Confirmez les livrables r\u00e9vis\u00e9s avec le fournisseur principal (TechSupplier) d'ici le 12 mars 2026. Responsable : Gestionnaire de projet."
+        }
+      ],
+      "error": null
+    }
+  ]
+}

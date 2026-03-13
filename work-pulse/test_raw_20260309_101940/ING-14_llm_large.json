@@ -1,0 +1,66 @@
+{
+  "test_id": "ING-14",
+  "test_name": "API response schema validation",
+  "method": "llm_large",
+  "passed": true,
+  "score": "6/6",
+  "details": "Schema valid",
+  "error": null,
+  "latency_ms": 7.407099998090416,
+  "artifact": {
+    "artifact_id": "art_4a0209e0f2",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 246,
+    "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+    "extracted_tasks": [
+      {
+        "task_id": "art_4a0209e0f2_t001",
+        "text": "Confirm in writing the situation with the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre migration",
+        "owner": "Jason Henderson",
+        "deadline": null,
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "I wanted to confirm in writing the situation with the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre migration.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_4a0209e0f2_t002",
+        "text": "Let Jason Henderson know how TechSupplier can best support planning activities during this disruption",
+        "owner": "Alice Tran",
+        "deadline": null,
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Please let me know how we can best support your planning activities during this disruption.",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_4a0209e0f2_t003",
+        "text": "Confirm the delivery timeline for the Catalyst switches",
+        "owner": "Jason Henderson",
+        "deadline": "2026-03-06",
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "can you please confirm the delivery timeline for the Catalyst switches? Our migration window opens March 8 and we need the equipment on site no later ",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_4a0209e0f2_t004",
+        "text": "Expedite the shipment of the Cisco Catalyst 9500 switches",
+        "owner": "Jason Henderson",
+        "deadline": "2026-03-20",
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "Our team is working around the clock to expedite the shipment.",
+        "confidence": 0.9
+      }
+    ],
+    "metadata": {
+      "sender": "j.henderson@techsupplier.ca",
+      "recipients": "alice.tran@ssc-spc.gc.ca",
+      "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+      "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+    }
+  },
+  "llm_calls": []
+}

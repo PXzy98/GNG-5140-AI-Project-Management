@@ -1,0 +1,37 @@
+De : pierre.gagnon@ssc-spc.gc.ca
+À : alice.tran@ssc-spc.gc.ca
+Cc : marie.lefebvre@ssc-spc.gc.ca
+Objet : Demande d'ajout — Modernisation des postes de travail des utilisateurs
+Date : 8 mars 2026
+
+Bonjour Alice,
+
+Je vous écris pour soumettre une demande d'ajout de portée au projet
+NGIS Phase 3 de la part du gestionnaire de prestation de services.
+
+Dans le cadre de la consolidation des sites B et C, plusieurs employés
+des centres de données affectés devront être relocalisés au site A à
+Gatineau. Le gestionnaire de prestation propose que le projet NGIS Phase 3
+inclue également le remplacement de leurs équipements de travail (ordinateurs
+portables et postes de travail fixes), étant donné que certains de ces
+appareils datent de plus de cinq ans et que leur transport au site A
+n'est pas pratique.
+
+Étendue proposée de l'ajout :
+- Remplacement de 85 ordinateurs portables (modèles Dell Latitude ou
+  équivalent, approuvés par SSC)
+- Remplacement de 40 postes de travail fixes dans les salles de serveurs
+  consolidées
+- Coût estimé : environ 210 000 $ à 240 000 $
+- Délai : livraison et configuration avant le 15 avril 2026
+
+Le gestionnaire de prestation estime que cet ajout est logique d'un
+point de vue opérationnel car les équipes seront de toute façon
+perturbées par la migration. Cela éviterait un projet distinct ultérieur.
+
+Pourriez-vous examiner cette demande et la soumettre au comité directeur
+lors de la prochaine réunion du 10 mars ?
+
+Cordialement,
+Pierre Gagnon
+Gestionnaire des risques, Portefeuille NGIS

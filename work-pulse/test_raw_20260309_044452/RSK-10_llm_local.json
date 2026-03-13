@@ -1,0 +1,11 @@
+{
+  "test_id": "RSK-10",
+  "test_name": "Risk scoring rule adjustments",
+  "method": "llm_local",
+  "passed": true,
+  "score": "7/7",
+  "details": "Risks identified: 1 lik=3 imp=3 level=medium",
+  "error": null,
+  "latency_ms": 0.037600009818561375,
+  "llm_calls": []
+}

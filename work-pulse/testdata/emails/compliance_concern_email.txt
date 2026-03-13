@@ -1,0 +1,41 @@
+From: security.audit@tbs-sct.gc.ca
+To: ngis-pm@ssc-spc.gc.ca
+Cc: itsec-director@ssc-spc.gc.ca; ciso@ssc-spc.gc.ca
+Subject: URGENT: ITSG-33 Compliance Gap — NGIS Phase 3 Network Migration
+Date: Thu, 5 Mar 2026 08:47:15 -0500
+
+Project Management Team,
+
+During the scheduled ITSG-33 security compliance review for NGIS Phase 3
+(review conducted February 28–March 4, 2026), our audit team identified
+a Category 2 finding that must be addressed before the migration proceeds.
+
+FINDING SUMMARY:
+Control: IA-5 (Authenticator Management)
+Status: NON-COMPLIANT
+Detail: The proposed Active Directory migration plan does not include
+documentation for privileged account management controls on the target
+domain controllers. Specifically, the Security Assessment and
+Authorization (SA&A) package is missing the Privileged Access Workstation
+(PAW) architecture documentation required under ITSG-33 Annex 3A,
+Control IA-5(1).
+
+RISK: If the migration proceeds without resolving this finding, SSC's
+PBMM cloud hosting authorization may be placed on hold, potentially
+affecting other GC-Cloud workloads depending on the shared AD
+infrastructure.
+
+REQUIRED ACTIONS:
+- The project team must provide the updated SA&A documentation addressing
+  Control IA-5 to this office no later than March 12, 2026.
+- A meeting between the SSC CISO office and the NGIS project team must
+  be scheduled for the week of March 9 to review the PAW architecture.
+- Until this finding is resolved, the March 18 migration window should
+  be considered at risk.
+
+Please confirm receipt and provide an action plan by end of day March 6.
+
+Regards,
+Office of the Chief Information Security Officer
+Treasury Board of Canada Secretariat
+security.audit@tbs-sct.gc.ca

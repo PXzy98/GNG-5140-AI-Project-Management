@@ -1,0 +1,45 @@
+From: marie.lefebvre@ssc-spc.gc.ca
+To: project-team-ngis@ssc-spc.gc.ca
+Subject: NGIS Phase 3 — Weekly Status / Mise à jour hebdomadaire
+Date: Wed, 4 Mar 2026 10:05:00 -0500
+
+Hello team / Bonjour l'équipe,
+
+ENGLISH SECTION:
+
+This week's status update for NGIS Phase 3 is as follows:
+
+Work completed:
+- Active Directory migration for Site A (Gatineau) is 80% complete.
+- Network topology diagrams updated to reflect revised switch placement.
+
+Action Items (English):
+1. Please schedule a follow-up technical review meeting before March 11
+   to finalize the AD migration cutover plan. Coordinate with Dave Chen.
+2. All team members must review the updated security compliance checklist
+   (attached) and confirm sign-off by March 9, 2026.
+
+---
+
+SECTION FRANÇAISE:
+
+Mise à jour de statut de la semaine pour NGIS Phase 3 :
+
+Travaux accomplis :
+- La migration Active Directory pour le Site A (Gatineau) est complète à 80 %.
+- Les diagrammes de topologie réseau ont été mis à jour.
+
+Éléments d'action (français) :
+1. Veuillez mettre à jour le registre des risques du projet d'ici le
+   10 mars 2026 pour inclure le risque de délai du fournisseur.
+   Responsable : équipe de gestion des risques.
+2. Confirmez les livrables révisés avec le fournisseur principal (TechSupplier)
+   d'ici le 12 mars 2026. Responsable : Gestionnaire de projet.
+
+---
+
+Merci / Thank you,
+Marie Lefebvre
+Chef de projet / Project Lead, NGIS Phase 3
+Services partagés Canada / Shared Services Canada
+marie.lefebvre@ssc-spc.gc.ca | 613-555-0391

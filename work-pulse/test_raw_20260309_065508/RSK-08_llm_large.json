@@ -1,0 +1,432 @@
+{
+  "test_id": "RSK-08",
+  "test_name": "Multi-risk extraction from single doc",
+  "method": "llm_large",
+  "passed": true,
+  "score": "8/8",
+  "details": "risks_found=5",
+  "error": null,
+  "latency_ms": 12169.867499993416,
+  "artifact": {
+    "artifact_id": "art_004d5490ec",
+    "artifact_type": "meeting_minutes",
+    "detected_language": "en",
+    "word_count": 446,
+    "content_preview": "NGIS PHASE 3 \u2014 SPRINT REVIEW MEETING MINUTES\nMeeting Date: March 3, 2026\nTime: 13:00\u201314:30 EST\nLocation: WebEx / Room 4C-12, Place du Portage III, Gatineau\n\nAttendees:\n- Alice Tran (Project Manager) \u2014 Chair\n- Bob Morrison (Technical Lead)\n- Carol Nguyen (Infrastructure Architect)\n- Dave Chen (Security Specialist)\n- Marie Lefebvre (Change Management)\n- Farida Osei (QA Lead)\n\nRegrets: Director Okafor (represented by Alice Tran)\n\n---\n\n1. SPRINT 6 REVIEW (Feb 17 \u2013 Mar 3, 2026)\n\nCompleted Items:\n- AD",
+    "extracted_tasks": [
+      {
+        "task_id": "art_004d5490ec_t001",
+        "text": "ACTION ITEMS",
+        "owner": "Tech",
+        "deadline": "Mar 17, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "ACTION ITEMS",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_004d5490ec_t002",
+        "text": "must be initiated immediately given his role as the",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "must be initiated immediately given his role as the",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_004d5490ec_t003",
+        "text": "Deadline: March 5, 2026.",
+        "owner": "Bob Morrison",
+        "deadline": "March 5, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Deadline: March 5, 2026.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_004d5490ec_t004",
+        "text": "Deadline: March 17, 2026.",
+        "owner": "Dave Chen",
+        "deadline": "March 17, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Deadline: March 17, 2026.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_004d5490ec_t005",
+        "text": "Deadline: March 12, 2026.",
+        "owner": "Farida Osei",
+        "deadline": "March 12, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Deadline: March 12, 2026.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_004d5490ec_t006",
+        "text": "Deadline: March 10, 2026.",
+        "owner": "Carol Nguyen",
+        "deadline": "March 10, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Deadline: March 10, 2026.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_004d5490ec_t007",
+        "text": "Deadline: March 7, 2026.",
+        "owner": "Marie Lefe",
+        "deadline": "March 7, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Deadline: March 7, 2026.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_004d5490ec_t008",
+        "text": "- Alice Tran (Project Manager) \u2014 Chair",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Alice Tran (Project Manager) \u2014 Chair",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_004d5490ec_t009",
+        "text": "- Bob Morrison (Technical Lead)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Bob Morrison (Technical Lead)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_004d5490ec_t010",
+        "text": "- Carol Nguyen (Infrastructure Architect)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Carol Nguyen (Infrastructure Architect)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_004d5490ec_t011",
+        "text": "- Dave Chen (Security Specialist)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Dave Chen (Security Specialist)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_004d5490ec_t012",
+        "text": "- Marie Lefebvre (Change Management)",
+        "owner": "Alice Tran",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Marie Lefebvre (Change Management)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_004d5490ec_t013",
+        "text": "- Farida Osei (QA Lead)",
+        "owner": "Alice Tran",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Farida Osei (QA Lead)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_004d5490ec_t014",
+        "text": "- AD Schema Extension deployed to test environment (Bob Morrison)",
+        "owner": null,
+        "deadline": "Mar 3, 2026",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- AD Schema Extension deployed to test environment (Bob Morrison)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_004d5490ec_t015",
+        "text": "- Network topology design finalized for Sites B and C (Carol Nguyen)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Network topology design finalized for Sites B and C (Carol Nguyen)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_004d5490ec_t016",
+        "text": "- User acceptance testing scripts drafted (Farida Osei)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- User acceptance testing scripts drafted (Farida Osei)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_004d5490ec_t017",
+        "text": "- Legacy application inventory completed \u2014 14 apps catalogued (Dave Chen)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Legacy application inventory completed \u2014 14 apps catalogued (Dave Chen)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_004d5490ec_t018",
+        "text": "- PAW architecture documentation for SA&A package (blocked \u2014 see Item 3)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- PAW architecture documentation for SA&A package (blocked \u2014 see Item 3)",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_004d5490ec_t019",
+        "text": "- End-user communication plan (in progress \u2014 60% complete)",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- End-user communication plan (in progress \u2014 60% complete)",
+        "confidence": 0.7
+      }
+    ],
+    "metadata": {
+      "attendees": [
+        "- Alice Tran (Project Manager) \u2014 Chair",
+        "- Bob Morrison (Technical Lead)",
+        "- Carol Nguyen (Infrastructure Architect)",
+        "- Dave Chen (Security Specialist)",
+        "- Marie Lefebvre (Change Management)",
+        "- Farida Osei (QA Lead)"
+      ]
+    }
+  },
+  "risks": {
+    "count": 5,
+    "analysis_method": "llm_large",
+    "risks": [
+      {
+        "risk_id": "rsk_c4bf5393",
+        "description": "Bob Morrison, the sole Active Directory migration expert, may leave SSC within 60 days. His departure would create a critical single point of failure with no documented successor, jeopardizing all remaining migration sprints and the integrity of the AD migration wizard he developed.",
+        "category": "resource",
+        "likelihood": 4,
+        "impact": 5,
+        "risk_score": 20.0,
+        "risk_level": "critical",
+        "affected_stakeholders": [
+          "Alice Tran",
+          "Carol Nguyen",
+          "SSC",
+          "Director Okafor"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_004d5490ec",
+            "excerpt": "Bob Morrison has indicated he is exploring external opportunities and may be leaving SSC within 60 days. Knowledge transfer plan must be initiated immediately given his role as the sole AD migration e",
+            "location": null,
+            "evidence_strength": 0.8
+          }
+        ],
+        "source_artifact_id": "art_004d5490ec",
+        "created_at": "2026-03-09T06:57:12.452024"
+      },
+      {
+        "risk_id": "rsk_da8451f7",
+        "description": "The migration script depends on the deprecated 'legacy-sync' API endpoint scheduled for decommission on April 1, 2026. If refactoring is not completed before that date, the migration pipeline will break entirely, halting all production cutover activity.",
+        "category": "technical",
+        "likelihood": 4,
+        "impact": 5,
+        "risk_score": 20.0,
+        "risk_level": "critical",
+        "affected_stakeholders": [
+          "Bob Morrison",
+          "Carol Nguyen",
+          "Farida Osei",
+          "Alice Tran"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_004d5490ec",
+            "excerpt": "The current migration script relies on the deprecated 'legacy-sync' API endpoint scheduled for decommission on April 1. Bob to assess refactoring effort.",
+            "location": null,
+            "evidence_strength": 0.8
+          }
+        ],
+        "source_artifact_id": "art_004d5490ec",
+        "created_at": "2026-03-09T06:57:12.452024"
+      },
+      {
+        "risk_id": "rsk_713eb83b",
+        "description": "TBS Audit has identified an ITSG-33 IA-5 compliance finding due to PAW architecture documentation being omitted from the SA&A package. Failure to remediate by March 12 could result in authority-to-operate being withheld, blocking production deployment.",
+        "category": "compliance",
+        "likelihood": 3,
+        "impact": 5,
+        "risk_score": 15.0,
+        "risk_level": "high",
+        "affected_stakeholders": [
+          "Dave Chen",
+          "Alice Tran",
+          "Director Okafor",
+          "TBS Audit Office",
+          "SSC"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_004d5490ec",
+            "excerpt": "TBS Audit identified an ITSG-33 IA-5 finding... Dave Chen confirmed the PAW documentation was inadvertently omitted from the SA&A package.",
+            "location": null,
+            "evidence_strength": 0.6
+          }
+        ],
+        "source_artifact_id": "art_004d5490ec",
+        "created_at": "2026-03-09T06:57:12.453022"
+      },
+      {
+        "risk_id": "rsk_f4ac39ce",
+        "description": "Cisco Catalyst 9500 switch delivery has been delayed to March 20, two days after the March 18 migration window for Site A. This threatens the scheduled cutover and may cascade into downstream sprint timelines and contractual commitments.",
+        "category": "schedule",
+        "likelihood": 4,
+        "impact": 5,
+        "risk_score": 20.0,
+        "risk_level": "critical",
+        "affected_stakeholders": [
+          "Carol Nguyen",
+          "Alice Tran",
+          "Director Okafor",
+          "Site A end users",
+          "Steering Committee"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_004d5490ec",
+            "excerpt": "TechSupplier has confirmed a 2-week delay on Cisco Catalyst 9500 switches. Revised delivery is March 20. This threatens the March 18 migration window.",
+            "location": null,
+            "evidence_strength": 0.8
+          }
+        ],
+        "source_artifact_id": "art_004d5490ec",
+        "created_at": "2026-03-09T06:57:12.453525"
+      },
+      {
+        "risk_id": "rsk_a29d9efb",
+        "description": "The end-user communication plan is only 60% complete and the UAT test plan has not yet been distributed, creating a hidden risk that end users and stakeholders will be inadequately prepared for the migration, increasing the likelihood of resistance, errors, and post-cutover incidents.",
+        "category": "resource",
+        "likelihood": 3,
+        "impact": 4,
+        "risk_score": 12.0,
+        "risk_level": "high",
+        "affected_stakeholders": [
+          "Marie Lefebvre",
+          "Farida Osei",
+          "Alice Tran",
+          "End users",
+          "All project stakeholders"
+        ],
+        "evidence_refs": [
+          {
+            "artifact_id": "art_004d5490ec",
+            "excerpt": "End-user communication plan (in progress \u2014 60% complete)... Farida Osei to complete and distribute UAT test plan to all stakeholders for review. Deadline: March 10, 2026.",
+            "location": null,
+            "evidence_strength": 0.48
+          }
+        ],
+        "source_artifact_id": "art_004d5490ec",
+        "created_at": "2026-03-09T06:57:12.453525"
+      }
+    ]
+  },
+  "llm_calls": [
+    {
+      "tier": "large",
+      "model": "anthropic/claude-sonnet-4.6",
+      "latency_ms": 12167.5,
+      "content": "```json\n[\n  {\n    \"description\": \"Bob Morrison, the sole Active Directory migration expert, may leave SSC within 60 days. His departure would create a critical single point of failure with no documented successor, jeopardizing all remaining migration sprints and the integrity of the AD migration wizard he developed.\",\n    \"category\": \"resource\",\n    \"likelihood\": 4,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"Bob Morrison has indicated he is exploring external opportunities and may be leaving SSC within 60 days. Knowledge transfer plan must be initiated immediately given his role as the sole AD migration expert.\",\n    \"affected_stakeholders\": [\"Alice Tran\", \"Carol Nguyen\", \"SSC\", \"Director Okafor\"]\n  },\n  {\n    \"description\": \"The migration script depends on the deprecated 'legacy-sync' API endpoint scheduled for decommission on April 1, 2026. If refactoring is not completed before that date, the migration pipeline will break entirely, halting all production cutover activity.\",\n    \"category\": \"technical\",\n    \"likelihood\": 4,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"The current migration script relies on the deprecated 'legacy-sync' API endpoint scheduled for decommission on April 1. Bob to assess refactoring effort.\",\n    \"affected_stakeholders\": [\"Bob Morrison\", \"Carol Nguyen\", \"Farida Osei\", \"Alice Tran\"]\n  },\n  {\n    \"description\": \"TBS Audit has identified an ITSG-33 IA-5 compliance finding due to PAW architecture documentation being omitted from the SA&A package. Failure to remediate by March 12 could result in authority-to-operate being withheld, blocking production deployment.\",\n    \"category\": \"compliance\",\n    \"likelihood\": 3,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"TBS Audit identified an ITSG-33 IA-5 finding... Dave Chen confirmed the PAW documentation was inadvertently omitted from the SA&A package.\",\n    \"affected_stakeholders\": [\"Dave Chen\", \"Alice Tran\", \"Director Okafor\", \"TBS Audit Office\", \"SSC\"]\n  },\n  {\n    \"description\": \"Cisco Catalyst 9500 switch delivery has been delayed to March 20, two days after the March 18 migration window for Site A. This threatens the scheduled cutover and may cascade into downstream sprint timelines and contractual commitments.\",\n    \"category\": \"schedule\",\n    \"likelihood\": 4,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"TechSupplier has confirmed a 2-week delay on Cisco Catalyst 9500 switches. Revised delivery is March 20. This threatens the March 18 migration window.\",\n    \"affected_stakeholders\": [\"Carol Nguyen\", \"Alice Tran\", \"Director Okafor\", \"Site A end users\", \"Steering Committee\"]\n  },\n  {\n    \"description\": \"The end-user communication plan is only 60% complete and the UAT test plan has not yet been distributed, creating a hidden risk that end users and stakeholders will be inadequately prepared for the migration, increasing the likelihood of resistance, errors, and post-cutover incidents.\",\n    \"category\": \"resource\",\n    \"likelihood\": 3,\n    \"impact\": 3,\n    \"evidence_excerpt\": \"End-user communication plan (in progress \u2014 60% complete)... Farida Osei to complete and distribute UAT test plan to all stakeholders for review. Deadline: March 10, 2026.\",\n    \"affected_stakeholders\": [\"Marie Lefebvre\", \"Farida Osei\", \"Alice Tran\", \"End users\", \"All project stakeholders\"]\n  }\n]\n```",
+      "parsed_json": [
+        {
+          "description": "Bob Morrison, the sole Active Directory migration expert, may leave SSC within 60 days. His departure would create a critical single point of failure with no documented successor, jeopardizing all remaining migration sprints and the integrity of the AD migration wizard he developed.",
+          "category": "resource",
+          "likelihood": 4,
+          "impact": 5,
+          "evidence_excerpt": "Bob Morrison has indicated he is exploring external opportunities and may be leaving SSC within 60 days. Knowledge transfer plan must be initiated immediately given his role as the sole AD migration expert.",
+          "affected_stakeholders": [
+            "Alice Tran",
+            "Carol Nguyen",
+            "SSC",
+            "Director Okafor"
+          ]
+        },
+        {
+          "description": "The migration script depends on the deprecated 'legacy-sync' API endpoint scheduled for decommission on April 1, 2026. If refactoring is not completed before that date, the migration pipeline will break entirely, halting all production cutover activity.",
+          "category": "technical",
+          "likelihood": 4,
+          "impact": 5,
+          "evidence_excerpt": "The current migration script relies on the deprecated 'legacy-sync' API endpoint scheduled for decommission on April 1. Bob to assess refactoring effort.",
+          "affected_stakeholders": [
+            "Bob Morrison",
+            "Carol Nguyen",
+            "Farida Osei",
+            "Alice Tran"
+          ]
+        },
+        {
+          "description": "TBS Audit has identified an ITSG-33 IA-5 compliance finding due to PAW architecture documentation being omitted from the SA&A package. Failure to remediate by March 12 could result in authority-to-operate being withheld, blocking production deployment.",
+          "category": "compliance",
+          "likelihood": 3,
+          "impact": 5,
+          "evidence_excerpt": "TBS Audit identified an ITSG-33 IA-5 finding... Dave Chen confirmed the PAW documentation was inadvertently omitted from the SA&A package.",
+          "affected_stakeholders": [
+            "Dave Chen",
+            "Alice Tran",
+            "Director Okafor",
+            "TBS Audit Office",
+            "SSC"
+          ]
+        },
+        {
+          "description": "Cisco Catalyst 9500 switch delivery has been delayed to March 20, two days after the March 18 migration window for Site A. This threatens the scheduled cutover and may cascade into downstream sprint timelines and contractual commitments.",
+          "category": "schedule",
+          "likelihood": 4,
+          "impact": 4,
+          "evidence_excerpt": "TechSupplier has confirmed a 2-week delay on Cisco Catalyst 9500 switches. Revised delivery is March 20. This threatens the March 18 migration window.",
+          "affected_stakeholders": [
+            "Carol Nguyen",
+            "Alice Tran",
+            "Director Okafor",
+            "Site A end users",
+            "Steering Committee"
+          ]
+        },
+        {
+          "description": "The end-user communication plan is only 60% complete and the UAT test plan has not yet been distributed, creating a hidden risk that end users and stakeholders will be inadequately prepared for the migration, increasing the likelihood of resistance, errors, and post-cutover incidents.",
+          "category": "resource",
+          "likelihood": 3,
+          "impact": 3,
+          "evidence_excerpt": "End-user communication plan (in progress \u2014 60% complete)... Farida Osei to complete and distribute UAT test plan to all stakeholders for review. Deadline: March 10, 2026.",
+          "affected_stakeholders": [
+            "Marie Lefebvre",
+            "Farida Osei",
+            "Alice Tran",
+            "End users",
+            "All project stakeholders"
+          ]
+        }
+      ],
+      "error": null
+    }
+  ]
+}

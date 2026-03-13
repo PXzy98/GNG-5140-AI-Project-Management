@@ -1,0 +1,67 @@
+{
+  "test_id": "DFT-04",
+  "test_name": "New requirement detection",
+  "method": "llm_local",
+  "passed": false,
+  "score": "0/10",
+  "details": "type=ambiguous score=0.00",
+  "error": null,
+  "latency_ms": 28427.613300009398,
+  "artifact": {
+    "artifact_id": "art_5e7d0ab873",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 236,
+    "content_preview": "MEETING NOTES \u2014 NGIS PHASE 3 STEERING COMMITTEE\nDate: March 8, 2026 | Attendees: Director Okafor, Alice Tran, Bob Morrison, ADM Clarke\n\nItem 5 (raised by ADM Clarke):\n\nFollowing the recent cyber incident affecting a peer department's primary\ndata centre, ADM Clarke raised the requirement to add a dedicated disaster\nrecovery (DR) site to the NGIS Phase 3 scope.\n\nADM Clarke's request:\n\"Given the current threat environment and Treasury Board's updated guidance\non GC infrastructure resilience, I wou",
+    "extracted_tasks": [],
+    "metadata": {
+      "date": "March 8, 2026 | Attendees: Director Okafor, Alice Tran, Bob Morrison, ADM Clarke"
+    }
+  },
+  "drift_check": {
+    "drift_type": "ambiguous",
+    "overall_alignment_score": 0.0,
+    "reasoning": null,
+    "alerts": [
+      {
+        "alert_id": "alt_28fe55e4",
+        "project_id": "proj_drift_llm_local",
+        "artifact_id": "art_5e7d0ab873",
+        "drift_type": "ambiguous",
+        "alignment_score": 0.0,
+        "detected_ask": "",
+        "baseline_reference": "",
+        "suggested_action": "Manual review recommended (LLM unavailable).",
+        "severity": "medium",
+        "status": "open",
+        "created_at": "2026-03-09T05:23:57.606833"
+      }
+    ]
+  },
+  "llm_calls": [
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 39082.4,
+      "content": "",
+      "parsed_json": null,
+      "error": null
+    },
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 38177.0,
+      "content": "",
+      "parsed_json": null,
+      "error": null
+    },
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b",
+      "latency_ms": 28424.7,
+      "content": "",
+      "parsed_json": null,
+      "error": null
+    }
+  ]
+}

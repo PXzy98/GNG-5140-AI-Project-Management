@@ -1,0 +1,26 @@
+From: alice.tran@ssc-spc.gc.ca
+To: j.henderson@techsupplier.ca
+Subject: Network Switch Delivery — Timeline Confirmation
+Date: March 6, 2026
+
+Jason,
+
+Following up on your message from March 2 — can you please provide an
+updated delivery commitment for the Cisco Catalyst 9500 switches?
+
+Specifically, we need to know:
+1. The confirmed delivery date for the Gatineau (Site A) order of 24 units.
+2. Whether the BGP routing modules (C9500-NM-2Q) are included in the
+   revised shipment.
+3. The tracking number once the shipment is dispatched from your warehouse.
+
+The network equipment arrival date directly determines when we can begin
+staging and pre-configuration activities at Site A. As discussed, we need
+a minimum of 5 business days for hardware staging and testing before the
+migration window opens.
+
+Please confirm by end of day March 7.
+
+Thanks,
+Alice Tran
+Project Manager, NGIS Phase 3

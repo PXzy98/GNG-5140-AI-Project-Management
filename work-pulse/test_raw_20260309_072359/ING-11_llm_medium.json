@@ -1,0 +1,131 @@
+{
+  "test_id": "ING-11",
+  "test_name": "Implicit action item extraction",
+  "method": "llm_medium",
+  "passed": true,
+  "score": "10/10",
+  "details": "extracted=11 items",
+  "error": null,
+  "latency_ms": 10.132999988854863,
+  "artifact": {
+    "artifact_id": "art_06c462b9e5",
+    "artifact_type": "status_report",
+    "detected_language": "en",
+    "word_count": 355,
+    "content_preview": "NGIS PHASE 3 \u2014 WEEKLY STATUS REPORT\nReporting Period: February 24 \u2013 March 3, 2026\nReport Date: March 3, 2026\nProject Manager: Alice Tran\nProject ID: NGIS-P3-2024-001\nOverall Status: GREEN\n\n---\n\nEXECUTIVE SUMMARY\n\nThe NGIS Phase 3 data centre consolidation project continues to progress\naccording to plan. The team has completed the Active Directory migration\nfor the test environment and finalized network topology designs for Sites\nB and C. No risks are identified at this time.\n\n---\n\nACCOMPLISHMENT",
+    "extracted_tasks": [
+      {
+        "task_id": "art_06c462b9e5_t001",
+        "text": "- Active Directory test migration completed successfully: 120 test",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Active Directory test migration completed successfully: 120 test",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_06c462b9e5_t002",
+        "text": "- Network topology diagrams finalized and signed off by infrastructure",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Network topology diagrams finalized and signed off by infrastructure",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_06c462b9e5_t003",
+        "text": "- Legacy application inventory completed: 14 applications catalogued.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Legacy application inventory completed: 14 applications catalogued.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_06c462b9e5_t004",
+        "text": "- Site A staging area prepared and equipment rack installation initiated.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Site A staging area prepared and equipment rack installation initiated.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_06c462b9e5_t005",
+        "text": "- Begin production AD migration preparation.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Begin production AD migration preparation.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_06c462b9e5_t006",
+        "text": "- Conduct UAT test script walkthroughs with application owners.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Conduct UAT test script walkthroughs with application owners.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_06c462b9e5_t007",
+        "text": "- Coordinate with TechSupplier for equipment delivery confirmation.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Coordinate with TechSupplier for equipment delivery confirmation.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_06c462b9e5_t008",
+        "text": "- Complete end-user communication plan.",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Complete end-user communication plan.",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_06c462b9e5_t009",
+        "text": "- Director Okafor briefed on milestone progress \u2014 satisfied with current",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- Director Okafor briefed on milestone progress \u2014 satisfied with current",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_06c462b9e5_t010",
+        "text": "- TBS audit team scheduled for March site visit (details TBD).",
+        "owner": "Marie Lefebvre",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- TBS audit team scheduled for March site visit (details TBD).",
+        "confidence": 0.7
+      },
+      {
+        "task_id": "art_06c462b9e5_t011",
+        "text": "- End-user communication campaign to launch March 9.",
+        "owner": "Marie Lefebvre",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "- End-user communication campaign to launch March 9.",
+        "confidence": 0.7
+      }
+    ],
+    "metadata": {}
+  },
+  "llm_calls": []
+}

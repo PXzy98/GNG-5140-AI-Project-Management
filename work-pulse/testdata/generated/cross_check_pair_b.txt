@@ -1,0 +1,34 @@
+GC-CLOUD WAVE 4 — FINANCE REVIEW COMMITTEE BRIEFING
+Date: March 3, 2026
+Prepared by: François Lemieux, Finance Representative
+For: Finance Review Committee
+
+PROJECT FINANCIAL STATUS — CONFIDENTIAL
+
+This briefing provides the Finance Review Committee with an accurate
+assessment of the GC-Cloud Wave 4 financial situation.
+
+BUDGET OVERRUN: Following the infrastructure assessment completed
+February 25, the project team has identified that the original budget
+of $2,400,000 is insufficient. The assessment revealed mandatory
+middleware remediation requirements that were not captured in the
+initial scope. Estimated cost of remediation: $340,000.
+
+REVISED PROJECTED COST: $2,740,000 — representing a budget overrun
+of $340,000 (approximately 14% above approved envelope).
+
+A formal budget revision request has been prepared and is awaiting
+Director approval. Treasury Board notification will be required as
+the variance exceeds the 10% threshold under the Directive on Project
+Management.
+
+TIMELINE AT RISK: The middleware remediation will require an estimated
+three weeks of additional effort before cloud migration workloads can
+begin. The Q3 2026 delivery target is now uncertain. The project
+manager has been advised to reassess the schedule baseline.
+
+RECOMMENDATION: Finance Committee should flag this project for
+enhanced monitoring. Budget revision approval should be expedited
+to prevent further schedule slippage.
+
+STATUS: Budget overrun confirmed. Timeline at risk.

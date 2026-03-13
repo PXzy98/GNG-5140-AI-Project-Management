@@ -1,0 +1,3951 @@
+{
+  "timestamp": "20260309_072009",
+  "total_tests": 26,
+  "passed": 23,
+  "failed": 3,
+  "errors": 0,
+  "scores": {
+    "by_module": {
+      "ingestion": {},
+      "risk": {
+        "traditional": 76.0,
+        "llm_large": 104.0
+      },
+      "priority": {},
+      "drift": {}
+    },
+    "by_method": {
+      "traditional": 76.0,
+      "llm_large": 104.0
+    },
+    "total_possible": {
+      "ingestion": 114,
+      "risk": 104,
+      "priority": 97,
+      "drift": 104
+    },
+    "avg_latency_ms": {
+      "ingestion": {},
+      "risk": {
+        "traditional": 1.3,
+        "llm_large": 6928.2
+      },
+      "priority": {},
+      "drift": {}
+    }
+  },
+  "results": [
+    {
+      "test_id": "RSK-01",
+      "test_name": "Risk identification \u2014 explicit risks",
+      "module": "risk",
+      "method": "traditional",
+      "max_score": 10,
+      "earned_score": 0.0,
+      "passed": false,
+      "details": "recall=0.00 found=2 gt=2",
+      "latency_ms": 1.0594000050332397,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_5f1ac9056c",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 246,
+          "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+          "extracted_tasks": [
+            {
+              "task_id": "art_5f1ac9056c_t001",
+              "text": "please confirm the delivery timeline for the Catalyst",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "please confirm the delivery timeline for the Catalyst",
+              "confidence": 0.7
+            }
+          ],
+          "metadata": {
+            "sender": "j.henderson@techsupplier.ca",
+            "recipients": "alice.tran@ssc-spc.gc.ca",
+            "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+            "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+          }
+        },
+        "risks": {
+          "count": 2,
+          "analysis_method": "traditional",
+          "risks": [
+            {
+              "risk_id": "rsk_84d745f8",
+              "description": "Schedule risk detected: delay mentioned",
+              "category": "schedule",
+              "likelihood": 1,
+              "impact": 4,
+              "risk_score": 4.0,
+              "risk_level": "low",
+              "affected_stakeholders": [],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "uary 26. We have now confirmed a 2-week delay on the network equipment\noriginally sch",
+                  "location": null,
+                  "evidence_strength": 0.16
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:20:11.174271"
+            },
+            {
+              "risk_id": "rsk_11db5fec",
+              "description": "Resource risk detected: single-sourced mentioned (also: alternative routing)",
+              "category": "resource",
+              "likelihood": 1,
+              "impact": 4,
+              "risk_score": 4.0,
+              "risk_level": "low",
+              "affected_stakeholders": [],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "ne. To be transparent: we are currently single-sourced on this\nproduct line through our Montre",
+                  "location": null,
+                  "evidence_strength": 0.16
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:20:11.174271"
+            }
+          ]
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "RSK-01",
+      "test_name": "Risk identification \u2014 explicit risks",
+      "module": "risk",
+      "method": "llm_large",
+      "max_score": 10,
+      "earned_score": 10.0,
+      "passed": true,
+      "details": "recall=1.00 found=4 gt=2",
+      "latency_ms": 5936.0063999920385,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_5f1ac9056c",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 246,
+          "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+          "extracted_tasks": [
+            {
+              "task_id": "art_5f1ac9056c_t001",
+              "text": "please confirm the delivery timeline for the Catalyst",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "please confirm the delivery timeline for the Catalyst",
+              "confidence": 0.7
+            }
+          ],
+          "metadata": {
+            "sender": "j.henderson@techsupplier.ca",
+            "recipients": "alice.tran@ssc-spc.gc.ca",
+            "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+            "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+          }
+        },
+        "risks": {
+          "count": 4,
+          "analysis_method": "llm_large",
+          "risks": [
+            {
+              "risk_id": "rsk_04390639",
+              "description": "Vendor delivery delayed by 2 weeks, threatening NGIS Phase 3 migration timeline",
+              "category": "schedule",
+              "likelihood": 5,
+              "impact": 5,
+              "risk_score": 25.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca",
+                "bob.morrison@ssc-spc.gc.ca"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6",
+                  "location": null,
+                  "evidence_strength": 1.0
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:20:17.119109"
+            },
+            {
+              "risk_id": "rsk_0075e044",
+              "description": "No backup supplier identified for network equipment \u2014 single-sourced risk",
+              "category": "resource",
+              "likelihood": 4,
+              "impact": 5,
+              "risk_score": 20.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "we are currently single-sourced on this product line through our Montreal warehouse",
+                  "location": null,
+                  "evidence_strength": 0.8
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:20:17.119109"
+            },
+            {
+              "risk_id": "rsk_0badbda1",
+              "description": "Alternative routing adds 'a further 3\u20135 business days', worsening delivery slip",
+              "category": "schedule",
+              "likelihood": 3,
+              "impact": 5,
+              "risk_score": 15.0,
+              "risk_level": "high",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca",
+                "bob.morrison@ssc-spc.gc.ca"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "alternative routing via our Vancouver depot would add a further 3\u20135 business days",
+                  "location": null,
+                  "evidence_strength": 0.6
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:20:17.119109"
+            },
+            {
+              "risk_id": "rsk_6b52db1f",
+              "description": "Equipment arrives March 20, missing March 6 staging deadline, jeopardizing March 8 migration window",
+              "category": "schedule",
+              "likelihood": 5,
+              "impact": 5,
+              "risk_score": 25.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca",
+                "bob.morrison@ssc-spc.gc.ca"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "Our migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing",
+                  "location": null,
+                  "evidence_strength": 1.0
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:20:17.120125"
+            }
+          ]
+        },
+        "llm_calls": [
+          {
+            "tier": "large",
+            "model": "anthropic/claude-sonnet-4.6",
+            "latency_ms": 5934.7,
+            "content": "```json\n[\n  {\n    \"description\": \"Vendor delivery delayed by 2 weeks, threatening NGIS Phase 3 migration timeline\",\n    \"category\": \"schedule\",\n    \"likelihood\": 5,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\", \"bob.morrison@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"No backup supplier identified for network equipment \u2014 single-sourced risk\",\n    \"category\": \"resource\",\n    \"likelihood\": 4,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"we are currently single-sourced on this product line through our Montreal warehouse\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"Alternative routing adds 'a further 3\u20135 business days', worsening delivery slip\",\n    \"category\": \"schedule\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"alternative routing via our Vancouver depot would add a further 3\u20135 business days\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\", \"bob.morrison@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"Equipment arrives March 20, missing March 6 staging deadline, jeopardizing March 8 migration window\",\n    \"category\": \"schedule\",\n    \"likelihood\": 5,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"Our migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\", \"bob.morrison@ssc-spc.gc.ca\"]\n  }\n]\n```",
+            "parsed_json": [
+              {
+                "description": "Vendor delivery delayed by 2 weeks, threatening NGIS Phase 3 migration timeline",
+                "category": "schedule",
+                "likelihood": 5,
+                "impact": 4,
+                "evidence_excerpt": "confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca",
+                  "bob.morrison@ssc-spc.gc.ca"
+                ]
+              },
+              {
+                "description": "No backup supplier identified for network equipment \u2014 single-sourced risk",
+                "category": "resource",
+                "likelihood": 4,
+                "impact": 4,
+                "evidence_excerpt": "we are currently single-sourced on this product line through our Montreal warehouse",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca"
+                ]
+              },
+              {
+                "description": "Alternative routing adds 'a further 3\u20135 business days', worsening delivery slip",
+                "category": "schedule",
+                "likelihood": 3,
+                "impact": 4,
+                "evidence_excerpt": "alternative routing via our Vancouver depot would add a further 3\u20135 business days",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca",
+                  "bob.morrison@ssc-spc.gc.ca"
+                ]
+              },
+              {
+                "description": "Equipment arrives March 20, missing March 6 staging deadline, jeopardizing March 8 migration window",
+                "category": "schedule",
+                "likelihood": 5,
+                "impact": 5,
+                "evidence_excerpt": "Our migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca",
+                  "bob.morrison@ssc-spc.gc.ca"
+                ]
+              }
+            ],
+            "error": null
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "test_id": "RSK-02",
+      "test_name": "Risk identification \u2014 implicit/hidden risks",
+      "module": "risk",
+      "method": "traditional",
+      "max_score": 10,
+      "earned_score": 0.0,
+      "passed": false,
+      "details": "recall=0.00 found=2 gt=2",
+      "latency_ms": 0.9557000012136996,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_3405bb632b",
+          "artifact_type": "status_report",
+          "detected_language": "en",
+          "word_count": 441,
+          "content_preview": "GC-CLOUD WAVE 4 \u2014 MONTHLY STATUS REPORT\nReporting Period: February 2026\nReport Date: March 1, 2026\nProject Manager: Carol Nguyen\nStatus: GREEN\n\n---\n\nEXECUTIVE SUMMARY\n\nGC-Cloud Wave 4 is progressing excellently. The team has made strong\nprogress across all workstreams and stakeholder engagement remains high.\nWe are confident in our ability to deliver the project on schedule and\nwithin the approved parameters.\n\n---\n\nSCHEDULE HIGHLIGHTS\n\nThe project timeline is performing well. While we have exper",
+          "extracted_tasks": [
+            {
+              "task_id": "art_3405bb632b_t001",
+              "text": "will be well-supported by the",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "will be well-supported by the",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_3405bb632b_t002",
+              "text": "will be submitted to the Director for consideration.",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "will be submitted to the Director for consideration.",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_3405bb632b_t003",
+              "text": "will materially affect project",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "will materially affect project",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_3405bb632b_t004",
+              "text": "owners are engaged and active.",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "owners are engaged and active.",
+              "confidence": 0.7
+            }
+          ],
+          "metadata": {}
+        },
+        "risks": {
+          "count": 2,
+          "analysis_method": "traditional",
+          "risks": [
+            {
+              "risk_id": "rsk_f6838dbd",
+              "description": "Schedule risk detected: adjustment mentioned (also: adjustment, slight adjustment)",
+              "category": "schedule",
+              "likelihood": 1,
+              "impact": 4,
+              "risk_score": 4.0,
+              "risk_level": "low",
+              "affected_stakeholders": [],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_3405bb632b",
+                  "excerpt": "has worked proactively to absorb these adjustments through schedule\noptimization. Our Q3",
+                  "location": null,
+                  "evidence_strength": 0.16
+                }
+              ],
+              "source_artifact_id": "art_3405bb632b",
+              "created_at": "2026-03-09T07:20:18.140277"
+            },
+            {
+              "risk_id": "rsk_c70ca14b",
+              "description": "Budget risk detected: budget revision mentioned (also: revised figures, above the approved envelope)",
+              "category": "budget",
+              "likelihood": 2,
+              "impact": 4,
+              "risk_score": 8.0,
+              "risk_level": "medium",
+              "affected_stakeholders": [],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_3405bb632b",
+                  "excerpt": "proved envelope of $2,400,000. A formal\nbudget revision request will be submitted to the Direct",
+                  "location": null,
+                  "evidence_strength": 0.32
+                }
+              ],
+              "source_artifact_id": "art_3405bb632b",
+              "created_at": "2026-03-09T07:20:18.140277"
+            }
+          ]
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "RSK-02",
+      "test_name": "Risk identification \u2014 implicit/hidden risks",
+      "module": "risk",
+      "method": "llm_large",
+      "max_score": 10,
+      "earned_score": 10.0,
+      "passed": true,
+      "details": "recall=1.00 found=5 gt=2",
+      "latency_ms": 7117.029400003958,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_3405bb632b",
+          "artifact_type": "status_report",
+          "detected_language": "en",
+          "word_count": 441,
+          "content_preview": "GC-CLOUD WAVE 4 \u2014 MONTHLY STATUS REPORT\nReporting Period: February 2026\nReport Date: March 1, 2026\nProject Manager: Carol Nguyen\nStatus: GREEN\n\n---\n\nEXECUTIVE SUMMARY\n\nGC-Cloud Wave 4 is progressing excellently. The team has made strong\nprogress across all workstreams and stakeholder engagement remains high.\nWe are confident in our ability to deliver the project on schedule and\nwithin the approved parameters.\n\n---\n\nSCHEDULE HIGHLIGHTS\n\nThe project timeline is performing well. While we have exper",
+          "extracted_tasks": [
+            {
+              "task_id": "art_3405bb632b_t001",
+              "text": "will be well-supported by the",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "will be well-supported by the",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_3405bb632b_t002",
+              "text": "will be submitted to the Director for consideration.",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "will be submitted to the Director for consideration.",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_3405bb632b_t003",
+              "text": "will materially affect project",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "will materially affect project",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_3405bb632b_t004",
+              "text": "owners are engaged and active.",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "owners are engaged and active.",
+              "confidence": 0.7
+            }
+          ],
+          "metadata": {}
+        },
+        "risks": {
+          "count": 5,
+          "analysis_method": "llm_large",
+          "risks": [
+            {
+              "risk_id": "rsk_925e838e",
+              "description": "Budget overrun of $340,000 (14%) buried in Appendix A \u2014 not in executive summary",
+              "category": "budget",
+              "likelihood": 5,
+              "impact": 5,
+              "risk_score": 25.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "Finance Review Board",
+                "Director",
+                "Portfolio Manager",
+                "Treasury Board"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_3405bb632b",
+                  "excerpt": "The estimated cost of this remediation is $340,000, representing approximately 14% above the approved envelope of $2,400,000",
+                  "location": null,
+                  "evidence_strength": 1.0
+                }
+              ],
+              "source_artifact_id": "art_3405bb632b",
+              "created_at": "2026-03-09T07:20:25.269905"
+            },
+            {
+              "risk_id": "rsk_29ac8999",
+              "description": "Three-week slip acknowledged as 'slight adjustment' \u2014 Q3 2026 delivery timeline at risk",
+              "category": "schedule",
+              "likelihood": 3,
+              "impact": 4,
+              "risk_score": 12.0,
+              "risk_level": "high",
+              "affected_stakeholders": [
+                "Director's Office",
+                "Client Department Representatives",
+                "Portfolio Manager"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_3405bb632b",
+                  "excerpt": "The infrastructure assessment phase required a slight adjustment of approximately three weeks from the original internal planning estimate",
+                  "location": null,
+                  "evidence_strength": 0.48
+                }
+              ],
+              "source_artifact_id": "art_3405bb632b",
+              "created_at": "2026-03-09T07:20:25.269905"
+            },
+            {
+              "risk_id": "rsk_5349a42a",
+              "description": "Cost model still unfinalized, threatening timely budget approval before implementation phase",
+              "category": "budget",
+              "likelihood": 4,
+              "impact": 5,
+              "risk_score": 20.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "Finance Review Board",
+                "Director",
+                "Portfolio Manager"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_3405bb632b",
+                  "excerpt": "We are in the process of finalizing updated cost projections which we expect to share with the finance review board in the coming weeks",
+                  "location": null,
+                  "evidence_strength": 0.8
+                }
+              ],
+              "source_artifact_id": "art_3405bb632b",
+              "created_at": "2026-03-09T07:20:25.271408"
+            },
+            {
+              "risk_id": "rsk_84877f9a",
+              "description": "Unplanned middleware remediation scope gap identified, risking further undiscovered technical requirements",
+              "category": "technical",
+              "likelihood": 3,
+              "impact": 5,
+              "risk_score": 15.0,
+              "risk_level": "high",
+              "affected_stakeholders": [
+                "Project Team",
+                "Client Departments",
+                "Director's Office"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_3405bb632b",
+                  "excerpt": "additional middleware remediation requirements not captured in the original scope baseline",
+                  "location": null,
+                  "evidence_strength": 0.6
+                }
+              ],
+              "source_artifact_id": "art_3405bb632b",
+              "created_at": "2026-03-09T07:20:25.271408"
+            },
+            {
+              "risk_id": "rsk_8837ef5e",
+              "description": "Budget revision not yet approved, risking implementation phase delay entering Q2 2026",
+              "category": "compliance",
+              "likelihood": 3,
+              "impact": 5,
+              "risk_score": 15.0,
+              "risk_level": "high",
+              "affected_stakeholders": [
+                "Director",
+                "Finance Review Board",
+                "Portfolio Manager",
+                "Client Departments"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_3405bb632b",
+                  "excerpt": "A formal budget revision request will be submitted to the Director for consideration",
+                  "location": null,
+                  "evidence_strength": 0.6
+                }
+              ],
+              "source_artifact_id": "art_3405bb632b",
+              "created_at": "2026-03-09T07:20:25.271408"
+            }
+          ]
+        },
+        "llm_calls": [
+          {
+            "tier": "large",
+            "model": "anthropic/claude-sonnet-4.6",
+            "latency_ms": 7114.9,
+            "content": "```json\n[\n  {\n    \"description\": \"Budget overrun of $340,000 (14%) buried in Appendix A \u2014 not in executive summary\",\n    \"category\": \"budget\",\n    \"likelihood\": 5,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"The estimated cost of this remediation is $340,000, representing approximately 14% above the approved envelope of $2,400,000\",\n    \"affected_stakeholders\": [\"Finance Review Board\", \"Director\", \"Portfolio Manager\", \"Treasury Board\"]\n  },\n  {\n    \"description\": \"Three-week slip acknowledged as 'slight adjustment' \u2014 Q3 2026 delivery timeline at risk\",\n    \"category\": \"schedule\",\n    \"likelihood\": 3,\n    \"impact\": 3,\n    \"evidence_excerpt\": \"The infrastructure assessment phase required a slight adjustment of approximately three weeks from the original internal planning estimate\",\n    \"affected_stakeholders\": [\"Director's Office\", \"Client Department Representatives\", \"Portfolio Manager\"]\n  },\n  {\n    \"description\": \"Cost model still unfinalized, threatening timely budget approval before implementation phase\",\n    \"category\": \"budget\",\n    \"likelihood\": 4,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"We are in the process of finalizing updated cost projections which we expect to share with the finance review board in the coming weeks\",\n    \"affected_stakeholders\": [\"Finance Review Board\", \"Director\", \"Portfolio Manager\"]\n  },\n  {\n    \"description\": \"Unplanned middleware remediation scope gap identified, risking further undiscovered technical requirements\",\n    \"category\": \"technical\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"additional middleware remediation requirements not captured in the original scope baseline\",\n    \"affected_stakeholders\": [\"Project Team\", \"Client Departments\", \"Director's Office\"]\n  },\n  {\n    \"description\": \"Budget revision not yet approved, risking implementation phase delay entering Q2 2026\",\n    \"category\": \"compliance\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"A formal budget revision request will be submitted to the Director for consideration\",\n    \"affected_stakeholders\": [\"Director\", \"Finance Review Board\", \"Portfolio Manager\", \"Client Departments\"]\n  }\n]\n```",
+            "parsed_json": [
+              {
+                "description": "Budget overrun of $340,000 (14%) buried in Appendix A \u2014 not in executive summary",
+                "category": "budget",
+                "likelihood": 5,
+                "impact": 4,
+                "evidence_excerpt": "The estimated cost of this remediation is $340,000, representing approximately 14% above the approved envelope of $2,400,000",
+                "affected_stakeholders": [
+                  "Finance Review Board",
+                  "Director",
+                  "Portfolio Manager",
+                  "Treasury Board"
+                ]
+              },
+              {
+                "description": "Three-week slip acknowledged as 'slight adjustment' \u2014 Q3 2026 delivery timeline at risk",
+                "category": "schedule",
+                "likelihood": 3,
+                "impact": 3,
+                "evidence_excerpt": "The infrastructure assessment phase required a slight adjustment of approximately three weeks from the original internal planning estimate",
+                "affected_stakeholders": [
+                  "Director's Office",
+                  "Client Department Representatives",
+                  "Portfolio Manager"
+                ]
+              },
+              {
+                "description": "Cost model still unfinalized, threatening timely budget approval before implementation phase",
+                "category": "budget",
+                "likelihood": 4,
+                "impact": 4,
+                "evidence_excerpt": "We are in the process of finalizing updated cost projections which we expect to share with the finance review board in the coming weeks",
+                "affected_stakeholders": [
+                  "Finance Review Board",
+                  "Director",
+                  "Portfolio Manager"
+                ]
+              },
+              {
+                "description": "Unplanned middleware remediation scope gap identified, risking further undiscovered technical requirements",
+                "category": "technical",
+                "likelihood": 3,
+                "impact": 4,
+                "evidence_excerpt": "additional middleware remediation requirements not captured in the original scope baseline",
+                "affected_stakeholders": [
+                  "Project Team",
+                  "Client Departments",
+                  "Director's Office"
+                ]
+              },
+              {
+                "description": "Budget revision not yet approved, risking implementation phase delay entering Q2 2026",
+                "category": "compliance",
+                "likelihood": 3,
+                "impact": 4,
+                "evidence_excerpt": "A formal budget revision request will be submitted to the Director for consideration",
+                "affected_stakeholders": [
+                  "Director",
+                  "Finance Review Board",
+                  "Portfolio Manager",
+                  "Client Departments"
+                ]
+              }
+            ],
+            "error": null
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "test_id": "RSK-03",
+      "test_name": "Risk category classification",
+      "module": "risk",
+      "method": "traditional",
+      "max_score": 9,
+      "earned_score": 9.0,
+      "passed": true,
+      "details": "accuracy=1.00 pred_cats=['schedule', 'resource'] gt=['schedule', 'resource']",
+      "latency_ms": 0.6682999955955893,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_5f1ac9056c",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 246,
+          "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+          "extracted_tasks": [
+            {
+              "task_id": "art_5f1ac9056c_t001",
+              "text": "please confirm the delivery timeline for the Catalyst",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "please confirm the delivery timeline for the Catalyst",
+              "confidence": 0.7
+            }
+          ],
+          "metadata": {
+            "sender": "j.henderson@techsupplier.ca",
+            "recipients": "alice.tran@ssc-spc.gc.ca",
+            "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+            "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+          }
+        },
+        "risks": {
+          "count": 2,
+          "analysis_method": "traditional",
+          "risks": [
+            {
+              "risk_id": "rsk_e60654a3",
+              "description": "Schedule risk detected: delay mentioned",
+              "category": "schedule",
+              "likelihood": 1,
+              "impact": 4,
+              "risk_score": 4.0,
+              "risk_level": "low",
+              "affected_stakeholders": [],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "uary 26. We have now confirmed a 2-week delay on the network equipment\noriginally sch",
+                  "location": null,
+                  "evidence_strength": 0.16
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:20:26.285296"
+            },
+            {
+              "risk_id": "rsk_d87fcfb0",
+              "description": "Resource risk detected: single-sourced mentioned (also: alternative routing)",
+              "category": "resource",
+              "likelihood": 1,
+              "impact": 4,
+              "risk_score": 4.0,
+              "risk_level": "low",
+              "affected_stakeholders": [],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "ne. To be transparent: we are currently single-sourced on this\nproduct line through our Montre",
+                  "location": null,
+                  "evidence_strength": 0.16
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:20:26.286798"
+            }
+          ]
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "RSK-03",
+      "test_name": "Risk category classification",
+      "module": "risk",
+      "method": "llm_large",
+      "max_score": 9,
+      "earned_score": 9.0,
+      "passed": true,
+      "details": "accuracy=1.00 pred_cats=['schedule', 'resource', 'schedule'] gt=['schedule', 'resource']",
+      "latency_ms": 5897.572999994736,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_5f1ac9056c",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 246,
+          "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+          "extracted_tasks": [
+            {
+              "task_id": "art_5f1ac9056c_t001",
+              "text": "please confirm the delivery timeline for the Catalyst",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "please confirm the delivery timeline for the Catalyst",
+              "confidence": 0.7
+            }
+          ],
+          "metadata": {
+            "sender": "j.henderson@techsupplier.ca",
+            "recipients": "alice.tran@ssc-spc.gc.ca",
+            "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+            "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+          }
+        },
+        "risks": {
+          "count": 4,
+          "analysis_method": "llm_large",
+          "risks": [
+            {
+              "risk_id": "rsk_4a0c4980",
+              "description": "Vendor delivery delayed by 2 weeks, threatening NGIS Phase 3 migration timeline",
+              "category": "schedule",
+              "likelihood": 5,
+              "impact": 5,
+              "risk_score": 25.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "bob.morrison@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca",
+                "SSC NGIS Phase 3 team"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6",
+                  "location": null,
+                  "evidence_strength": 1.0
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:20:32.191274"
+            },
+            {
+              "risk_id": "rsk_a33647de",
+              "description": "No backup supplier identified for network equipment \u2014 single-sourced risk",
+              "category": "resource",
+              "likelihood": 4,
+              "impact": 5,
+              "risk_score": 20.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca",
+                "SSC NGIS Phase 3 team"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "we are currently single-sourced on this product line through our Montreal warehouse",
+                  "location": null,
+                  "evidence_strength": 0.8
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:20:32.191274"
+            },
+            {
+              "risk_id": "rsk_d41fe11d",
+              "description": "Alternative routing adds further '3\u20135 business days', compounding delivery risk",
+              "category": "schedule",
+              "likelihood": 3,
+              "impact": 5,
+              "risk_score": 15.0,
+              "risk_level": "high",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "bob.morrison@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "alternative routing via our Vancouver depot would add a further 3\u20135 business days",
+                  "location": null,
+                  "evidence_strength": 0.6
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:20:32.191274"
+            },
+            {
+              "risk_id": "rsk_e031a865",
+              "description": "Migration window opens March 8, equipment now arriving March 20 \u2014 staging impossible",
+              "category": "schedule",
+              "likelihood": 5,
+              "impact": 5,
+              "risk_score": 25.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca",
+                "SSC NGIS Phase 3 team"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "Our migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing",
+                  "location": null,
+                  "evidence_strength": 1.0
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:20:32.191274"
+            }
+          ]
+        },
+        "llm_calls": [
+          {
+            "tier": "large",
+            "model": "anthropic/claude-sonnet-4.6",
+            "latency_ms": 5896.5,
+            "content": "```json\n[\n  {\n    \"description\": \"Vendor delivery delayed by 2 weeks, threatening NGIS Phase 3 migration timeline\",\n    \"category\": \"schedule\",\n    \"likelihood\": 5,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"bob.morrison@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\", \"SSC NGIS Phase 3 team\"]\n  },\n  {\n    \"description\": \"No backup supplier identified for network equipment \u2014 single-sourced risk\",\n    \"category\": \"resource\",\n    \"likelihood\": 4,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"we are currently single-sourced on this product line through our Montreal warehouse\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\", \"SSC NGIS Phase 3 team\"]\n  },\n  {\n    \"description\": \"Alternative routing adds further '3\u20135 business days', compounding delivery risk\",\n    \"category\": \"schedule\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"alternative routing via our Vancouver depot would add a further 3\u20135 business days\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"bob.morrison@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"Migration window opens March 8, equipment now arriving March 20 \u2014 staging impossible\",\n    \"category\": \"schedule\",\n    \"likelihood\": 5,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"Our migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\", \"SSC NGIS Phase 3 team\"]\n  }\n]\n```",
+            "parsed_json": [
+              {
+                "description": "Vendor delivery delayed by 2 weeks, threatening NGIS Phase 3 migration timeline",
+                "category": "schedule",
+                "likelihood": 5,
+                "impact": 4,
+                "evidence_excerpt": "confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "bob.morrison@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca",
+                  "SSC NGIS Phase 3 team"
+                ]
+              },
+              {
+                "description": "No backup supplier identified for network equipment \u2014 single-sourced risk",
+                "category": "resource",
+                "likelihood": 4,
+                "impact": 4,
+                "evidence_excerpt": "we are currently single-sourced on this product line through our Montreal warehouse",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca",
+                  "SSC NGIS Phase 3 team"
+                ]
+              },
+              {
+                "description": "Alternative routing adds further '3\u20135 business days', compounding delivery risk",
+                "category": "schedule",
+                "likelihood": 3,
+                "impact": 4,
+                "evidence_excerpt": "alternative routing via our Vancouver depot would add a further 3\u20135 business days",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "bob.morrison@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca"
+                ]
+              },
+              {
+                "description": "Migration window opens March 8, equipment now arriving March 20 \u2014 staging impossible",
+                "category": "schedule",
+                "likelihood": 5,
+                "impact": 5,
+                "evidence_excerpt": "Our migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca",
+                  "SSC NGIS Phase 3 team"
+                ]
+              }
+            ],
+            "error": null
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "test_id": "RSK-04",
+      "test_name": "Evidence extraction (source linking)",
+      "module": "risk",
+      "method": "traditional",
+      "max_score": 9,
+      "earned_score": 9.0,
+      "passed": true,
+      "details": "with_evidence=2/2",
+      "latency_ms": 0.6723999977111816,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_5f1ac9056c",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 246,
+          "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+          "extracted_tasks": [
+            {
+              "task_id": "art_5f1ac9056c_t001",
+              "text": "please confirm the delivery timeline for the Catalyst",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "please confirm the delivery timeline for the Catalyst",
+              "confidence": 0.7
+            }
+          ],
+          "metadata": {
+            "sender": "j.henderson@techsupplier.ca",
+            "recipients": "alice.tran@ssc-spc.gc.ca",
+            "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+            "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+          }
+        },
+        "risks": {
+          "count": 2,
+          "analysis_method": "traditional",
+          "risks": [
+            {
+              "risk_id": "rsk_442aef2b",
+              "description": "Schedule risk detected: delay mentioned",
+              "category": "schedule",
+              "likelihood": 1,
+              "impact": 4,
+              "risk_score": 4.0,
+              "risk_level": "low",
+              "affected_stakeholders": [],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "uary 26. We have now confirmed a 2-week delay on the network equipment\noriginally sch",
+                  "location": null,
+                  "evidence_strength": 0.16
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:20:33.213024"
+            },
+            {
+              "risk_id": "rsk_2490da0e",
+              "description": "Resource risk detected: single-sourced mentioned (also: alternative routing)",
+              "category": "resource",
+              "likelihood": 1,
+              "impact": 4,
+              "risk_score": 4.0,
+              "risk_level": "low",
+              "affected_stakeholders": [],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "ne. To be transparent: we are currently single-sourced on this\nproduct line through our Montre",
+                  "location": null,
+                  "evidence_strength": 0.16
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:20:33.213024"
+            }
+          ]
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "RSK-04",
+      "test_name": "Evidence extraction (source linking)",
+      "module": "risk",
+      "method": "llm_large",
+      "max_score": 9,
+      "earned_score": 9.0,
+      "passed": true,
+      "details": "with_evidence=4/4",
+      "latency_ms": 17474.529799990705,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_5f1ac9056c",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 246,
+          "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+          "extracted_tasks": [
+            {
+              "task_id": "art_5f1ac9056c_t001",
+              "text": "please confirm the delivery timeline for the Catalyst",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "please confirm the delivery timeline for the Catalyst",
+              "confidence": 0.7
+            }
+          ],
+          "metadata": {
+            "sender": "j.henderson@techsupplier.ca",
+            "recipients": "alice.tran@ssc-spc.gc.ca",
+            "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+            "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+          }
+        },
+        "risks": {
+          "count": 4,
+          "analysis_method": "llm_large",
+          "risks": [
+            {
+              "risk_id": "rsk_cb36f4a4",
+              "description": "Vendor delivery delayed by 2 weeks, threatening NGIS Phase 3 migration timeline",
+              "category": "schedule",
+              "likelihood": 5,
+              "impact": 5,
+              "risk_score": 25.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "bob.morrison@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6",
+                  "location": null,
+                  "evidence_strength": 1.0
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:20:50.698975"
+            },
+            {
+              "risk_id": "rsk_878f6021",
+              "description": "No backup supplier identified for network equipment \u2014 single-sourced risk",
+              "category": "resource",
+              "likelihood": 4,
+              "impact": 5,
+              "risk_score": 20.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "we are currently single-sourced on this product line through our Montreal warehouse",
+                  "location": null,
+                  "evidence_strength": 0.8
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:20:50.698975"
+            },
+            {
+              "risk_id": "rsk_34c89759",
+              "description": "Alternative routing adds further '3\u20135 business days', compounding migration window breach",
+              "category": "schedule",
+              "likelihood": 3,
+              "impact": 5,
+              "risk_score": 15.0,
+              "risk_level": "high",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "bob.morrison@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "alternative routing via our Vancouver depot would add a further 3\u20135 business days",
+                  "location": null,
+                  "evidence_strength": 0.6
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:20:50.699975"
+            },
+            {
+              "risk_id": "rsk_afa9bf2c",
+              "description": "Equipment arrives March 20, missing March 6 staging deadline, jeopardizing March 8 migration window",
+              "category": "schedule",
+              "likelihood": 5,
+              "impact": 5,
+              "risk_score": 25.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca",
+                "bob.morrison@ssc-spc.gc.ca"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing",
+                  "location": null,
+                  "evidence_strength": 1.0
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:20:50.699975"
+            }
+          ]
+        },
+        "llm_calls": [
+          {
+            "tier": "large",
+            "model": "anthropic/claude-sonnet-4.6",
+            "latency_ms": 17473.3,
+            "content": "```json\n[\n  {\n    \"description\": \"Vendor delivery delayed by 2 weeks, threatening NGIS Phase 3 migration timeline\",\n    \"category\": \"schedule\",\n    \"likelihood\": 5,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"bob.morrison@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"No backup supplier identified for network equipment \u2014 single-sourced risk\",\n    \"category\": \"resource\",\n    \"likelihood\": 4,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"we are currently single-sourced on this product line through our Montreal warehouse\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"Alternative routing adds further '3\u20135 business days', compounding migration window breach\",\n    \"category\": \"schedule\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"alternative routing via our Vancouver depot would add a further 3\u20135 business days\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"bob.morrison@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"Equipment arrives March 20, missing March 6 staging deadline, jeopardizing March 8 migration window\",\n    \"category\": \"schedule\",\n    \"likelihood\": 5,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\", \"bob.morrison@ssc-spc.gc.ca\"]\n  }\n]\n```",
+            "parsed_json": [
+              {
+                "description": "Vendor delivery delayed by 2 weeks, threatening NGIS Phase 3 migration timeline",
+                "category": "schedule",
+                "likelihood": 5,
+                "impact": 4,
+                "evidence_excerpt": "confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "bob.morrison@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca"
+                ]
+              },
+              {
+                "description": "No backup supplier identified for network equipment \u2014 single-sourced risk",
+                "category": "resource",
+                "likelihood": 4,
+                "impact": 4,
+                "evidence_excerpt": "we are currently single-sourced on this product line through our Montreal warehouse",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca"
+                ]
+              },
+              {
+                "description": "Alternative routing adds further '3\u20135 business days', compounding migration window breach",
+                "category": "schedule",
+                "likelihood": 3,
+                "impact": 4,
+                "evidence_excerpt": "alternative routing via our Vancouver depot would add a further 3\u20135 business days",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "bob.morrison@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca"
+                ]
+              },
+              {
+                "description": "Equipment arrives March 20, missing March 6 staging deadline, jeopardizing March 8 migration window",
+                "category": "schedule",
+                "likelihood": 5,
+                "impact": 5,
+                "evidence_excerpt": "migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca",
+                  "bob.morrison@ssc-spc.gc.ca"
+                ]
+              }
+            ],
+            "error": null
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "test_id": "RSK-05",
+      "test_name": "Cross-document inconsistency detection",
+      "module": "risk",
+      "method": "traditional",
+      "max_score": 10,
+      "earned_score": 10,
+      "passed": true,
+      "details": "inconsistencies=1",
+      "latency_ms": 0.059300000430084765,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_5a7202ab5f",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 203,
+          "content_preview": "GC-CLOUD WAVE 4 \u2014 FINANCE REVIEW COMMITTEE BRIEFING\nDate: March 3, 2026\nPrepared by: Fran\u00e7ois Lemieux, Finance Representative\nFor: Finance Review Committee\n\nPROJECT FINANCIAL STATUS \u2014 CONFIDENTIAL\n\nThis briefing provides the Finance Review Committee with an accurate\nassessment of the GC-Cloud Wave 4 financial situation.\n\nBUDGET OVERRUN: Following the infrastructure assessment completed\nFebruary 25, the project team has identified that the original budget\nof $2,400,000 is insufficient. The assess",
+          "extracted_tasks": [
+            {
+              "task_id": "art_5a7202ab5f_t001",
+              "text": "will be required as",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "will be required as",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_5a7202ab5f_t002",
+              "text": "will require an estimated",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "will require an estimated",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_5a7202ab5f_t003",
+              "text": "should flag this project for",
+              "owner": "Finance Committee",
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "should flag this project for",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_5a7202ab5f_t004",
+              "text": "should be expedited",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "should be expedited",
+              "confidence": 0.7
+            }
+          ],
+          "metadata": {
+            "date": "March 3, 2026"
+          }
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "RSK-05",
+      "test_name": "Cross-document inconsistency detection",
+      "module": "risk",
+      "method": "llm_large",
+      "max_score": 10,
+      "earned_score": 10,
+      "passed": true,
+      "details": "inconsistencies=4",
+      "latency_ms": 12020.451999997022,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_5a7202ab5f",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 203,
+          "content_preview": "GC-CLOUD WAVE 4 \u2014 FINANCE REVIEW COMMITTEE BRIEFING\nDate: March 3, 2026\nPrepared by: Fran\u00e7ois Lemieux, Finance Representative\nFor: Finance Review Committee\n\nPROJECT FINANCIAL STATUS \u2014 CONFIDENTIAL\n\nThis briefing provides the Finance Review Committee with an accurate\nassessment of the GC-Cloud Wave 4 financial situation.\n\nBUDGET OVERRUN: Following the infrastructure assessment completed\nFebruary 25, the project team has identified that the original budget\nof $2,400,000 is insufficient. The assess",
+          "extracted_tasks": [
+            {
+              "task_id": "art_5a7202ab5f_t001",
+              "text": "will be required as",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "will be required as",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_5a7202ab5f_t002",
+              "text": "will require an estimated",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "will require an estimated",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_5a7202ab5f_t003",
+              "text": "should flag this project for",
+              "owner": "Finance Committee",
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "should flag this project for",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_5a7202ab5f_t004",
+              "text": "should be expedited",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "should be expedited",
+              "confidence": 0.7
+            }
+          ],
+          "metadata": {
+            "date": "March 3, 2026"
+          }
+        },
+        "llm_calls": [
+          {
+            "tier": "large",
+            "model": "anthropic/claude-sonnet-4.6",
+            "latency_ms": 12020.3,
+            "content": "```json\n[\n  {\n    \"description\": \"Contradictory budget status: Director's briefing claims the project is within budget with no concerns, while the Finance Committee briefing confirms a $340,000 budget overrun (14% above approved envelope) requiring a formal budget revision and Treasury Board notification.\",\n    \"doc_a_artifact_id\": \"art_6450e2d6ae\",\n    \"doc_b_artifact_id\": \"art_5a7202ab5f\",\n    \"doc_a_excerpt\": \"The project is within budget. Expenditures to date total $412,000 against an approved budget of $2,400,000 (17% spent). We have no budget concerns at this time and expect to deliver within the approved envelope.\",\n    \"doc_b_excerpt\": \"BUDGET OVERRUN: Following the infrastructure assessment completed February 25, the project team has identified that the original budget of $2,400,000 is insufficient... Estimated cost of remediation: $340,000. REVISED PROJECTED COST: $2,740,000 \u2014 representing a budget overrun of $340,000 (approximately 14% above approved envelope).\",\n    \"severity\": \"critical\"\n  },\n  {\n    \"description\": \"Contradictory schedule status: Director's briefing states the project is on track for Q3 2026 delivery with no issues anticipated, while the Finance Committee briefing states the Q3 2026 target is now uncertain due to an estimated three weeks of additional remediation effort, and explicitly flags the timeline as at risk.\",\n    \"doc_a_artifact_id\": \"art_6450e2d6ae\",\n    \"doc_b_artifact_id\": \"art_5a7202ab5f\",\n    \"doc_a_excerpt\": \"The project remains on track to meet its Q3 2026 delivery commitment... The project is progressing according to the approved baseline schedule... No issues are anticipated.\",\n    \"doc_b_excerpt\": \"TIMELINE AT RISK: The middleware remediation will require an estimated three weeks of additional effort before cloud migration workloads can begin. The Q3 2026 delivery target is now uncertain. The project manager has been advised to reassess the schedule baseline.\",\n    \"severity\": \"critical\"\n  },\n  {\n    \"description\": \"Contradictory risk profile: The Director's briefing characterizes the project risk profile as low with only three Low-rated risks and no escalations required, while the Finance Committee briefing identifies a confirmed budget overrun and uncertain timeline \u2014 material risks that are absent from or inconsistent with the stated risk register.\",\n    \"doc_a_artifact_id\": \"art_6450e2d6ae\",\n    \"doc_b_artifact_id\": \"art_5a7202ab5f\",\n    \"doc_a_excerpt\": \"The project risk profile is low. Our risk register contains three risks, all rated Low. No risk escalations are required.\",\n    \"doc_b_excerpt\": \"STATUS: Budget overrun confirmed. Timeline at risk. Finance Committee should flag this project for enhanced monitoring.\",\n    \"severity\": \"high\"\n  },\n  {\n    \"description\": \"Omission of known scope change from Director's briefing: The Finance Committee briefing states that mandatory middleware remediation requirements were identified following the infrastructure assessment and that the project manager has already been advised to reassess the schedule baseline. The Director's briefing, dated the same day, makes no mention of this newly identified scope or any remediation requirements, suggesting material information was withheld from the Director.\",\n    \"doc_a_artifact_id\": \"art_6450e2d6ae\",\n    \"doc_b_artifact_id\": \"art_5a7202ab5f\",\n    \"doc_a_excerpt\": \"The infrastructure assessment phase concluded on time on February 25... The team is well-positioned to execute the procurement phase and we anticipate issuing the RFP in mid-March as planned.\",\n    \"doc_b_excerpt\": \"The assessment revealed mandatory middleware remediation requirements that were not captured in the initial scope... The project manager has been advised to reassess the schedule baseline. A formal budget revision request has been prepared and is awaiting Director approval.\",\n    \"severity\": \"critical\"\n  }\n]\n```",
+            "parsed_json": [
+              {
+                "description": "Contradictory budget status: Director's briefing claims the project is within budget with no concerns, while the Finance Committee briefing confirms a $340,000 budget overrun (14% above approved envelope) requiring a formal budget revision and Treasury Board notification.",
+                "doc_a_artifact_id": "art_6450e2d6ae",
+                "doc_b_artifact_id": "art_5a7202ab5f",
+                "doc_a_excerpt": "The project is within budget. Expenditures to date total $412,000 against an approved budget of $2,400,000 (17% spent). We have no budget concerns at this time and expect to deliver within the approved envelope.",
+                "doc_b_excerpt": "BUDGET OVERRUN: Following the infrastructure assessment completed February 25, the project team has identified that the original budget of $2,400,000 is insufficient... Estimated cost of remediation: $340,000. REVISED PROJECTED COST: $2,740,000 \u2014 representing a budget overrun of $340,000 (approximately 14% above approved envelope).",
+                "severity": "critical"
+              },
+              {
+                "description": "Contradictory schedule status: Director's briefing states the project is on track for Q3 2026 delivery with no issues anticipated, while the Finance Committee briefing states the Q3 2026 target is now uncertain due to an estimated three weeks of additional remediation effort, and explicitly flags the timeline as at risk.",
+                "doc_a_artifact_id": "art_6450e2d6ae",
+                "doc_b_artifact_id": "art_5a7202ab5f",
+                "doc_a_excerpt": "The project remains on track to meet its Q3 2026 delivery commitment... The project is progressing according to the approved baseline schedule... No issues are anticipated.",
+                "doc_b_excerpt": "TIMELINE AT RISK: The middleware remediation will require an estimated three weeks of additional effort before cloud migration workloads can begin. The Q3 2026 delivery target is now uncertain. The project manager has been advised to reassess the schedule baseline.",
+                "severity": "critical"
+              },
+              {
+                "description": "Contradictory risk profile: The Director's briefing characterizes the project risk profile as low with only three Low-rated risks and no escalations required, while the Finance Committee briefing identifies a confirmed budget overrun and uncertain timeline \u2014 material risks that are absent from or inconsistent with the stated risk register.",
+                "doc_a_artifact_id": "art_6450e2d6ae",
+                "doc_b_artifact_id": "art_5a7202ab5f",
+                "doc_a_excerpt": "The project risk profile is low. Our risk register contains three risks, all rated Low. No risk escalations are required.",
+                "doc_b_excerpt": "STATUS: Budget overrun confirmed. Timeline at risk. Finance Committee should flag this project for enhanced monitoring.",
+                "severity": "high"
+              },
+              {
+                "description": "Omission of known scope change from Director's briefing: The Finance Committee briefing states that mandatory middleware remediation requirements were identified following the infrastructure assessment and that the project manager has already been advised to reassess the schedule baseline. The Director's briefing, dated the same day, makes no mention of this newly identified scope or any remediation requirements, suggesting material information was withheld from the Director.",
+                "doc_a_artifact_id": "art_6450e2d6ae",
+                "doc_b_artifact_id": "art_5a7202ab5f",
+                "doc_a_excerpt": "The infrastructure assessment phase concluded on time on February 25... The team is well-positioned to execute the procurement phase and we anticipate issuing the RFP in mid-March as planned.",
+                "doc_b_excerpt": "The assessment revealed mandatory middleware remediation requirements that were not captured in the initial scope... The project manager has been advised to reassess the schedule baseline. A formal budget revision request has been prepared and is awaiting Director approval.",
+                "severity": "critical"
+              }
+            ],
+            "error": null
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "test_id": "RSK-06",
+      "test_name": "Risk scoring accuracy",
+      "module": "risk",
+      "method": "traditional",
+      "max_score": 8,
+      "earned_score": 0.0,
+      "passed": false,
+      "details": "within_1_level=0/2 pairs=[('low', 'critical'), ('low', 'high')]",
+      "latency_ms": 0.7608999876538292,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_5f1ac9056c",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 246,
+          "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+          "extracted_tasks": [
+            {
+              "task_id": "art_5f1ac9056c_t001",
+              "text": "please confirm the delivery timeline for the Catalyst",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "please confirm the delivery timeline for the Catalyst",
+              "confidence": 0.7
+            }
+          ],
+          "metadata": {
+            "sender": "j.henderson@techsupplier.ca",
+            "recipients": "alice.tran@ssc-spc.gc.ca",
+            "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+            "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+          }
+        },
+        "risks": {
+          "count": 2,
+          "analysis_method": "traditional",
+          "risks": [
+            {
+              "risk_id": "rsk_2066ff31",
+              "description": "Schedule risk detected: delay mentioned",
+              "category": "schedule",
+              "likelihood": 1,
+              "impact": 4,
+              "risk_score": 4.0,
+              "risk_level": "low",
+              "affected_stakeholders": [],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "uary 26. We have now confirmed a 2-week delay on the network equipment\noriginally sch",
+                  "location": null,
+                  "evidence_strength": 0.16
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:21:04.781122"
+            },
+            {
+              "risk_id": "rsk_a5149104",
+              "description": "Resource risk detected: single-sourced mentioned (also: alternative routing)",
+              "category": "resource",
+              "likelihood": 1,
+              "impact": 4,
+              "risk_score": 4.0,
+              "risk_level": "low",
+              "affected_stakeholders": [],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "ne. To be transparent: we are currently single-sourced on this\nproduct line through our Montre",
+                  "location": null,
+                  "evidence_strength": 0.16
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:21:04.781122"
+            }
+          ]
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "RSK-06",
+      "test_name": "Risk scoring accuracy",
+      "module": "risk",
+      "method": "llm_large",
+      "max_score": 8,
+      "earned_score": 8.0,
+      "passed": true,
+      "details": "within_1_level=2/2 pairs=[('critical', 'critical'), ('critical', 'high')]",
+      "latency_ms": 6884.218199993484,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_5f1ac9056c",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 246,
+          "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+          "extracted_tasks": [
+            {
+              "task_id": "art_5f1ac9056c_t001",
+              "text": "please confirm the delivery timeline for the Catalyst",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "please confirm the delivery timeline for the Catalyst",
+              "confidence": 0.7
+            }
+          ],
+          "metadata": {
+            "sender": "j.henderson@techsupplier.ca",
+            "recipients": "alice.tran@ssc-spc.gc.ca",
+            "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+            "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+          }
+        },
+        "risks": {
+          "count": 4,
+          "analysis_method": "llm_large",
+          "risks": [
+            {
+              "risk_id": "rsk_5d4463c1",
+              "description": "Vendor delivery delayed by 2 weeks, threatening NGIS Phase 3 migration timeline",
+              "category": "schedule",
+              "likelihood": 5,
+              "impact": 5,
+              "risk_score": 25.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca",
+                "bob.morrison@ssc-spc.gc.ca"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6",
+                  "location": null,
+                  "evidence_strength": 1.0
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:21:11.678278"
+            },
+            {
+              "risk_id": "rsk_f63b8ecd",
+              "description": "No backup supplier identified for network equipment \u2014 single-sourced risk",
+              "category": "resource",
+              "likelihood": 4,
+              "impact": 5,
+              "risk_score": 20.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "we are currently single-sourced on this product line through our Montreal warehouse",
+                  "location": null,
+                  "evidence_strength": 0.8
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:21:11.678278"
+            },
+            {
+              "risk_id": "rsk_8554da3b",
+              "description": "Alternative routing option adds further '3\u20135 business days', compounding delivery risk",
+              "category": "schedule",
+              "likelihood": 3,
+              "impact": 5,
+              "risk_score": 15.0,
+              "risk_level": "high",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca",
+                "bob.morrison@ssc-spc.gc.ca"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "alternative routing via our Vancouver depot would add a further 3\u20135 business days",
+                  "location": null,
+                  "evidence_strength": 0.6
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:21:11.678278"
+            },
+            {
+              "risk_id": "rsk_cd067ace",
+              "description": "Equipment arrives March 20, missing 'no later than March 6' staging deadline entirely",
+              "category": "technical",
+              "likelihood": 5,
+              "impact": 5,
+              "risk_score": 25.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "we need the equipment on site no later than March 6 for staging and testing",
+                  "location": null,
+                  "evidence_strength": 1.0
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:21:11.678278"
+            }
+          ]
+        },
+        "llm_calls": [
+          {
+            "tier": "large",
+            "model": "anthropic/claude-sonnet-4.6",
+            "latency_ms": 6883.2,
+            "content": "```json\n[\n  {\n    \"description\": \"Vendor delivery delayed by 2 weeks, threatening NGIS Phase 3 migration timeline\",\n    \"category\": \"schedule\",\n    \"likelihood\": 5,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\", \"bob.morrison@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"No backup supplier identified for network equipment \u2014 single-sourced risk\",\n    \"category\": \"resource\",\n    \"likelihood\": 4,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"we are currently single-sourced on this product line through our Montreal warehouse\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"Alternative routing option adds further '3\u20135 business days', compounding delivery risk\",\n    \"category\": \"schedule\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"alternative routing via our Vancouver depot would add a further 3\u20135 business days\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\", \"bob.morrison@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"Equipment arrives March 20, missing 'no later than March 6' staging deadline entirely\",\n    \"category\": \"technical\",\n    \"likelihood\": 5,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"we need the equipment on site no later than March 6 for staging and testing\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\"]\n  }\n]\n```",
+            "parsed_json": [
+              {
+                "description": "Vendor delivery delayed by 2 weeks, threatening NGIS Phase 3 migration timeline",
+                "category": "schedule",
+                "likelihood": 5,
+                "impact": 4,
+                "evidence_excerpt": "confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca",
+                  "bob.morrison@ssc-spc.gc.ca"
+                ]
+              },
+              {
+                "description": "No backup supplier identified for network equipment \u2014 single-sourced risk",
+                "category": "resource",
+                "likelihood": 4,
+                "impact": 4,
+                "evidence_excerpt": "we are currently single-sourced on this product line through our Montreal warehouse",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca"
+                ]
+              },
+              {
+                "description": "Alternative routing option adds further '3\u20135 business days', compounding delivery risk",
+                "category": "schedule",
+                "likelihood": 3,
+                "impact": 4,
+                "evidence_excerpt": "alternative routing via our Vancouver depot would add a further 3\u20135 business days",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca",
+                  "bob.morrison@ssc-spc.gc.ca"
+                ]
+              },
+              {
+                "description": "Equipment arrives March 20, missing 'no later than March 6' staging deadline entirely",
+                "category": "technical",
+                "likelihood": 5,
+                "impact": 4,
+                "evidence_excerpt": "we need the equipment on site no later than March 6 for staging and testing",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca"
+                ]
+              }
+            ],
+            "error": null
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "test_id": "RSK-07",
+      "test_name": "Compliance risk detection",
+      "module": "risk",
+      "method": "traditional",
+      "max_score": 9,
+      "earned_score": 9,
+      "passed": true,
+      "details": "compliance_risks=1 total=1",
+      "latency_ms": 0.44860001071356237,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_cc695a2c40",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 239,
+          "content_preview": "From: security.audit@tbs-sct.gc.ca\nTo: ngis-pm@ssc-spc.gc.ca\nCc: itsec-director@ssc-spc.gc.ca; ciso@ssc-spc.gc.ca\nSubject: URGENT: ITSG-33 Compliance Gap \u2014 NGIS Phase 3 Network Migration\nDate: Thu, 5 Mar 2026 08:47:15 -0500\n\nProject Management Team,\n\nDuring the scheduled ITSG-33 security compliance review for NGIS Phase 3\n(review conducted February 28\u2013March 4, 2026), our audit team identified\na Category 2 finding that must be addressed before the migration proceeds.\n\nFINDING SUMMARY:\nControl: IA",
+          "extracted_tasks": [
+            {
+              "task_id": "art_cc695a2c40_t001",
+              "text": "action plan by end of day March 6.",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "action plan by end of day March 6.",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_cc695a2c40_t002",
+              "text": "Please confirm receipt and provide an action plan by end of day March 6.",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Please confirm receipt and provide an action plan by end of day March 6.",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_cc695a2c40_t003",
+              "text": "must be addressed before the migration proceeds.",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "must be addressed before the migration proceeds.",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_cc695a2c40_t004",
+              "text": "must provide the updated SA&A documentation addressing",
+              "owner": null,
+              "deadline": "March 12, 2026",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "must provide the updated SA&A documentation addressing",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_cc695a2c40_t005",
+              "text": "must\n  be scheduled for the week of March 9 to review the PAW architecture.",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "must\n  be scheduled for the week of March 9 to review the PAW architecture.",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_cc695a2c40_t006",
+              "text": "should\n  be considered at risk.",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "should\n  be considered at risk.",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_cc695a2c40_t007",
+              "text": "- The project team must provide the updated SA&A documentation addressing",
+              "owner": null,
+              "deadline": "March 12, 2026",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- The project team must provide the updated SA&A documentation addressing",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_cc695a2c40_t008",
+              "text": "- A meeting between the SSC CISO office and the NGIS project team must",
+              "owner": null,
+              "deadline": "March 12, 2026",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- A meeting between the SSC CISO office and the NGIS project team must",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_cc695a2c40_t009",
+              "text": "- Until this finding is resolved, the March 18 migration window should",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- Until this finding is resolved, the March 18 migration window should",
+              "confidence": 0.7
+            }
+          ],
+          "metadata": {
+            "sender": "security.audit@tbs-sct.gc.ca",
+            "recipients": "ngis-pm@ssc-spc.gc.ca",
+            "subject": "URGENT: ITSG-33 Compliance Gap \u2014 NGIS Phase 3 Network Migration",
+            "date": "Thu, 5 Mar 2026 08:47:15 -0500"
+          }
+        },
+        "risks": {
+          "count": 1,
+          "analysis_method": "traditional",
+          "risks": [
+            {
+              "risk_id": "rsk_78429943",
+              "description": "Compliance risk detected: compliance mentioned (also: compliance, audit)",
+              "category": "compliance",
+              "likelihood": 5,
+              "impact": 4,
+              "risk_score": 20.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_cc695a2c40",
+                  "excerpt": "@ssc-spc.gc.ca\nSubject: URGENT: ITSG-33 Compliance Gap \u2014 NGIS Phase 3 Network Migration\nDa",
+                  "location": null,
+                  "evidence_strength": 0.8
+                }
+              ],
+              "source_artifact_id": "art_cc695a2c40",
+              "created_at": "2026-03-09T07:21:12.688031"
+            }
+          ]
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "RSK-07",
+      "test_name": "Compliance risk detection",
+      "module": "risk",
+      "method": "llm_large",
+      "max_score": 9,
+      "earned_score": 9,
+      "passed": true,
+      "details": "compliance_risks=1 total=4",
+      "latency_ms": 6911.645300002419,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_cc695a2c40",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 239,
+          "content_preview": "From: security.audit@tbs-sct.gc.ca\nTo: ngis-pm@ssc-spc.gc.ca\nCc: itsec-director@ssc-spc.gc.ca; ciso@ssc-spc.gc.ca\nSubject: URGENT: ITSG-33 Compliance Gap \u2014 NGIS Phase 3 Network Migration\nDate: Thu, 5 Mar 2026 08:47:15 -0500\n\nProject Management Team,\n\nDuring the scheduled ITSG-33 security compliance review for NGIS Phase 3\n(review conducted February 28\u2013March 4, 2026), our audit team identified\na Category 2 finding that must be addressed before the migration proceeds.\n\nFINDING SUMMARY:\nControl: IA",
+          "extracted_tasks": [
+            {
+              "task_id": "art_cc695a2c40_t001",
+              "text": "action plan by end of day March 6.",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "action plan by end of day March 6.",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_cc695a2c40_t002",
+              "text": "Please confirm receipt and provide an action plan by end of day March 6.",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Please confirm receipt and provide an action plan by end of day March 6.",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_cc695a2c40_t003",
+              "text": "must be addressed before the migration proceeds.",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "must be addressed before the migration proceeds.",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_cc695a2c40_t004",
+              "text": "must provide the updated SA&A documentation addressing",
+              "owner": null,
+              "deadline": "March 12, 2026",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "must provide the updated SA&A documentation addressing",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_cc695a2c40_t005",
+              "text": "must\n  be scheduled for the week of March 9 to review the PAW architecture.",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "must\n  be scheduled for the week of March 9 to review the PAW architecture.",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_cc695a2c40_t006",
+              "text": "should\n  be considered at risk.",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "should\n  be considered at risk.",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_cc695a2c40_t007",
+              "text": "- The project team must provide the updated SA&A documentation addressing",
+              "owner": null,
+              "deadline": "March 12, 2026",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- The project team must provide the updated SA&A documentation addressing",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_cc695a2c40_t008",
+              "text": "- A meeting between the SSC CISO office and the NGIS project team must",
+              "owner": null,
+              "deadline": "March 12, 2026",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- A meeting between the SSC CISO office and the NGIS project team must",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_cc695a2c40_t009",
+              "text": "- Until this finding is resolved, the March 18 migration window should",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- Until this finding is resolved, the March 18 migration window should",
+              "confidence": 0.7
+            }
+          ],
+          "metadata": {
+            "sender": "security.audit@tbs-sct.gc.ca",
+            "recipients": "ngis-pm@ssc-spc.gc.ca",
+            "subject": "URGENT: ITSG-33 Compliance Gap \u2014 NGIS Phase 3 Network Migration",
+            "date": "Thu, 5 Mar 2026 08:47:15 -0500"
+          }
+        },
+        "risks": {
+          "count": 4,
+          "analysis_method": "llm_large",
+          "risks": [
+            {
+              "risk_id": "rsk_3d5d703d",
+              "description": "Compliance gap in SA&A package risks 'PBMM cloud hosting authorization may be placed on hold'",
+              "category": "compliance",
+              "likelihood": 4,
+              "impact": 5,
+              "risk_score": 20.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "SSC CISO",
+                "NGIS Project Team",
+                "GC-Cloud workload owners",
+                "Treasury Board of Canada Secretariat"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_cc695a2c40",
+                  "excerpt": "SSC's PBMM cloud hosting authorization may be placed on hold, potentially affecting other GC-Cloud workloads depending on the shared AD infrastructure",
+                  "location": null,
+                  "evidence_strength": 0.8
+                }
+              ],
+              "source_artifact_id": "art_cc695a2c40",
+              "created_at": "2026-03-09T07:21:19.608032"
+            },
+            {
+              "risk_id": "rsk_e1d26b23",
+              "description": "Migration window 'should be considered at risk' due to unresolved Category 2 ITSG-33 finding",
+              "category": "schedule",
+              "likelihood": 4,
+              "impact": 5,
+              "risk_score": 20.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "NGIS Project Team",
+                "SSC CISO",
+                "GC-Cloud workload owners"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_cc695a2c40",
+                  "excerpt": "Until this finding is resolved, the March 18 migration window should be considered at risk",
+                  "location": null,
+                  "evidence_strength": 0.8
+                }
+              ],
+              "source_artifact_id": "art_cc695a2c40",
+              "created_at": "2026-03-09T07:21:19.608032"
+            },
+            {
+              "risk_id": "rsk_2b55e6a1",
+              "description": "Project missing PAW architecture documentation, blocking SA&A package completion by March 12",
+              "category": "technical",
+              "likelihood": 4,
+              "impact": 5,
+              "risk_score": 20.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "NGIS Project Team",
+                "SSC CISO",
+                "TBS Security Audit Office"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_cc695a2c40",
+                  "excerpt": "the SA&A package is missing the Privileged Access Workstation (PAW) architecture documentation required under ITSG-33 Annex 3A, Control IA-5(1)",
+                  "location": null,
+                  "evidence_strength": 0.8
+                }
+              ],
+              "source_artifact_id": "art_cc695a2c40",
+              "created_at": "2026-03-09T07:21:19.608032"
+            },
+            {
+              "risk_id": "rsk_15f6a86f",
+              "description": "Shared AD infrastructure dependency risks 'other GC-Cloud workloads' if migration proceeds non-compliant",
+              "category": "resource",
+              "likelihood": 3,
+              "impact": 5,
+              "risk_score": 15.0,
+              "risk_level": "high",
+              "affected_stakeholders": [
+                "GC-Cloud workload owners",
+                "SSC",
+                "Government of Canada departments"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_cc695a2c40",
+                  "excerpt": "potentially affecting other GC-Cloud workloads depending on the shared AD infrastructure",
+                  "location": null,
+                  "evidence_strength": 0.6
+                }
+              ],
+              "source_artifact_id": "art_cc695a2c40",
+              "created_at": "2026-03-09T07:21:19.608032"
+            }
+          ]
+        },
+        "llm_calls": [
+          {
+            "tier": "large",
+            "model": "anthropic/claude-sonnet-4.6",
+            "latency_ms": 6910.6,
+            "content": "```json\n[\n  {\n    \"description\": \"Compliance gap in SA&A package risks 'PBMM cloud hosting authorization may be placed on hold'\",\n    \"category\": \"compliance\",\n    \"likelihood\": 4,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"SSC's PBMM cloud hosting authorization may be placed on hold, potentially affecting other GC-Cloud workloads depending on the shared AD infrastructure\",\n    \"affected_stakeholders\": [\"SSC CISO\", \"NGIS Project Team\", \"GC-Cloud workload owners\", \"Treasury Board of Canada Secretariat\"]\n  },\n  {\n    \"description\": \"Migration window 'should be considered at risk' due to unresolved Category 2 ITSG-33 finding\",\n    \"category\": \"schedule\",\n    \"likelihood\": 4,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"Until this finding is resolved, the March 18 migration window should be considered at risk\",\n    \"affected_stakeholders\": [\"NGIS Project Team\", \"SSC CISO\", \"GC-Cloud workload owners\"]\n  },\n  {\n    \"description\": \"Project missing PAW architecture documentation, blocking SA&A package completion by March 12\",\n    \"category\": \"technical\",\n    \"likelihood\": 4,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"the SA&A package is missing the Privileged Access Workstation (PAW) architecture documentation required under ITSG-33 Annex 3A, Control IA-5(1)\",\n    \"affected_stakeholders\": [\"NGIS Project Team\", \"SSC CISO\", \"TBS Security Audit Office\"]\n  },\n  {\n    \"description\": \"Shared AD infrastructure dependency risks 'other GC-Cloud workloads' if migration proceeds non-compliant\",\n    \"category\": \"resource\",\n    \"likelihood\": 3,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"potentially affecting other GC-Cloud workloads depending on the shared AD infrastructure\",\n    \"affected_stakeholders\": [\"GC-Cloud workload owners\", \"SSC\", \"Government of Canada departments\"]\n  }\n]\n```",
+            "parsed_json": [
+              {
+                "description": "Compliance gap in SA&A package risks 'PBMM cloud hosting authorization may be placed on hold'",
+                "category": "compliance",
+                "likelihood": 4,
+                "impact": 5,
+                "evidence_excerpt": "SSC's PBMM cloud hosting authorization may be placed on hold, potentially affecting other GC-Cloud workloads depending on the shared AD infrastructure",
+                "affected_stakeholders": [
+                  "SSC CISO",
+                  "NGIS Project Team",
+                  "GC-Cloud workload owners",
+                  "Treasury Board of Canada Secretariat"
+                ]
+              },
+              {
+                "description": "Migration window 'should be considered at risk' due to unresolved Category 2 ITSG-33 finding",
+                "category": "schedule",
+                "likelihood": 4,
+                "impact": 4,
+                "evidence_excerpt": "Until this finding is resolved, the March 18 migration window should be considered at risk",
+                "affected_stakeholders": [
+                  "NGIS Project Team",
+                  "SSC CISO",
+                  "GC-Cloud workload owners"
+                ]
+              },
+              {
+                "description": "Project missing PAW architecture documentation, blocking SA&A package completion by March 12",
+                "category": "technical",
+                "likelihood": 4,
+                "impact": 4,
+                "evidence_excerpt": "the SA&A package is missing the Privileged Access Workstation (PAW) architecture documentation required under ITSG-33 Annex 3A, Control IA-5(1)",
+                "affected_stakeholders": [
+                  "NGIS Project Team",
+                  "SSC CISO",
+                  "TBS Security Audit Office"
+                ]
+              },
+              {
+                "description": "Shared AD infrastructure dependency risks 'other GC-Cloud workloads' if migration proceeds non-compliant",
+                "category": "resource",
+                "likelihood": 3,
+                "impact": 5,
+                "evidence_excerpt": "potentially affecting other GC-Cloud workloads depending on the shared AD infrastructure",
+                "affected_stakeholders": [
+                  "GC-Cloud workload owners",
+                  "SSC",
+                  "Government of Canada departments"
+                ]
+              }
+            ],
+            "error": null
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "test_id": "RSK-08",
+      "test_name": "Multi-risk extraction from single doc",
+      "module": "risk",
+      "method": "traditional",
+      "max_score": 8,
+      "earned_score": 8,
+      "passed": true,
+      "details": "risks_found=4",
+      "latency_ms": 1.9376999989617616,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_7efefcfcc8",
+          "artifact_type": "meeting_minutes",
+          "detected_language": "en",
+          "word_count": 446,
+          "content_preview": "NGIS PHASE 3 \u2014 SPRINT REVIEW MEETING MINUTES\nMeeting Date: March 3, 2026\nTime: 13:00\u201314:30 EST\nLocation: WebEx / Room 4C-12, Place du Portage III, Gatineau\n\nAttendees:\n- Alice Tran (Project Manager) \u2014 Chair\n- Bob Morrison (Technical Lead)\n- Carol Nguyen (Infrastructure Architect)\n- Dave Chen (Security Specialist)\n- Marie Lefebvre (Change Management)\n- Farida Osei (QA Lead)\n\nRegrets: Director Okafor (represented by Alice Tran)\n\n---\n\n1. SPRINT 6 REVIEW (Feb 17 \u2013 Mar 3, 2026)\n\nCompleted Items:\n- AD",
+          "extracted_tasks": [
+            {
+              "task_id": "art_7efefcfcc8_t001",
+              "text": "ACTION ITEMS",
+              "owner": "Tech",
+              "deadline": "Mar 17, 2026",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "ACTION ITEMS",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t002",
+              "text": "must be initiated immediately given his role as the",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "must be initiated immediately given his role as the",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t003",
+              "text": "Deadline: March 5, 2026.",
+              "owner": "Bob Morrison",
+              "deadline": "March 5, 2026",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Deadline: March 5, 2026.",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t004",
+              "text": "Deadline: March 17, 2026.",
+              "owner": "Dave Chen",
+              "deadline": "March 17, 2026",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Deadline: March 17, 2026.",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t005",
+              "text": "Deadline: March 12, 2026.",
+              "owner": "Farida Osei",
+              "deadline": "March 12, 2026",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Deadline: March 12, 2026.",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t006",
+              "text": "Deadline: March 10, 2026.",
+              "owner": "Carol Nguyen",
+              "deadline": "March 10, 2026",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Deadline: March 10, 2026.",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t007",
+              "text": "Deadline: March 7, 2026.",
+              "owner": "Marie Lefe",
+              "deadline": "March 7, 2026",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Deadline: March 7, 2026.",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t008",
+              "text": "- Alice Tran (Project Manager) \u2014 Chair",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- Alice Tran (Project Manager) \u2014 Chair",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t009",
+              "text": "- Bob Morrison (Technical Lead)",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- Bob Morrison (Technical Lead)",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t010",
+              "text": "- Carol Nguyen (Infrastructure Architect)",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- Carol Nguyen (Infrastructure Architect)",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t011",
+              "text": "- Dave Chen (Security Specialist)",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- Dave Chen (Security Specialist)",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t012",
+              "text": "- Marie Lefebvre (Change Management)",
+              "owner": "Alice Tran",
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- Marie Lefebvre (Change Management)",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t013",
+              "text": "- Farida Osei (QA Lead)",
+              "owner": "Alice Tran",
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- Farida Osei (QA Lead)",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t014",
+              "text": "- AD Schema Extension deployed to test environment (Bob Morrison)",
+              "owner": null,
+              "deadline": "Mar 3, 2026",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- AD Schema Extension deployed to test environment (Bob Morrison)",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t015",
+              "text": "- Network topology design finalized for Sites B and C (Carol Nguyen)",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- Network topology design finalized for Sites B and C (Carol Nguyen)",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t016",
+              "text": "- User acceptance testing scripts drafted (Farida Osei)",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- User acceptance testing scripts drafted (Farida Osei)",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t017",
+              "text": "- Legacy application inventory completed \u2014 14 apps catalogued (Dave Chen)",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- Legacy application inventory completed \u2014 14 apps catalogued (Dave Chen)",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t018",
+              "text": "- PAW architecture documentation for SA&A package (blocked \u2014 see Item 3)",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- PAW architecture documentation for SA&A package (blocked \u2014 see Item 3)",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t019",
+              "text": "- End-user communication plan (in progress \u2014 60% complete)",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- End-user communication plan (in progress \u2014 60% complete)",
+              "confidence": 0.7
+            }
+          ],
+          "metadata": {
+            "attendees": [
+              "- Alice Tran (Project Manager) \u2014 Chair",
+              "- Bob Morrison (Technical Lead)",
+              "- Carol Nguyen (Infrastructure Architect)",
+              "- Dave Chen (Security Specialist)",
+              "- Marie Lefebvre (Change Management)",
+              "- Farida Osei (QA Lead)"
+            ]
+          }
+        },
+        "risks": {
+          "count": 4,
+          "analysis_method": "traditional",
+          "risks": [
+            {
+              "risk_id": "rsk_2984d652",
+              "description": "Schedule risk detected: delay mentioned (also: delay, delay)",
+              "category": "schedule",
+              "likelihood": 1,
+              "impact": 4,
+              "risk_score": 4.0,
+              "risk_level": "low",
+              "affected_stakeholders": [],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_7efefcfcc8",
+                  "excerpt": "onal.\n\n3. BLOCKERS AND RISKS\n\na) Vendor Delay: TechSupplier has confirmed a 2-week de",
+                  "location": null,
+                  "evidence_strength": 0.16
+                }
+              ],
+              "source_artifact_id": "art_7efefcfcc8",
+              "created_at": "2026-03-09T07:21:20.629428"
+            },
+            {
+              "risk_id": "rsk_97e6bc07",
+              "description": "Technical risk detected: deprecated mentioned (also: dependency)",
+              "category": "technical",
+              "likelihood": 1,
+              "impact": 4,
+              "risk_score": 4.0,
+              "risk_level": "low",
+              "affected_stakeholders": [],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_7efefcfcc8",
+                  "excerpt": "rrent migration script relies on the\n   deprecated \"legacy-sync\" API endpoint scheduled fo",
+                  "location": null,
+                  "evidence_strength": 0.16
+                }
+              ],
+              "source_artifact_id": "art_7efefcfcc8",
+              "created_at": "2026-03-09T07:21:20.630930"
+            },
+            {
+              "risk_id": "rsk_f7ffa549",
+              "description": "Resource risk detected: leaving mentioned (also: knowledge transfer)",
+              "category": "resource",
+              "likelihood": 1,
+              "impact": 4,
+              "risk_score": 4.0,
+              "risk_level": "low",
+              "affected_stakeholders": [],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_7efefcfcc8",
+                  "excerpt": "ng external\n   opportunities and may be leaving SSC within 60 days. Knowledge\n   transf",
+                  "location": null,
+                  "evidence_strength": 0.16
+                }
+              ],
+              "source_artifact_id": "art_7efefcfcc8",
+              "created_at": "2026-03-09T07:21:20.630930"
+            },
+            {
+              "risk_id": "rsk_68366794",
+              "description": "Compliance risk detected: compliance mentioned (also: audit, audit)",
+              "category": "compliance",
+              "likelihood": 2,
+              "impact": 4,
+              "risk_score": 8.0,
+              "risk_level": "medium",
+              "affected_stakeholders": [],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_7efefcfcc8",
+                  "excerpt": "to assess impact on Site A cutover.\n\nb) Compliance Gap: TBS Audit identified an ITSG-33 IA",
+                  "location": null,
+                  "evidence_strength": 0.32
+                }
+              ],
+              "source_artifact_id": "art_7efefcfcc8",
+              "created_at": "2026-03-09T07:21:20.630930"
+            }
+          ]
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "RSK-08",
+      "test_name": "Multi-risk extraction from single doc",
+      "module": "risk",
+      "method": "llm_large",
+      "max_score": 8,
+      "earned_score": 8,
+      "passed": true,
+      "details": "risks_found=5",
+      "latency_ms": 7232.482499995967,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_7efefcfcc8",
+          "artifact_type": "meeting_minutes",
+          "detected_language": "en",
+          "word_count": 446,
+          "content_preview": "NGIS PHASE 3 \u2014 SPRINT REVIEW MEETING MINUTES\nMeeting Date: March 3, 2026\nTime: 13:00\u201314:30 EST\nLocation: WebEx / Room 4C-12, Place du Portage III, Gatineau\n\nAttendees:\n- Alice Tran (Project Manager) \u2014 Chair\n- Bob Morrison (Technical Lead)\n- Carol Nguyen (Infrastructure Architect)\n- Dave Chen (Security Specialist)\n- Marie Lefebvre (Change Management)\n- Farida Osei (QA Lead)\n\nRegrets: Director Okafor (represented by Alice Tran)\n\n---\n\n1. SPRINT 6 REVIEW (Feb 17 \u2013 Mar 3, 2026)\n\nCompleted Items:\n- AD",
+          "extracted_tasks": [
+            {
+              "task_id": "art_7efefcfcc8_t001",
+              "text": "ACTION ITEMS",
+              "owner": "Tech",
+              "deadline": "Mar 17, 2026",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "ACTION ITEMS",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t002",
+              "text": "must be initiated immediately given his role as the",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "must be initiated immediately given his role as the",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t003",
+              "text": "Deadline: March 5, 2026.",
+              "owner": "Bob Morrison",
+              "deadline": "March 5, 2026",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Deadline: March 5, 2026.",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t004",
+              "text": "Deadline: March 17, 2026.",
+              "owner": "Dave Chen",
+              "deadline": "March 17, 2026",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Deadline: March 17, 2026.",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t005",
+              "text": "Deadline: March 12, 2026.",
+              "owner": "Farida Osei",
+              "deadline": "March 12, 2026",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Deadline: March 12, 2026.",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t006",
+              "text": "Deadline: March 10, 2026.",
+              "owner": "Carol Nguyen",
+              "deadline": "March 10, 2026",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Deadline: March 10, 2026.",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t007",
+              "text": "Deadline: March 7, 2026.",
+              "owner": "Marie Lefe",
+              "deadline": "March 7, 2026",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "Deadline: March 7, 2026.",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t008",
+              "text": "- Alice Tran (Project Manager) \u2014 Chair",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- Alice Tran (Project Manager) \u2014 Chair",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t009",
+              "text": "- Bob Morrison (Technical Lead)",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- Bob Morrison (Technical Lead)",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t010",
+              "text": "- Carol Nguyen (Infrastructure Architect)",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- Carol Nguyen (Infrastructure Architect)",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t011",
+              "text": "- Dave Chen (Security Specialist)",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- Dave Chen (Security Specialist)",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t012",
+              "text": "- Marie Lefebvre (Change Management)",
+              "owner": "Alice Tran",
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- Marie Lefebvre (Change Management)",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t013",
+              "text": "- Farida Osei (QA Lead)",
+              "owner": "Alice Tran",
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- Farida Osei (QA Lead)",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t014",
+              "text": "- AD Schema Extension deployed to test environment (Bob Morrison)",
+              "owner": null,
+              "deadline": "Mar 3, 2026",
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- AD Schema Extension deployed to test environment (Bob Morrison)",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t015",
+              "text": "- Network topology design finalized for Sites B and C (Carol Nguyen)",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- Network topology design finalized for Sites B and C (Carol Nguyen)",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t016",
+              "text": "- User acceptance testing scripts drafted (Farida Osei)",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- User acceptance testing scripts drafted (Farida Osei)",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t017",
+              "text": "- Legacy application inventory completed \u2014 14 apps catalogued (Dave Chen)",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- Legacy application inventory completed \u2014 14 apps catalogued (Dave Chen)",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t018",
+              "text": "- PAW architecture documentation for SA&A package (blocked \u2014 see Item 3)",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- PAW architecture documentation for SA&A package (blocked \u2014 see Item 3)",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_7efefcfcc8_t019",
+              "text": "- End-user communication plan (in progress \u2014 60% complete)",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "- End-user communication plan (in progress \u2014 60% complete)",
+              "confidence": 0.7
+            }
+          ],
+          "metadata": {
+            "attendees": [
+              "- Alice Tran (Project Manager) \u2014 Chair",
+              "- Bob Morrison (Technical Lead)",
+              "- Carol Nguyen (Infrastructure Architect)",
+              "- Dave Chen (Security Specialist)",
+              "- Marie Lefebvre (Change Management)",
+              "- Farida Osei (QA Lead)"
+            ]
+          }
+        },
+        "risks": {
+          "count": 5,
+          "analysis_method": "llm_large",
+          "risks": [
+            {
+              "risk_id": "rsk_941e3900",
+              "description": "Vendor delivery delayed by 2 weeks, threatening March 18 migration window for Site A cutover",
+              "category": "schedule",
+              "likelihood": 4,
+              "impact": 5,
+              "risk_score": 20.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "Carol Nguyen",
+                "Alice Tran",
+                "Steering Committee"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_7efefcfcc8",
+                  "excerpt": "TechSupplier has confirmed a 2-week delay on Cisco Catalyst 9500 switches. Revised delivery is March 20. This threatens the March 18 migration window.",
+                  "location": null,
+                  "evidence_strength": 0.8
+                }
+              ],
+              "source_artifact_id": "art_7efefcfcc8",
+              "created_at": "2026-03-09T07:21:27.876641"
+            },
+            {
+              "risk_id": "rsk_6bb7f901",
+              "description": "No backup technical lead identified \u2014 Bob Morrison single point of failure for AD migration",
+              "category": "resource",
+              "likelihood": 3,
+              "impact": 5,
+              "risk_score": 15.0,
+              "risk_level": "high",
+              "affected_stakeholders": [
+                "Alice Tran",
+                "Carol Nguyen",
+                "HR",
+                "Director Okafor"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_7efefcfcc8",
+                  "excerpt": "Bob Morrison has indicated he is exploring external opportunities and may be leaving SSC within 60 days. Knowledge transfer plan must be initiated immediately given his role as the sole AD migration e",
+                  "location": null,
+                  "evidence_strength": 0.6
+                }
+              ],
+              "source_artifact_id": "art_7efefcfcc8",
+              "created_at": "2026-03-09T07:21:27.877644"
+            },
+            {
+              "risk_id": "rsk_e594ea6c",
+              "description": "Compliance finding raised by TBS Audit \u2014 ITSG-33 IA-5 PAW documentation 'inadvertently omitted' from SA&A package",
+              "category": "compliance",
+              "likelihood": 4,
+              "impact": 5,
+              "risk_score": 20.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "Dave Chen",
+                "Alice Tran",
+                "Director Okafor",
+                "TBS Audit Office"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_7efefcfcc8",
+                  "excerpt": "TBS Audit identified an ITSG-33 IA-5 finding. Dave Chen confirmed the PAW documentation was inadvertently omitted from the SA&A package.",
+                  "location": null,
+                  "evidence_strength": 0.8
+                }
+              ],
+              "source_artifact_id": "art_7efefcfcc8",
+              "created_at": "2026-03-09T07:21:27.877644"
+            },
+            {
+              "risk_id": "rsk_7a1c45c8",
+              "description": "Migration script depends on deprecated API endpoint scheduled for decommission on April 1, risking migration failure",
+              "category": "technical",
+              "likelihood": 4,
+              "impact": 5,
+              "risk_score": 20.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "Bob Morrison",
+                "Carol Nguyen",
+                "Alice Tran"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_7efefcfcc8",
+                  "excerpt": "The current migration script relies on the deprecated \"legacy-sync\" API endpoint scheduled for decommission on April 1.",
+                  "location": null,
+                  "evidence_strength": 0.8
+                }
+              ],
+              "source_artifact_id": "art_7efefcfcc8",
+              "created_at": "2026-03-09T07:21:27.878644"
+            },
+            {
+              "risk_id": "rsk_1a856651",
+              "description": "End-user communication plan only '60% complete', risking stakeholder readiness for upcoming migration",
+              "category": "schedule",
+              "likelihood": 3,
+              "impact": 4,
+              "risk_score": 12.0,
+              "risk_level": "high",
+              "affected_stakeholders": [
+                "Marie Lefebvre",
+                "Alice Tran",
+                "End Users"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_7efefcfcc8",
+                  "excerpt": "End-user communication plan (in progress \u2014 60% complete)",
+                  "location": null,
+                  "evidence_strength": 0.48
+                }
+              ],
+              "source_artifact_id": "art_7efefcfcc8",
+              "created_at": "2026-03-09T07:21:27.878644"
+            }
+          ]
+        },
+        "llm_calls": [
+          {
+            "tier": "large",
+            "model": "anthropic/claude-sonnet-4.6",
+            "latency_ms": 7229.8,
+            "content": "```json\n[\n  {\n    \"description\": \"Vendor delivery delayed by 2 weeks, threatening March 18 migration window for Site A cutover\",\n    \"category\": \"schedule\",\n    \"likelihood\": 4,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"TechSupplier has confirmed a 2-week delay on Cisco Catalyst 9500 switches. Revised delivery is March 20. This threatens the March 18 migration window.\",\n    \"affected_stakeholders\": [\"Carol Nguyen\", \"Alice Tran\", \"Steering Committee\"]\n  },\n  {\n    \"description\": \"No backup technical lead identified \u2014 Bob Morrison single point of failure for AD migration\",\n    \"category\": \"resource\",\n    \"likelihood\": 3,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"Bob Morrison has indicated he is exploring external opportunities and may be leaving SSC within 60 days. Knowledge transfer plan must be initiated immediately given his role as the sole AD migration expert.\",\n    \"affected_stakeholders\": [\"Alice Tran\", \"Carol Nguyen\", \"HR\", \"Director Okafor\"]\n  },\n  {\n    \"description\": \"Compliance finding raised by TBS Audit \u2014 ITSG-33 IA-5 PAW documentation 'inadvertently omitted' from SA&A package\",\n    \"category\": \"compliance\",\n    \"likelihood\": 4,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"TBS Audit identified an ITSG-33 IA-5 finding. Dave Chen confirmed the PAW documentation was inadvertently omitted from the SA&A package.\",\n    \"affected_stakeholders\": [\"Dave Chen\", \"Alice Tran\", \"Director Okafor\", \"TBS Audit Office\"]\n  },\n  {\n    \"description\": \"Migration script depends on deprecated API endpoint scheduled for decommission on April 1, risking migration failure\",\n    \"category\": \"technical\",\n    \"likelihood\": 4,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"The current migration script relies on the deprecated \\\"legacy-sync\\\" API endpoint scheduled for decommission on April 1.\",\n    \"affected_stakeholders\": [\"Bob Morrison\", \"Carol Nguyen\", \"Alice Tran\"]\n  },\n  {\n    \"description\": \"End-user communication plan only '60% complete', risking stakeholder readiness for upcoming migration\",\n    \"category\": \"schedule\",\n    \"likelihood\": 3,\n    \"impact\": 3,\n    \"evidence_excerpt\": \"End-user communication plan (in progress \u2014 60% complete)\",\n    \"affected_stakeholders\": [\"Marie Lefebvre\", \"Alice Tran\", \"End Users\"]\n  }\n]\n```",
+            "parsed_json": [
+              {
+                "description": "Vendor delivery delayed by 2 weeks, threatening March 18 migration window for Site A cutover",
+                "category": "schedule",
+                "likelihood": 4,
+                "impact": 4,
+                "evidence_excerpt": "TechSupplier has confirmed a 2-week delay on Cisco Catalyst 9500 switches. Revised delivery is March 20. This threatens the March 18 migration window.",
+                "affected_stakeholders": [
+                  "Carol Nguyen",
+                  "Alice Tran",
+                  "Steering Committee"
+                ]
+              },
+              {
+                "description": "No backup technical lead identified \u2014 Bob Morrison single point of failure for AD migration",
+                "category": "resource",
+                "likelihood": 3,
+                "impact": 5,
+                "evidence_excerpt": "Bob Morrison has indicated he is exploring external opportunities and may be leaving SSC within 60 days. Knowledge transfer plan must be initiated immediately given his role as the sole AD migration expert.",
+                "affected_stakeholders": [
+                  "Alice Tran",
+                  "Carol Nguyen",
+                  "HR",
+                  "Director Okafor"
+                ]
+              },
+              {
+                "description": "Compliance finding raised by TBS Audit \u2014 ITSG-33 IA-5 PAW documentation 'inadvertently omitted' from SA&A package",
+                "category": "compliance",
+                "likelihood": 4,
+                "impact": 4,
+                "evidence_excerpt": "TBS Audit identified an ITSG-33 IA-5 finding. Dave Chen confirmed the PAW documentation was inadvertently omitted from the SA&A package.",
+                "affected_stakeholders": [
+                  "Dave Chen",
+                  "Alice Tran",
+                  "Director Okafor",
+                  "TBS Audit Office"
+                ]
+              },
+              {
+                "description": "Migration script depends on deprecated API endpoint scheduled for decommission on April 1, risking migration failure",
+                "category": "technical",
+                "likelihood": 4,
+                "impact": 4,
+                "evidence_excerpt": "The current migration script relies on the deprecated \"legacy-sync\" API endpoint scheduled for decommission on April 1.",
+                "affected_stakeholders": [
+                  "Bob Morrison",
+                  "Carol Nguyen",
+                  "Alice Tran"
+                ]
+              },
+              {
+                "description": "End-user communication plan only '60% complete', risking stakeholder readiness for upcoming migration",
+                "category": "schedule",
+                "likelihood": 3,
+                "impact": 3,
+                "evidence_excerpt": "End-user communication plan (in progress \u2014 60% complete)",
+                "affected_stakeholders": [
+                  "Marie Lefebvre",
+                  "Alice Tran",
+                  "End Users"
+                ]
+              }
+            ],
+            "error": null
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "test_id": "RSK-09",
+      "test_name": "False positive rate",
+      "module": "risk",
+      "method": "traditional",
+      "max_score": 7,
+      "earned_score": 7,
+      "passed": true,
+      "details": "false_positives=1 (threshold: <=2)",
+      "latency_ms": 0.37000000884290785,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_9af51d72ca",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 241,
+          "content_preview": "From: bob.morrison@ssc-spc.gc.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: ngis-pm@ssc-spc.gc.ca\nSubject: Site A AD Migration \u2014 Progress Update\nDate: March 6, 2026\n\nAlice,\n\nQuick update on the Active Directory migration preparation for Site A:\n\n1. Domain Controller Staging: The two new DC servers at Site A have been\n   racked, powered on, and joined to the test domain. Windows Server\n   patching is complete (all critical patches as of March 1 applied).\n\n2. Schema Extension Testing: The AD schema extensio",
+          "extracted_tasks": [
+            {
+              "task_id": "art_9af51d72ca_t001",
+              "text": "will be migrated.",
+              "owner": "Dave Chen",
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "will be migrated.",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_9af51d72ca_t002",
+              "text": "will begin the production DC staging activities next",
+              "owner": "March",
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "will begin the production DC staging activities next",
+              "confidence": 0.7
+            }
+          ],
+          "metadata": {
+            "sender": "bob.morrison@ssc-spc.gc.ca",
+            "recipients": "alice.tran@ssc-spc.gc.ca",
+            "subject": "Site A AD Migration \u2014 Progress Update",
+            "date": "March 6, 2026"
+          }
+        },
+        "risks": {
+          "count": 1,
+          "analysis_method": "traditional",
+          "risks": [
+            {
+              "risk_id": "rsk_e344185a",
+              "description": "Compliance risk detected: compliance mentioned",
+              "category": "compliance",
+              "likelihood": 1,
+              "impact": 4,
+              "risk_score": 4.0,
+              "risk_level": "low",
+              "affected_stakeholders": [],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_9af51d72ca",
+                  "excerpt": "wed by Dave Chen for\n   security policy compliance.\n\n4. Backup and Rollback: Full AD backu",
+                  "location": null,
+                  "evidence_strength": 0.16
+                }
+              ],
+              "source_artifact_id": "art_9af51d72ca",
+              "created_at": "2026-03-09T07:21:28.890780"
+            }
+          ]
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "RSK-09",
+      "test_name": "False positive rate",
+      "module": "risk",
+      "method": "llm_large",
+      "max_score": 7,
+      "earned_score": 7,
+      "passed": true,
+      "details": "false_positives=1 (threshold: <=2)",
+      "latency_ms": 2824.501399998553,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_9af51d72ca",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 241,
+          "content_preview": "From: bob.morrison@ssc-spc.gc.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: ngis-pm@ssc-spc.gc.ca\nSubject: Site A AD Migration \u2014 Progress Update\nDate: March 6, 2026\n\nAlice,\n\nQuick update on the Active Directory migration preparation for Site A:\n\n1. Domain Controller Staging: The two new DC servers at Site A have been\n   racked, powered on, and joined to the test domain. Windows Server\n   patching is complete (all critical patches as of March 1 applied).\n\n2. Schema Extension Testing: The AD schema extensio",
+          "extracted_tasks": [
+            {
+              "task_id": "art_9af51d72ca_t001",
+              "text": "will be migrated.",
+              "owner": "Dave Chen",
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "will be migrated.",
+              "confidence": 0.7
+            },
+            {
+              "task_id": "art_9af51d72ca_t002",
+              "text": "will begin the production DC staging activities next",
+              "owner": "March",
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "will begin the production DC staging activities next",
+              "confidence": 0.7
+            }
+          ],
+          "metadata": {
+            "sender": "bob.morrison@ssc-spc.gc.ca",
+            "recipients": "alice.tran@ssc-spc.gc.ca",
+            "subject": "Site A AD Migration \u2014 Progress Update",
+            "date": "March 6, 2026"
+          }
+        },
+        "risks": {
+          "count": 1,
+          "analysis_method": "llm_large",
+          "risks": [
+            {
+              "risk_id": "rsk_9c73a160",
+              "description": "No backup supplier identified for network switches \u2014 single-sourced risk blocking DC connectivity testing",
+              "category": "resource",
+              "likelihood": 3,
+              "impact": 5,
+              "risk_score": 15.0,
+              "risk_level": "high",
+              "affected_stakeholders": [
+                "Bob Morrison",
+                "NGIS Phase 3 team",
+                "Alice Tran"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_9af51d72ca",
+                  "excerpt": "The only dependency is the network switch delivery \u2014 we need the Catalyst 9500s in place before we can do final network connectivity testing for the DCs.",
+                  "location": null,
+                  "evidence_strength": 0.6
+                }
+              ],
+              "source_artifact_id": "art_9af51d72ca",
+              "created_at": "2026-03-09T07:21:31.723361"
+            }
+          ]
+        },
+        "llm_calls": [
+          {
+            "tier": "large",
+            "model": "anthropic/claude-sonnet-4.6",
+            "latency_ms": 2824.0,
+            "content": "```json\n[\n  {\n    \"description\": \"No backup supplier identified for network switches \u2014 single-sourced risk blocking DC connectivity testing\",\n    \"category\": \"resource\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"The only dependency is the network switch delivery \u2014 we need the Catalyst 9500s in place before we can do final network connectivity testing for the DCs.\",\n    \"affected_stakeholders\": [\"Bob Morrison\", \"NGIS Phase 3 team\", \"Alice Tran\"]\n  }\n]\n```",
+            "parsed_json": [
+              {
+                "description": "No backup supplier identified for network switches \u2014 single-sourced risk blocking DC connectivity testing",
+                "category": "resource",
+                "likelihood": 3,
+                "impact": 4,
+                "evidence_excerpt": "The only dependency is the network switch delivery \u2014 we need the Catalyst 9500s in place before we can do final network connectivity testing for the DCs.",
+                "affected_stakeholders": [
+                  "Bob Morrison",
+                  "NGIS Phase 3 team",
+                  "Alice Tran"
+                ]
+              }
+            ],
+            "error": null
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "test_id": "RSK-10",
+      "test_name": "Risk scoring rule adjustments",
+      "module": "risk",
+      "method": "traditional",
+      "max_score": 7,
+      "earned_score": 7,
+      "passed": true,
+      "details": "Risks identified: 1 lik=3 imp=3 level=medium",
+      "latency_ms": 0.27570000384002924,
+      "raw_output": {
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "RSK-10",
+      "test_name": "Risk scoring rule adjustments",
+      "module": "risk",
+      "method": "llm_large",
+      "max_score": 7,
+      "earned_score": 7,
+      "passed": true,
+      "details": "Risks identified: 1 lik=3 imp=3 level=medium",
+      "latency_ms": 0.0847000046633184,
+      "raw_output": {
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "RSK-11",
+      "test_name": "Project-level risk aggregation",
+      "module": "risk",
+      "method": "traditional",
+      "max_score": 6,
+      "earned_score": 6,
+      "passed": true,
+      "details": "total=2 cats={'schedule': 1, 'resource': 1}",
+      "latency_ms": 8.529200000339188,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_5f1ac9056c",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 246,
+          "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+          "extracted_tasks": [
+            {
+              "task_id": "art_5f1ac9056c_t001",
+              "text": "please confirm the delivery timeline for the Catalyst",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "please confirm the delivery timeline for the Catalyst",
+              "confidence": 0.7
+            }
+          ],
+          "metadata": {
+            "sender": "j.henderson@techsupplier.ca",
+            "recipients": "alice.tran@ssc-spc.gc.ca",
+            "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+            "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+          }
+        },
+        "risks": {
+          "count": 2,
+          "analysis_method": "traditional",
+          "risks": [
+            {
+              "risk_id": "rsk_191548f1",
+              "description": "Schedule risk detected: delay mentioned",
+              "category": "schedule",
+              "likelihood": 1,
+              "impact": 4,
+              "risk_score": 4.0,
+              "risk_level": "low",
+              "affected_stakeholders": [],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "uary 26. We have now confirmed a 2-week delay on the network equipment\noriginally sch",
+                  "location": null,
+                  "evidence_strength": 0.16
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:21:33.767755"
+            },
+            {
+              "risk_id": "rsk_8bbae0d5",
+              "description": "Resource risk detected: single-sourced mentioned (also: alternative routing)",
+              "category": "resource",
+              "likelihood": 1,
+              "impact": 4,
+              "risk_score": 4.0,
+              "risk_level": "low",
+              "affected_stakeholders": [],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "ne. To be transparent: we are currently single-sourced on this\nproduct line through our Montre",
+                  "location": null,
+                  "evidence_strength": 0.16
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:21:33.767755"
+            }
+          ]
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "RSK-11",
+      "test_name": "Project-level risk aggregation",
+      "module": "risk",
+      "method": "llm_large",
+      "max_score": 6,
+      "earned_score": 6,
+      "passed": true,
+      "details": "total=6 cats={'schedule': 4, 'resource': 2}",
+      "latency_ms": 5949.26399999531,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_5f1ac9056c",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 246,
+          "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+          "extracted_tasks": [
+            {
+              "task_id": "art_5f1ac9056c_t001",
+              "text": "please confirm the delivery timeline for the Catalyst",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "please confirm the delivery timeline for the Catalyst",
+              "confidence": 0.7
+            }
+          ],
+          "metadata": {
+            "sender": "j.henderson@techsupplier.ca",
+            "recipients": "alice.tran@ssc-spc.gc.ca",
+            "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+            "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+          }
+        },
+        "risks": {
+          "count": 4,
+          "analysis_method": "llm_large",
+          "risks": [
+            {
+              "risk_id": "rsk_bfdd2738",
+              "description": "Vendor delivery delayed by 2 weeks, threatening NGIS Phase 3 migration timeline",
+              "category": "schedule",
+              "likelihood": 5,
+              "impact": 5,
+              "risk_score": 25.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "bob.morrison@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6",
+                  "location": null,
+                  "evidence_strength": 1.0
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:21:39.717434"
+            },
+            {
+              "risk_id": "rsk_96e65a3d",
+              "description": "No backup supplier identified for network equipment \u2014 single-sourced risk",
+              "category": "resource",
+              "likelihood": 4,
+              "impact": 5,
+              "risk_score": 20.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "we are currently single-sourced on this product line through our Montreal warehouse",
+                  "location": null,
+                  "evidence_strength": 0.8
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:21:39.718436"
+            },
+            {
+              "risk_id": "rsk_f8be9d87",
+              "description": "Alternative routing adds 'a further 3\u20135 business days', worsening delivery slip",
+              "category": "schedule",
+              "likelihood": 3,
+              "impact": 5,
+              "risk_score": 15.0,
+              "risk_level": "high",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "bob.morrison@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "alternative routing via our Vancouver depot would add a further 3\u20135 business days",
+                  "location": null,
+                  "evidence_strength": 0.6
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:21:39.718436"
+            },
+            {
+              "risk_id": "rsk_9f6b7ec3",
+              "description": "Equipment arrives March 20, missing March 6 staging deadline, jeopardizing March 8 migration window",
+              "category": "schedule",
+              "likelihood": 5,
+              "impact": 5,
+              "risk_score": 25.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca",
+                "bob.morrison@ssc-spc.gc.ca"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "Our migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing",
+                  "location": null,
+                  "evidence_strength": 1.0
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:21:39.719436"
+            }
+          ]
+        },
+        "llm_calls": [
+          {
+            "tier": "large",
+            "model": "anthropic/claude-sonnet-4.6",
+            "latency_ms": 5938.9,
+            "content": "```json\n[\n  {\n    \"description\": \"Vendor delivery delayed by 2 weeks, threatening NGIS Phase 3 migration timeline\",\n    \"category\": \"schedule\",\n    \"likelihood\": 5,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"bob.morrison@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"No backup supplier identified for network equipment \u2014 single-sourced risk\",\n    \"category\": \"resource\",\n    \"likelihood\": 4,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"we are currently single-sourced on this product line through our Montreal warehouse\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"Alternative routing adds 'a further 3\u20135 business days', worsening delivery slip\",\n    \"category\": \"schedule\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"alternative routing via our Vancouver depot would add a further 3\u20135 business days\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"bob.morrison@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"Equipment arrives March 20, missing March 6 staging deadline, jeopardizing March 8 migration window\",\n    \"category\": \"schedule\",\n    \"likelihood\": 5,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"Our migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\", \"bob.morrison@ssc-spc.gc.ca\"]\n  }\n]\n```",
+            "parsed_json": [
+              {
+                "description": "Vendor delivery delayed by 2 weeks, threatening NGIS Phase 3 migration timeline",
+                "category": "schedule",
+                "likelihood": 5,
+                "impact": 4,
+                "evidence_excerpt": "confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "bob.morrison@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca"
+                ]
+              },
+              {
+                "description": "No backup supplier identified for network equipment \u2014 single-sourced risk",
+                "category": "resource",
+                "likelihood": 4,
+                "impact": 4,
+                "evidence_excerpt": "we are currently single-sourced on this product line through our Montreal warehouse",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca"
+                ]
+              },
+              {
+                "description": "Alternative routing adds 'a further 3\u20135 business days', worsening delivery slip",
+                "category": "schedule",
+                "likelihood": 3,
+                "impact": 4,
+                "evidence_excerpt": "alternative routing via our Vancouver depot would add a further 3\u20135 business days",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "bob.morrison@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca"
+                ]
+              },
+              {
+                "description": "Equipment arrives March 20, missing March 6 staging deadline, jeopardizing March 8 migration window",
+                "category": "schedule",
+                "likelihood": 5,
+                "impact": 5,
+                "evidence_excerpt": "Our migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca",
+                  "bob.morrison@ssc-spc.gc.ca"
+                ]
+              }
+            ],
+            "error": null
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "test_id": "RSK-12",
+      "test_name": "API response schema validation",
+      "module": "risk",
+      "method": "traditional",
+      "max_score": 6,
+      "earned_score": 6,
+      "passed": true,
+      "details": "Schema valid",
+      "latency_ms": 0.6725999992340803,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_5f1ac9056c",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 246,
+          "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+          "extracted_tasks": [
+            {
+              "task_id": "art_5f1ac9056c_t001",
+              "text": "please confirm the delivery timeline for the Catalyst",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "please confirm the delivery timeline for the Catalyst",
+              "confidence": 0.7
+            }
+          ],
+          "metadata": {
+            "sender": "j.henderson@techsupplier.ca",
+            "recipients": "alice.tran@ssc-spc.gc.ca",
+            "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+            "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+          }
+        },
+        "risks": {
+          "count": 2,
+          "analysis_method": "traditional",
+          "risks": [
+            {
+              "risk_id": "rsk_1917a072",
+              "description": "Schedule risk detected: delay mentioned",
+              "category": "schedule",
+              "likelihood": 1,
+              "impact": 4,
+              "risk_score": 4.0,
+              "risk_level": "low",
+              "affected_stakeholders": [],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "uary 26. We have now confirmed a 2-week delay on the network equipment\noriginally sch",
+                  "location": null,
+                  "evidence_strength": 0.16
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:21:40.734511"
+            },
+            {
+              "risk_id": "rsk_189a336d",
+              "description": "Resource risk detected: single-sourced mentioned (also: alternative routing)",
+              "category": "resource",
+              "likelihood": 1,
+              "impact": 4,
+              "risk_score": 4.0,
+              "risk_level": "low",
+              "affected_stakeholders": [],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "ne. To be transparent: we are currently single-sourced on this\nproduct line through our Montre",
+                  "location": null,
+                  "evidence_strength": 0.16
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:21:40.735606"
+            }
+          ]
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "RSK-12",
+      "test_name": "API response schema validation",
+      "module": "risk",
+      "method": "llm_large",
+      "max_score": 6,
+      "earned_score": 6,
+      "passed": true,
+      "details": "Schema valid",
+      "latency_ms": 5978.604199990514,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_5f1ac9056c",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 246,
+          "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+          "extracted_tasks": [
+            {
+              "task_id": "art_5f1ac9056c_t001",
+              "text": "please confirm the delivery timeline for the Catalyst",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "please confirm the delivery timeline for the Catalyst",
+              "confidence": 0.7
+            }
+          ],
+          "metadata": {
+            "sender": "j.henderson@techsupplier.ca",
+            "recipients": "alice.tran@ssc-spc.gc.ca",
+            "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+            "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+          }
+        },
+        "risks": {
+          "count": 4,
+          "analysis_method": "llm_large",
+          "risks": [
+            {
+              "risk_id": "rsk_8cfacd6f",
+              "description": "Vendor delivery delayed by 2 weeks, threatening NGIS Phase 3 migration timeline",
+              "category": "schedule",
+              "likelihood": 5,
+              "impact": 5,
+              "risk_score": 25.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca",
+                "bob.morrison@ssc-spc.gc.ca"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6",
+                  "location": null,
+                  "evidence_strength": 1.0
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:21:46.724920"
+            },
+            {
+              "risk_id": "rsk_6d09885b",
+              "description": "No backup supplier identified for network equipment \u2014 single-sourced risk",
+              "category": "resource",
+              "likelihood": 4,
+              "impact": 5,
+              "risk_score": 20.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "we are currently single-sourced on this product line through our Montreal warehouse",
+                  "location": null,
+                  "evidence_strength": 0.8
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:21:46.724920"
+            },
+            {
+              "risk_id": "rsk_9b2768ef",
+              "description": "Alternative routing adds further '3\u20135 business days', compounding delivery delay risk",
+              "category": "schedule",
+              "likelihood": 3,
+              "impact": 5,
+              "risk_score": 15.0,
+              "risk_level": "high",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca",
+                "bob.morrison@ssc-spc.gc.ca"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "alternative routing via our Vancouver depot would add a further 3\u20135 business days",
+                  "location": null,
+                  "evidence_strength": 0.6
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:21:46.724920"
+            },
+            {
+              "risk_id": "rsk_557dbd01",
+              "description": "Equipment arrives March 20, missing March 6 staging deadline, jeopardising March 8 migration window",
+              "category": "technical",
+              "likelihood": 5,
+              "impact": 5,
+              "risk_score": 25.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca",
+                "bob.morrison@ssc-spc.gc.ca"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "Our migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing",
+                  "location": null,
+                  "evidence_strength": 1.0
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:21:46.725923"
+            }
+          ]
+        },
+        "llm_calls": [
+          {
+            "tier": "large",
+            "model": "anthropic/claude-sonnet-4.6",
+            "latency_ms": 5977.5,
+            "content": "```json\n[\n  {\n    \"description\": \"Vendor delivery delayed by 2 weeks, threatening NGIS Phase 3 migration timeline\",\n    \"category\": \"schedule\",\n    \"likelihood\": 5,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\", \"bob.morrison@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"No backup supplier identified for network equipment \u2014 single-sourced risk\",\n    \"category\": \"resource\",\n    \"likelihood\": 4,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"we are currently single-sourced on this product line through our Montreal warehouse\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"Alternative routing adds further '3\u20135 business days', compounding delivery delay risk\",\n    \"category\": \"schedule\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"alternative routing via our Vancouver depot would add a further 3\u20135 business days\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\", \"bob.morrison@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"Equipment arrives March 20, missing March 6 staging deadline, jeopardising March 8 migration window\",\n    \"category\": \"technical\",\n    \"likelihood\": 5,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"Our migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\", \"bob.morrison@ssc-spc.gc.ca\"]\n  }\n]\n```",
+            "parsed_json": [
+              {
+                "description": "Vendor delivery delayed by 2 weeks, threatening NGIS Phase 3 migration timeline",
+                "category": "schedule",
+                "likelihood": 5,
+                "impact": 4,
+                "evidence_excerpt": "confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca",
+                  "bob.morrison@ssc-spc.gc.ca"
+                ]
+              },
+              {
+                "description": "No backup supplier identified for network equipment \u2014 single-sourced risk",
+                "category": "resource",
+                "likelihood": 4,
+                "impact": 4,
+                "evidence_excerpt": "we are currently single-sourced on this product line through our Montreal warehouse",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca"
+                ]
+              },
+              {
+                "description": "Alternative routing adds further '3\u20135 business days', compounding delivery delay risk",
+                "category": "schedule",
+                "likelihood": 3,
+                "impact": 4,
+                "evidence_excerpt": "alternative routing via our Vancouver depot would add a further 3\u20135 business days",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca",
+                  "bob.morrison@ssc-spc.gc.ca"
+                ]
+              },
+              {
+                "description": "Equipment arrives March 20, missing March 6 staging deadline, jeopardising March 8 migration window",
+                "category": "technical",
+                "likelihood": 5,
+                "impact": 5,
+                "evidence_excerpt": "Our migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca",
+                  "bob.morrison@ssc-spc.gc.ca"
+                ]
+              }
+            ],
+            "error": null
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "test_id": "RSK-13",
+      "test_name": "Processing latency",
+      "module": "risk",
+      "method": "traditional",
+      "max_score": 5,
+      "earned_score": 5,
+      "passed": true,
+      "details": "latency=1ms",
+      "latency_ms": 0.6719999946653843,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_5f1ac9056c",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 246,
+          "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+          "extracted_tasks": [
+            {
+              "task_id": "art_5f1ac9056c_t001",
+              "text": "please confirm the delivery timeline for the Catalyst",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "please confirm the delivery timeline for the Catalyst",
+              "confidence": 0.7
+            }
+          ],
+          "metadata": {
+            "sender": "j.henderson@techsupplier.ca",
+            "recipients": "alice.tran@ssc-spc.gc.ca",
+            "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+            "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+          }
+        },
+        "risks": {
+          "count": 2,
+          "analysis_method": "traditional",
+          "risks": [
+            {
+              "risk_id": "rsk_da486e87",
+              "description": "Schedule risk detected: delay mentioned",
+              "category": "schedule",
+              "likelihood": 1,
+              "impact": 4,
+              "risk_score": 4.0,
+              "risk_level": "low",
+              "affected_stakeholders": [],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "uary 26. We have now confirmed a 2-week delay on the network equipment\noriginally sch",
+                  "location": null,
+                  "evidence_strength": 0.16
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:21:47.735295"
+            },
+            {
+              "risk_id": "rsk_4423123f",
+              "description": "Resource risk detected: single-sourced mentioned (also: alternative routing)",
+              "category": "resource",
+              "likelihood": 1,
+              "impact": 4,
+              "risk_score": 4.0,
+              "risk_level": "low",
+              "affected_stakeholders": [],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "ne. To be transparent: we are currently single-sourced on this\nproduct line through our Montre",
+                  "location": null,
+                  "evidence_strength": 0.16
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:21:47.735295"
+            }
+          ]
+        },
+        "llm_calls": []
+      },
+      "error": null
+    },
+    {
+      "test_id": "RSK-13",
+      "test_name": "Processing latency",
+      "module": "risk",
+      "method": "llm_large",
+      "max_score": 5,
+      "earned_score": 5,
+      "passed": true,
+      "details": "latency=5840ms",
+      "latency_ms": 5840.446000001975,
+      "raw_output": {
+        "artifact": {
+          "artifact_id": "art_5f1ac9056c",
+          "artifact_type": "email",
+          "detected_language": "en",
+          "word_count": 246,
+          "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+          "extracted_tasks": [
+            {
+              "task_id": "art_5f1ac9056c_t001",
+              "text": "please confirm the delivery timeline for the Catalyst",
+              "owner": null,
+              "deadline": null,
+              "priority": "medium",
+              "status": "not_started",
+              "source_excerpt": "please confirm the delivery timeline for the Catalyst",
+              "confidence": 0.7
+            }
+          ],
+          "metadata": {
+            "sender": "j.henderson@techsupplier.ca",
+            "recipients": "alice.tran@ssc-spc.gc.ca",
+            "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+            "date": "Mon, 2 Mar 2026 09:14:32 -0500"
+          }
+        },
+        "risks": {
+          "count": 4,
+          "analysis_method": "llm_large",
+          "risks": [
+            {
+              "risk_id": "rsk_aba3ebc8",
+              "description": "Vendor delivery delayed by 2 weeks, threatening NGIS Phase 3 migration timeline",
+              "category": "schedule",
+              "likelihood": 5,
+              "impact": 5,
+              "risk_score": 25.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca",
+                "bob.morrison@ssc-spc.gc.ca"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6",
+                  "location": null,
+                  "evidence_strength": 1.0
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:21:53.584860"
+            },
+            {
+              "risk_id": "rsk_5f69c5a6",
+              "description": "No backup supplier identified for network equipment \u2014 single-sourced risk",
+              "category": "resource",
+              "likelihood": 4,
+              "impact": 5,
+              "risk_score": 20.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "we are currently single-sourced on this product line through our Montreal warehouse",
+                  "location": null,
+                  "evidence_strength": 0.8
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:21:53.584860"
+            },
+            {
+              "risk_id": "rsk_0839a269",
+              "description": "Alternative routing option adds further '3\u20135 business days', worsening delivery delay",
+              "category": "schedule",
+              "likelihood": 3,
+              "impact": 5,
+              "risk_score": 15.0,
+              "risk_level": "high",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca",
+                "bob.morrison@ssc-spc.gc.ca"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "alternative routing via our Vancouver depot would add a further 3\u20135 business days",
+                  "location": null,
+                  "evidence_strength": 0.6
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:21:53.584860"
+            },
+            {
+              "risk_id": "rsk_1b4014c4",
+              "description": "Migration window opens March 8, equipment now arriving March 20 \u2014 staging impossible",
+              "category": "technical",
+              "likelihood": 5,
+              "impact": 5,
+              "risk_score": 25.0,
+              "risk_level": "critical",
+              "affected_stakeholders": [
+                "alice.tran@ssc-spc.gc.ca",
+                "ngis-pm@ssc-spc.gc.ca",
+                "bob.morrison@ssc-spc.gc.ca"
+              ],
+              "evidence_refs": [
+                {
+                  "artifact_id": "art_5f1ac9056c",
+                  "excerpt": "Our migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing",
+                  "location": null,
+                  "evidence_strength": 1.0
+                }
+              ],
+              "source_artifact_id": "art_5f1ac9056c",
+              "created_at": "2026-03-09T07:21:53.584860"
+            }
+          ]
+        },
+        "llm_calls": [
+          {
+            "tier": "large",
+            "model": "anthropic/claude-sonnet-4.6",
+            "latency_ms": 5839.1,
+            "content": "```json\n[\n  {\n    \"description\": \"Vendor delivery delayed by 2 weeks, threatening NGIS Phase 3 migration timeline\",\n    \"category\": \"schedule\",\n    \"likelihood\": 5,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\", \"bob.morrison@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"No backup supplier identified for network equipment \u2014 single-sourced risk\",\n    \"category\": \"resource\",\n    \"likelihood\": 4,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"we are currently single-sourced on this product line through our Montreal warehouse\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"Alternative routing option adds further '3\u20135 business days', worsening delivery delay\",\n    \"category\": \"schedule\",\n    \"likelihood\": 3,\n    \"impact\": 4,\n    \"evidence_excerpt\": \"alternative routing via our Vancouver depot would add a further 3\u20135 business days\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\", \"bob.morrison@ssc-spc.gc.ca\"]\n  },\n  {\n    \"description\": \"Migration window opens March 8, equipment now arriving March 20 \u2014 staging impossible\",\n    \"category\": \"technical\",\n    \"likelihood\": 5,\n    \"impact\": 5,\n    \"evidence_excerpt\": \"Our migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing\",\n    \"affected_stakeholders\": [\"alice.tran@ssc-spc.gc.ca\", \"ngis-pm@ssc-spc.gc.ca\", \"bob.morrison@ssc-spc.gc.ca\"]\n  }\n]\n```",
+            "parsed_json": [
+              {
+                "description": "Vendor delivery delayed by 2 weeks, threatening NGIS Phase 3 migration timeline",
+                "category": "schedule",
+                "likelihood": 5,
+                "impact": 4,
+                "evidence_excerpt": "confirmed a 2-week delay on the network equipment originally scheduled to arrive at your Gatineau facility on March 6",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca",
+                  "bob.morrison@ssc-spc.gc.ca"
+                ]
+              },
+              {
+                "description": "No backup supplier identified for network equipment \u2014 single-sourced risk",
+                "category": "resource",
+                "likelihood": 4,
+                "impact": 4,
+                "evidence_excerpt": "we are currently single-sourced on this product line through our Montreal warehouse",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca"
+                ]
+              },
+              {
+                "description": "Alternative routing option adds further '3\u20135 business days', worsening delivery delay",
+                "category": "schedule",
+                "likelihood": 3,
+                "impact": 4,
+                "evidence_excerpt": "alternative routing via our Vancouver depot would add a further 3\u20135 business days",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca",
+                  "bob.morrison@ssc-spc.gc.ca"
+                ]
+              },
+              {
+                "description": "Migration window opens March 8, equipment now arriving March 20 \u2014 staging impossible",
+                "category": "technical",
+                "likelihood": 5,
+                "impact": 5,
+                "evidence_excerpt": "Our migration window opens March 8 and we need the equipment on site no later than March 6 for staging and testing",
+                "affected_stakeholders": [
+                  "alice.tran@ssc-spc.gc.ca",
+                  "ngis-pm@ssc-spc.gc.ca",
+                  "bob.morrison@ssc-spc.gc.ca"
+                ]
+              }
+            ],
+            "error": null
+          }
+        ]
+      },
+      "error": null
+    }
+  ]
+}

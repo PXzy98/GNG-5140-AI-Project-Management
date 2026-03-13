@@ -1,0 +1,344 @@
+{
+  "test_id": "DFT-11",
+  "test_name": "Baseline versioning",
+  "method": "traditional",
+  "passed": true,
+  "score": "6/6",
+  "details": "latest_version=v2",
+  "error": null,
+  "latency_ms": 17799.14609999105,
+  "artifact": {
+    "artifact_id": "art_e77333d6bf",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 799,
+    "content_preview": "STATEMENT OF WORK\nPROJECT: NGIS PHASE 3 \u2014 DATA CENTRE CONSOLIDATION\nDocument Number: SOW-NGIS-P3-2024-001\nVersion: 2.1\nDate: September 15, 2024\nContracting Authority: Shared Services Canada (SSC)\nClassification: Protected B\n\n---\n\n1. BACKGROUND AND CONTEXT\n\nShared Services Canada (SSC) is undertaking the Next-Generation\nInfrastructure Strategy (NGIS) Phase 3, which involves the consolidation\nof three Government of Canada (GC) data centre facilities into a single\nmodernized enterprise data centre.",
+    "extracted_tasks": [
+      {
+        "task_id": "art_e77333d6bf_t001",
+        "text": "Prepare Project Management Plan",
+        "owner": null,
+        "deadline": "2024-10-31",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "D-001: Project Management Plan \u2014 Due: October 31, 2024",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_e77333d6bf_t002",
+        "text": "Prepare Technical Design Document (TDD)",
+        "owner": null,
+        "deadline": "2024-12-15",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "D-002: Technical Design Document (TDD) \u2014 Due: December 15, 2024",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_e77333d6bf_t003",
+        "text": "Prepare Security Assessment and Authorization (SA&A) Package",
+        "owner": null,
+        "deadline": "2025-01-31",
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "D-003: Security Assessment and Authorization (SA&A) Package \u2014 Due: January 31, 2025",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_e77333d6bf_t004",
+        "text": "Prepare Migration Runbook for Sites B and C",
+        "owner": null,
+        "deadline": "2025-02-28",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "D-004: Migration Runbook (Sites B and C) \u2014 Due: February 28, 2025",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_e77333d6bf_t005",
+        "text": "Prepare User Acceptance Test (UAT) Plan",
+        "owner": null,
+        "deadline": "2026-03-10",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "D-005: User Acceptance Test (UAT) Plan \u2014 Due: March 10, 2026",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_e77333d6bf_t006",
+        "text": "Complete Site A Consolidation and Go-Live",
+        "owner": null,
+        "deadline": "2026-04-30",
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "D-006: Site A Consolidation Complete (Go-Live) \u2014 Due: April 30, 2026",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_e77333d6bf_t007",
+        "text": "Submit Post-Migration Validation Report",
+        "owner": null,
+        "deadline": "2026-05-31",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "D-007: Post-Migration Validation Report \u2014 Due: May 31, 2026",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_e77333d6bf_t008",
+        "text": "Submit Project Closure Report",
+        "owner": null,
+        "deadline": "2026-06-30",
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "D-008: Project Closure Report \u2014 Due: June 30, 2026",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_e77333d6bf_t009",
+        "text": "Decommission Sites B and C physical infrastructure",
+        "owner": null,
+        "deadline": null,
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Decommissioning of Sites B and C physical infrastructure",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_e77333d6bf_t010",
+        "text": "Migrate all server workloads from Sites B and C to Site A",
+        "owner": null,
+        "deadline": null,
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "Migration of all server workloads from Sites B and C to Site A",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_e77333d6bf_t011",
+        "text": "Replace and deploy Cisco Catalyst 9500 series switches across all three sites",
+        "owner": null,
+        "deadline": null,
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Replacement and deployment of Cisco Catalyst 9500 series switches across all three sites",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_e77333d6bf_t012",
+        "text": "Migrate all on-premise Active Directory domain controllers to consolidated infrastructure at Site A",
+        "owner": null,
+        "deadline": null,
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "Migration of all on-premise Active Directory domain controllers to consolidated infrastructure at Site A",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_e77333d6bf_t013",
+        "text": "Provide weekly status reports to SSC Project Management Office",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Weekly status reports to SSC Project Management Office",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_e77333d6bf_t014",
+        "text": "Provide monthly steering committee presentations",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Steering committee presentations (monthly)",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_e77333d6bf_t015",
+        "text": "Maintain risk register",
+        "owner": null,
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Risk register maintenance",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_e77333d6bf_t016",
+        "text": "Decide to exclude end-user device refresh from this SOW (addressed under NGIS Phase 4)",
+        "owner": "SSC",
+        "deadline": null,
+        "priority": "low",
+        "status": "not_started",
+        "source_excerpt": "End-user device refresh or replacement ... is addressed under a separate procurement vehicle (NGIS Phase 4)",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_e77333d6bf_t017",
+        "text": "Decide to exclude application modernization; only lift and shift migration allowed",
+        "owner": "SSC",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Applications will be migrated as-is (lift and shift only)",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_e77333d6bf_t018",
+        "text": "Decide to exclude GC-Cloud workload migration from this SOW",
+        "owner": "SSC",
+        "deadline": null,
+        "priority": "low",
+        "status": "not_started",
+        "source_excerpt": "migration of any workloads to public cloud environments ... is out of scope",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_e77333d6bf_t019",
+        "text": "Decide that departmental end-user training is the responsibility of client departments",
+        "owner": "Client Departments",
+        "deadline": null,
+        "priority": "low",
+        "status": "not_started",
+        "source_excerpt": "departmental training programs for end users are the responsibility of client departments",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "art_e77333d6bf_t020",
+        "text": "Decide to defer network monitoring tool upgrades to a separate initiative",
+        "owner": "SSC",
+        "deadline": null,
+        "priority": "low",
+        "status": "not_started",
+        "source_excerpt": "upgrades to the network operations centre (NOC) monitoring platform are deferred to a separate initiative",
+        "confidence": 0.9
+      }
+    ],
+    "metadata": {
+      "date": "September 15, 2024"
+    }
+  },
+  "llm_calls": [
+    {
+      "tier": "large",
+      "model": "anthropic/claude-sonnet-4.6",
+      "latency_ms": 9459.6,
+      "content": "```json\n{\n  \"in_scope\": [\n    \"Decommissioning of Sites B and C physical infrastructure\",\n    \"Migration of all server workloads from Sites B and C to Site A\",\n    \"Physical server rack consolidation and cable management at Site A\",\n    \"Environmental systems (HVAC, UPS, fire suppression) optimization at Site A\",\n    \"Replacement and deployment of Cisco Catalyst 9500 series switches across all three sites\",\n    \"Network segmentation reconfiguration per updated security zones\",\n    \"BGP routing table migration and validation\",\n    \"Network performance baseline testing post-migration\",\n    \"Migration of all on-premise Active Directory domain controllers to consolidated infrastructure at Site A\",\n    \"AD schema extension and forest restructuring\",\n    \"Group Policy Object (GPO) consolidation and testing\",\n    \"Integration testing with downstream applications dependent on AD\",\n    \"Weekly status reports to SSC Project Management Office\",\n    \"Steering committee presentations (monthly)\",\n    \"Risk register maintenance\",\n    \"Change management and stakeholder communications\"\n  ],\n  \"out_of_scope\": [\n    \"End-user device refresh or replacement (laptops, desktops, mobile devices) \u2014 addressed under NGIS Phase 4\",\n    \"Application modernization or re-platforming \u2014 no changes to application code, architecture, or hosting platform; lift and shift only\",\n    \"GC-Cloud workload migration to public cloud environments (AWS, Azure, GC-Cloud) \u2014 addressed under GC-Cloud Wave 4\",\n    \"End-user training and change management beyond project communications \u2014 responsibility of client departments\",\n    \"Procurement of new application licenses \u2014 software licensing changes resulting from platform migration\",\n    \"Network monitoring tool upgrades \u2014 NOC monitoring platform upgrades deferred to a separate initiative\"\n  ],\n  \"deliverables\": [\n    \"D-001: Project Management Plan \u2014 Due: October 31, 2024\",\n    \"D-002: Technical Design Document (TDD) \u2014 Due: December 15, 2024\",\n    \"D-003: Security Assessment and Authorization (SA&A) Package \u2014 Due: January 31, 2025\",\n    \"D-004: Migration Runbook (Sites B and C) \u2014 Due: February 28, 2025\",\n    \"D-005: User Acceptance Test (UAT) Plan \u2014 Due: March 10, 2026\",\n    \"D-006: Site A Consolidation Complete (Go-Live) \u2014 Due: April 30, 2026\",\n    \"D-007: Post-Migration Validation Report \u2014 Due: May 31, 2026\",\n    \"D-008: Project Closure Report \u2014 Due: June 30, 2026\"\n  ],\n  \"constraints\": [\n    \"Total approved budget is $2,400,000 CAD inclusive of all fees, disbursements, and applicable taxes\",\n    \"Expenditures beyond the approved budget require a formal budget amendment approved by the Director General of IT Infrastructure\",\n    \"Budget variances exceeding 15% require submission to Treasury Board\",\n    \"Go-Live (D-006) must be achieved no later than April 30, 2026\",\n    \"Final project closure date is June 30, 2026 (end of fiscal year 2025\u20132026)\",\n    \"Extensions beyond June 30, 2026 require ADM-level approval\",\n    \"All scope, schedule, or budget changes must follow the SSC Project Change Management Process and require written approval from the Project Sponsor\",\n    \"Compliance required with ITSG-33: IT Security Risk Management \u2014 A Lifecycle Approach\",\n    \"Compliance required with Government of Canada Cloud Adoption Strategy\",\n    \"Compliance required with Treasury Board Policy on Government Security\",\n    \"Compliance required with Privacy Act (R.S.C., 1985, c. P-21)\",\n    \"Compliance required with the Official Languages Act for all client-facing deliverables\",\n    \"Document classification is Protected B\"\n  ]\n}\n```",
+      "parsed_json": {
+        "in_scope": [
+          "Decommissioning of Sites B and C physical infrastructure",
+          "Migration of all server workloads from Sites B and C to Site A",
+          "Physical server rack consolidation and cable management at Site A",
+          "Environmental systems (HVAC, UPS, fire suppression) optimization at Site A",
+          "Replacement and deployment of Cisco Catalyst 9500 series switches across all three sites",
+          "Network segmentation reconfiguration per updated security zones",
+          "BGP routing table migration and validation",
+          "Network performance baseline testing post-migration",
+          "Migration of all on-premise Active Directory domain controllers to consolidated infrastructure at Site A",
+          "AD schema extension and forest restructuring",
+          "Group Policy Object (GPO) consolidation and testing",
+          "Integration testing with downstream applications dependent on AD",
+          "Weekly status reports to SSC Project Management Office",
+          "Steering committee presentations (monthly)",
+          "Risk register maintenance",
+          "Change management and stakeholder communications"
+        ],
+        "out_of_scope": [
+          "End-user device refresh or replacement (laptops, desktops, mobile devices) \u2014 addressed under NGIS Phase 4",
+          "Application modernization or re-platforming \u2014 no changes to application code, architecture, or hosting platform; lift and shift only",
+          "GC-Cloud workload migration to public cloud environments (AWS, Azure, GC-Cloud) \u2014 addressed under GC-Cloud Wave 4",
+          "End-user training and change management beyond project communications \u2014 responsibility of client departments",
+          "Procurement of new application licenses \u2014 software licensing changes resulting from platform migration",
+          "Network monitoring tool upgrades \u2014 NOC monitoring platform upgrades deferred to a separate initiative"
+        ],
+        "deliverables": [
+          "D-001: Project Management Plan \u2014 Due: October 31, 2024",
+          "D-002: Technical Design Document (TDD) \u2014 Due: December 15, 2024",
+          "D-003: Security Assessment and Authorization (SA&A) Package \u2014 Due: January 31, 2025",
+          "D-004: Migration Runbook (Sites B and C) \u2014 Due: February 28, 2025",
+          "D-005: User Acceptance Test (UAT) Plan \u2014 Due: March 10, 2026",
+          "D-006: Site A Consolidation Complete (Go-Live) \u2014 Due: April 30, 2026",
+          "D-007: Post-Migration Validation Report \u2014 Due: May 31, 2026",
+          "D-008: Project Closure Report \u2014 Due: June 30, 2026"
+        ],
+        "constraints": [
+          "Total approved budget is $2,400,000 CAD inclusive of all fees, disbursements, and applicable taxes",
+          "Expenditures beyond the approved budget require a formal budget amendment approved by the Director General of IT Infrastructure",
+          "Budget variances exceeding 15% require submission to Treasury Board",
+          "Go-Live (D-006) must be achieved no later than April 30, 2026",
+          "Final project closure date is June 30, 2026 (end of fiscal year 2025\u20132026)",
+          "Extensions beyond June 30, 2026 require ADM-level approval",
+          "All scope, schedule, or budget changes must follow the SSC Project Change Management Process and require written approval from the Project Sponsor",
+          "Compliance required with ITSG-33: IT Security Risk Management \u2014 A Lifecycle Approach",
+          "Compliance required with Government of Canada Cloud Adoption Strategy",
+          "Compliance required with Treasury Board Policy on Government Security",
+          "Compliance required with Privacy Act (R.S.C., 1985, c. P-21)",
+          "Compliance required with the Official Languages Act for all client-facing deliverables",
+          "Document classification is Protected B"
+        ]
+      },
+      "error": null
+    },
+    {
+      "tier": "large",
+      "model": "anthropic/claude-sonnet-4.6",
+      "latency_ms": 8322.1,
+      "content": "```json\n{\n  \"in_scope\": [\n    \"Decommissioning of Sites B and C physical infrastructure\",\n    \"Migration of all server workloads from Sites B and C to Site A\",\n    \"Physical server rack consolidation and cable management at Site A\",\n    \"Environmental systems (HVAC, UPS, fire suppression) optimization at Site A\",\n    \"Replacement and deployment of Cisco Catalyst 9500 series switches across all three sites\",\n    \"Network segmentation reconfiguration per updated security zones\",\n    \"BGP routing table migration and validation\",\n    \"Network performance baseline testing post-migration\",\n    \"Migration of all on-premise Active Directory domain controllers to consolidated infrastructure at Site A\",\n    \"AD schema extension and forest restructuring\",\n    \"Group Policy Object (GPO) consolidation and testing\",\n    \"Integration testing with downstream applications dependent on AD\",\n    \"Weekly status reports to SSC Project Management Office\",\n    \"Steering committee presentations (monthly)\",\n    \"Risk register maintenance\",\n    \"Change management and stakeholder communications\"\n  ],\n  \"out_of_scope\": [\n    \"End-user device refresh or replacement (laptops, desktops, mobile devices) \u2014 addressed under NGIS Phase 4\",\n    \"Application modernization or re-platforming \u2014 no changes to application code, architecture, or hosting platform; lift and shift only\",\n    \"GC-Cloud workload migration to public cloud environments (AWS, Azure, GC-Cloud) \u2014 addressed under GC-Cloud Wave 4\",\n    \"End-user training and change management beyond project communications \u2014 responsibility of client departments\",\n    \"Procurement of new application licenses \u2014 software licensing changes resulting from platform migration\",\n    \"Network monitoring tool upgrades \u2014 NOC monitoring platform upgrades deferred to a separate initiative\"\n  ],\n  \"deliverables\": [\n    \"D-001: Project Management Plan \u2014 Due October 31, 2024\",\n    \"D-002: Technical Design Document (TDD) \u2014 Due December 15, 2024\",\n    \"D-003: Security Assessment and Authorization (SA&A) Package \u2014 Due January 31, 2025\",\n    \"D-004: Migration Runbook (Sites B and C) \u2014 Due February 28, 2025\",\n    \"D-005: User Acceptance Test (UAT) Plan \u2014 Due March 10, 2026\",\n    \"D-006: Site A Consolidation Complete (Go-Live) \u2014 Due April 30, 2026\",\n    \"D-007: Post-Migration Validation Report \u2014 Due May 31, 2026\",\n    \"D-008: Project Closure Report \u2014 Due June 30, 2026\"\n  ],\n  \"constraints\": [\n    \"Total approved budget is $2,400,000 CAD inclusive of all fees, disbursements, and applicable taxes\",\n    \"Expenditures beyond the approved budget require a formal budget amendment approved by the Director General of IT Infrastructure\",\n    \"Budget variances exceeding 15% require submission to Treasury Board\",\n    \"Go-Live (D-006) must be achieved no later than April 30, 2026\",\n    \"Final project closure date is June 30, 2026 (end of fiscal year 2025\u20132026)\",\n    \"Extensions beyond June 30, 2026 require ADM-level approval\",\n    \"All work must comply with ITSG-33: IT Security Risk Management \u2014 A Lifecycle Approach\",\n    \"All work must comply with the Government of Canada Cloud Adoption Strategy\",\n    \"All work must comply with the Treasury Board Policy on Government Security\",\n    \"All work must comply with the Privacy Act (R.S.C., 1985, c. P-21)\",\n    \"All client-facing deliverables must comply with the Official Languages Act\",\n    \"Scope, schedule, or budget changes must follow the SSC Project Change Management Process\",\n    \"Scope changes require written approval from the Project Sponsor and must be assessed for cost and schedule impact before implementation\"\n  ]\n}\n```",
+      "parsed_json": {
+        "in_scope": [
+          "Decommissioning of Sites B and C physical infrastructure",
+          "Migration of all server workloads from Sites B and C to Site A",
+          "Physical server rack consolidation and cable management at Site A",
+          "Environmental systems (HVAC, UPS, fire suppression) optimization at Site A",
+          "Replacement and deployment of Cisco Catalyst 9500 series switches across all three sites",
+          "Network segmentation reconfiguration per updated security zones",
+          "BGP routing table migration and validation",
+          "Network performance baseline testing post-migration",
+          "Migration of all on-premise Active Directory domain controllers to consolidated infrastructure at Site A",
+          "AD schema extension and forest restructuring",
+          "Group Policy Object (GPO) consolidation and testing",
+          "Integration testing with downstream applications dependent on AD",
+          "Weekly status reports to SSC Project Management Office",
+          "Steering committee presentations (monthly)",
+          "Risk register maintenance",
+          "Change management and stakeholder communications"
+        ],
+        "out_of_scope": [
+          "End-user device refresh or replacement (laptops, desktops, mobile devices) \u2014 addressed under NGIS Phase 4",
+          "Application modernization or re-platforming \u2014 no changes to application code, architecture, or hosting platform; lift and shift only",
+          "GC-Cloud workload migration to public cloud environments (AWS, Azure, GC-Cloud) \u2014 addressed under GC-Cloud Wave 4",
+          "End-user training and change management beyond project communications \u2014 responsibility of client departments",
+          "Procurement of new application licenses \u2014 software licensing changes resulting from platform migration",
+          "Network monitoring tool upgrades \u2014 NOC monitoring platform upgrades deferred to a separate initiative"
+        ],
+        "deliverables": [
+          "D-001: Project Management Plan \u2014 Due October 31, 2024",
+          "D-002: Technical Design Document (TDD) \u2014 Due December 15, 2024",
+          "D-003: Security Assessment and Authorization (SA&A) Package \u2014 Due January 31, 2025",
+          "D-004: Migration Runbook (Sites B and C) \u2014 Due February 28, 2025",
+          "D-005: User Acceptance Test (UAT) Plan \u2014 Due March 10, 2026",
+          "D-006: Site A Consolidation Complete (Go-Live) \u2014 Due April 30, 2026",
+          "D-007: Post-Migration Validation Report \u2014 Due May 31, 2026",
+          "D-008: Project Closure Report \u2014 Due June 30, 2026"
+        ],
+        "constraints": [
+          "Total approved budget is $2,400,000 CAD inclusive of all fees, disbursements, and applicable taxes",
+          "Expenditures beyond the approved budget require a formal budget amendment approved by the Director General of IT Infrastructure",
+          "Budget variances exceeding 15% require submission to Treasury Board",
+          "Go-Live (D-006) must be achieved no later than April 30, 2026",
+          "Final project closure date is June 30, 2026 (end of fiscal year 2025\u20132026)",
+          "Extensions beyond June 30, 2026 require ADM-level approval",
+          "All work must comply with ITSG-33: IT Security Risk Management \u2014 A Lifecycle Approach",
+          "All work must comply with the Government of Canada Cloud Adoption Strategy",
+          "All work must comply with the Treasury Board Policy on Government Security",
+          "All work must comply with the Privacy Act (R.S.C., 1985, c. P-21)",
+          "All client-facing deliverables must comply with the Official Languages Act",
+          "Scope, schedule, or budget changes must follow the SSC Project Change Management Process",
+          "Scope changes require written approval from the Project Sponsor and must be assessed for cost and schedule impact before implementation"
+        ]
+      },
+      "error": null
+    }
+  ]
+}

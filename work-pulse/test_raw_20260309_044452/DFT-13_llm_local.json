@@ -1,0 +1,62 @@
+{
+  "test_id": "DFT-13",
+  "test_name": "Processing latency",
+  "method": "llm_local",
+  "passed": true,
+  "score": "5/5",
+  "details": "latency=5947ms",
+  "error": null,
+  "latency_ms": 5946.637399989413,
+  "artifact": {
+    "artifact_id": "art_3cae1c9b5d",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 202,
+    "content_preview": "From: dave.chen@ssc-spc.gc.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: carol.nguyen@ssc-spc.gc.ca\nSubject: Opportunity: Wi-Fi Infrastructure Upgrade During Network Migration\nDate: March 7, 2026\n\nAlice, Carol,\n\nWhile reviewing the network migration plan for Site A, I wanted to flag\nan opportunity that I think we should discuss with the steering committee.\n\nGiven that our contractors will already be on-site and the network\ninfrastructure will be partially disrupted during the Catalyst 9500\nswitch deployme",
+    "extracted_tasks": [],
+    "metadata": {
+      "sender": "dave.chen@ssc-spc.gc.ca",
+      "recipients": "alice.tran@ssc-spc.gc.ca",
+      "subject": "Opportunity: Wi-Fi Infrastructure Upgrade During Network Migration",
+      "date": "March 7, 2026"
+    }
+  },
+  "drift_check": {
+    "drift_type": "ambiguous",
+    "overall_alignment_score": 0.0,
+    "reasoning": null,
+    "alerts": [
+      {
+        "alert_id": "alt_2ee7653a",
+        "project_id": "proj_drift_llm_local",
+        "artifact_id": "art_3cae1c9b5d",
+        "drift_type": "ambiguous",
+        "alignment_score": 0.0,
+        "detected_ask": "",
+        "baseline_reference": "",
+        "suggested_action": "Manual review recommended (LLM unavailable).",
+        "severity": "medium",
+        "status": "open",
+        "created_at": "2026-03-09T04:52:12.129007"
+      }
+    ]
+  },
+  "llm_calls": [
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b-a3b",
+      "latency_ms": 0.0,
+      "content": "",
+      "parsed_json": null,
+      "error": "HTTP 404: {\"error\":{\"message\":\"model 'qwen3.5:35b-a3b' not found\",\"type\":\"api_error\",\"param\":null,\"code\":null}}\n"
+    },
+    {
+      "tier": "local",
+      "model": "qwen3.5:35b-a3b",
+      "latency_ms": 0.0,
+      "content": "",
+      "parsed_json": null,
+      "error": "HTTP 404: {\"error\":{\"message\":\"model 'qwen3.5:35b-a3b' not found\",\"type\":\"api_error\",\"param\":null,\"code\":null}}\n"
+    }
+  ]
+}

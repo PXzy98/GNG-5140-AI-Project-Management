@@ -1,0 +1,101 @@
+{
+  "test_id": "ING-01",
+  "test_name": "Plain text ingestion + storage",
+  "method": "llm_medium_full",
+  "passed": true,
+  "score": "10/10",
+  "details": "id=art_747674cd3e words=246 hash=ac526da6",
+  "error": null,
+  "latency_ms": 3038.6444000032498,
+  "artifact": {
+    "artifact_id": "art_747674cd3e",
+    "artifact_type": "email",
+    "detected_language": "en",
+    "word_count": 246,
+    "content_preview": "From: j.henderson@techsupplier.ca\nTo: alice.tran@ssc-spc.gc.ca\nCc: bob.morrison@ssc-spc.gc.ca; ngis-pm@ssc-spc.gc.ca\nSubject: RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\nDate: Mon, 2 Mar 2026 09:14:32 -0500\n\nAlice,\n\nFollowing our call on Friday, I wanted to confirm in writing the situation\nwith the Cisco Catalyst 9500 switches for the NGIS Phase 3 data centre\nmigration.\n\nUnfortunately, our primary distribution centre experienced a warehouse\nmanagement system failure that has affected ou",
+    "extracted_tasks": [
+      {
+        "task_id": "art_747674cd3e_t001",
+        "text": "confirm the delivery timeline for the Catalyst switches",
+        "owner": "Jason Henderson",
+        "deadline": "2026-03-02",
+        "priority": "high",
+        "status": "not_started",
+        "source_excerpt": "Jason, can you please confirm the delivery timeline for the Catalyst switches?",
+        "confidence": 0.95
+      },
+      {
+        "task_id": "art_747674cd3e_t002",
+        "text": "expedite the shipment",
+        "owner": "Jason Henderson",
+        "deadline": "2026-03-20",
+        "priority": "critical",
+        "status": "not_started",
+        "source_excerpt": "Our team is working around the clock to expedite the shipment.",
+        "confidence": 0.95
+      },
+      {
+        "task_id": "art_747674cd3e_t003",
+        "text": "let me know how we can best support your planning activities during this disruption",
+        "owner": "Alice Tran",
+        "deadline": null,
+        "priority": "medium",
+        "status": "not_started",
+        "source_excerpt": "Please let me know how we can best support your planning activities during this disruption.",
+        "confidence": 0.95
+      }
+    ],
+    "metadata": {
+      "sender": "j.henderson@techsupplier.ca",
+      "recipients": [
+        "alice.tran@ssc-spc.gc.ca"
+      ],
+      "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+      "date": "2026-03-02"
+    }
+  },
+  "llm_calls": [
+    {
+      "tier": "medium",
+      "model": "google/gemini-3-flash-preview",
+      "latency_ms": 3031.5,
+      "content": "{\n  \"artifact_type\": \"email\",\n  \"language\": \"en\",\n  \"metadata\": {\n    \"sender\": \"j.henderson@techsupplier.ca\",\n    \"recipients\": [\n      \"alice.tran@ssc-spc.gc.ca\"\n    ],\n    \"subject\": \"RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update\",\n    \"date\": \"2026-03-02\"\n  },\n  \"action_items\": [\n    {\n      \"text\": \"confirm the delivery timeline for the Catalyst switches\",\n      \"owner\": \"Jason Henderson\",\n      \"deadline\": \"2026-03-02\",\n      \"priority\": \"high\",\n      \"source_excerpt\": \"Jason, can you please confirm the delivery timeline for the Catalyst switches?\"\n    },\n    {\n      \"text\": \"expedite the shipment\",\n      \"owner\": \"Jason Henderson\",\n      \"deadline\": \"2026-03-20\",\n      \"priority\": \"critical\",\n      \"source_excerpt\": \"Our team is working around the clock to expedite the shipment.\"\n    },\n    {\n      \"text\": \"let me know how we can best support your planning activities during this disruption\",\n      \"owner\": \"Alice Tran\",\n      \"deadline\": null,\n      \"priority\": \"medium\",\n      \"source_excerpt\": \"Please let me know how we can best support your planning activities during this disruption.\"\n    }\n  ]\n}",
+      "parsed_json": {
+        "artifact_type": "email",
+        "language": "en",
+        "metadata": {
+          "sender": "j.henderson@techsupplier.ca",
+          "recipients": [
+            "alice.tran@ssc-spc.gc.ca"
+          ],
+          "subject": "RE: NGIS Phase 3 \u2014 Network Equipment Delivery Update",
+          "date": "2026-03-02"
+        },
+        "action_items": [
+          {
+            "text": "confirm the delivery timeline for the Catalyst switches",
+            "owner": "Jason Henderson",
+            "deadline": "2026-03-02",
+            "priority": "high",
+            "source_excerpt": "Jason, can you please confirm the delivery timeline for the Catalyst switches?"
+          },
+          {
+            "text": "expedite the shipment",
+            "owner": "Jason Henderson",
+            "deadline": "2026-03-20",
+            "priority": "critical",
+            "source_excerpt": "Our team is working around the clock to expedite the shipment."
+          },
+          {
+            "text": "let me know how we can best support your planning activities during this disruption",
+            "owner": "Alice Tran",
+            "deadline": null,
+            "priority": "medium",
+            "source_excerpt": "Please let me know how we can best support your planning activities during this disruption."
+          }
+        ]
+      },
+      "error": null
+    }
+  ]
+}

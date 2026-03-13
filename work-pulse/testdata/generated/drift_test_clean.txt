@@ -1,0 +1,37 @@
+From: bob.morrison@ssc-spc.gc.ca
+To: alice.tran@ssc-spc.gc.ca
+Cc: ngis-pm@ssc-spc.gc.ca
+Subject: Site A AD Migration — Progress Update
+Date: March 6, 2026
+
+Alice,
+
+Quick update on the Active Directory migration preparation for Site A:
+
+1. Domain Controller Staging: The two new DC servers at Site A have been
+   racked, powered on, and joined to the test domain. Windows Server
+   patching is complete (all critical patches as of March 1 applied).
+
+2. Schema Extension Testing: The AD schema extension ran successfully
+   in the test environment last night. No errors or attribute conflicts
+   detected. Ready to promote to staging this weekend.
+
+3. GPO Consolidation: I've reviewed the 47 legacy GPOs from Sites B and C.
+   23 are duplicates that can be deleted. 24 unique GPOs will be migrated.
+   The migration script is ready and has been reviewed by Dave Chen for
+   security policy compliance.
+
+4. Backup and Rollback: Full AD backup completed and verified on March 5.
+   Rollback procedure tested successfully in lab — estimated rollback
+   time is 45 minutes from Go-Live.
+
+5. Next Steps: I will begin the production DC staging activities next
+   week, targeting completion by March 14 to give us four days of buffer
+   before the March 18 migration window.
+
+Everything is on track on the AD side. The only dependency is the
+network switch delivery — we need the Catalyst 9500s in place before
+we can do final network connectivity testing for the DCs.
+
+Bob Morrison
+Technical Lead, AD Migration, NGIS Phase 3
